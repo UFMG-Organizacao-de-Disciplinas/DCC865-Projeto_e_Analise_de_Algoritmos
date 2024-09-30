@@ -136,3 +136,35 @@ Existe a chance de que mude de sala. E se avisar, será pelo moodle.
 - Material de Pré-PAA
 - Heap
 - Transformação de logaritmo
+
+## Dúvidas
+
+$O(n!)$ isn't equivalent to $O(n^n)$. It is asymptotically less than $O(n^n)$.
+
+$O(\log(n!))$ is equal to $O(n \log(n))$. Here is one way to prove that:
+
+Note that by using the log rule $\log(mn) = \log(m) + \log(n)$ we can see that:
+
+$\log(n!) = \log(n*(n-1)*...2*1) = \log(n) + \log(n-1) + ... \log(2) + \log(1)$
+
+Proof that $O(\log(n!)) \subseteq O(n \log(n))$:
+
+$\log(n!) = \log(n) + \log(n-1) + ... \log(2) + \log(1)$
+
+Which is less than:
+
+$\log(n) + \log(n) + \log(n) + \log(n) + ... + \log(n) = n*\log(n)$
+
+So $O(\log(n!))$ is a subset of $O(n \log(n))$
+
+Proof that $O(n \log(n)) \subseteq O(\log(n!))$:
+
+$\log(n!) = \log(n) + \log(n-1) + \dots \log(2) + \log(1)$
+
+Which is greater than the left half of that expression with all $(n-x)$ replaced by $n/2$:
+
+$\log(n/2) + \log(n/2) + ... + \log(n/2) = floor(n/2)*\log(floor(n/2)) \in O(n \log(n))$
+
+So $O(n \log(n))$ is a subset of O(\log(n!))$.
+
+Since $O(n \log(n)) \subseteq O(\log(n!)) \subseteq O(n \log(n))$, they are equivalent big-Oh classes.
