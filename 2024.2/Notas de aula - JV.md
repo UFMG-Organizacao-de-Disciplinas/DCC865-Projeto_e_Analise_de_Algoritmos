@@ -131,6 +131,92 @@ Existe a chance de que mude de sala. E se avisar, será pelo moodle.
 - Qual o capítulo da aula de segunda?
   - Se não se engana, os capítulos 2 e 3. E veja também os conteúdos de pré-PAA.
 
+## Aula 2 - 30/09/2024 - [13h08, 14h40]
+
+### Slide: Complexidade de Algoritmos
+
+- Algoritmos no geral serão considerados como funções $f(n)$ que transformam conjunto de entrada em conjunto de saída.
+- Para descrever os algoritmos, serão utilizados pseudocódigos de forma imperativa com estruturas usuais de controle de fluxo.
+- atribuição como setas e iguais como comparação
+- Estruturas de dados simples.
+- Considera-se memória infinita sem se preocupar com a atribuição.
+
+Dúvida 1: Exemplo algoritmo 1: o i=1 seria uma comparação ou atribuição?
+
+- Dúvida 2: Exemplo algoritmo 2: Por que a saída tá como "?"?
+  - Resposta: Para pensarmos sobre o que o algoritmo tá fazendo, sem dar a resposta de cara.
+
+- Todos os algoritmos ignoram completamente quaisquer dos cornercases que poderiam dar errado: overflow, alocação de memória, typechecking, etc.
+- O problema do módulo 1 é analisar quão bons ou ruins são os algoritmos. Suponho eu que seja a notação de Big-O.
+- A complexidade de um algoritmo é uma função que descreve o número de operações elementares que o algoritmo executa em função do tamanho da entrada.
+- "Custos"
+  - Se = Escolha, subconjunto. [Considero que seja algo do tipo um "ou", ou uma multiplicação entre as possibilidades.]
+  - Para e enquanto: Somatório
+  - Atribuição: tempo unitário
+  - Matemática e regras: tempo unitário  (a depender da complexidade das regras)
+  - Estruturas de dados: Tempo de cada operação.
+- O laço tem custo de "2" porque incrementa e compara se chegou na condição.
+- No caso do Algoritmo 1, a Função seria: $F_1(x, n) = 1 + \sum_{i=1}^{n} (2 + 3) = 1 + \sum_{i=1}^{n} (5) = 1 + 5n$.
+- No caso do Algoritmo 2, a Função seria: $F_2(x, n) = 2 + \sum_{i=2}^{n} (1 [checagem do loop] +2 [comparação condicional + indexação] +1 [somatório do iterador]) + \sum_{i=2; se x[i] for par}^{n} (1) [CASOS EM QUE OCORRE A OPERAÇÃO *SE*] = 2 + (n-1)*4 [N-1 porque começou i pelo valor 2] + \sum_{i=2; se x[i] for par}^{n} (1)$.
+  - Poderia também utilizar algo como $\sum_{i=2; se x[i] for par}^{n} (1) = (x[i]\%2)*1$
+- Exemplo Algoritmo 3:
+  - 1: n*m: preencher a matriz Z NxM
+  - 2: comparação e incremento do loop i
+  - 2: comparação e incremento do loop j
+  - 8: 2: indexação $z[i][j]$, 2: indexação $x[i][j]$, 2: indexação $y[i][j]$, 1: soma x e y, 1: atribuição em $z[i][j]$
+  - $F_3(x, y, n, m) = n*m + \sum_{i=1}^{n} (2 + \sum_{j=1}^{m} (2+8)) = n*m + \sum_{i=1}^{n} (2 + 10m) = n*m + 2n + 10nm = 11nm + 2n$
+
+- Instância: conjunto de dados de entrada de um algoritmo: $I$
+- Tamanho de uma instância: tamanho em bits da entrada: $I_n$
+- Complexidade de um algoritmo: é a função que leva o tamanho da instância em...
+
+- Complexidade de pior caso: o maior número de passos para uma instância de tamanho $n$.
+  - $T(n) = \max_{x \in I_n} F(n, x)$
+- Complexidade de melhor caso: o menor número de passos para uma instância de tamanho $n$.
+  - $T(n) = \min_{x \in I_n} F(n, x)$
+
+Dúvida: Existe um cálculo estatístico de quão prováveis de ocorrer são os melhores e maiores casos?
+Resposta: Pelo que eu entendi, até dá, só que é bem difícil calcular
+
+- Complexidade de médio caso: o número esperado de passos para uma instância de tamanho $n$.
+  - $T(n) = \sum_{x \in I_n} P(x)F(n, x)$
+  - $P(x)$ é a probabilidade de ocorrer a instância $x$.
+    - "Mas como calcular a probabilidade de uma instância?" "Não é tão fácil assim"
+- Ele sempre considerará "complexidade" como sendo "complexidade de pior caso".
+
+- Algoritmo 1:
+  - Melhor: [...] 1+5n
+  - Pior:  [...] 1+5n
+  - Médio:  [...] 1+5n
+    - Entendi +- como que o F(x, n) foi pra fora do somatório.
+- Algoritmo 2:
+  - Melhor: todos elementos são ímpares [...] 5n - 4
+  - Pior: todos elementos são pares [...] 7n-6
+  - Médio:  [...] Mó trampo. Favor ignorar 😄👍
+
+- Análise Assintótica
+  - O objetivo é analisar o comportamento de uma função quando $n$ tende ao infinito.
+
+- Dúvida: Por que eu compararia n=infinito do pior com o n=infinito do melhor?
+- Resposta: Porque no caso, o que a gente tá comparando é a melhor e pior distribuição dos valores para uma mesma quantidade de elementos. Então, a gente tá comparando o melhor caso de uma quantidade de elementos com o pior caso de uma quantidade de elementos.
+
+- Simbolos:
+  - $O$
+  - $o$
+  - $\Theta$
+  - $\Omega$
+
+- f = G(g). Essa parte ficou Muito confusa.
+- f = O(g) Existem $n_0$ e $c$ tal que: $f(n) \leq c*g(n)$ para todo $n \geq n_0$
+  - Entende-se o $c$ como sendo uma forma de chutar o valor de $g$ para cima. E o $n_0$ indica o momento em que $f$ começa a ser menor que $g$.
+
+- Geralmente e procura o menor limite superior assintótico, mas usar outros maiores também é válido. (Menos na prova)
+  - $N^k + N^{k-1} \dots + N + 1 = O(N^k)$
+
+Alguns exercícios serão mostrar valores $C$ e $N_o$ que satisfaçam a equação e provem o limite superior.
+
+Geralmente o que ele vai pedir é encontrar o O() de uma função.
+
 ## Estudar
 
 - Material de Pré-PAA
