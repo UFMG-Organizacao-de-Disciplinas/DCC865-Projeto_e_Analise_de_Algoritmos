@@ -217,6 +217,118 @@ Alguns exercícios serão mostrar valores $C$ e $N_o$ que satisfaçam a equaçã
 
 Geralmente o que ele vai pedir é encontrar o O() de uma função.
 
+## Aula 3 - 02/10/2024 - [13h06, 14h40]
+
+- Aulas extras
+  - 13h às 15h
+  - Não tem presença
+  - Não precisa dos conteúdos, mas os conteúdos podem ser úteis.
+  - Irão confirmar quais serão os tópicos de cada aula
+  - Pontuação extra por presença nas aulas. Muito provavelmente 0,5 ponto por aula.
+  - Quase como se fosse aula de pré-PAA
+
+### Aula 3: Slide - Aula 2 - Complexidade e Notação Assintótica
+
+- Limite superior
+  - $f() = O(g())$ pode ser rústicamente definido como $f() \leq g()$
+- Limite superior estrito
+  - $f() = o(g())$ pode ser rústicamente definido como $f() < g()$
+  - $f = o(g)$ Para todo $c > 0$ existe $n_0$ tal que: $f(n) < c*g(n)$ para todo $n > n_0$
+  - É importante analisar matematicamente de que forma que o descubramos quais os possíveis valores de $C$ e seu respectivo $n_0$.
+  - Podemos entender que $n \neq o(n)$ e que $n = O(n)$
+- Limite Inferior
+  - $f() = \Omega(g())$ pode ser rústicamente definido como $f() \geq g()$
+  - Existem $n_0$ e $c$ tal que: $f(n) \geq c*g(n)$ para todo $n \geq n_0$
+- Limite Inferior Estrito
+  - $f() = \omega(g())$ pode ser rústicamente definido como $f() > g()$
+  - Para todo $c > 0$ existe $n_0$ tal que: $f(n) > c*g(n)$ para todo $n > n_0$
+- Equivalência
+  - $f() = \Theta(g())$ pode ser rústicamente definido como $f() = g()$
+  - Existem $n_0$, $c_1$ e $c_2$ tal que: $c_1*g(n) \leq f(n) \leq c_2*g(n)$ para todo $n \geq n_0$
+  - Que equivale a dizer que $f() = \Omega(g())$ e $f() = O(g())$
+  - Exemplos: $2n^2 + n = \Theta(n^2)$
+  - Geralmente busca-se o $\Theta$ de uma função, mas foca-se mais no $O$.
+
+- Propriedades
+  - $k*f(n) = O(f(n))$ para todo $k \in \R$
+  - $f(n) * g(n) = O(f(n) * g(n))$
+  - $O(f(n)) + O(g(n)) = O(f(n) + g(n))$
+  - $O(f(n)) * O(g(n)) = O(f(n) * g(n))$
+  - Extra: $O(n)*n = O(n*n) = O(n^2)$
+
+- Entende-se que $O(f(n)) = [conjunto] {g \in F | g = O(f(n))}$
+  - Sendo $F$ todas as funções possíveis
+
+- É importante considerar que os somatórios entre funções é o somatório normal. E o somatório entre $O()$'s é um tipo de agrupamento entre conjuntos de funções.
+- Na prova sempre considerar que estamos buscando o limite mais estrito possível.
+- Quando não se tem condicional, podemos considerar que o $O()$ é o mesmo que o $\Omega()$, que são iguais ao $\Theta()$.
+
+### Aula 3: Slide - Aula 3 - Algoritmos Recursivos e Relações de Recorrência
+
+[JV: O que é função de recorrência?
+R Copilot: É uma função que é definida em termos de si mesma. Exemplo: $f(n) = f(n-1) + 1$]
+
+- Sempre consideraremos que $F(1)$ e $F(0)$ são constantes e iguais a $O(1)$, sendo $F$ uma função recursiva.
+
+- Algoritmo Recursivo 1
+
+```pseudocode
+Algoritmo 1: REC
+Entrada: inteiro x.
+Saída: ?
+se x <= E REC(x-1) >= 1 então
+  RETORNA REC(x-1) + 1
+RETORNA 1;  
+```
+
+"A parte de encontrar a função de recorrência para o algoritmo é tranquila. O problema é a análise da parte recursiva"
+
+- Resolução de Recorrências
+  - Podemos resolver equações na forma:
+    - 1. $T(n) = aT(n/b) + f(n)$
+      - Num caso de divisão e conquista, a parte da divisão seria o $b$, e a agregação das respostas seria o $a$.
+    - 2. $T(n) = aT(n-b) + f(n)$
+      - Esse geralmente se refere a casos em que vá removendo alguns itens de uma estrutura de dados a cada passo.
+  - Não podemos resolver equações na forma:
+    - 3. $T(n) = T(n-a) + T(n-b)$
+      - [Tipo Fibonacci]
+      - Tendem  a ser ineficientes
+
+$F(n) = F(n-1) + 1$; Condição de parada: $F(1) = 1; F(0) = 1$
+
+$$
+F(n) =\\
+F(n-1) + 1 =\\
+(F(n-2) + 1) + 1 = F(n-2) + 2 =\\
+(F(n-3) + 1) + 1 + 1 = F(n-3) + 3 =\\
+\vdots\\
+F(n) = F(n-k) + k\\
+\text{Para n = k}\\
+F(k) = F(0) + n = O(1) + n = O(n)
+$$
+
+---
+
+$F(n) = F(n-1) + n$
+
+$$
+F(n) = F(n-1) + n =\\
+(F(n-2) + n-1) + n = F(n-2) + 2n - 1 =\\
+(F(n-3) + n-2) + n-1 = F(n-3) + 3n - 2 - 1 =\\
+\vdots
+F(n-k) + kn - \sum_{i=1}^{k} i=\\
+F(0) + n^2 - \sum_{i=1}^{n-1} i \implies \frac{(n-1)*n}{2} \implies O(n^2)
+F(0) + n^2 - O(n^2) = O(n^2)
+$$
+
+"Teorema mestre"
+
+Revisar PA e PG.
+
+---
+
+Dúvida: Quando na soma assintótica há uma subtração, a gente ignora ela? Sim. Considera-se como se fosse soma normal. Mas a mesma ignorância não ocorre na divisão e multiplicação
+
 ## Estudar
 
 - Material de Pré-PAA
