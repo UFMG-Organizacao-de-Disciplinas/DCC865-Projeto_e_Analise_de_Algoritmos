@@ -329,11 +329,101 @@ Revisar PA e PG.
 
 Dúvida: Quando na soma assintótica há uma subtração, a gente ignora ela? Sim. Considera-se como se fosse soma normal. Mas a mesma ignorância não ocorre na divisão e multiplicação
 
+### Aula 4: Slide - Aula 3 - Algoritmos Recursivos e Relações de Recorrência
+
+- $T(n) = T(n - b) + f(n)$
+- $T(n) = a * T(\frac{n}{b}) + f(n)$
+
+- Exemplo:
+  - $T(n) = 2T(n-4)+5$
+    - $T(0) = O(1)$
+    - $T(1) = O(1)$
+    - $T(2) = O(1)$
+    - $T(3) = O(1)$
+  - Ele não precisa especificar, nem pretende, mas a ideia é que todas tenham esses critérios de parada.
+  - Resolvendo pelo método da substituição:
+
+$$
+T(n)   = 2( T(n-4)    ) + 5 \\
+T(n-4) = 2(2T(n-8) + 5) + 5 = 2^2 T(n-8) + 5*2 + 5 \\
+T(n-8) = 2^2 (2T(n-12) + 5) + 5*2 + 4 =  \\
+\vdots \\
+\text{PASSO K:} 2^k T(n- k*4) + \sum_{i=0}^{k - 1} 2^i*5
+$$
+
+- Caso de término: n - k*4 = 0; 4k = n; k = n/4
+- Complexidade: $2^(n/4) * \Theta(1) + 5 * \sum_{i=0}^{n/4 - 1} 2^i = \Theta(2^{n/4}) + 2^{n/4} - 1 = \Theta(2^{n/4})$
+
+Não mexer com constantes em expoentes
+
+- Teorema Mestre
+  - Sejam $a \geq 1$ e $b > 1$ constantes, $f(n)$ uma função, e $T(n) = aT(\frac{n}{b}) + f(n)$, então, para algum $\epsilon > 0$:
+    - Se $f(n) = O(n^{\log_{b}(a) - \epsilon}) \implies T(n) = \Theta(n^{\log_{b}(a)})$ leq
+    - Se $f(n) = \Theta(n^{\log_{b}(a)}) \implies T(n) = \Theta(n^{\log_{b}(a)} * log(n))$ =
+    - Se $f(n) = \Omega(n^{\log_{b}(a) + \epsilon})$ e $a f (\frac{n}{b}) \leq cf(n)$ então $\implies T(n) = \Theta(f(n))$ geq
+
+Esse $\epsilon$ quando usa a propriedade de potência, torna o caso do Big-O numa divisão e o caso do Big-Omega numa multiplicação.
+
+- Revisar propriedade de logaritmo
+
+Ele fez dois exemplos no quado que eu n anotei.
+
+- $T(n) = 2T(\frac{n}{2}) + 1$
+  - $a = 2; b = 2; f(n) = 1$
+  - $\log_{b}(a) = \log_{2}(2) = 1$
+  - $n^{\log_{b}a = n^1 = n}$
+  - $f(n) = O(n^{\log_{b}(a)})$
+  - $1 = O(n^{1-\epsilon}) = \Theta(n)$
+- $T(n) = 4T(\frac{n}{4}) + n + 1$
+  - $a = 4; b = 4; f(n) = n + 1$
+  - $\log_{b}(a) = \log_{4}(4) = 1$
+  - $n^{\log_{b}a} = n^1 = n$
+  - $f(n) = \Theta(n^{\log_{b} a})$
+  - $n+1 = \Theta(n)$
+  - $\Theta (n * log n)$
+
+Exercício: Descobrir pq que $\log_{b}(n) = O(\log_{2}(n))$ para $b > 1$
+
+- $T(n) = 4T (\frac{n}{2}) + n^3 + n - 5$
+  - $a = 4; b = 2; f(n) = n^3 + n - 5$
+  - $\log_{b}(a) = \log_{2}(4) = 2$
+  - $n^3 + n - 5 = \Omega(n^{2+\epsilon})$
+  - $\Theta(f(n)) = \Theta(n^3 + n - 5) = \Theta(n^3)$
+- $T(n) = 4T (\frac{n}{2}) + n^2\log_{{2}}(n)$: Não dá pra usar o teorema mestre nessa função.
+  - Tentando usar o teorema mestre
+  - $a = 4; b = 2; f(n) = n^2\log_{2}(n)$
+  - $\log_{b}(a) = \log_{2}(4) = 2$
+  - $n^{\log_{b}(a)} = n^2$
+  - $n^2$ e $n^2 * log(n)$ são equivalentes?
+  - ... [Tentativa de resolução pelo Teorema Mestre]
+
+Na prova ele espera que se diga "não dá para usar Teorema Mestre". Ele não espere que se resolva a equação. Até pode sair abrindo se preferir.
+
+O problema surge quando comparamos o $f(n)$ com a equação com $a$ e $b$ e que a única diferença seja o log.
+
+"Tem que ser um polinônimo menor ou maior para ter diferença entre elas."
+
+Algumas questões não vão dar pra fazer. Às vezes tem como, mas é meio tortuoso.
+
+- Exemplo: $T(n) = T(\frac{n}{3}) + T(\frac{n}{4}) + 1$
+  - Divide em duas equações falsas do tipo:
+    - $F(n) = F(\frac{n}{3}) + F(\frac{n}{3}) + 1 = 2F(\frac{n}{3}) + 1$
+    - $G(n) = G(\frac{n}{4}) + G(\frac{n}{4}) + 1 = 2G(\frac{n}{4}) + 1$
+
+- Vai ter gabarito das listas?
+  - +-, ele vai tirar dúvidas no final. Teremos monitoria e a monitora deve responder boa parte das respostas da lista.
+
+"Essa é a parte mais fácil da matéria"
+
+"Estude isso *freneticamente*"
+
 ## Estudar
 
 - Material de Pré-PAA
 - Heap
 - Transformação de logaritmo
+- Propriedades de logaritmo
+- Soma de PA e PG
 
 ## Dúvidas
 
