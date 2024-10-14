@@ -570,6 +570,172 @@ Esse último método nem sempre é o mais direto, mas deve-ser ter cuidado na ho
 
 Fim da matéria da P1
 
+## Módulo 2
+
+### Aula 5 - 14/10/2024 - [13h10, 14h40]
+
+#### Slide - Grafos e Representação
+
+- **Grafo**: $G = (V, E)$
+  - $V$: conjunto de vértices
+    - $|V(G)| = n$
+  - $E$: conjunto de arestas
+    - $|E(G)| = m$
+- **Vizinhança**: $N(v) = \{u | (u, v) \in E\}$ [JV: Todos os vértices conectados ao vértice $v$]
+- **Grau**: $d(v) = |N(v)|$ [JV: Quantos vértices estão conectados ao vértice $v$]
+- **Caminho**: conjunto de arestas $(v_1, v_2), \dots, (v_{k-1}, v_k)$ que não passa duas vezes pelo mesmo vértice.
+- **Ciclo**: conjunto de arestas $(v_1, v_2), \dots, (v_{k-1}, v_k)$ que não passa duas vezes pelo mesmo vértice, exceto o primeiro e o último.
+  - Ele considerará como ciclo o conjunto dos vértices, não se importando então com a ordem das arestas.
+
+---
+
+<!-- - Subgrafo: $G' = (V', E')$ tal que $V' \subseteq V$ e $E' \subseteq E$ -->
+
+---
+
+Representação
+
+```mermaid
+graph TD;
+    1---2;
+    1---3;
+    1---4;
+    2---4;
+    3---4;
+    5---4;
+    5---2;
+    4---6;
+```
+
+- $V = \{1, 2, 3, 4, 5, 6\}$
+- $E = \{(1, 2), (1, 3), (1, 4), (2, 4), (3, 4), (5, 4), (5, 2), (4, 6)\}$
+
+---
+
+- **Laço**: quando uma aresta vai de um vértice para ele mesmo.
+- **Grafo simples**: não tem laços nem arestas múltiplas. [JV: ele nem considera que há duas arestas entre dois mesmos vértices. Nesse caso passa a ser um "multigrafo"] [JV: o laço é uma aresta que vai do vértice a ele mesmo]
+  - Nesses casos um vértice não faz parte de sua própria vizinhança.
+
+$$
+\sum_{v \in V(G)} d(v) = 2|E(G)| = 2m = \Theta(m)
+$$
+
+- $\forall v \in V(G): \delta(G) \leq d(v) \leq \Delta(G)$
+  - O maior dos graus do grafo: $\Delta(G) = \max_{v \in V(G)} d(v)$
+  - O menor dos graus do grafo: $\delta(G) = \min_{v \in V(G)} d(v)$
+
+- Grafo Conexo: eu consigo chegar em qualquer lugar, partindo de qualquer lugar.
+  - Dúvida: um grafo de um vértice é conexo.
+- Grafo Desconexo: existem vértices que não conseguem se conectar a outros vértices.
+  - Componentes conexas: subgrafos conexos máximos. [JV: o máximo de vértices que conseguem se conectar entre si]
+  - Um grafo com vértices e sem arestas também seria um grafo desconexo.
+
+- **Subgrafo**: qualquer pedaço de um grafo.
+  - Para $G = (V, E)$ e $H = (V', E')$, $H$ é subgrafo de $G$ se $V' \subseteq V$ e $E' \subseteq E$.
+
+Curiosidade: podemos usar a notação de subconjunto para representar subgrafos. Ex.: $H \subseteq G \equiv \text{H é subgrafo de G}$
+
+- **Subgrafo Induzido**: subgrafo que mantém as arestas entre os vértices do subconjunto. [JV: todas as arestas de um estão no outro, e não existem arestas no induzido que não estejam no original]
+  - [Copilot: $H$ é subgrafo induzido de $G$ se $V' \subseteq V$ e $E' = \{(u, v) \in E | u, v \in V'\}$]
+  - H é subgrafo induzido de G
+    - $V(H) \subseteq V(G)$
+    - $E(H) \subseteq E(G); vu \in E(H) \equiv vu \in E(G)$
+
+Grafo acíclico: não tem ciclos como subgrafo.
+
+Se o grafo for acíclico e conexo, ele é uma árvore.
+
+Se $G = (V, E)$ é uma árvore, $m = \Theta(n) = n - 1$.
+
+**Floreta**: grafo desconexo em que cada componente conexo é uma árvore.
+
+**Complemento**: é o grafo composto pelos vértices que não estão conectados no grafo original, ou seja, "o que está faltando de um grafo para ser completo".
+
+- Complemento de $G = (V, E)$ => $ \overline{G} = (V, \overline{E})$ onde:
+  - $V = V(\overline{G})$
+  - $E(\overline{G}) = \overline{E(G)} - \{uu | u \in E(G)\}$
+
+##### Grafos - Representação
+
+1. ...
+2. ...
+
+##### Representação - Matriz de Adjacência
+
+- Uma matriz onde a primeira linha e a primeira coluna possuem os nomes dos vértices.
+- O valor $a_{ij}$ é 1 se $v_i$ e $v_j$ são adjacentes e 0 caso contrário.
+
+$$
+\begin{bmatrix}
+  X & 1 & 2 & 3 & 4 & 5 & 6\\
+  1 & 0 & 1 & 1 & 1 & 0 & 0\\
+  2 & 1 & 0 & 0 & 1 & 0 & 1\\
+  3 & 1 & 0 & 0 & 1 & 0 & 0\\
+  4 & 1 & 1 & 1 & 0 & 1 & 0\\
+  5 & 0 & 0 & 0 & 1 & 0 & 0\\
+  6 & 0 & 1 & 0 & 0 & 0 & 0\\
+\end{bmatrix}
+$$
+
+Se a diagonal principal é 0, significa que não tem laço.
+Se ele não é direcionado, significa que ele é simétrico, ou seja, sua transposta é identica.
+
+##### Representação - Lista de Adjacência (Lista encadeada)
+
+- adj[1] = [2, 3, 4]
+- adj[2] = [1, 4, 6]
+- adj[3] = [1, 4]
+- adj[4] = [1, 2, 3, 5]
+- adj[5] = [4]
+- adj[6] = [2]
+
+- "E qual é a complexidade para achar se a aresta $(4, 5)$ existe?" $(4, 5) \in G = (V, E)?$
+  - Lista de adjacência: $ O(\Delta(G)) $
+  - Matriz: $ O(1) $
+- "E qual é a complexidade para achar os vizinhos de G?" $N(v) = \{u \in V(G) | uv \in E(G)\}$
+  - Lista de adjacência: $ O(1) $
+  - Matriz: $ O(n) $
+- Grau: $d(v) = | N(v)$
+  - Lista de adjacência: $ O(v)) $
+  - Matriz: $ O(n) $
+- Orrdene $V(g)$ por grau;
+  - $O(n \log n)$
+  - $\sum_{v \in V(G)} O(d(v)) = \Theta(m * n \log n)$
+
+---
+
+#### Respresentação 2
+
+- Grafo direcionado:
+
+```mermaid
+graph TD;
+    1-->2;
+    1-->3;
+    1-->4;
+    2-->4;
+    2-->5;
+    4-->5;
+    3-->4;
+    5-->4;
+    5-->2;
+```
+
+- Vizinhança de Entrada: $N^-(v) = \{u | (u, v) \in E\}$
+- Vizinhança de Saída: $N^+(v) = \{u | (v, u) \in E\}$
+- Grau de Entrada: $d^-(v) = |N^-(v)|$
+- Grau de Saída: $d^+(v) = |N^+(v)|$
+
+- Se de toda aresta der para chegar em qualquer uma outra, diz-se que o grafo é fortemente conexo.
+- Todo vértice é subconexo consigo mesmo.
+- Em grafos orientados, grafo acíclico é quando não tem ciclo orientado. E pode ser chamado de DAG (Directed Acyclic Graph).
+
+Poderia-se guardar apenas as arestas de saída, afinal o de entrada seria praticamente a duplicada de direção oposta do grafo origiinla.
+
+$G = (V, A)$, A = arcos [JV: não entendi qual a diferença das arestas// o Arco é a aresta direcionada]
+
+De que forma colocar o peso das arestas nas representações em matriz e lista sem alterar as complexidades?
+
 ## Estudar
 
 - Material de Pré-PAA
