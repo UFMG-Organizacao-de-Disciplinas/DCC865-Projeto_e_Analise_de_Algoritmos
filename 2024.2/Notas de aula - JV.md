@@ -417,6 +417,159 @@ Algumas questões não vão dar pra fazer. Às vezes tem como, mas é meio tortu
 
 "Estude isso *freneticamente*"
 
+## Aula 4 - 09/10/2024 - [13h08, 14h47]
+
+### Pré-aula 4
+
+- Monitoria possivelmente remota e/ou presencial
+- BeeCrowd para trabalhos
+- Ele adiantará a aula de exercícios e provavelmente serão 3 horas no sábado.
+- Alguns tópicos extras nas aulas de sexta
+
+### Slide: Análise Amortizada
+
+#### Contador Binário
+
+- Assume que temos um vetor de $n$ bits.
+- Este vetor representa um número.
+- Vamos criar uma função para incrementar uma unidade no número representado.
+
+$$
+{1, 3, 4} =
+\begin{bmatrix}
+  5 && 4 && 3 && 2 && 1 && 0\\
+  0 && 1 && 1 && 0 && 1 && 0\\
+\end{bmatrix} =
+26
+$$
+
+$$
+{2} =
+\begin{bmatrix}
+  4 && 3 && 2 && 1 && 0\\
+  1 && 1 && 0 && 1 && 0\\
+\end{bmatrix} =
+4
+$$
+
+---
+
+- 0: 0000
+- 1: 0001
+- 2: 0010
+- 3: 0011
+- 4: 0100
+- 5: 0101
+- 6: 0110
+- 7: 0111
+- 8: 1000
+
+O que o algoritmo faz?
+
+- Enquanto tem um, troca pra zero, quando achar o primeiro zero troca pra um, o resto não faz nada.
+
+#### Algoritmo
+
+...
+
+#### Contador Binário - Complexidade
+
+- Complexidade de Pior caso: O(n).
+- Mas esse pior caso acontece muito raramente...
+- As operações têm uma relação clara entre elas.
+- Seria interessante ter uma ligação entre a complexidade e as operações
+
+#### Contador Binário - Análise Amortizada
+
+- Considere o número de operações para se realizar uma sequência de n operações: $T(n)$.
+- Desejamos calcular
+  - $\frac{T(n)}{n}$
+- Complexidade Amortizada.
+
+Dúvida: quão distante a complexidade amortizada está do caso médio?
+Resposta: Razoavelmente distante. Porque nesse caso o output de um é o input do outro. Já no caso médio, sorteia-se números aleatórios como input.
+
+- Três métodos:
+  - (esqueci)
+  - Método dos potenciais
+  - Análise Financeira/Método contável
+
+---
+
+- Vamos realziar $n$ operações de incremento.
+- Calcular o número de cada chamada é complicado.
+- Vamos pensar em quantas vezes cada bit é trocado de 0 para 1 ou vice versa.
+- Seja $F(i)$ o número de vezes que o bit na posição $i$ é flipado.
+
+#### Contador Binário - $F(0)$
+
+- $F(0) = n$
+- ...
+
+#### Contador Binário - $F(1)$
+
+- $F(1) = \frac{n}{2}$
+- ...
+
+- $F(2) = \frac{n}{4}$
+- $F(3) = \frac{n}{8}$
+- ...
+- $F(k) = \frac{n}{2^k}$
+- ...
+- $F(n - 1) = 2$ "Ele volta pra zero" [JV: Não entendi muito bem] "Esse $n$ é relacionado ao tamanho do vetor", aqueles $n$'s acima são da quantidade de operações.
+
+$T(n) = \sum_{i=0}^{n-1} F(i) = \sum_{i=0}^{n-1} \frac{n}{2^i} = n \sum_{i=0}^{n-1} \frac{1}{2^i} \leq 3n$ "Não precisa responder isso exatamente"
+
+$\frac{T(n)}{n} \leq \frac{3n}{n} \leq 3 = \Theta(1)$
+
+[JV: Ele se embolou um pouco na notação dos índices e quantidades de operações]
+
+Na teoria, deveria ser $\lim_{n \cond \inf} \frac{T(n)}{n}$, mas ele vai ignorar o limite.
+
+#### Método do Potencial
+
+- VAmos atribuir uma energia potencial para a estrutura de dados.
+- Temos uma função que calcula esse potencial $\phi()$.
+- Seja $D_0$ uma estrutura de dados, temos $\phi(D_0)$.
+- Vamos realizar $n$ operações com essa estrutura.
+- Seja $D_i$ é a estrutura após a i-ésima operação.
+
+---
+
+... [Não anotei]
+
+---
+
+... [Não anotei]
+
+Consideramos que a energia potencial é a quantidade de bits que estão em 1.
+
+---
+
+- $b_0 = 0$ e $b_n = k$
+- $b_i = b_{i-1} - t_i + 1$ isso significa que $b_i - b_{i-1} = -t_i + 1$
+- $c^{\^}_i = c_i + \Phi(D_i) - \Phi(D_{i-1}) = t_i + 1 + (-t_i + 1) = 2$
+
+Dúvida Manu: de que forma é definido o que é uma operação?
+
+#### Método Contável
+
+- Vamos analisar o nosso contador Binário.
+- Vamos modificar os custos do nosso programa.
+- Vamos assumir que flipar um bit para 1 custa 2.
+- Por que?
+- Porque vamos mudar umbit para 0 de graça!
+
+A lógica disso é que em cada execução da função, apenas há uma mudança de 0 para 1, então, cada uma das operações custa exatamente 2.
+
+Esse último método nem sempre é o mais direto, mas deve-ser ter cuidado na hora de se equilibrar as operações.
+
+"Pode sempre ter lucro, o problema é ficar no vermelho"
+
+---
+
+Fim da matéria da P1
+
 ## Estudar
 
 - Material de Pré-PAA
