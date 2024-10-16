@@ -736,6 +736,190 @@ $G = (V, A)$, A = arcos [JV: não entendi qual a diferença das arestas// o Arco
 
 De que forma colocar o peso das arestas nas representações em matriz e lista sem alterar as complexidades?
 
+### Aula 6 - 16/10/2024 - [13h11, 14h40]
+
+- A aula de exercícios sobre as duas primeiras listas será no sábado 2015 ICEx de 9h às 12h.
+- Ele vai passar um código no Moodle para entrar na disciplina do BeeCrowd para poder fazer os trabalhos.
+- "Juizes online" (?)
+- Trabalho prático limitado a C, C++, Python e Java.
+- Eles vão penalizar por uso do GPT e por plágio do colega.
+- Se atentar à formatação esperada pelo sistema.
+- Até o final do dia da segunda prova a gente já tem que ter terminado todos os exercícios.
+- Cada exercício vai valer 0,5
+- Muitas vezes as questões precisariam de alguma coisa muito específica para serem resolvidas, e por isso serão ignoradas.
+- Cuidado com dicionários em Python.
+- Pode usar biblioteca? No geral a gente não vai precisar usar.
+- "O objetivo é ordenar um vetor, você vai lá e usar o sort do Python. Não é o objetivo."
+- Se a função auxiliar não for o principal do algoritmo, não tem problema usar.
+- De modo geral, é esperado que o código tenha mais do que duas linhas.
+
+#### Slide - Corretude de Algoritmos
+
+##### Corretude de Algoritmos
+
+- É necessário mostrar que nossos algoritmos são corretos.
+
+##### Soma de elementos num vetor
+
+- "Deveria a rigor mostrar matematicamente que esse algoritmo faz o que diz"
+
+Um dos métodos se chama "invariante de laço" para algoritmos que não são recursivos.
+
+- **Invariante de Laço**: é uma propriedade que é verdadeira antes e depois de cada iteração do laço.
+
+No caso desse algoritmo, a invariante é que a soma de todos os elementos do vetor, até aquela iteração: $Soma = \sum_{i=1}^{n} x[i]$
+
+Geralmente esse tipo de ideia tá acompanhada de uma prova por indução. E isso é bem mais comum em algoritmos recursivos.
+
+##### Fatorial
+
+- **Base:** $k = 1$
+  - fat(1) = 1 = 1! OK
+- **Hipótese:** $fat(k) = k!$
+- **Passo:** $fat(k+1) = (k+1)!$
+  - $fat(k+1) = (k+1) * fat(k) = (k+1) * k! = (k+1)!$
+
+A rigor ele deveria mostrar que o algoritmo faz o que diz. Ele vai fazer isso? Não.
+
+"Tá bem na cara que o fatorial é um algoritmo recursivo que faz o que faz"
+
+Quando o algoritmo for absurdamente difícil, ele não vai provar que ele tá correto justamente por precisar de muitos passos pra mostrar isso.
+
+"Se for muito difícil vou simplesmente pedir para que tenham fé."
+
+#### Slide - DFS e Aplicações
+
+Busca em profundidade
+
+##### Busca em Grafos
+
+- Visitar os vértices do grafo em ordem.
+- Necessidade em muitos algoritmos.
+- Principal operação de uma estrutura de dados.
+- Propriedades distintas.
+- Aplicável a grafos e dígrafos. [JV: dígrafos são grafos direcionados]
+
+A ideia é ir o mais distante possível e visitar primeiro os filhos e por último os pais.
+
+##### Busca em Profundidade
+
+- Vamos visitar os vértices filhos de um nó antes dele.
+- Vamos manter algumas variáveis:
+  - $\pi$: pai de cada vértice $v$.
+    - Como cada um só tem um pai, os grafos não serão cíclicos.
+  - $i[v]$: tempo que encontramos o vértice $v$. [Quando eu chego]
+  - $f[v]$: tempo que visitamos o vértice $v$. [Quando eu saio]
+- Vértices brancos, cinzas e pretos.
+  - Brancos: não encontrados.
+  - Cinzas: encontrados, mas ainda há algo faltante.
+  - Pretos: já terminou de caminhar com a busca.
+
+##### Busca em Profundidade - Algoritmo
+
+Correções:
+
+- $\pi[u] = \lambda$ -> $\pi[v] = v$
+- Um def de alguma coisa u, deveria ser V
+
+---
+
+Se for um grafo direcionado, precisa indicar que vai percorrer pela vizinhança de saída.
+
+##### Busca em Profundidade - Exemplo
+
+[JV: os labels de cada vértice indicam o tempo de entrada e saída, ou seja: $i[v]$ e $f[v]$]
+
+```mermaid
+graph TD
+    1-->2
+    1-->3
+    1-->4
+    2-->1
+    2-->4
+    3-->1
+    3-->4
+    3-->6
+    4-->5
+    4-->6
+    5-->4
+```
+
+Matriz de adjacência:
+
+$$
+\begin{bmatrix}
+  X & 1 & 2 & 3 & 4 & 5 & 6\\
+  1 & 0 & 1 & 1 & 1 & 0 & 0\\
+  2 & 1 & 0 & 0 & 1 & 0 & 0\\
+  3 & 1 & 0 & 0 & 1 & 0 & 1\\
+  4 & 1 & 1 & 1 & 0 & 1 & 1\\
+  5 & 0 & 0 & 0 & 1 & 0 & 0\\
+  6 & 0 & 0 & 1 & 1 & 0 & 0\\
+\end{bmatrix}
+$$
+
+Outra ordenação da Matriz de Adjacência:
+
+$$
+\begin{bmatrix}
+  X & 6 & 5 & 4 & 3 & 2 & 1\\
+  1 & 0 & 0 & 1 & 1 & 1 & 0\\
+  2 & 0 & 0 & 1 & 0 & 1 & 1\\
+  3 & 1 & 0 & 1 & 0 & 1 & 1\\
+  4 & 1 & 1 & 0 & 1 & 1 & 1\\
+  5 & 0 & 0 & 1 & 0 & 0 & 0\\
+  6 & 0 & 0 & 1 & 1 & 0 & 0\\
+\end{bmatrix}
+$$
+
+- Intervalos:
+  - 1: $[1, 12]$
+  - 2: $[2, 9]$
+  - 3: $[10, 11]$
+  - 4: $[3, 8]$
+  - 5: $[4, 5]$
+  - 6: $[6, 7]$
+- Outra representação:
+  - (1(2(4(5)(6))(3))
+
+- Curiosidades:
+  - Os intervalos dos filhos estão dentro dos intervalos dos pais.
+  - Os que não têm intervalos sobrepostos, são irmãos (?) [JV: é mais ou menos isso]
+  - Isso é o teorema dos parênteses. "Criando parentesco entre os vértices"
+
+Não faz sentido haver intervalos tipo: [1, 3] e [2, 4] porque isso significaria que o filho terminou de ser processado depois do pai.
+
+---
+
+Começando por vértices diferentes, geram-se diferentes árvores.
+
+[JV: árvore de predecessores] O que é? Copilot: é uma árvore que indica quem é o pai de cada vértice.
+
+---
+
+Qual seria a complexidade?
+
+Se for matriz: $|V| + |V| * O (|V|) = |V| + O(|V|^2) = O(|V|^2)$; Considerando que $|V| = n: O(n^2)$
+
+Se for lista: $|V| + \sum_{v \in V} O(d(v))$; $|E| = m$; $O(n) + \Theta(m) = O(n + m)$
+Se o grafo for uma árvore: $O(n + n) = O(n)$
+
+Matematicamente seria:
+
+- Lista: $F(|V|) = F(|V| - 1) + 1 + \Theta(d(v))$
+- Matriz: $F(|V|) = F(|V| - 1) + 1 + \Theta(n)$
+
+- Lista: $O(n) + O(m)$
+- Matriz: $O(n) + O(n^2)$
+
+---
+
+$m \leq n^2$
+
+Relembrando: $m = |E|$; $n = |V|$
+
+Geralmente ele vai querer as fórmulas tanto da lista quanto da matriz.
+
 ## Estudar
 
 - Material de Pré-PAA
