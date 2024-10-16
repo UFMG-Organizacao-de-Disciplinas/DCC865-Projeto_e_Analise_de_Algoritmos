@@ -752,6 +752,7 @@ De que forma colocar o peso das arestas nas representações em matriz e lista s
 - "O objetivo é ordenar um vetor, você vai lá e usar o sort do Python. Não é o objetivo."
 - Se a função auxiliar não for o principal do algoritmo, não tem problema usar.
 - De modo geral, é esperado que o código tenha mais do que duas linhas.
+- Aula monitora: quinta feira de 18h30 às 20h30.
 
 #### Slide - Corretude de Algoritmos
 
