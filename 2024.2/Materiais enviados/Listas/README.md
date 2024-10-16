@@ -45,7 +45,7 @@ c. Pior caso
 - **retorna** $C$;
 
 ---
-
+  
 ### **Exercício 3.** Considere o seguinte algoritmo
 
 a. Simule a execução do algoritmo para o vetor [3, 5, 2, 8, 9]
