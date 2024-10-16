@@ -4,7 +4,7 @@
 
 Universidade Federal de Minas Gerais
 Departamento de Computação
-Projeto e Análise de Algoritmos – 2024.2
+Projeto e Análise de Algoritmos - 2024.2
 Professor: Marcio Costa Santos
 Lista 1
 
@@ -16,14 +16,14 @@ a. Melhor caso
 b. Caso médio
 c. Pior caso
 
-```pseudocodigo
-Entrada: Vetor de n inteiros a
-cnt ← 0;
-para todo i ← 0 até n − 1 faça
-se a[i]%2 = 0 então
-cnt ← cnt + 1;
-retorna cnt;
-```
+### Pseudocódigo Q1
+
+- **Entrada**: Vetor de $n$ inteiros $a$
+- $cnt \leftarrow 0$;
+- **para todo** $i \leftarrow 0$ até $n − 1$ **faça**
+  - **se** $a[i]\%2 = 0$ **então**
+    - $cnt \leftarrow cnt + 1$;
+- **retorna** cnt;
 
 ---
 
@@ -33,55 +33,55 @@ a. Melhor caso
 b. Caso médio
 c. Pior caso
 
-```pseudocodigo
-Entrada: Matrizes n × n A e B
-C ← matriz vazia;
-para todo i ← 0 até n − 1 faça
-para todo j ← 0 até n − 1 faça
-C[i, j] ← 0;
-para todo k ← 0 até n − 1 faça
-C[i, j] ← C[i, j] + A[i, k] ∗ B[k, j];
-retorna C;
-```
+### Pseudocódigo Q2
+
+- **Entrada:** Matrizes $n \times n$ $A$ e $B$
+- C $\leftarrow$ matriz vazia;
+- **para todo** $i \leftarrow 0$ até $n − 1$ **faça**
+  - **para todo** $j $\leftarrow$ 0$ até $n − 1$ **faça**
+    - $C[i, j] \leftarrow 0$;
+    - **para todo** $k \leftarrow 0$ até $n − 1$ **faça**
+      - $C[i, j] \leftarrow C[i, j] + A[i, k] ∗ B[k, j]$;
+- **retorna** $C$;
 
 ---
 
 ### **Exercício 3.** Considere o seguinte algoritmo
 
-```pseudocodigo
-Entrada: vetor de inteiros A, tamanho n de A
-para todo j ← 2 até n faça
-chave ← A[j];
-i ← j − 1;
-enquanto i > 0 e A[i] ≥ chave faça
-A[i + 1] ← A[i];
-i ← i − 1;
-A[i + 1] ← chave;
-retorna A;
-```
-
 a. Simule a execução do algoritmo para o vetor [3, 5, 2, 8, 9]
 b. O que esse algoritmo faz?
 c. Qual sua complexidade de pior caso?
 d. Qual sua complexidade de melhor caso?
+
+### Pseudocódigo Q3
+
+- **Entrada:** vetor de inteiros A, tamanho n de A
+- **para todo** j $\leftarrow$ $2$ até $n$ **faça**
+  - $chave \leftarrow A[j]$;
+  - $i \leftarrow j − 1$;
+  - enquanto $i > 0$ e $A[i] \geq chave$ **faça**
+    - $A[i + 1] \leftarrow A[i]$;
+    - $i \leftarrow i − 1$;
+  - $A[i + 1] \leftarrow chave$;
+- **retorna** A;
 
 ---
 
 ### **Exercício 4.** Considere o seguinte algoritmo
 
-```pseudocodigo
-Entrada: vetor de inteiros A, tamanho n de A
-para todo i ← 1 até n − 1 faça
-para todo j ← n até i + 1 faça
-se A[j] < A[j − 1] então
-troque A[j] com A[j − 1];
-retorna A;
-```
-
 a. Simule a execução do algoritmo para o vetor [3, 5, 2, 8, 9]
 b. O que esse algoritmo faz?
 c. Qual sua complexidade de pior caso?
 d. Qual sua complexidade de melhor caso?
+
+### Pseudocódigo Q4
+
+- **Entrada:** vetor de inteiros $A$, tamanho $n$ de $A$
+- **para todo** $i \leftarrow 1$ até $n − 1$ **faça**
+  - **para todo** $j \leftarrow n$ até $i + 1$ **faça**
+    - **se** $A[j] < A[j − 1]$ **então**
+      - troque $A[j]$ com $A[j − 1]$;
+- **retorna** A;
 
 ---
 
@@ -176,7 +176,7 @@ d. Qual sua complexidade de melhor caso?
 
 Universidade Federal de Minas Gerais
 Departamento de Computação
-Projeto e Análise de Algoritmos – 2024.2
+Projeto e Análise de Algoritmos - 2024.2
 Professor: Marcio Costa Santos
 Lista 2
 
