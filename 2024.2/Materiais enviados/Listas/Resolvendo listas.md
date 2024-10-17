@@ -325,11 +325,11 @@ $$
 
 ### **Exercício 2.** Determine e prove uma equivalência assintótica para todas as recorrências abaixo. **Não use o teorema mestre**
 
-1. $T (n) = 2T ( \frac{n}{2} ) + 1$
-2. $T (n) = 4T ( \frac{n}{2} ) + \log n$
-3. $T (n) = 7T ( \frac{n}{3} ) + n$
+#### 1. $T (n) = 2T ( \frac{n}{2} ) + 1$
 
----
+#### 2. $T (n) = 4T ( \frac{n}{2} ) + \log n$
+
+#### 3. $T (n) = 7T ( \frac{n}{3} ) + n$
 
 ### **Exercício 3.** Usando o teorema mestre determine uma equivalência assintótica para
 
