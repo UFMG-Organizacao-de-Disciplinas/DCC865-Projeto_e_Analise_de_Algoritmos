@@ -188,6 +188,27 @@ Considere que todas as recorrência descritas possuem caso base (ou casos bases)
 
 #### 1. $T (n) = T (n − 3) + 1$
 
+0. $T (n  ) = T (n − 3) + 1         \Leftrightarrow T(n - 0*3) = T (n - (0+1)*3) + (0+1)$
+1. $T (n-3) = T (n − 6) + 1 + 1     \Leftrightarrow T(n - 1*3) = T (n - (1+1)*3) + (1+1)$
+2. $T (n-6) = T (n − 9) + 1 + 1 + 1 \Leftrightarrow T(n - 2*3) = T (n - (2+1)*3) + (2+1)$
+3. $\vdots$
+4. $T(n - k*3) = T (n - (k+1)*3) + (k+1)$
+5. $\vdots$
+6. $T(n - (\frac{n-3}{3})*3) = T (0) + (\frac{n-3}{3}+1) \Leftrightarrow T(3) = 1 + (\frac{n-3}{3}+1)$
+
+$$
+Eq1:\\
+n - (k+1)*3 = 0\\
+n = (k+1)*3\\
+n = 3k + 3\\
+k = \frac{n-3}{3}
+$$
+
+[JV: Tá concluída?]
+[JV: Aparentemente para concluir eu preciso dizer que...]
+
+---
+
 #### 2. $T (n) = 2T (n − 2) + \log n$
 
 #### 3. $T (n) = T (n − 1) + n$
