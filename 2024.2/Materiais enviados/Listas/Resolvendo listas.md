@@ -193,16 +193,20 @@ Considere que todas as recorrência descritas possuem caso base (ou casos bases)
 2. $T (n-6) = T (n − 9) + 1 + 1 + 1 \Leftrightarrow T(n - 2*3) = T (n - (2+1)*3) + (2+1)$
 3. $\vdots$
 4. $T(n - k*3) = T (n - (k+1)*3) + (k+1)$
-5. $\vdots$
+5. $\vdots$ EQ 1.1
 6. $T(n - (\frac{n-3}{3})*3) = T (0) + (\frac{n-3}{3}+1) \Leftrightarrow T(3) = 1 + (\frac{n-3}{3}+1)$
 
+---
+
 $$
-Eq1:\\
+Eq 1.1:\\
 n - (k+1)*3 = 0\\
 n = (k+1)*3\\
 n = 3k + 3\\
 k = \frac{n-3}{3}
 $$
+
+---
 
 [JV: Tá concluída?]
 [JV: Aparentemente para concluir eu preciso dizer que...]
@@ -215,6 +219,7 @@ $$
 1. $T (n-2) = 2T (n − 4) + \log (n-2) + \log n$
 2. $T (n-4) = 2T (n − 6) + \log (n-4) + \log (n-2) + \log n$
 3. $T (n-6) = 2T (n − 8) + \log (n-6) + \log (n-4) + \log (n-2) + \log n$
+4. $\vdots$
 
 ---
 
@@ -223,20 +228,22 @@ $$
 3. $T (n-2*3) = 2T (n − 2*(3+1)) + \log (n-2*(3)) + \log (n - 2*(3-1)) + \log (n - 2*(3-2)) + \log (n - 2*(3-3))$
 4. $\vdots$
 5. $T (n-2*k) = 2T (n-2*(k+1)) + \sum_{i=0}^{k} \log(n - 2*i)$
-6. $\vdots$ *EQ 2*
+6. $\vdots$ *EQ 1.2*
 7. $T(n-2*(\frac{n-2}{2})) = T(0) + \sum_{i=0}^{\frac{n-2}{2}} \log(n - 2*i)$
 8. $T(2) = 1 + \sum_{i=0}^{\frac{n-2}{2}} \log(n - 2*i)$
 
 ---
 
 $$
-EQ 2:\\
+Eq 1.2:\\
 T(n-2*(k+1)) = T(0)\\
 n-2*(k+1) = 0\\
 n = 2*(k+1)\\
 n = 2k + 2\\
 k = \frac{n-2}{2}
 $$
+
+---
 
 - $\sum_{i=0}^{\frac{n-2}{2}} \log(n - 2*i) =\\$
 - $\log(n-2*0) + \log(n-2*1) + \log(n-2*2) + \dots + \log(n-2*\frac{n-2}{2}) + \log(n-2*\frac{n-2}{2}) =\\$
@@ -263,15 +270,15 @@ $$
 2. $T(n-2) = T(n - (2 + 1)) + (n - (2 - 0)) + (n - (2 - 1)) + (n - (2 - 2))$
 3. $\vdots$
 4. $T(n-k) = T(n - (k + 1)) + \sum_{i=0}^{k} (n - (k - i))$
-5. $\vdots$ *EQ 3*
+5. $\vdots$ *Eq 1.3*
 6. $T(n-(n-1)) = T(0) + \sum_{i=0}^{n-1} (n - (n-1 - i))$
-7. $\vdots$ *EQ 3.1*
+7. $\vdots$ *Eq 1.3.1*
 8. $T(1) = 1 + \frac{n*(n+1)}{2}$
 
 ---
 
 $$
-EQ 3:\\
+Eq 1.3:\\
 T(n-(k+1)) = T(0)\\
 n-(k+1) = 0\\
 n = k+1\\
@@ -281,7 +288,7 @@ $$
 ---
 
 $$
-EQ 3.1:\\
+Eq 1.3.1:\\
 \sum_{i=0}^{n-1} (n - (n-1 - i)) =\\
 \sum_{i=0}^{n-1} (n - n + 1 + i) =\\
 \sum_{i=0}^{n-1} (1 + i) =\\
@@ -306,15 +313,15 @@ $$
 2. $T(n-2) = 2T(n - (2 + 1)) + (2 + 1) + (n-(2-0))^2 + (n-(2-1))^2 + (n-(2-2))^2$
 3. $\vdots$
 4. $T(n-k) = 2T(n - (k + 1)) + (k + 1) + \sum_{i=0}^{k} (n-(k-i))^2$
-5. $\vdots$ *EQ 4*
+5. $\vdots$ *EQ 1.4*
 6. $T(n-(n-1)) = T(0) + (n-1) + \sum_{i=0}^{n-1} (n-(n-1-i))^2 \Leftrightarrow T(1) = 1 + n - 1 + \sum_{i=0}^{n-1} (i+1)^2$
-7. $\vdots$ *EQ 3.1*
+7. $\vdots$ *EQ 1.3.1*
 8. $T(1) = 1 + n - 1 + \frac{n*(n+1)}{2}$$
 
 ---
 
 $$
-EQ 4:\\
+Eq 1.4:\\
 T(n-(k+1)) = T(0)\\
 n-(k+1) = 0\\
 n = k+1\\
