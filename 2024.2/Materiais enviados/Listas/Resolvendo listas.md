@@ -211,6 +211,43 @@ $$
 
 #### 2. $T (n) = 2T (n − 2) + \log n$
 
+0. $T (n  ) = 2T (n − 2) + \log n$
+1. $T (n-2) = 2T (n − 4) + \log (n-2) + \log n$
+2. $T (n-4) = 2T (n − 6) + \log (n-4) + \log (n-2) + \log n$
+3. $T (n-6) = 2T (n − 8) + \log (n-6) + \log (n-4) + \log (n-2) + \log n$
+
+---
+
+1. $T (n-2*1) = 2T (n − 2*(1+1)) + \log (n-2*(1)) + \log (n - 2*(1-1))$
+2. $T (n-2*2) = 2T (n − 2*(2+1)) + \log (n-2*(2)) + \log (n - 2*(2-1)) + \log (n - 2*(2-2))$
+3. $T (n-2*3) = 2T (n − 2*(3+1)) + \log (n-2*(3)) + \log (n - 2*(3-1)) + \log (n - 2*(3-2)) + \log (n - 2*(3-3))$
+4. $\vdots$
+5. $T (n-2*k) = 2T (n-2*(k+1)) + \sum_{i=0}^{k} \log(n - 2*i)$
+6. $\vdots$ *EQ 2*
+7. $T(n-2*(\frac{n-2}{2})) = T(0) + \sum_{i=0}^{\frac{n-2}{2}} \log(n - 2*i)$
+8. $T(2) = 1 + \sum_{i=0}^{\frac{n-2}{2}} \log(n - 2*i)$
+
+---
+
+$$
+EQ 2:\\
+T(n-2*(k+1)) = T(0)\\
+n-2*(k+1) = 0\\
+n = 2*(k+1)\\
+n = 2k + 2\\
+k = \frac{n-2}{2}
+$$
+
+- $\sum_{i=0}^{\frac{n-2}{2}} \log(n - 2*i) =\\$
+- $\log(n-2*0) + \log(n-2*1) + \log(n-2*2) + \dots + \log(n-2*\frac{n-2}{2}) + \log(n-2*\frac{n-2}{2}) =\\$
+- $\log(n-2*0) + \log(n-2*1) + \log(n-2*2) + \dots + \log(n-2*?) + \log(2) =\\$
+- $\log(n-0) + \log(n-2) + \log(n-4) + \dots + \log(2) =\\$
+- $\log((n-0)*(n-2)*(n-4)*\dots*2) =\\$
+
+---
+
+[JV: aqui já não sei o que fazer, vou chutar que eu meto um O() daquilo ali... Mas eu precisaria converter esse somatório.]
+
 #### 3. $T (n) = T (n − 1) + n$
 
 #### 4. $T (n) = 2T (n − 1) + n^2 + 1$
