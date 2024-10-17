@@ -186,10 +186,14 @@ Considere que todas as recorrência descritas possuem caso base (ou casos bases)
 
 ### **Exercício 1.** Determine e prove uma equivalência assintótica para todas as recorrências abaixo
 
-1. $T (n) = T (n − 3) + 1$
-2. $T (n) = 2T (n − 2) + \log n$
-3. $T (n) = T (n − 1) + n$
-4. $T (n) = 2T (n − 1) + n^2 + 1$
+#### 1. $T (n) = T (n − 3) + 1$
+
+#### 2. $T (n) = 2T (n − 2) + \log n$
+
+#### 3. $T (n) = T (n − 1) + n$
+
+#### 4. $T (n) = 2T (n − 1) + n^2 + 1$
+
 
 ---
 
