@@ -1,4 +1,4 @@
-# Listas
+# Resolvendo as listas do módulo 1
 
 ## Lista 1
 
@@ -184,7 +184,7 @@ Lista 2
 
 Considere que todas as recorrência descritas possuem caso base (ou casos bases) iguais a 1.
 
-### **Exercício 1.** Determine e prova uma equivalência assintótica para todas as recorrências abaixo
+### **Exercício 1.** Determine e prove uma equivalência assintótica para todas as recorrências abaixo
 
 1. $T (n) = T (n − 3) + 1$
 2. $T (n) = 2T (n − 2) + \log n$
