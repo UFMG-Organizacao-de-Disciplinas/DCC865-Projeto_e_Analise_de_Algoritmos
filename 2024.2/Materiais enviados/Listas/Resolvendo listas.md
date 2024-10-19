@@ -20,7 +20,7 @@ c. Pior caso
 
 - **Entrada**: Vetor de $n$ inteiros $a$
 - $cnt \leftarrow 0$;
-- **para todo** $i \leftarrow 0$ até $n − 1$ **faça**
+- **para todo** $i \leftarrow 0$ até $n - 1$ **faça**
   - **se** $a[i]\%2 = 0$ **então**
     - $cnt \leftarrow cnt + 1$;
 - **retorna** cnt;
@@ -37,10 +37,10 @@ c. Pior caso
 
 - **Entrada:** Matrizes $n \times n$ $A$ e $B$
 - C $\leftarrow$ matriz vazia;
-- **para todo** $i \leftarrow 0$ até $n − 1$ **faça**
-  - **para todo** $j $\leftarrow$ 0$ até $n − 1$ **faça**
+- **para todo** $i \leftarrow 0$ até $n - 1$ **faça**
+  - **para todo** $j $\leftarrow$ 0$ até $n - 1$ **faça**
     - $C[i, j] \leftarrow 0$;
-    - **para todo** $k \leftarrow 0$ até $n − 1$ **faça**
+    - **para todo** $k \leftarrow 0$ até $n - 1$ **faça**
       - $C[i, j] \leftarrow C[i, j] + A[i, k] ∗ B[k, j]$;
 - **retorna** $C$;
 
@@ -58,10 +58,10 @@ d. Qual sua complexidade de melhor caso?
 - **Entrada:** vetor de inteiros A, tamanho n de A
 - **para todo** j $\leftarrow$ $2$ até $n$ **faça**
   - $chave \leftarrow A[j]$;
-  - $i \leftarrow j − 1$;
+  - $i \leftarrow j - 1$;
   - enquanto $i > 0$ e $A[i] \geq chave$ **faça**
     - $A[i + 1] \leftarrow A[i]$;
-    - $i \leftarrow i − 1$;
+    - $i \leftarrow i - 1$;
   - $A[i + 1] \leftarrow chave$;
 - **retorna** A;
 
@@ -77,10 +77,10 @@ d. Qual sua complexidade de melhor caso?
 ### Pseudocódigo Q4
 
 - **Entrada:** vetor de inteiros $A$, tamanho $n$ de $A$
-- **para todo** $i \leftarrow 1$ até $n − 1$ **faça**
+- **para todo** $i \leftarrow 1$ até $n - 1$ **faça**
   - **para todo** $j \leftarrow n$ até $i + 1$ **faça**
-    - **se** $A[j] < A[j − 1]$ **então**
-      - troque $A[j]$ com $A[j − 1]$;
+    - **se** $A[j] < A[j - 1]$ **então**
+      - troque $A[j]$ com $A[j - 1]$;
 - **retorna** A;
 
 ---
