@@ -292,16 +292,10 @@ Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de
 
 ---
 
-### **Exercício 6.** Determine um limite superior assintótico para as funções abaixo(de preferência o mais apertado possível)
 Achando uma função $g(n)$ que seja maior ou igual que $f(n)$:
 
 - $g(n) = \log n$
 
-1. $2n^3 + n^4 − 1$
-2. $2n + 5 \log n + n^2$
-3. $\log_{10} n + \log_{3} 10$
-4. $n + n \log n + \log n$
-5. $4^n + 2^n + n$
 Se considerarmos que o $n_0 = 10$ e $c = 1$, sabemos que para todos os valores de $n \geq n_0$ a função $f(n)$ é maior ou igual que $g(n)$, sendo assim, $\log n = \Omega(f(n))$.
 
 #### 8.4. $n + n \log n + \log n$
@@ -312,16 +306,10 @@ Se considerarmos que o $n_0 = 10$ e $c = 1$, sabemos que para todos os valores d
 
 ---
 
-### **Exercício 7.** Determine um limite superior assintótico restrito para as funções abaixo(de preferência o mais apertado possível)
 Achando uma função $g(n)$ que seja maior ou igual que $f(n)$:
 
 - $g(n) = n \log n$
 
-1. $2n^3 + n^4 − 1$
-2. $2n + 5 \log n + n^2$
-3. $\log_{10} n + \log_{3} 10$
-4. $n + n \log n + \log n$
-5. $4^n + 2^n + n$
 Se considerarmos que o $n_0 = 10$ e $c = 1$, sabemos que para todos os valores de $n \geq n_0$ a função $f(n)$ é maior ou igual que $g(n)$, sendo assim, $n \log n = \Omega(f(n))$.
 
 #### 8.5. $4^n + 2^n + n$
@@ -332,16 +320,10 @@ Se considerarmos que o $n_0 = 10$ e $c = 1$, sabemos que para todos os valores d
 
 ---
 
-### **Exercício 8.** Determine um limite inferior assintótico para as funções abaixo(de preferência o mais apertado possível)
 Achando uma função $g(n)$ que seja maior ou igual que $f(n)$:
 
 - $g(n) = 4^n$
 
-1. $2n^3 + n^4 − 1$
-2. $2n + 5 \log n + n^2$
-3. $\log_{10} n + \log_{3} 10$
-4. $n + n \log n + \log n$
-5. $4^n + 2^n + n$
 Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de $n \geq n_0$ a função $f(n)$ é maior ou igual que $g(n)$, sendo assim, $4^n = \Omega(f(n))$.
 
 ### **Exercício 9.** Determine um limite inferior assintótico restrito para as funções abaixo (de preferência o mais apertado possível)
@@ -364,14 +346,8 @@ Para essa questão é importante considerarmos que:
 
 ---
 
-### **Exercício 9.** Determine um limite inferior assintótico restrito para as funções abaixo(de preferência o mais apertado possível)
 Achando uma função $g(n)$ que seja maior que $f(n)$:
 
-1. $2n^3 + n^4 − 1$
-2. $2n + 5 \log n + n^2$
-3. $\log_{10} n + \log_{3} 10$
-4. $n + n \log n + \log n$
-5. $4^n + 2^n + n$
 - $g(n) = n^5$
 
 Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de $n \geq n_0$ a função $f(n)$ é maior que $g(n)$, sendo assim, $n^5 = \omega(f(n))$.
@@ -388,11 +364,6 @@ Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de
 
 ### **Exercício 10.** Determine uma equivalência assintótica para as funções abaixo
 
-1. $2n^3 + n^4 − 1$
-2. $2n + 5 \log n + n^2$
-3. $\log_{10} n + \log_{3} 10$
-4. $n + n \log n + \log n$
-5. $4^n + 2^n + n$
 #### 10.1. $2n^3 + n^4 - 1$
 
 #### 10.2. $2^n + 5 \log n + n^2$
@@ -407,12 +378,6 @@ Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de
 
 ### **Exercício 11.** Dadas funções $f(n)$, $h(n)$ e $g(n)$ prove que
 
-1. Se $f(n) = O(g(n))$ e $g(n) = O(h(n))$ então $f(n) = O(h(n))$
-2. $f (n) = O(f (n))$
-3. Se $f (n) = \Omega(g(n))$ e $g(n) = \Omega(h(n))$ então $f (n) = \Omega(h(n))$
-4. $f (n) = \Omega(f (n))$
-5. $f (n) \neq o(f (n))$
-6. $f (n) \neq w(f (n))$
 #### 11.1. Se $f(n) = O(g(n))$ e $g(n) = O(h(n))$ então $f(n) = O(h(n))$
 
 #### 11.2. $f (n) = O(f (n))$
@@ -457,15 +422,8 @@ Considere que todas as recorrência descritas possuem caso base (ou casos bases)
 
 ### **Exercício 1.** Determine e prove uma equivalência assintótica para todas as recorrências abaixo
 
-#### 1. $T (n) = T (n − 3) + 1$
+#### 1. $T (n) = T (n - 3) + 1$
 
-0. $T (n  ) = T (n − 3) + 1         \Leftrightarrow T(n - 0*3) = T (n - (0+1)*3) + (0+1)$
-1. $T (n-3) = T (n − 6) + 1 + 1     \Leftrightarrow T(n - 1*3) = T (n - (1+1)*3) + (1+1)$
-2. $T (n-6) = T (n − 9) + 1 + 1 + 1 \Leftrightarrow T(n - 2*3) = T (n - (2+1)*3) + (2+1)$
-3. $\vdots$
-4. $T(n - k*3) = T (n - (k+1)*3) + (k+1)$
-5. $\vdots$ EQ 1.1
-6. $T(n - (\frac{n-3}{3})*3) = T (0) + (\frac{n-3}{3}+1) \Leftrightarrow T(3) = 1 + (\frac{n-3}{3}+1)$
 ---
 
 Sequência geral:
@@ -488,6 +446,7 @@ Sequência com o passo como variável:
 2. $P(1): T(n - 1*3) = T (n - (1+1)*3) + 1$
 3. $P(3): T(n - 2*3) = T (n - (2+1)*3) + 1$
 4. $\vdots$
+5. $P(k): T(n - k*3) = T (n - (k+1)*3) + 1$
 
 ---
 
@@ -673,7 +632,61 @@ $$
 
 #### 1. $T (n) = 2T ( \frac{n}{2} ) + 1$
 
+0. $T (n  ) = 2T ( \frac{n}{2} ) + 1$
+1. $T ( \frac{n}{2} ) = 2T ( \frac{n}{ 4} ) + 1$
+2. $T ( \frac{n}{4} ) = 2T ( \frac{n}{ 8} ) + 1$
+3. $T ( \frac{n}{8} ) = 2T ( \frac{n}{16} ) + 1$
+4. $\vdots$
+
+---
+
+0. $T(\frac{n}{2^{0}}) = 2T(\frac{n}{2^{0+1}}) + 1$
+1. $T(\frac{n}{2^{1}}) = 2T(\frac{n}{2^{1+1}}) + 1$
+2. $T(\frac{n}{2^{2}}) = 2T(\frac{n}{2^{2+1}}) + 1$
+3. $T(\frac{n}{2^{3}}) = 2T(\frac{n}{2^{3+1}}) + 1$
+4. $\vdots$
+5. $T(\frac{n}{2^{k}}) = 2T(\frac{n}{2^{k+1}}) + 1$
+6. $\vdots$ *EQ 2.1*
+
+---
+
+$$
+\text{Eq 2.1:}\\
+T(\frac{n}{2^{k+1}}) = T(1)\\
+\frac{n}{2^{k+1}} = 1\\
+n = 2^{k+1}\\
+k = \log_{2} n - 1
+$$
+
 #### 2. $T (n) = 4T ( \frac{n}{2} ) + \log n$
+
+0. $T (       n     ) = 4T ( \frac{n}{ 2} ) + \log n$
+1. $T ( \frac{n}{2} ) = 4T ( \frac{n}{ 4} ) + \log \frac{n}{2}$
+2. $T ( \frac{n}{4} ) = 4T ( \frac{n}{ 8} ) + \log \frac{n}{4}$
+3. $T ( \frac{n}{8} ) = 4T ( \frac{n}{16} ) + \log \frac{n}{8}$
+4. $\vdots$
+
+---
+
+1. $T(\frac{n}{2^{0}}) = 4T(\frac{n}{2^{0+1}}) + \log \frac{n}{2^0}$
+2. $T(\frac{n}{2^{1}}) = 4T(\frac{n}{2^{1+1}}) + \log \frac{n}{2^1}$
+3. $T(\frac{n}{2^{2}}) = 4T(\frac{n}{2^{2+1}}) + \log \frac{n}{2^2}$
+4. $T(\frac{n}{2^{3}}) = 4T(\frac{n}{2^{3+1}}) + \log \frac{n}{2^3}$
+5. $\vdots$
+6. $T(\frac{n}{2^{k}}) = 4T(\frac{n}{2^{k+1}}) + \log \frac{n}{2^k}$
+
+---
+
+Substituindo...
+
+1. $T ( \frac{n}{8} ) = 4T ( \frac{n}{16} ) + \log \frac{n}{8}$
+2. $T ( \frac{n}{4} ) = 4(4T ( \frac{n}{16} ) + \log \frac{n}{8}) + \log \frac{n}{4}$
+3. $T ( \frac{n}{2} ) = 4(4(4T ( \frac{n}{16} ) + \log \frac{n}{8}) + \log \frac{n}{4}) + \log \frac{n}{2}$
+4. $T (       n     ) = 4(4(4(4T ( \frac{n}{16} ) + \log \frac{n}{8}) + \log \frac{n}{4}) + \log \frac{n}{2}) + \log n$
+
+- $T (       n     ) = 4(4(4(4T ( \frac{n}{16} ) + \log \frac{n}{8}) + \log \frac{n}{4}) + \log \frac{n}{2}) + \log n$
+- $T (n) = 4^4 * T(\frac{n}{2^{3}}) + 4^3 * \log \frac{n}{2^3} + 4^2 * \log \frac{n}{2^2} + 4 * \log \frac{n}{2^1} + \log n$
+- $T (n) = 4^4 * T(\frac{n}{2^{4-1}}) + 4^{4-1} * \log \frac{n}{2^{4-1}} + 4^{4-2} * \log \frac{n}{2^{4-2}} + 4^{4-3} * \log \frac{n}{2^{4-3}} + \log \frac{n}{2^{4-4}}$
 
 #### 3. $T (n) = 7T ( \frac{n}{3} ) + n$
 
@@ -704,10 +717,26 @@ $$
 
 ### **Exercício 6.** Determine e prove uma equivalência assintótica para $T (n) = T ( \frac{n}{4} ) + T ( \frac{n}{5} ) + T ( \frac{n}{6} ) + n$
 
-Dica 1: Divida a prova em limite inferior e limite superior;
-Dica 2: Aproxime a função para baixo e para cima usando seus próprios termos.
+- **Dica 1:** Divida a prova em limite inferior e limite superior;
+- **Dica 2:** Aproxime a função para baixo e para cima usando seus próprios termos.
 
 ---
+
+- $T(n) = T(\frac{n}{4}) + T(\frac{n}{5}) + T(\frac{n}{6}) + n$
+
+- $T(4) = T(\frac{4}{4}) + T(\frac{4}{5}) + T(\frac{4}{6}) + 4$
+- $T(5) = T(\frac{5}{4}) + T(\frac{5}{5}) + T(\frac{5}{6}) + 5$
+- $T(6) = T(\frac{6}{4}) + T(\frac{6}{5}) + T(\frac{6}{6}) + 6$
+
+- $T(4) = T(1) + T(\frac{4}{5}) + T(\frac{4}{6}) + 4$
+- $T(5) = T(\frac{5}{4}) + T(1) + T(\frac{5}{6}) + 5$
+- $T(6) = T(\frac{6}{4}) + T(\frac{6}{5}) + T(1) + 6$
+
+---
+
+- $T(n) = T(\frac{n}{4}) + T(\frac{n}{5}) + T(\frac{n}{6}) + n$
+
+- $T(\frac{n}{4}) = T(\frac{\frac{n}{4}}{4}) + T(\frac{\frac{n}{4}}{5}) + T(\frac{\frac{n}{4}}{6}) + n$
 
 ### Complexidade Amortizada
 
