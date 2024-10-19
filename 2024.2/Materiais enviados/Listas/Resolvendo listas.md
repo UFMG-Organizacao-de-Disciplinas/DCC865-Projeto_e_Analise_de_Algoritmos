@@ -132,6 +132,16 @@ Para essa questão é importante considerarmos que:
 
 ---
 
+### **Exercício 6.** Determine um limite superior assintótico para as funções abaixo (de preferência o mais apertado possível) - [IGNORADA POR SER EXATAMENTE IGUAL AO EXERCÍCIO 5]
+
+- 6.1. $2n^3 + n^4 - 1$
+- 6.2. $2^n + 5 \log n + n^2$
+- 6.3. $\log_{10} n + \log_{3} 10$
+- 6.4. $n + n \log n + \log n$
+- 6.5. $4^n + 2^n + n$
+
+---
+
 
 ---
 
