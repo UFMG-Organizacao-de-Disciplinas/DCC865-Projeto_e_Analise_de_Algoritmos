@@ -233,46 +233,156 @@ Achando uma função $g(n)$ que seja maior que $f(n)$:
 
 Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de $n \geq 1$ a função $f(n)$ é menor que $g(n)$, sendo assim, $5^n = o(f(n))$.
 
+### **Exercício 8.** Determine um limite inferior assintótico para as funções abaixo (de preferência o mais apertado possível)
+
+Para essa questão é importante considerarmos que:
+
+- $O: \text{Limite Superior}$
+- $o: \text{Limite Superior estrito}$
+- $\Omega: \text{Limite Inferior}$
+- $\omega: \text{Limite Inferior estrito}$
+- $\Theta: \text{Equivalência}$
+
+- $O(n!) < O(2^n) < O(n^2) < O(n log n) < O(n) < O(log n) < O(1)$
+
+> Limite Inferior ($\Omega$)
+>
+> $f = \Omega(g)$ Existem $n_0$ e $c$ tal que: $f(n) \geq c * g(n)$ para todo $n \geq n_0$
+
+- $f = \Omega(g); f(n) \geq c*g(n); n \geq n_0$
+
+![Big-O Complexity Chart][ImgBigO]
+
+[ImgBigO]: https://www.freecodecamp.org/portuguese/news/content/images/2021/12/1_KfZYFUT2OKfjekJlCeYvuQ.jpeg
+
+#### 8.1. $2n^3 + n^4 - 1$
+
+- $f(n) = 2n^3 + n^4 - 1$
+- $\Omega(f(n)) = \Omega(2n^3 + n^4 - 1)$
+- $\Omega(f(n)) = \Omega(n^4)$
+
+---
+
+Achando uma função $g(n)$ que seja maior ou igual que $f(n)$:
+
+- $g(n) = n^4$
+
+Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de $n \geq n_0$ a função $f(n)$ é maior ou igual que $g(n)$, sendo assim, $5^n = \Omega(f(n))$.
+
+#### 8.2. $2^n + 5 \log n + n^2$
+
+- $f(n) = 2^n + 5 \log n + n^2$
+- $\Omega(f(n)) = \Omega(2^n + 5 \log n + n^2)$
+- $\Omega(f(n)) = \Omega(2^n)$
+
+---
+
+Achando uma função $g(n)$ que seja maior ou igual que $f(n)$:
+
+- $g(n) = 2^n$
+
+Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de $n \geq n_0$ a função $f(n)$ é maior ou igual que $g(n)$, sendo assim, $2^n = \Omega(f(n))$.
+
+#### 8.3. $\log_{10} n + \log_{3} 10$
+
+- $f(n) = \log_{10} n + \log_{3} 10$
+- $\Omega(f(n)) = \Omega(\log_{10} n + \log_{3} 10)$
+- $\Omega(f(n)) = \Omega(\log_{10} n + C_1)$
+- $\Omega(f(n)) = \Omega(\log n)$
 
 ---
 
 ### **Exercício 6.** Determine um limite superior assintótico para as funções abaixo(de preferência o mais apertado possível)
+Achando uma função $g(n)$ que seja maior ou igual que $f(n)$:
+
+- $g(n) = \log n$
 
 1. $2n^3 + n^4 − 1$
 2. $2n + 5 \log n + n^2$
 3. $\log_{10} n + \log_{3} 10$
 4. $n + n \log n + \log n$
 5. $4^n + 2^n + n$
+Se considerarmos que o $n_0 = 10$ e $c = 1$, sabemos que para todos os valores de $n \geq n_0$ a função $f(n)$ é maior ou igual que $g(n)$, sendo assim, $\log n = \Omega(f(n))$.
+
+#### 8.4. $n + n \log n + \log n$
+
+- $f(n) = n + n \log n + \log n$
+- $\Omega(f(n)) = \Omega(n + n \log n + \log n)$
+- $\Omega(f(n)) = \Omega(n \log n)$
 
 ---
 
 ### **Exercício 7.** Determine um limite superior assintótico restrito para as funções abaixo(de preferência o mais apertado possível)
+Achando uma função $g(n)$ que seja maior ou igual que $f(n)$:
+
+- $g(n) = n \log n$
 
 1. $2n^3 + n^4 − 1$
 2. $2n + 5 \log n + n^2$
 3. $\log_{10} n + \log_{3} 10$
 4. $n + n \log n + \log n$
 5. $4^n + 2^n + n$
+Se considerarmos que o $n_0 = 10$ e $c = 1$, sabemos que para todos os valores de $n \geq n_0$ a função $f(n)$ é maior ou igual que $g(n)$, sendo assim, $n \log n = \Omega(f(n))$.
+
+#### 8.5. $4^n + 2^n + n$
+
+- $f(n) = 4^n + 2^n + n$
+- $\Omega(f(n)) = \Omega(4^n + 2^n + n)$
+- $\Omega(f(n)) = \Omega(4^n)$
 
 ---
 
 ### **Exercício 8.** Determine um limite inferior assintótico para as funções abaixo(de preferência o mais apertado possível)
+Achando uma função $g(n)$ que seja maior ou igual que $f(n)$:
+
+- $g(n) = 4^n$
 
 1. $2n^3 + n^4 − 1$
 2. $2n + 5 \log n + n^2$
 3. $\log_{10} n + \log_{3} 10$
 4. $n + n \log n + \log n$
 5. $4^n + 2^n + n$
+Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de $n \geq n_0$ a função $f(n)$ é maior ou igual que $g(n)$, sendo assim, $4^n = \Omega(f(n))$.
+
+### **Exercício 9.** Determine um limite inferior assintótico restrito para as funções abaixo (de preferência o mais apertado possível)
+
+Para essa questão é importante considerarmos que:
+
+- $O(n!) < O(2^n) < O(n^2) < O(n log n) < O(n) < O(log n) < O(1)$
+
+> Limite Inferior Assintótico Estrito ($\omega$)
+>
+> $f = \omega(g)$ Para todo $c > 0$ existe $n_0$ tal que: $f(n) > c * g(n)$ para todo $n \geq n_0$
+
+- $f = \omega(g); f(n) > c*g(n); n \geq n_0$
+
+#### 9.1. $2n^3 + n^4 - 1$
+
+- $f(n) = 2n^3 + n^4 - 1$
+- $\Omega(f(n)) = \Omega(2n^3 + n^4 - 1)$
+- $\Omega(f(n)) = \Omega(n^4)$
 
 ---
 
 ### **Exercício 9.** Determine um limite inferior assintótico restrito para as funções abaixo(de preferência o mais apertado possível)
+Achando uma função $g(n)$ que seja maior que $f(n)$:
 
 1. $2n^3 + n^4 − 1$
 2. $2n + 5 \log n + n^2$
 3. $\log_{10} n + \log_{3} 10$
 4. $n + n \log n + \log n$
 5. $4^n + 2^n + n$
+- $g(n) = n^5$
+
+Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de $n \geq n_0$ a função $f(n)$ é maior que $g(n)$, sendo assim, $n^5 = \omega(f(n))$.
+
+#### 9.2. $2^n + 5 \log n + n^2$
+
+#### 9.3. $\log_{10} n + \log_{3} 10$
+
+#### 9.4. $n + n \log n + \log n$
+
+#### 9.5. $4^n + 2^n + n$
 
 ---
 
