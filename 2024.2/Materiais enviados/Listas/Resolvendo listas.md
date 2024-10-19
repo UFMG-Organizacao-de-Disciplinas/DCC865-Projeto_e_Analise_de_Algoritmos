@@ -142,6 +142,97 @@ Para essa questão é importante considerarmos que:
 
 ---
 
+### **Exercício 7.** Determine um limite superior assintótico restrito para as funções abaixo (de preferência o mais apertado possível)
+
+Para essa questão é importante considerarmos que:
+
+- $O: \text{Limite Superior}$
+- $o: \text{Limite Superior estrito}$
+- $\Omega: \text{Limite Inferior}$
+- $\omega: \text{Limite Inferior estrito}$
+- $\Theta: \text{Equivalência}$
+
+- $O(n!) < O(2^n) < O(n^2) < O(n log n) < O(n) < O(log n) < O(1)$
+
+> Limite Superior Estrito (o)
+>
+> f = o(g) para todo $c > 0$ existe $n_0$ tal que: $f(n) < c * g(n)$ para todo $n \geq n_0$
+
+- $f = o(g); f(n) < c*g(n); n \geq n_0$
+
+#### 7.1. $2n^3 + n^4 - 1$
+
+- $f(n) = 2n^3 + n^4 - 1$
+- $O(f(n)) = O(2n^3 + n^4 - 1)$
+- $O(f(n)) = O(n^4)$
+
+---
+
+Achando uma função $g(n)$ que seja maior que $f(n)$:
+
+- $g(n) = n^5$
+
+Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de $n \geq 1$ a função $f(n)$ é menor que $g(n)$, sendo assim, $n^5 = o(f(n))$.
+
+---
+
+#### 7.2. $2^n + 5 \log n + n^2$
+
+- $f(n) = 2^n + 5 \log n + n^2$
+- $O(f(n)) = O(2^n + 5 \log n + n^2)$
+- $O(f(n)) = O(2^n)$
+
+---
+
+Achando uma função $g(n)$ que seja maior que $f(n)$:
+
+- $g(n) = 3^n$
+
+Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de $n \geq 1$ a função $f(n)$ é menor que $g(n)$, sendo assim, $3^n = o(f(n))$.
+
+#### 7.3. $\log_{10} n + \log_{3} 10$
+
+- $f(n) = \log_{10} n + \log_{3} 10$
+- $O(f(n)) = O(\log_{10} n + \log_{3} 10)$
+- $O(f(n)) = O(\log_{10} n) + C_1$
+- $O(f(n)) = O(\log n)$
+
+---
+
+Achando uma função $g(n)$ que seja maior que $f(n)$:
+
+- $g(n) = n$
+
+Se considerarmos que o $n_0 = 10$ e $c = 1$, sabemos que para todos os valores de $n \geq 10$ a função $f(n)$ é menor que $g(n)$, sendo assim, $n = o(f(n))$.
+
+#### 7.4. $n + n \log n + \log n$
+
+- $f(n) = n + n \log n + \log n$
+- $O(f(n)) = O(n + n \log n + \log n)$
+- $O(f(n)) = O(n \log n)$
+
+---
+
+Achando uma função $g(n)$ que seja maior que $f(n)$:
+
+- $g(n) = n^2$
+
+Se considerarmos que o $n_0 = 10$ e $c = 1$, sabemos que para todos os valores de $n \geq 2$ a função $f(n)$ é menor que $g(n)$, sendo assim, $n^2 = o(f(n))$.
+
+#### 7.5. $4^n + 2^n + n$
+
+- $f(n) = 4^n + 2^n + n$
+- $O(f(n)) = O(4^n + 2^n + n)$
+- $O(f(n)) = O(4^n)$
+
+---
+
+Achando uma função $g(n)$ que seja maior que $f(n)$:
+
+- $g(n) = 5^n$
+
+Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de $n \geq 1$ a função $f(n)$ é menor que $g(n)$, sendo assim, $5^n = o(f(n))$.
+
 
 ---
 
