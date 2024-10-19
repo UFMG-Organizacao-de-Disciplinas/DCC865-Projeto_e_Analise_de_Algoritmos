@@ -85,13 +85,53 @@ d. Qual sua complexidade de melhor caso?
 
 ---
 
-### **Exercício 5.** Determine um limite superior assintótico para as funções abaixo(de preferência o mais apertado possível)
+### **Exercício 5.** Determine um limite superior assintótico para as funções abaixo (de preferência o mais apertado possível)
 
-1. $2n^3 + n^4 − 1$
-2. $2n + 5 \log n + n^2$
-3. $\log_{10} n + \log_{3} 10$
-4. $n + n \log n + \log n$
-5. $4^n + 2^n + n$
+Para essa questão é importante considerarmos que:
+
+- $O: \text{Limite Superior}$
+- $o: \text{Limite Superior estrito}$
+- $\Omega: \text{Limite Inferior}$
+- $\omega: \text{Limite Inferior estrito}$
+- $\Theta: \text{Equivalência}$
+
+- $O(n!) < O(2^n) < O(n^2) < O(n log n) < O(n) < O(log n) < O(1)$
+
+#### 5.1. $2n^3 + n^4 - 1$
+
+- $f(n) = 2n^3 + n^4 - 1$
+- $O(f(n)) = O(2n^3 + n^4 - 1)$
+- $O(f(n)) = O(n^4)$
+
+#### 5.2. $2^n + 5 \log n + n^2$
+
+- $f(n) = 2^n + 5 \log n + n^2$
+- $O(f(n)) = O(2^n + 5 \log n + n^2)$
+- $O(f(n)) = O(2^n)$
+
+#### 5.3. $\log_{10} n + \log_{3} 10$
+
+- $f(n) = \log_{10} n + \log_{3} 10$
+- $O(f(n)) = O(\log_{10} n + \log_{3} 10)$
+- $O(f(n)) = O(\log_{10} n)$
+- $O(f(n)) = O(\log n)$
+
+#### 5.4. $n + n \log n + \log n$
+
+- $f(n) = n + n \log n + \log n$
+- $O(f(n)) = O(n + n \log n + \log n)$
+- $O(f(n)) = O(n \log n)$
+
+#### 5.5. $4^n + 2^n + n$
+
+- $f(n) = 4^n + 2^n + n$
+- $O(f(n)) = O(4^n + 2^n + n)$
+- $O(f(n)) = O(4^n)$
+- $O(f(n)) = O(2^{2+n})$
+- $O(f(n)) = O(2^n)$
+
+---
+
 
 ---
 
