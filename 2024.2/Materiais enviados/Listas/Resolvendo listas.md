@@ -393,6 +393,15 @@ Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de
 3. $\log_{10} n + \log_{3} 10$
 4. $n + n \log n + \log n$
 5. $4^n + 2^n + n$
+#### 10.1. $2n^3 + n^4 - 1$
+
+#### 10.2. $2^n + 5 \log n + n^2$
+
+#### 10.3. $\log_{10} n + \log_{3} 10$
+
+#### 10.4. $n + n \log n + \log n$
+
+#### 10.5. $4^n + 2^n + n$
 
 ---
 
