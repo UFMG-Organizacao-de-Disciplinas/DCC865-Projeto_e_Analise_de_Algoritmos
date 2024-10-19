@@ -413,6 +413,17 @@ Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de
 4. $f (n) = \Omega(f (n))$
 5. $f (n) \neq o(f (n))$
 6. $f (n) \neq w(f (n))$
+#### 11.1. Se $f(n) = O(g(n))$ e $g(n) = O(h(n))$ então $f(n) = O(h(n))$
+
+#### 11.2. $f (n) = O(f (n))$
+
+#### 11.3. Se $f (n) = \Omega(g(n))$ e $g(n) = \Omega(h(n))$ então $f (n) = \Omega(h(n))$
+
+#### 11.4. $f (n) = \Omega(f (n))$
+
+#### 11.5. $f (n) \neq o(f (n))$
+
+#### 11.6. $f (n) \neq w(f (n))$
 
 ---
 
@@ -455,11 +466,33 @@ Considere que todas as recorrência descritas possuem caso base (ou casos bases)
 4. $T(n - k*3) = T (n - (k+1)*3) + (k+1)$
 5. $\vdots$ EQ 1.1
 6. $T(n - (\frac{n-3}{3})*3) = T (0) + (\frac{n-3}{3}+1) \Leftrightarrow T(3) = 1 + (\frac{n-3}{3}+1)$
+---
+
+Sequência geral:
+
+1. $T (n  ) = T (n - 3) + 1$
+2. $T (n-3) = T (n - 6) + 1$
+3. $T (n-6) = T (n - 9) + 1$
+4. $\vdots$
+5. $T(n - k*3) = T (n - (k+1)*3) + 1$
+6. $\vdots$ Eq 1.1
+7. $T(n - (\frac{n-3}{3})*3) = T (n - (\frac{n-3}{3} + 1)*3) + 1$
+
+- $T(3) = T(0) + 1$
+
+---
+
+Sequência com o passo como variável:
+
+1. $P(0): T(n - 0*3) = T (n - (0+1)*3) + 1$
+2. $P(1): T(n - 1*3) = T (n - (1+1)*3) + 1$
+3. $P(3): T(n - 2*3) = T (n - (2+1)*3) + 1$
+4. $\vdots$
 
 ---
 
 $$
-Eq 1.1:\\
+\text{Eq 1.1:}\\
 n - (k+1)*3 = 0\\
 n = (k+1)*3\\
 n = 3k + 3\\
@@ -468,34 +501,66 @@ $$
 
 ---
 
-[JV: Tá concluída?]
-[JV: Aparentemente para concluir eu preciso dizer que...]
+Descascando a cebola:
 
----
-
-#### 2. $T (n) = 2T (n − 2) + \log n$
-
-0. $T (n  ) = 2T (n − 2) + \log n$
-1. $T (n-2) = 2T (n − 4) + \log (n-2) + \log n$
-2. $T (n-4) = 2T (n − 6) + \log (n-4) + \log (n-2) + \log n$
-3. $T (n-6) = 2T (n − 8) + \log (n-6) + \log (n-4) + \log (n-2) + \log n$
+1. $T (n  ) = T (n - 3) + 1$
+2. $T (n-3) = T (n - 6) + 1$
+3. $T (n-6) = T (n - 9) + 1$
 4. $\vdots$
+5. $T(n - k*3) = T (n - (k+1)*3) + 1$
+6. $\vdots$ Eq 1.1
+7. $T(n - (\frac{n-3}{3})*3) = T (n - (\frac{n-3}{3} + 1)*3) + 1$
 
----
+- $T(3) = T(0) + 1$
+- $T(6) = (T(0) + 1) + 1$
+- $T(9) = ((T(0) + 1) + 1) + 1$
 
-1. $T (n-2*1) = 2T (n − 2*(1+1)) + \log (n-2*(1)) + \log (n - 2*(1-1))$
-2. $T (n-2*2) = 2T (n − 2*(2+1)) + \log (n-2*(2)) + \log (n - 2*(2-1)) + \log (n - 2*(2-2))$
-3. $T (n-2*3) = 2T (n − 2*(3+1)) + \log (n-2*(3)) + \log (n - 2*(3-1)) + \log (n - 2*(3-2)) + \log (n - 2*(3-3))$
-4. $\vdots$
-5. $T (n-2*k) = 2T (n-2*(k+1)) + \sum_{i=0}^{k} \log(n - 2*i)$
-6. $\vdots$ *EQ 1.2*
-7. $T(n-2*(\frac{n-2}{2})) = T(0) + \sum_{i=0}^{\frac{n-2}{2}} \log(n - 2*i)$
-8. $T(2) = 1 + \sum_{i=0}^{\frac{n-2}{2}} \log(n - 2*i)$
+- $T(3*1) = T(0) + 1$
+- $T(6*2) = T(0) + 2$
+- $T(9*3) = T(0) + 3$
+- $\vdots$
+- $T(3*k) = T(0) + k$
+- $\vdots$ Eq 1.2
+- $T(3*\frac{n}{3}) = T(0) + \frac{n}{3}$
+- $T(n) = T(0) + \frac{n}{3}$
+- $O(T(n)) = O(T(0) + \frac{n}{3})$
+- Por definição: $O(T(0)) = O(1)$
+- $O(T(n)) = O(1 + \frac{n}{3})$
+- $O(T(n)) = O(C_1*n)$
+- $O(T(n)) = O(n)$
 
 ---
 
 $$
-Eq 1.2:\\
+\text{Eq 1.2:}\\
+T(3*k) = T(n)\\
+3*k = n\\
+k = \frac{n}{3}
+$$
+
+---
+
+#### 2. $T (n) = 2T (n - 2) + \log n$
+
+0. $T (n  ) = 2T (n - 2) + \log n$
+1. $T (n-2) = 2T (n - 4) + \log (n-2)$
+2. $T (n-4) = 2T (n - 6) + \log (n-4)$
+3. $T (n-6) = 2T (n - 8) + \log (n-6)$
+4. $\vdots$
+
+---
+
+0. $T(n-2*0) = 2T(n - 2*(0 + 1)) + \log (n-2*0)$
+1. $T(n-2*1) = 2T(n - 2*(1 + 1)) + \log (n-2*1)$
+2. $T(n-2*2) = 2T(n - 2*(2 + 1)) + \log (n-2*2)$
+3. $T(n-2*3) = 2T(n - 2*(3 + 1)) + \log (n-2*3)$
+4. $\vdots$
+5. $T(n-2*k) = 2T(n - 2*(k + 1)) + \log (n-2*k)$
+
+---
+
+$$
+\text{Eq 1.2:}\\
 T(n-2*(k+1)) = T(0)\\
 n-2*(k+1) = 0\\
 n = 2*(k+1)\\
@@ -505,21 +570,35 @@ $$
 
 ---
 
-- $\sum_{i=0}^{\frac{n-2}{2}} \log(n - 2*i) =\\$
-- $\log(n-2*0) + \log(n-2*1) + \log(n-2*2) + \dots + \log(n-2*\frac{n-2}{2}) + \log(n-2*\frac{n-2}{2}) =\\$
-- $\log(n-2*0) + \log(n-2*1) + \log(n-2*2) + \dots + \log(n-2*?) + \log(2) =\\$
-- $\log(n-0) + \log(n-2) + \log(n-4) + \dots + \log(2) =\\$
-- $\log((n-0)*(n-2)*(n-4)*\dots*2) =\\$
+Substituindo:
+
+1. $T(n-2*3) = 2T(n - 2*(3 + 1)) + \log (n-2*3)$
+2. $T(n-2*2) = 2 (2T(n - 2*(3 + 1)) + \log (n-2*3)) + \log (n-2*2)$
+3. $T(n-2*1) = 2 (2 (2T(n - 2*(3 + 1)) + \log (n-2*3)) + \log (n-2*2)) + \log (n-2*1)$
+4. $T(n-2*0) = 2 (2 (2 (2T(n - 2*(3 + 1)) + \log (n-2*3)) + \log (n-2*2)) + \log (n-2*1)) + \log (n-2*0)$
+
+---
+
+Enxugando:
+
+1. $T(n-6) = 2T(n - 8) + \log (n-6)$
+2. $T(n-4) = 2 (2T(n - 8) + \log (n-6)) + \log (n-4)$
+3. $T(n-2) = 2 (2 (2T(n - 8) + \log (n-6)) + \log (n-4)) + \log (n-2)$
+4. $T(n-0) = 2*2*2*2T(n - 8) + 2*2*2*\log (n-6) + 2*2*\log (n-4) + 2*\log (n-2) + \log (n-0)$
+
+- 4: $T(n) = 2^4T(n - 8) + 2^3\log (n-6) + 2^2\log (n-4) + 2\log (n-2) + \log n$
+- 4: $T(n) = 2^4T(n - 2^{4-1}) + 2^{4-1}\log (n-2*{4-1}) + 2^{4-2}\log (n-2*{4-2}) + 2^{4-3}\log (n-2*{4-3}) + 2^{4-4}\log (n-2*{4-4})$
+- k: $T(n) = \sum_{i=0}^{k} 2^{n-i} \log (n-2*(n-i))$
 
 ---
 
 [JV: aqui já não sei o que fazer, vou chutar que eu meto um O() daquilo ali... Mas eu precisaria converter esse somatório.]
+  
+#### 3. $T (n) = T (n - 1) + n$
 
-#### 3. $T (n) = T (n − 1) + n$
-
-0. $T (n  ) = T (n − 1) + n$
-1. $T (n-1) = T (n − 2) + (n-1) + n$
-2. $T (n-2) = T (n − 3) + (n-2) + (n-1) + n$
+0. $T (n  ) = T (n - 1) + n$
+1. $T (n-1) = T (n - 2) + (n-1) + n$
+2. $T (n-2) = T (n - 3) + (n-2) + (n-1) + n$
 3. $\vdots$
 4. $T(n-k) = T(n-(k+1)) + \sum_{i=0}^{k} (n-i)$
 
@@ -558,12 +637,12 @@ Eq 1.3.1:\\
 \frac{n*(n+1)}{2}
 $$
 
-#### 4. $T (n) = 2T (n − 1) + n^2 + 1$
+#### 4. $T (n) = 2T (n - 1) + n^2 + 1$
 
-0. $T (n  ) = 2T (n − 1) + n^2 + 1$
-1. $T (n-1) = 2T (n − 2) + (n-1)^2 + 1 + n^2 + 1$
-2. $T (n-2) = 2T (n − 3) + (n-2)^2 + 1 + (n-1)^2 + 1 + n^2 + 1$
-3. $T (n-3) = 2T (n − 4) + (n-3)^2 + 1 + (n-2)^2 + 1 + (n-1)^2 + 1 + n^2 + 1$
+0. $T (n  ) = 2T (n - 1) + n^2 + 1$
+1. $T (n-1) = 2T (n - 2) + (n-1)^2 + 1 + n^2 + 1$
+2. $T (n-2) = 2T (n - 3) + (n-2)^2 + 1 + (n-1)^2 + 1 + n^2 + 1$
+3. $T (n-3) = 2T (n - 4) + (n-3)^2 + 1 + (n-2)^2 + 1 + (n-1)^2 + 1 + n^2 + 1$
 4. $\vdots$
 
 ---
