@@ -2,7 +2,9 @@
 
 livro do cormen e do udi manber
 
-## Aula 1 - 25/09/24
+## Módulo 1
+
+### Aula 1 - 25/09/24
 
 Primeira aula é pra explicar
 
@@ -31,7 +33,7 @@ Ele segue um livro e a Olga, outro. Ele gosta de seguir o Cormen "de cabo a rabo
 
 Ele vai indicar quais capítulos correspondem àquela aula.
 
-### Sobre o módulo
+#### Sobre o módulo
 
 Ela não é uma disciplina pra aprender a programar, nem é das mais fáceis de teoria.
 
@@ -105,7 +107,7 @@ Sexta já deve ter todos os materiais lá.
 
 Existe a chance de que mude de sala. E se avisar, será pelo moodle.
 
-### Dúvidas dos alunos
+#### Dúvidas dos alunos
 
 - Tem monitor?
   - Ele tem X% de certeza que sim, mas ainda não temos. Até o começo de outubro devem saber quem é. Geralmente serão na sexta que é quando estamos mais livres. Ele recomenda fortemente que venhamos nas monitorias. Ele gosta de postar uma lista por semana. À priori elas não valem ponto.
@@ -131,9 +133,9 @@ Existe a chance de que mude de sala. E se avisar, será pelo moodle.
 - Qual o capítulo da aula de segunda?
   - Se não se engana, os capítulos 2 e 3. E veja também os conteúdos de pré-PAA.
 
-## Aula 2 - 30/09/2024 - [13h08, 14h40]
+### Aula 2 - 30/09/2024 - [13h08, 14h40]
 
-### Slide: Complexidade de Algoritmos
+#### Slide: Complexidade de Algoritmos
 
 - Algoritmos no geral serão considerados como funções $f(n)$ que transformam conjunto de entrada em conjunto de saída.
 - Para descrever os algoritmos, serão utilizados pseudocódigos de forma imperativa com estruturas usuais de controle de fluxo.
@@ -217,7 +219,7 @@ Alguns exercícios serão mostrar valores $C$ e $N_o$ que satisfaçam a equaçã
 
 Geralmente o que ele vai pedir é encontrar o O() de uma função.
 
-## Aula 3 - 02/10/2024 - [13h06, 14h40]
+### Aula 3 - 02/10/2024 - [13h06, 14h40]
 
 - Aulas extras
   - 13h às 15h
@@ -227,7 +229,7 @@ Geralmente o que ele vai pedir é encontrar o O() de uma função.
   - Pontuação extra por presença nas aulas. Muito provavelmente 0,5 ponto por aula.
   - Quase como se fosse aula de pré-PAA
 
-### Aula 3: Slide - Aula 2 - Complexidade e Notação Assintótica
+#### Aula 3: Slide - Aula 2 - Complexidade e Notação Assintótica
 
 - Limite superior
   - $f() = O(g())$ pode ser rústicamente definido como $f() \leq g()$
@@ -263,7 +265,7 @@ Geralmente o que ele vai pedir é encontrar o O() de uma função.
 - Na prova sempre considerar que estamos buscando o limite mais estrito possível.
 - Quando não se tem condicional, podemos considerar que o $O()$ é o mesmo que o $\Omega()$, que são iguais ao $\Theta()$.
 
-### Aula 3: Slide - Aula 3 - Algoritmos Recursivos e Relações de Recorrência
+#### Aula 3: Slide - Aula 3 - Algoritmos Recursivos e Relações de Recorrência
 
 [JV: O que é função de recorrência?
 R Copilot: É uma função que é definida em termos de si mesma. Exemplo: $f(n) = f(n-1) + 1$]
@@ -329,7 +331,7 @@ Revisar PA e PG.
 
 Dúvida: Quando na soma assintótica há uma subtração, a gente ignora ela? Sim. Considera-se como se fosse soma normal. Mas a mesma ignorância não ocorre na divisão e multiplicação
 
-### Aula 4: Slide - Aula 3 - Algoritmos Recursivos e Relações de Recorrência
+#### Aula 4: Slide - Aula 3 - Algoritmos Recursivos e Relações de Recorrência
 
 - $T(n) = T(n - b) + f(n)$
 - $T(n) = a * T(\frac{n}{b}) + f(n)$
@@ -417,18 +419,18 @@ Algumas questões não vão dar pra fazer. Às vezes tem como, mas é meio tortu
 
 "Estude isso *freneticamente*"
 
-## Aula 4 - 09/10/2024 - [13h08, 14h47]
+### Aula 4 - 09/10/2024 - [13h08, 14h47]
 
-### Pré-aula 4
+#### Pré-aula 4
 
 - Monitoria possivelmente remota e/ou presencial
 - BeeCrowd para trabalhos
 - Ele adiantará a aula de exercícios e provavelmente serão 3 horas no sábado.
 - Alguns tópicos extras nas aulas de sexta
 
-### Slide: Análise Amortizada
+#### Slide: Análise Amortizada
 
-#### Contador Binário
+##### Contador Binário
 
 - Assume que temos um vetor de $n$ bits.
 - Este vetor representa um número.
@@ -468,18 +470,18 @@ O que o algoritmo faz?
 
 - Enquanto tem um, troca pra zero, quando achar o primeiro zero troca pra um, o resto não faz nada.
 
-#### Algoritmo
+##### Algoritmo
 
 ...
 
-#### Contador Binário - Complexidade
+##### Contador Binário - Complexidade
 
 - Complexidade de Pior caso: O(n).
 - Mas esse pior caso acontece muito raramente...
 - As operações têm uma relação clara entre elas.
 - Seria interessante ter uma ligação entre a complexidade e as operações
 
-#### Contador Binário - Análise Amortizada
+##### Contador Binário - Análise Amortizada
 
 - Considere o número de operações para se realizar uma sequência de n operações: $T(n)$.
 - Desejamos calcular
@@ -501,12 +503,12 @@ Resposta: Razoavelmente distante. Porque nesse caso o output de um é o input do
 - Vamos pensar em quantas vezes cada bit é trocado de 0 para 1 ou vice versa.
 - Seja $F(i)$ o número de vezes que o bit na posição $i$ é flipado.
 
-#### Contador Binário - $F(0)$
+##### Contador Binário - $F(0)$
 
 - $F(0) = n$
 - ...
 
-#### Contador Binário - $F(1)$
+##### Contador Binário - $F(1)$
 
 - $F(1) = \frac{n}{2}$
 - ...
@@ -526,7 +528,7 @@ $\frac{T(n)}{n} \leq \frac{3n}{n} \leq 3 = \Theta(1)$
 
 Na teoria, deveria ser $\lim_{n \cond \inf} \frac{T(n)}{n}$, mas ele vai ignorar o limite.
 
-#### Método do Potencial
+##### Método do Potencial
 
 - VAmos atribuir uma energia potencial para a estrutura de dados.
 - Temos uma função que calcula esse potencial $\phi()$.
@@ -552,7 +554,7 @@ Consideramos que a energia potencial é a quantidade de bits que estão em 1.
 
 Dúvida Manu: de que forma é definido o que é uma operação?
 
-#### Método Contável
+##### Método Contável
 
 - Vamos analisar o nosso contador Binário.
 - Vamos modificar os custos do nosso programa.
@@ -570,11 +572,11 @@ Esse último método nem sempre é o mais direto, mas deve-ser ter cuidado na ho
 
 Fim da matéria da P1
 
-## Aula 6.1 (Extra) - 19/10/2024 - [09h03, 12h00]
+### Aula 6.1 (Extra) - 19/10/2024 - [09h03, 12h00]
 
-### Lista 1
+#### Lista 1
 
-#### Exercício 15
+##### Exercício 15
 
 - É adequado recordar:
   - série de Taylor
@@ -582,7 +584,7 @@ Fim da matéria da P1
   - Teorema de Stirling
     - $n^{\ln} = n^n$
 
-#### **Exercício 14.** Prove que $\sum^{n}_{i=1} i = \Theta (n^2)$, utilizando uma prova por indução
+##### **Exercício 14.** Prove que $\sum^{n}_{i=1} i = \Theta (n^2)$, utilizando uma prova por indução
 
 - $\sum^{n}_{i=1} i = O(n^2)$ || $\sum^{n}_{i=1} i = \Omega(n^2)$
   - $\sum^{n}_{i=1} i = O(n^2)$
@@ -603,9 +605,9 @@ Fim da matéria da P1
     - Ele não vai fazer porque é praticamente a mesma coisa que o anterior.
     - Para fazer o $\Omega$ eu poderia usar outros $C$ e $N_0$. Se eu fosse fazer a prova do Theta de uma vez só, eu teria que escolher $C_1$, $C_2$ e $N_0$ para o $\Omega$ e para o $O$.
 
-#### **Exercício 11.** Dadas funções $f(n)$, $h(n)$ e $g(n)$ prove que
+##### **Exercício 11.** Dadas funções $f(n)$, $h(n)$ e $g(n)$ prove que
 
-##### 11.1. Se $f(n) = O(g(n))$ e $g(n) = O(h(n))$ então $f(n) = O(h(n))$
+###### 11.1. Se $f(n) = O(g(n))$ e $g(n) = O(h(n))$ então $f(n) = O(h(n))$
 
 - $\exists n_{0}^{f}, C^f$ tal que $f(n) \leq C^f * g(n)$ para todo $n \geq n_{0}^{f}$
 - $\exists n_{0}^{g}, C^g$ tal que $g(n) \leq C^g * h(n)$ para todo $n \geq n_{0}^{g}$
@@ -616,25 +618,25 @@ Fim da matéria da P1
   - Podemos agora dizer que $C = C^f * C^g$ e $n_0 = n_{0}^{f} + n_{0}^{g}$, com isso, podemos dizer que:
   - $f(n) \leq C * h(n) | n \geq n_0$
 
-##### 11.2. $f (n) = O(f (n))$
+###### 11.2. $f (n) = O(f (n))$
 
 - $N_0 = 1; C = 2$
   - $f(1) \leq 2*f(1)$
   - $f(n) \leq 2*f(n); n \leq n_0$
 
-##### 11.3. Se $f (n) = \Omega(g(n))$ e $g(n) = \Omega(h(n))$ então $f (n) = \Omega(h(n))$
+###### 11.3. Se $f (n) = \Omega(g(n))$ e $g(n) = \Omega(h(n))$ então $f (n) = \Omega(h(n))$
 
 Acho que ele falou dessa, mas não prestei atenção 🫣.
 
-##### 11.4. $f (n) = \Omega(f (n))$
+###### 11.4. $f (n) = \Omega(f (n))$
 
 Acho que ele falou dessa, mas não prestei atenção 🫣.
 
-##### 11.5. $f (n) \neq o(f (n))$
+###### 11.5. $f (n) \neq o(f (n))$
 
 Se não me engano ele falou para tentar provar que isso é correto e rapidamente você chega na conclusão de que isso é absurdo.
 
-#### **Exercício 13.** Prove que $n \neq O(\log n)$
+##### **Exercício 13.** Prove que $n \neq O(\log n)$
 
 Prova por absurdo: negar a afirmação e chegar numa contradição.
 
@@ -652,7 +654,7 @@ Prova por absurdo: negar a afirmação e chegar numa contradição.
 
 > Se você for usar alguma propriedade bem específica, te peço para que primeiro prove que essa sua propriedade seja verdadeira.
 
-#### **Exercício 12.** Prove que $n^3 \neq O(n^2)$
+##### **Exercício 12.** Prove que $n^3 \neq O(n^2)$
 
 - Por absurdo:
   - $n^3 = O(n^2)$
@@ -660,12 +662,12 @@ Prova por absurdo: negar a afirmação e chegar numa contradição.
     - $n \leq C | n \geq n_0$
       - Isso é absurdo, logo $n^3 \neq O(n^2)$
 
-#### **Exercício 10.** Determine uma equivalência assintótica para as funções abaixo
+##### **Exercício 10.** Determine uma equivalência assintótica para as funções abaixo
 
 - $\Omega(n^k) = n^k = O(n^k)$
 - $\omega(n^{k-1}) = n^k = o(n^{k+1})$
 
-##### 10.5. $4^n + 2^n + n$
+###### 10.5. $4^n + 2^n + n$
 
 - $4^n + 2^n + n = O(4^n)$ =? $O(2^n)$
 
@@ -702,13 +704,13 @@ Fibonacci: $Fib(n) = Fib(n-1) + Fib(n-2)$, qual é o $O(Fib)$?
 
 Quando ele só pede para dizer o limite de uma função, ele não espera que se prove. Ele apenas espera que se diga o limite.
 
-#### Q2
+##### Q2
 
 Insertion
 Melhor: O(n)
 Pior caso: invertido
 
-#### Q3
+##### Q3
 
 Bubble sort
 Pior caso: invertido
@@ -725,7 +727,7 @@ Questões 1 e 2 só servem pra ilustrar o que é essa cálculo de complexidade, 
 
 ---
 
-### Lista 2
+#### Lista 2
 
 Eu perguntei sobre a ideia de que $T(n) = 2T(n/2)$ serem duas chamadas com metade dos $n$ valores, então manteria sempre a mesma quantidade de valores sendo processados em todas as chamadas, e se com isso daria pra ter algum tipo de noção intuitiva.
 
@@ -733,9 +735,9 @@ Ele comentou que toda vez que tu tá multiplicando uma recorrência, já dá pra
 
 Entendo eu, então, que daria para ir analisando a recorrência em duas partes.
 
-#### **Exercício 1.** Determine e prove uma equivalência assintótica para todas as recorrências abaixo
+##### **Exercício 1.** Determine e prove uma equivalência assintótica para todas as recorrências abaixo
 
-##### 2. $T (n) = 2T (n - 2) + \log n$
+###### 2. $T (n) = 2T (n - 2) + \log n$
 
 - $T (n  ) = 2T (n - 2) + \log n$
 - $T (n  ) = 2(2T ((n-2) - 2) + \log (n-2)) + \log n$
@@ -764,9 +766,9 @@ $$
 
 Sugestão: tentar fazer essa indução pro caso base do teorema mestre $T(n) = aT(\frac{n}{b}) + n^k$
 
-### **Exercício 3.** Usando o teorema mestre determine uma equivalência assintótica para
+#### **Exercício 3.** Usando o teorema mestre determine uma equivalência assintótica para
 
-#### 1. $T (n) = 2T ( \frac{n}{4} ) + 1$
+##### 1. $T (n) = 2T ( \frac{n}{4} ) + 1$
 
 - $a = 2; b = 4; \log_{b}(a) = \log_{4}(2) = \frac{1}{2}$
 - $n^{\log_{b}(a)} = n^{\frac{1}{2}} = \sqrt{n}$
@@ -779,9 +781,9 @@ Se $T(n) = 2T(\frac{n}{4}) + \sqrt{n}*\log n$, então: 4º caso: não dá!
 
 ---
 
-#### **Exercício 2.** Determine e prove uma equivalência assintótica para todas as recorrências abaixo. **Não use o teorema mestre**
+##### **Exercício 2.** Determine e prove uma equivalência assintótica para todas as recorrências abaixo. **Não use o teorema mestre**
 
-##### 2. $T (n) = 4T ( \frac{n}{2} ) + \log n$
+###### 2. $T (n) = 4T ( \frac{n}{2} ) + \log n$
 
 - $T (n) = 4T ( \frac{n}{2} ) + \log n$
 - $T (n) = 4(4T ( \frac{n}{4} ) + \log \frac{n}{2}) + \log n$
@@ -817,7 +819,7 @@ $$
 
 ---
 
-#### Complexidade Amortizada
+##### Complexidade Amortizada
 
 Para as questões a seguir considere uma pilha S que possui duas operações
 
@@ -828,7 +830,7 @@ Cada uma dessas operações possui custo O(1). Vamos definir uma nova operação
 
 ---
 
-##### **Exercício 8.** Qual a complexidade amortizada da operação de **multi-pop** dada uma sequência de operações de push, pop e **multi-pop** em uma pilha originalmente vazia?
+###### **Exercício 8.** Qual a complexidade amortizada da operação de **multi-pop** dada uma sequência de operações de push, pop e **multi-pop** em uma pilha originalmente vazia?
 
 - *multi-pop(S, k)*:
   - p = k;
@@ -844,7 +846,7 @@ Cada uma dessas operações possui custo O(1). Vamos definir uma nova operação
 
 Geralmente essa dinâmica de trocar a quantidade de operações já é suficiente como prova
 
-#### **Exercício 9.** Qual o custo computacional de sequência de n operações de **push**, **pop** e **multi-pop** em uma pilha com inicialmente $s_O$ elementos e que termina com $s_n$ elementos?
+##### **Exercício 9.** Qual o custo computacional de sequência de n operações de **push**, **pop** e **multi-pop** em uma pilha com inicialmente $s_O$ elementos e que termina com $s_n$ elementos?
 
 Mesmo argumento que o anterior, mas com análise de potencial.
 
