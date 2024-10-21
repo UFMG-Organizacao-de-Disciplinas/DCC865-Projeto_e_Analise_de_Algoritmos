@@ -375,6 +375,20 @@ Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de
 #### 10.5. $4^n + 2^n + n$
 
 ---
+---
+
+### Tabela resumindo as respostas das questões 5 a 10
+
+| # Equação | Função                      | Limite Superior Estrito (o) (Q 7) | Limite Superior (O) (Q 5, 6) | Equivalência ($\Theta$) (Q 10) | Limite Inferior ($\Omega$) (Q 8) | Limite Inferior Estrito ($\omega$) (Q 9) |
+| --------- | --------------------------- | --------------------------------- | ---------------------------- | ------------------------------ | -------------------------------- | ---------------------------------------- |
+| .1        | $2n^3 + n^4 - 1$            | $n^5$                             | $n^4$                        | $n^4$                          | $n^4$                            | $n^5$                                    |
+| .2        | $2^n + 5 \log n + n^2$      | $3^n$                             | $2^n$                        | $2^n$                          | $2^n$                            | $3^n$                                    |
+| .3        | $\log_{10} n + \log_{3} 10$ | $n$                               | $\log n$                     | $\log n$                       | $\log n$                         | $n$                                      |
+| .4        | $n + n \log n + \log n$     | $n^2$                             | $n \log n$                   | $n \log n$                     | $n \log n$                       | $n^2$                                    |
+| .5        | $4^n + 2^n + n$             | $5^n$                             | $2^n$                        | $2^n$                          | $4^n$                            | $5^n$                                    |
+
+---
+---
 
 ### **Exercício 11.** Dadas funções $f(n)$, $h(n)$ e $g(n)$ prove que
 
