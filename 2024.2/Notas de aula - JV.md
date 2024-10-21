@@ -285,10 +285,10 @@ RETORNA 1;
 
 - Resolução de Recorrências
   - Podemos resolver equações na forma:
-    - 1. $T(n) = aT(n/b) + f(n)$
-      - Num caso de divisão e conquista, a parte da divisão seria o $b$, e a agregação das respostas seria o $a$.
-    - 2. $T(n) = aT(n-b) + f(n)$
-      - Esse geralmente se refere a casos em que vá removendo alguns itens de uma estrutura de dados a cada passo.
+    1. $T(n) = aT(n/b) + f(n)$
+        - Num caso de divisão e conquista, a parte da divisão seria o $b$, e a agregação das respostas seria o $a$.
+    2. $T(n) = aT(n-b) + f(n)$
+        - Esse geralmente se refere a casos em que vá removendo alguns itens de uma estrutura de dados a cada passo.
   - Não podemos resolver equações na forma:
     - 3. $T(n) = T(n-a) + T(n-b)$
       - [Tipo Fibonacci]
@@ -569,6 +569,286 @@ Esse último método nem sempre é o mais direto, mas deve-ser ter cuidado na ho
 ---
 
 Fim da matéria da P1
+
+## Aula 6.1 (Extra) - 19/10/2024 - [09h03, 12h00]
+
+### Lista 1
+
+#### Exercício 15
+
+- É adequado recordar:
+  - série de Taylor
+    - $f(x) = \frac{1}{?} f(x_{1}^{i} + \frac{1}{?} G)$
+  - Teorema de Stirling
+    - $n^{\ln} = n^n$
+
+#### **Exercício 14.** Prove que $\sum^{n}_{i=1} i = \Theta (n^2)$, utilizando uma prova por indução
+
+- $\sum^{n}_{i=1} i = O(n^2)$ || $\sum^{n}_{i=1} i = \Omega(n^2)$
+  - $\sum^{n}_{i=1} i = O(n^2)$
+    - [JV: Primeiro precisa escolher um $c$ e um $n_0$ que serão usados por toda a prova indutiva.]
+    - Ele escolheu $c = 3$ e $n_0 = 1$
+    - Base: ($n_0 = 1$)
+      - $1 \leq 3*(1)^2$ - OK
+    - Hipótese de indução: ($n = k$)
+      - $\sum^{k}_{i=1} i \leq k^2$ - [No geral seria isso]
+      - $\sum^{k}_{i=1} i \leq C*k^2$ - [Mas usamos a constante $C$ escolhida durante a prova por indução]
+      - $\sum^{k}_{i=1} i \leq 3*k^2$ - [O $C$ escolhido foi 3]
+    - Passo: ($n = k + 1$)
+      - $\sum^{k+1}_{i=1} i = O(3*(k+1)^2)$
+        - $\sum^{k+1}_{i=1} i = \sum^{k}_{i=1} i + (k+1) \leq 3*k^2 + (k+1) \leq 3*k^2 + 3(k+1) = 3(k^2 + k + 1) \leq 3(k+1)^2$
+          - Primeiro ele removeu o último termo do somatório; depois ele fez a mesma soma de (k+1) no lado direito da hipótese; E então foi trabalhando no lado direito da inequação até chegar no lado direito do passo inicial.
+          - Obs.: $\sum^{k+1}_{i=1} i = \sum^{k}_{i=1} i + (k+1)$ [JV: Isso só é verdade caso $N_0$ tenha pelo menos uma unidade, porque senão o $k+1$ não existiria]
+  - $\sum^{n}_{i=1} i = \Omega(n^2)$
+    - Ele não vai fazer porque é praticamente a mesma coisa que o anterior.
+    - Para fazer o $\Omega$ eu poderia usar outros $C$ e $N_0$. Se eu fosse fazer a prova do Theta de uma vez só, eu teria que escolher $C_1$, $C_2$ e $N_0$ para o $\Omega$ e para o $O$.
+
+#### **Exercício 11.** Dadas funções $f(n)$, $h(n)$ e $g(n)$ prove que
+
+##### 11.1. Se $f(n) = O(g(n))$ e $g(n) = O(h(n))$ então $f(n) = O(h(n))$
+
+- $\exists n_{0}^{f}, C^f$ tal que $f(n) \leq C^f * g(n)$ para todo $n \geq n_{0}^{f}$
+- $\exists n_{0}^{g}, C^g$ tal que $g(n) \leq C^g * h(n)$ para todo $n \geq n_{0}^{g}$
+  - $C^f * g(n) \leq C^f * C^g * h(n) | n \geq \max(n_{0}^{f}, n_{0}^{g})$ [Multiplicando g(n) por $C^f$ nos dois lados]
+    - Obs.: Não precisa ser o máximo, podemos somar ambos para simplificar.
+  - $C^f * g(n) \leq C^f * C^g * h(n) | n \geq n_{0}^{f} + n_{0}^{g}$ ["Plugando" a inequação de f(n) em g(n)]
+  - $f(n) \leq C^f * C^g * h(n) | n \geq n_{0}^{f} + n_{0}^{g}$ [Removendo o $g(n)$ da inequação]
+  - Podemos agora dizer que $C = C^f * C^g$ e $n_0 = n_{0}^{f} + n_{0}^{g}$, com isso, podemos dizer que:
+  - $f(n) \leq C * h(n) | n \geq n_0$
+
+##### 11.2. $f (n) = O(f (n))$
+
+- $N_0 = 1; C = 2$
+  - $f(1) \leq 2*f(1)$
+  - $f(n) \leq 2*f(n); n \leq n_0$
+
+##### 11.3. Se $f (n) = \Omega(g(n))$ e $g(n) = \Omega(h(n))$ então $f (n) = \Omega(h(n))$
+
+Acho que ele falou dessa, mas não prestei atenção 🫣.
+
+##### 11.4. $f (n) = \Omega(f (n))$
+
+Acho que ele falou dessa, mas não prestei atenção 🫣.
+
+##### 11.5. $f (n) \neq o(f (n))$
+
+Se não me engano ele falou para tentar provar que isso é correto e rapidamente você chega na conclusão de que isso é absurdo.
+
+#### **Exercício 13.** Prove que $n \neq O(\log n)$
+
+Prova por absurdo: negar a afirmação e chegar numa contradição.
+
+- $n = O(log n)$
+  - $\exists n_0, C$ tal que $n \leq C * \log n | n \geq n_0$
+  - $2^n \leq 2^{C * \log n} = 2^{log n^C} = n^C$
+  - $2^n \leq n^C \implies \frac{2^n}{n^C} \leq 1$
+    - "Isso daqui é completamente absurdo, o que prova que $n = O(log n)$ é falso, logo $n \neq O(log n)$" é verdadeiro.
+
+> Normalmente quando eu te mostrar uma desigualdade, geralmente a prova mais comum é por absurdo.
+>
+> Provar ao escolher um $C$ e um $n_0$ que satisfaçam a equação não é a forma adequada de provar esse caso de desigualdade. Preciso provar que não existe um $C$ e um $n_0$ que satisfaçam a equação.
+
+---
+
+> Se você for usar alguma propriedade bem específica, te peço para que primeiro prove que essa sua propriedade seja verdadeira.
+
+#### **Exercício 12.** Prove que $n^3 \neq O(n^2)$
+
+- Por absurdo:
+  - $n^3 = O(n^2)$
+    - $\exists n_0, C$ tal que $n^3 \leq C * n^2 | n \geq n_0$
+    - $n \leq C | n \geq n_0$
+      - Isso é absurdo, logo $n^3 \neq O(n^2)$
+
+#### **Exercício 10.** Determine uma equivalência assintótica para as funções abaixo
+
+- $\Omega(n^k) = n^k = O(n^k)$
+- $\omega(n^{k-1}) = n^k = o(n^{k+1})$
+
+##### 10.5. $4^n + 2^n + n$
+
+- $4^n + 2^n + n = O(4^n)$ =? $O(2^n)$
+
+- $4^n = O(2^n)$?
+- $(2^2)^n = O(2^n)$?
+- $2^{2n} = O(2^n)$?
+
+- $2^{2n} = c*2^n | n \geq n_0$
+- $\frac{2^{2n}}{2^n} = \frac{c*2^n}{2^n} = c$
+- $2^n = c$?
+  - Não.
+  
+- $a^n = O(b^n) se a \leq b$
+
+"Pra potência eu olho a base, pra polinômio eu olho o expoente, pra logaritmo eu não preciso"
+
+- $\log_a(n) = \Theta(\log_2(n)); para a > 1$
+
+Prova: mudança de base no log
+
+- $\log_a(n) * \frac{1}{\log_a(2)} = \log_2(n)$
+
+---
+
+No geral ele deseja o mais apertado, mas às vezes resolver o especificamente mais apertado é mais complicado.
+
+Então por exemplo
+
+Fibonacci: $Fib(n) = Fib(n-1) + Fib(n-2)$, qual é o $O(Fib)$?
+
+"À rigor", o $O(Fib)$ é $O((1+\phi)^n)$, mas ele aceitaria $O(2^n)$.
+
+---
+
+Quando ele só pede para dizer o limite de uma função, ele não espera que se prove. Ele apenas espera que se diga o limite.
+
+#### Q2
+
+Insertion
+Melhor: O(n)
+Pior caso: invertido
+
+#### Q3
+
+Bubble sort
+Pior caso: invertido
+
+---
+
+Ele não vai exigir a justificativa da complexidade, mas sugere que justifique. Porque com a justificativa ele pode dar alguma pontuação pelo raciocínio.
+
+---
+
+Questões 1 e 2 só servem pra ilustrar o que é essa cálculo de complexidade, mas esse somatório miúdo de operações não é a prioridade do momento. Ele não vai pedir essa função explícita do número de passos específico.
+
+"Eu nunca vou te pedir o caso médio... a não ser que eu elabore a prova de uma forma muito esquisita"
+
+---
+
+### Lista 2
+
+Eu perguntei sobre a ideia de que $T(n) = 2T(n/2)$ serem duas chamadas com metade dos $n$ valores, então manteria sempre a mesma quantidade de valores sendo processados em todas as chamadas, e se com isso daria pra ter algum tipo de noção intuitiva.
+
+Ele comentou que toda vez que tu tá multiplicando uma recorrência, já dá pra entender que no final terá uma exponencial.
+
+Entendo eu, então, que daria para ir analisando a recorrência em duas partes.
+
+#### **Exercício 1.** Determine e prove uma equivalência assintótica para todas as recorrências abaixo
+
+##### 2. $T (n) = 2T (n - 2) + \log n$
+
+- $T (n  ) = 2T (n - 2) + \log n$
+- $T (n  ) = 2(2T ((n-2) - 2) + \log (n-2)) + \log n$
+  - $T (n  ) = 2^2T (n - 4) + 2\log (n-2) + \log n$
+- $T (n  ) = 2^2(2T ((n-4) - 2) + \log (n-4)) + 2\log (n-2) + \log n$
+  - $T (n  ) = 2^3T (n - 6) + 2^2\log (n-4) + 2\log (n-2) + \log n$
+- $\vdots$
+- $T (n  ) = 2^kT (n - 2k) + \sum_{i=0}^{k-1} 2^i\log (n-2i)$
+- $\vdots$ Eq 1.2:
+- $T(n) = 2^{n/2}*\Theta(1) + \sum_{i=0}^{n/2 - 1} 2^i\log (n-2i)$
+- $T(n) = \Theta(2^{n/2}) + \dots$
+  - $\dots = \sum_{i=0}^{n/2 - 1} 2^i\log (n-2i) \leq \sum_{i=0}^{n/2 - 1} 2^i\log n$
+  - $\dots = \log n \sum_{i=0}^{n/2 - 1} 2^i = (2^{n/2} - 1) \log n = O(2^{n/2} * \log n)$
+
+---
+
+$$
+\text{Eq 1.2:}\\
+T(n - 2k) = T(0)\\
+n-2k = 0\\
+n = 2k\\
+k = \frac{n}{2}\\
+$$
+
+---
+
+Sugestão: tentar fazer essa indução pro caso base do teorema mestre $T(n) = aT(\frac{n}{b}) + n^k$
+
+### **Exercício 3.** Usando o teorema mestre determine uma equivalência assintótica para
+
+#### 1. $T (n) = 2T ( \frac{n}{4} ) + 1$
+
+- $a = 2; b = 4; \log_{b}(a) = \log_{4}(2) = \frac{1}{2}$
+- $n^{\log_{b}(a)} = n^{\frac{1}{2}} = \sqrt{n}$
+- $f(n) = 1
+- 1º caso: $\Theta(\sqrt{n})$
+
+Se $T(n) = 2T(\frac{n}{4}) + \sqrt{n}$, então: 2º caso: $\Theta(\sqrt{n}*\log n)$
+Se $T(n) = 2T(\frac{n}{4}) + n$, então: 3º caso: $\Theta(n)$
+Se $T(n) = 2T(\frac{n}{4}) + \sqrt{n}*\log n$, então: 4º caso: não dá!
+
+---
+
+#### **Exercício 2.** Determine e prove uma equivalência assintótica para todas as recorrências abaixo. **Não use o teorema mestre**
+
+##### 2. $T (n) = 4T ( \frac{n}{2} ) + \log n$
+
+- $T (n) = 4T ( \frac{n}{2} ) + \log n$
+- $T (n) = 4(4T ( \frac{n}{4} ) + \log \frac{n}{2}) + \log n$
+  - $T (n) = 4^2T ( \frac{n}{8} ) + 4\log \frac{n}{2} + \log n$
+- $T (n) = 4^2(4T ( \frac{n}{8} ) + \log \frac{n}{4}) + 4\log \frac{n}{2} + \log n$
+  - $T (n) = 4^3T ( \frac{n}{16} ) + 16\log \frac{n}{4} + 4\log \frac{n}{2} + \log n$
+- $\vdots$
+- $T (n) = 4^kT ( \frac{n}{2^k} ) + \sum_{i=0}^{k-1} \log \frac{n}{2^i} * 4^i$
+- $\vdots$ Eq 2.1:
+- $T(n) = [4^{\log_2(n)}*\Theta(1)] + [\sum_{i=0}^{\log_2(n) - 1} 4^i * \log \frac{n}{2^i}]$
+  - $[4^{\log_2(n)}*\Theta(1)] \dots$
+    - $[4^{\log_2(n)}] =$
+    - $(2*2)^{\log_2(n)} =$
+    - $2^{\log_2 n} * 2^{\log_2 n} =$
+    - $n^2$
+    - $O(n^2)$
+  - $\dots + [\sum_{i=0}^{\log_2(n) - 1} 4^i * \log \frac{n}{2^i}]$
+    - $\sum_{i=0}^{\log_2(n) - 1} 4^i * \log \frac{n}{2^i} =$
+    - $\log n \sum_{i=0}^{\log_2(n) - 1} 4^i =$
+    - $\log n * (\frac{4^{\log_2(n)} - 1}{3}) =$
+    - $\frac{\log n * n^2}{3} =$
+    - $O(n^2 * \log n)$
+
+---
+
+$$
+\text{Eq 2.1:}\\
+T(\frac{n}{2^k}) = T(1)\\
+\frac{n}{2^k} = 1\\
+n = 2^k\\
+k = \log_2(n)\\
+$$
+
+---
+
+#### Complexidade Amortizada
+
+Para as questões a seguir considere uma pilha S que possui duas operações
+
+- **pop(S)**: remove (desempilha) o topo da pilha S.
+- **push(S,x)**: empilha o elemento x na pilha S.
+
+Cada uma dessas operações possui custo O(1). Vamos definir uma nova operação para esta estrutura, a operação **multi-pop(S,k)** que remove os k últimos elementos empilhados.
+
+---
+
+##### **Exercício 8.** Qual a complexidade amortizada da operação de **multi-pop** dada uma sequência de operações de push, pop e **multi-pop** em uma pilha originalmente vazia?
+
+- *multi-pop(S, k)*:
+  - p = k;
+  - **Enquanto** !*vazio*(S) **e** p > 0:
+    - *pop*(s)
+
+- Pior caso: $O(k)$
+- Melhor Caso: $\Theta(1)$
+- Complexidade amortizada: $\Theta(1)$
+  - Mudam-se os valores: *push()* passa a ter custo 2 e *pop()* passa a ter custo 0.
+  - Dessa forma, para os n passos de *push()* e *pop()* temos um custo total de 2n.
+  - Fazendo a divisão do custo pela quantidade de passos, temos que $\frac{2n}{n} = 2 = \Theta(1)$
+
+Geralmente essa dinâmica de trocar a quantidade de operações já é suficiente como prova
+
+#### **Exercício 9.** Qual o custo computacional de sequência de n operações de **push**, **pop** e **multi-pop** em uma pilha com inicialmente $s_O$ elementos e que termina com $s_n$ elementos?
+
+Mesmo argumento que o anterior, mas com análise de potencial.
+
+Ele recomenda usar a função de potencial como sendo a quantidade de elementos
 
 ## Módulo 2
 
