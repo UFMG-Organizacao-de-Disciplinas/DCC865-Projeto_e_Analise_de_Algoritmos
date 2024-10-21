@@ -336,7 +336,7 @@ Para essa questão é importante considerarmos que:
 >
 > $f = \omega(g)$ Para todo $c > 0$ existe $n_0$ tal que: $f(n) > c * g(n)$ para todo $n \geq n_0$
 
-- $f = \omega(g); f(n) > c*g(n); n \geq n_0$
+- $f = \omega(g) \forall c > 0 \exists n_0 | f(n) > c*g(n) \forall n \geq n_0$
 
 #### 9.1. $2n^3 + n^4 - 1$
 
