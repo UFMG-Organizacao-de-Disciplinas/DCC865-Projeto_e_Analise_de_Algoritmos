@@ -354,6 +354,18 @@ Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de
 
 #### 9.2. $2^n + 5 \log n + n^2$
 
+- $f(n) = 2^n + 5 \log n + n^2$
+- $\Omega(f(n)) = \Omega(2^n + 5 \log n + n^2)$
+- $\Omega(f(n)) = \Omega(2^n)$
+
+---
+
+Achando uma função $g(n)$ que seja maior que $f(n)$:
+
+- $g(n) = 3^n$
+
+Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de $n \geq n_0$ a função $f(n)$ é maior que $g(n)$, sendo assim, $3^n = \omega(f(n))$.
+
 #### 9.3. $\log_{10} n + \log_{3} 10$
 
 #### 9.4. $n + n \log n + \log n$
