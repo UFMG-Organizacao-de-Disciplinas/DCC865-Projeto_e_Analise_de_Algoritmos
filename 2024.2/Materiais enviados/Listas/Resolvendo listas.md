@@ -12,78 +12,84 @@ Lista 1
 
 ### **Exercício 1.** Determine a função de complexidade do algoritmo abaixo e indique sua complexidade de
 
-a. Melhor caso
-b. Caso médio
-c. Pior caso
-
-### Pseudocódigo Q1
-
-- **Entrada**: Vetor de $n$ inteiros $a$
-- $cnt \leftarrow 0$;
-- **para todo** $i \leftarrow 0$ até $n - 1$ **faça**
-  - **se** $a[i]\%2 = 0$ **então**
-    - $cnt \leftarrow cnt + 1$;
-- **retorna** cnt;
+- ***Pseudocódigo Q1***
+  - **Entrada**: Vetor de $n$ inteiros $a$
+  - $cnt \leftarrow 0$;
+  - **para todo** $i \leftarrow 0$ até $n - 1$ **faça**
+    - **se** $a[i]\%2 = 0$ **então**
+      - $cnt \leftarrow cnt + 1$;
+  - **retorna** cnt;
 
 ---
+
+#### 1.a. Melhor caso
+
+#### 1.b. Caso médio
+
+#### 1.c. Pior caso
 
 ### **Exercício 2.** Determine a função de complexidade do algoritmo abaixo e indique sua complexidade de
 
-a. Melhor caso
-b. Caso médio
-c. Pior caso
-
-### Pseudocódigo Q2
-
-- **Entrada:** Matrizes $n \times n$ $A$ e $B$
-- C $\leftarrow$ matriz vazia;
-- **para todo** $i \leftarrow 0$ até $n - 1$ **faça**
-  - **para todo** $j $\leftarrow$ 0$ até $n - 1$ **faça**
-    - $C[i, j] \leftarrow 0$;
-    - **para todo** $k \leftarrow 0$ até $n - 1$ **faça**
-      - $C[i, j] \leftarrow C[i, j] + A[i, k] ∗ B[k, j]$;
-- **retorna** $C$;
+- ***Pseudocódigo Q2***
+  - **Entrada:** Matrizes $n \times n$ $A$ e $B$
+  - C $\leftarrow$ matriz vazia;
+  - **para todo** $i \leftarrow 0$ até $n - 1$ **faça**
+    - **para todo** $j $\leftarrow$ 0$ até $n - 1$ **faça**
+      - $C[i, j] \leftarrow 0$;
+      - **para todo** $k \leftarrow 0$ até $n - 1$ **faça**
+        - $C[i, j] \leftarrow C[i, j] + A[i, k] ∗ B[k, j]$;
+  - **retorna** $C$;
 
 ---
+
+#### 2.a. Melhor caso
+
+#### 2.b. Caso médio
+
+#### 2.c. Pior caso
 
 ### **Exercício 3.** Considere o seguinte algoritmo
 
-a. Simule a execução do algoritmo para o vetor [3, 5, 2, 8, 9]
-b. O que esse algoritmo faz?
-c. Qual sua complexidade de pior caso?
-d. Qual sua complexidade de melhor caso?
-
-### Pseudocódigo Q3
-
-- **Entrada:** vetor de inteiros A, tamanho n de A
-- **para todo** j $\leftarrow$ $2$ até $n$ **faça**
-  - $chave \leftarrow A[j]$;
-  - $i \leftarrow j - 1$;
-  - enquanto $i > 0$ e $A[i] \geq chave$ **faça**
-    - $A[i + 1] \leftarrow A[i]$;
-    - $i \leftarrow i - 1$;
-  - $A[i + 1] \leftarrow chave$;
-- **retorna** A;
+- ***Pseudocódigo Q3***
+  - **Entrada:** vetor de inteiros A, tamanho n de A
+  - **para todo** j $\leftarrow$ $2$ até $n$ **faça**
+    - $chave \leftarrow A[j]$;
+    - $i \leftarrow j - 1$;
+    - enquanto $i > 0$ e $A[i] \geq chave$ **faça**
+      - $A[i + 1] \leftarrow A[i]$;
+      - $i \leftarrow i - 1$;
+    - $A[i + 1] \leftarrow chave$;
+  - **retorna** A;
 
 ---
+
+#### 3.a. Simule a execução do algoritmo para o vetor [3, 5, 2, 8, 9]
+
+#### 3.b. O que esse algoritmo faz?
+
+#### 3.c. Qual sua complexidade de pior caso?
+
+#### 3.d. Qual sua complexidade de melhor caso?
 
 ### **Exercício 4.** Considere o seguinte algoritmo
 
-a. Simule a execução do algoritmo para o vetor [3, 5, 2, 8, 9]
-b. O que esse algoritmo faz?
-c. Qual sua complexidade de pior caso?
-d. Qual sua complexidade de melhor caso?
-
-### Pseudocódigo Q4
-
-- **Entrada:** vetor de inteiros $A$, tamanho $n$ de $A$
-- **para todo** $i \leftarrow 1$ até $n - 1$ **faça**
-  - **para todo** $j \leftarrow n$ até $i + 1$ **faça**
-    - **se** $A[j] < A[j - 1]$ **então**
-      - troque $A[j]$ com $A[j - 1]$;
-- **retorna** A;
+- ***Pseudocódigo Q4***
+  - **Entrada:** vetor de inteiros $A$, tamanho $n$ de $A$
+  - **para todo** $i \leftarrow 1$ até $n - 1$ **faça**
+    - **para todo** $j \leftarrow n$ até $i + 1$ **faça**
+      - **se** $A[j] < A[j - 1]$ **então**
+        - troque $A[j]$ com $A[j - 1]$;
+  - **retorna** A;
 
 ---
+
+#### 4.a. Simule a execução do algoritmo para o vetor [3, 5, 2, 8, 9]
+
+#### 4.b. O que esse algoritmo faz?
+
+#### 4.c. Qual sua complexidade de pior caso?
+
+#### 4.d. Qual sua complexidade de melhor caso?
 
 ### **Exercício 5.** Determine um limite superior assintótico para as funções abaixo (de preferência o mais apertado possível)
 
