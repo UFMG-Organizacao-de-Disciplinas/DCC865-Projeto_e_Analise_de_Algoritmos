@@ -1235,45 +1235,119 @@ Relembrando: $m = |E|$; $n = |V|$
 
 Geralmente ele vai querer as fórmulas tanto da lista quanto da matriz.
 
-## Estudar
+### Aula 7 - 21/10/2024 - [13h06, 14h30]
 
-- Material de Pré-PAA
-- Heap
-- Transformação de logaritmo
-- Propriedades de logaritmo
-- Soma de PA e PG
+Nos exercícios feitos, é binário. Zero ou um. Se fez e o sistema aceitou, é um. Se não fez, é zero.
 
-## Dúvidas
+Se o código tá errado, mas acertou os casos de teste, ele tá "certo".
 
-$O(n!)$ isn't equivalent to $O(n^n)$. It is asymptotically less than $O(n^n)$.
+#### Slide - DFS e Aplicações - Aula 7
 
-$O(\log(n!))$ is equal to $O(n \log(n))$. Here is one way to prove that:
+##### Busca em Profundidade - Classificação das Arestas
 
-Note that by using the log rule $\log(mn) = \log(m) + \log(n)$ we can see that:
+- Podemos utilizar o grafo $G_{\pi}$ através de uma busca em profundidade para classificar as arestas de G.
+- Arestas $uv$ de Árvore: $vu \in G_{\pi}$.
+- Arestas $uv$ de Volta: liga $u$ a um ancestral.
+- Arestas $uv$ de Avanço: liga $u$ a um descendente.
+- Arestas $uv$ de Passagem: as demais.
 
-$\log(n!) = \log(n*(n-1)*...2*1) = \log(n) + \log(n-1) + ... \log(2) + \log(1)$
+##### Classificação das Arestas
 
-Proof that $O(\log(n!)) \subseteq O(n \log(n))$:
+- : Amarelo
+- Volta: Azul
+- Avanço: Vermelho
+- Passagem: verde
 
-$\log(n!) = \log(n) + \log(n-1) + ... \log(2) + \log(1)$
+Ciclo: grafo simples
+Ciclo direcionado: grafo direcionado
 
-Which is less than:
+##### Ordenação Topológica
 
-$\log(n) + \log(n) + \log(n) + \log(n) + ... + \log(n) = n*\log(n)$
+- Dado um grafo orientado $G = (V, A)$.
+  - [JV: A é o conjunto de arcos]
+- Assuma que este grafo não possui circuitos orientados.
+- Chamamos esse tipo de grafo orientado DAG.
+- Esse tipo de grafo representa uma ordem parcial.
+- Queremos uma ordem total que respeite essa ordem parcial.
 
-So $O(\log(n!))$ is a subset of $O(n \log(n))$
+[Dúvida: Todos precisam ser feitos? Precisa passar por todos ordenadamente? Sim e não. Você vai passar por todos, mas podem ser vários caminhos. Não precisa ter apenas um ancestral.]
 
-Proof that $O(n \log(n)) \subseteq O(\log(n!))$:
+##### Ordenação Topológica - Exemplo
 
-$\log(n!) = \log(n) + \log(n-1) + \dots \log(2) + \log(1)$
+```mermaid
+graph TD
+    1-->2
+    1-->3
+    1-->4
+    2-->4
+    3-->4
+    3-->6
+    4-->5
+    4-->6
+```
 
-Which is greater than the left half of that expression with all $(n-x)$ replaced by $n/2$:
+##### Ordenação Topológica (2)
 
-$\log(n/2) + \log(n/2) + ... + \log(n/2) = floor(n/2)*\log(floor(n/2)) \in O(n \log(n))$
+- **Algoritmo 3:** Ordenacao_Topologica(G)
+  - **Entrada:** Grafo $G = (V, s)$.
+    - Use DFS para calcular os tempos $f[v]$;
+    - Ordene inversamente $V(G)$ por $f[v]$;
 
-So $O(n \log(n))$ is a subset of O(\log(n!))$.
+##### Ordenação Topológica - Exemplo (2)
 
-Since $O(n \log(n)) \subseteq O(\log(n!)) \subseteq O(n \log(n))$, they are equivalent big-Oh classes.
+Faz a busca em profundidade e ordena eles por tempo de término. Isso ajuda a fazer algo que eu não prestei atenção.
+
+##### Componentes Fortemente Conexas
+
+As únicas componentes conexas são aquelas de onde você pode ir e voltar. A menor componente fortemente conexa é um vértice do grafo. Espera-se que as componentes fortemente conexas seja o conjunto de grupos de vértices que consigam se visitar entre si.
+
+Para inverter todas as direções do grafo, seria o mesmo que fazer a matriz transposta da matriz de adjacência ou "fazer o grafo transverso".
+
+E depois de transporta, faz mais uma ver a busca por profundidade, seguind o a ordem inversa do tempo de conclusão.
+
+Isso gera as componentes fortemente conexas maximais.
+
+---
+
+- Um grafo orientado pode ser decomposto em componentes fortemente conexas.
+- Defina $G^T$ como
+  - $V(G^T) = V(G)$
+  - $A(G^T) =$ conjunto de arcos de $G$ com direção trocada.
+
+---
+
+- **Algoritmo 4: Componentes_Fortementes_Conexas(G)**
+  - **Entrada:** Grafo $G = (V, s)$.
+    - Use DFS para calcular os tempos $f[v]$;
+    - Compute $G^T$;
+    - Use DFS em $G^T$, mas com os vértices ordenados em forma decrescente por valor de $f[v]$;
+
+#### Slide - BFS e Aplicações
+
+##### Busca em Largura
+
+- Vamos visitar os vértices de forma ordenada.
+- Primeiro o pai, depois os filhos.
+- Vamos manter algumas variáveis:
+  - $\Pi[v]$: pai do vértice $v$.
+  - $d[v]$: distância do vértice $v$.
+- Vértices brancos, cinzas e pretos.
+
+---
+
+- Vamos...
+
+A busca em largura gera uma árvore de menores caminhos.
+
+Ele funciona bem para grafos que não são ponderados.
+
+Complexidade: O(n+m) para matriz de adjacência
+
+Matriz = O(n^2) -> O(n^2 \log n)
+Lista = O(n + m) -> O(n + m + m \log n)
+
+##### Busca em Largura - Exemplos
+
 ## Estudar
 
 - Material de Pré-PAA
