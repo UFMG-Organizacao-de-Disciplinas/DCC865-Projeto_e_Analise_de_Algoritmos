@@ -10,7 +10,7 @@ Lista 1
 
 ---
 
-### **Exercício 1.** Determine a função de complexidade do algoritmo abaixo e indique sua complexidade de
+### **Exercício 1.** Determine a função de complexidade do algoritmo abaixo e indique sua complexidade de melhor caso, caso médio e pior caso
 
 - ***Pseudocódigo Q1***
   - **Entrada**: Vetor de $n$ inteiros $a$
@@ -28,7 +28,7 @@ Lista 1
 
 #### 1.c. Pior caso
 
-### **Exercício 2.** Determine a função de complexidade do algoritmo abaixo e indique sua complexidade de
+### **Exercício 2.** Determine a função de complexidade do algoritmo abaixo e indique sua complexidade de melhor caso, caso médio e pior caso
 
 - ***Pseudocódigo Q2***
   - **Entrada:** Matrizes $n \times n$ $A$ e $B$
