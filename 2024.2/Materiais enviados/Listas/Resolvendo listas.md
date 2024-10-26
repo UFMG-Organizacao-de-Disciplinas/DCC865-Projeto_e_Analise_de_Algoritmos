@@ -97,9 +97,9 @@ Para essa questão é importante considerarmos que:
 
 - $O: \text{Limite Superior}$
 - $o: \text{Limite Superior estrito}$
-- $\Omega: \text{Limite Inferior}$
-- $\omega: \text{Limite Inferior estrito}$
 - $\Theta: \text{Equivalência}$
+- $\omega: \text{Limite Inferior estrito}$
+- $\Omega: \text{Limite Inferior}$
 
 - $O(n!) < O(2^n) < O(n^2) < O(n log n) < O(n) < O(log n) < O(1)$
 
@@ -154,9 +154,9 @@ Para essa questão é importante considerarmos que:
 
 - $O: \text{Limite Superior}$
 - $o: \text{Limite Superior estrito}$
-- $\Omega: \text{Limite Inferior}$
-- $\omega: \text{Limite Inferior estrito}$
 - $\Theta: \text{Equivalência}$
+- $\omega: \text{Limite Inferior estrito}$
+- $\Omega: \text{Limite Inferior}$
 
 - $O(n!) < O(2^n) < O(n^2) < O(n log n) < O(n) < O(log n) < O(1)$
 
@@ -245,9 +245,9 @@ Para essa questão é importante considerarmos que:
 
 - $O: \text{Limite Superior}$
 - $o: \text{Limite Superior estrito}$
-- $\Omega: \text{Limite Inferior}$
-- $\omega: \text{Limite Inferior estrito}$
 - $\Theta: \text{Equivalência}$
+- $\omega: \text{Limite Inferior estrito}$
+- $\Omega: \text{Limite Inferior}$
 
 - $O(n!) < O(2^n) < O(n^2) < O(n log n) < O(n) < O(log n) < O(1)$
 
