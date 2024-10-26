@@ -51,14 +51,14 @@ Lista 1
 ### **Exercício 3.** Considere o seguinte algoritmo
 
 - ***Pseudocódigo Q3***
-  - **Entrada:** vetor de inteiros A, tamanho n de A
-  - **para todo** j $\leftarrow$ $2$ até $n$ **faça**
-    - $chave \leftarrow A[j]$;
-    - $i \leftarrow j - 1$;
-    - enquanto $i > 0$ e $A[i] \geq chave$ **faça**
-      - $A[i + 1] \leftarrow A[i]$;
-      - $i \leftarrow i - 1$;
-    - $A[i + 1] \leftarrow chave$;
+  - **Entrada:** vetor de inteiros $A$, tamanho $n$ de $A$
+  - **para todo** i $\leftarrow$ $2$ até $n$ **faça**
+    - $chave \leftarrow A[i]$;
+    - $j \leftarrow i - 1$;
+    - **enquanto** $j > 0$ e $A[j] > chave$ **faça**
+      - $A[j + 1] \leftarrow A[j]$;
+      - $j \leftarrow j - 1$;
+    - $A[j + 1] \leftarrow chave$;
   - **retorna** A;
 
 ---
