@@ -269,7 +269,12 @@ Achando uma função $g(n)$ que seja maior que $f(n)$:
 
 - $g(n) = n^5$
 
-Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de $n \geq 1$ a função $f(n)$ é menor que $g(n)$, sendo assim, $n^5 = o(f(n))$.
+Se considerarmos que o $n_0 = 1$ e $c = 1$, temos então que:
+
+- $g(n) > c*f(n)$
+- $n^5 > 2n^3 + n^4 - 1$
+
+Sabemos que para todos os valores de $n \geq 1$ a função $f(n)$ é menor que $g(n)$, sendo assim, $n^5 = o(f(n))$.
 
 ---
 
