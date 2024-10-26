@@ -22,7 +22,42 @@ Lista 1
 
 ---
 
+Contando a quantidade de passos:
+
+- ***Pseudocódigo Q1***
+  - **Entrada**: Vetor de $n$ inteiros $a$ [0]
+  - $cnt \leftarrow 0$; [$C_1$]
+  - **para todo** $i \leftarrow 0$ até $n - 1$ **faça** [Inicial: $C_2$; por ciclo: $C_3$]
+    - **se** $a[i]\%2 = 0$ **então** [Por ciclo: $C_4$]
+      - $cnt \leftarrow cnt + 1$; [Caso verdadeiro: $C_5$]
+  - **retorna** cnt; [0]
+
+Somando os passos:
+
+- $T(n) = C_1 + C_2 + \sum_{i=0}^{n-1} ((C_3 + C_4) + P_5*C_5$)
+- $T(n) = C_{1, 2} + \sum_{i=0}^{n-1} (C_{3, 4} + P_5*C_5$)
+- $T(n) = C_{1, 2} + n*C_{3, 4} + n*P_5*C_5$
+
+Onde temos que:
+
+- $C_1 = 1$ (1 atribuição)
+- $C_2 = 2$ (1 atribuição; 1 comparação inicial)
+- $C_3 = 2$ (1 comparação; 1 incremento)
+- $C_4 = 3$ (1 índice; 1 divisão; 1 comparação)x
+- $C_5 = 2$ (1 soma; 1 atribuição)
+- $P_5 = 0,5 \text{ (chance de ser par) ou } \frac{\text{número de pares em } a}{n}$
+- $C_{1, 2} = C_1 + C_2$
+- $C_{3, 4} = C_3 + C_4$
+
+Temos então que sua função de complexidade é:
+
+- $T(n) = C_{1, 2} + n*C_{3, 4} + n*P_5*C_5$
+
 #### 1.a. Melhor caso
+
+Como o algoritmo em questão conta a quantidade de números pares, sua execução variará de acordo com a quantidade de números pares. Sendo assim, o melhor caso é quando não há números pares no vetor $a$.
+
+- $P_5 = 1$
 
 #### 1.b. Caso médio
 
