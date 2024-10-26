@@ -100,9 +100,41 @@ Como o algoritmo em questão conta a quantidade de números pares, sua execuçã
 
 #### 3.a. Simule a execução do algoritmo para o vetor [3, 5, 2, 8, 9]
 
+- Variáveis: $A = [3, 5, 2, 8, 9]; n = 5; i=2; chave(A[i])=5; j=1; A[j]=3;$
+- Variáveis: $A = [3, 5, 2, 8, 9]; n = 5; i=3; chave(A[i])=2; j=2; A[j]=5;$
+  - $A = [3, 5, 5, 8, 9];
+  - $A = [3, 2, 5, 8, 9];
+- Variáveis: $A = [3, 2, 5, 8, 9]; n = 5; i=3; chave(A[i])=2; j=1; A[j]=3;$
+  - $A = [3, 3, 5, 8, 9];
+  - $A = [2, 3, 5, 8, 9];
+- Variáveis: $A = [2, 3, 5, 8, 9]; n = 5; i=4; chave(A[i])=8; j=3; A[j]=5;$
+- Variáveis: $A = [2, 3, 5, 8, 9]; n = 5; i=5; chave(A[i])=9; j=4; A[j]=2;$
+- FIM: $A = [2, 3, 5, 8, 9];$
+
 #### 3.b. O que esse algoritmo faz?
 
 #### 3.c. Qual sua complexidade de pior caso?
+
+Calculando o custo de cada passo:
+
+- ***Pseudocódigo Q3***
+  - **Entrada:** vetor de inteiros A, tamanho n de A
+  - **para todo** j $\leftarrow$ $2$ até $n$ **faça** [1]
+    - $chave \leftarrow A[j]$; [2]
+    - $i \leftarrow j - 1$; [3]
+    - enquanto $i > 0$ e $A[i] \geq chave$ **faça** [4]
+      - $A[i + 1] \leftarrow A[i]$; [5]
+      - $i \leftarrow i - 1$; [6]
+    - $A[i + 1] \leftarrow chave$; [7]
+  - **retorna** A;
+
+- [1] $C12$
+- [2] $$
+- [3] $$
+- [4] $$
+- [5] $$
+- [6] $$
+- [7] $$
 
 #### 3.d. Qual sua complexidade de melhor caso?
 
