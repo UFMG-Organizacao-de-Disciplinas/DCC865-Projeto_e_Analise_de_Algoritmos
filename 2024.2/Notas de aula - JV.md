@@ -586,7 +586,7 @@ Fim da matéria da P1
 
 ##### **Exercício 14.** Prove que $\sum^{n}_{i=1} i = \Theta (n^2)$, utilizando uma prova por indução
 
-- $\sum^{n}_{i=1} i = O(n^2)$ || $\sum^{n}_{i=1} i = \Omega(n^2)$
+- $\sum^{n}_ {i=1} i = O(n^2)$ || $\sum^{n}_{i=1} i = \Omega(n^2)$
   - $\sum^{n}_{i=1} i = O(n^2)$
     - [JV: Primeiro precisa escolher um $c$ e um $n_0$ que serão usados por toda a prova indutiva.]
     - Ele escolheu $c = 3$ e $n_0 = 1$
@@ -597,10 +597,10 @@ Fim da matéria da P1
       - $\sum^{k}_{i=1} i \leq C*k^2$ - [Mas usamos a constante $C$ escolhida durante a prova por indução]
       - $\sum^{k}_{i=1} i \leq 3*k^2$ - [O $C$ escolhido foi 3]
     - Passo: ($n = k + 1$)
-      - $\sum^{k+1}_{i=1} i = O(3*(k+1)^2)$
-        - $\sum^{k+1}_{i=1} i = \sum^{k}_{i=1} i + (k+1) \leq 3*k^2 + (k+1) \leq 3*k^2 + 3(k+1) = 3(k^2 + k + 1) \leq 3(k+1)^2$
+      - $\sum^{k+1}_{i=1} i = O(3(k+1)^2)$
+        - $\sum^{k+1}_ {i=1} i = \sum^{k}_ {i=1} i + (k+1) \leq 3k^2 + (k+1) \leq 3k^2 + 3(k+1) = 3(k^2 + k + 1) \leq 3(k+1)^2$
           - Primeiro ele removeu o último termo do somatório; depois ele fez a mesma soma de (k+1) no lado direito da hipótese; E então foi trabalhando no lado direito da inequação até chegar no lado direito do passo inicial.
-          - Obs.: $\sum^{k+1}_{i=1} i = \sum^{k}_{i=1} i + (k+1)$ [JV: Isso só é verdade caso $N_0$ tenha pelo menos uma unidade, porque senão o $k+1$ não existiria]
+          - Obs.: $\sum^{k+1}_ {i=1} i = \sum^{k}_ {i=1} i + (k+1)$ [JV: Isso só é verdade caso $N_0$ tenha pelo menos uma unidade, porque senão o $k+1$ não existiria]
   - $\sum^{n}_{i=1} i = \Omega(n^2)$
     - Ele não vai fazer porque é praticamente a mesma coisa que o anterior.
     - Para fazer o $\Omega$ eu poderia usar outros $C$ e $N_0$. Se eu fosse fazer a prova do Theta de uma vez só, eu teria que escolher $C_1$, $C_2$ e $N_0$ para o $\Omega$ e para o $O$.
