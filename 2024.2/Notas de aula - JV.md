@@ -1348,6 +1348,69 @@ Lista = O(n + m) -> O(n + m + m \log n)
 
 ##### Busca em Largura - Exemplos
 
+### Aula 8 - 23/10/2024 - [13h08, 14h40]
+
+- Ele falou sobre as matérias da prova, não anotei. Checar no áudio.
+
+#### Slide - Caminhos mínimos
+
+##### Problema de Caminho Mínimo entre Dois Vértices
+
+##### Ideias para o Algoritmo
+
+- **Propriedade Fundamental:** Se ...
+
+Se há um caminho de V a W e uma aresta de W a U, e sabemos que esse é o caminho mínimo de V a U, então sabemos que esse é também o caminho mínimo de V a W.
+
+O algoritmo vai buscar os caminhos mínimos com 1, 2, 3, ..., n arestas.
+
+##### Algoritmo de Bellman-Ford
+
+- ***Algoritmo 1:*** INICIALIZA(G, s)
+- ***Algoritmo 2:*** RELAX(u, v)
+  - **se** $d[v] > d[u] + w_{uv}$ **então**
+    - $d[v] = d[u] + w_{uv}$
+    - $\pi[v] = u$
+  - **fim se**
+  - $d[s] \leftarrow 0$
+- ***Algoritmo 3:*** BELLMAN-FORD(G, s)
+  - INICIALIZA(G, s)
+  - **para** $i=1$ até $|V(G)| **faça**
+    - **para todo** $uv \in E(V) **faça** [Eq1]
+      - RELAX(u, v);
+    - **fim para**
+  - **fim para**
+
+A complexidade de Eq1 é $O(m)$ para lista de adjacência e $O(n^2)$ para matriz de adjacência.
+
+Total:
+
+Lista: $O(n + n*m) = O(n*m)$
+Matriz: $O(n + n*O(n^2)) = O(n^3)$
+
+##### Algoritmo de Bellman-Ford - Exemplo
+
+##### Adição Algoritmo de Bellman-Ford
+
+- ***Algoritmo 4:*** VERIFICA(G, s)
+
+Vai servir para verificar se tem ciclo negativo.
+
+Complexidade desse novo algoritmo:
+
+Lista: $O(m * \log n)$
+Matriz: $O(n^2 * \log n)$
+
+"Para todos os efeitos práticos, $n^4$, $n^5$, já tá fugindo da praticidade".
+
+Árvore geradora mínima: árvore que conecta todos os vértices com o menor custo possível.
+
+- Aula 8
+  - Descobrir o que é UNION-FIND - Kruskal
+  - Heap de Fibonacci - Prim
+
+##### Algoritmo de Prim; Algoritmo de Kruskal
+
 ## Estudar
 
 - Material de Pré-PAA
@@ -1355,3 +1418,6 @@ Lista = O(n + m) -> O(n + m + m \log n)
 - Transformação de logaritmo
 - Propriedades de logaritmo
 - Soma de PA e PG
+- Aula 8
+  - Descobrir o que é UNION-FIND - Kruskal
+  - Heap de Fibonacci - Prim
