@@ -152,11 +152,35 @@ Calculando o custo de cada passo:
 
 #### 4.a. Simule a execução do algoritmo para o vetor [3, 5, 2, 8, 9]
 
+- Variáveis: $A = [3, 5, 2, 8, 9]; n = 5; i=1; j=5; A[j]=9; A[j-1]=8;$
+- Variáveis: $A = [3, 5, 2, 8, 9]; n = 5; i=1; j=4; A[j]=8; A[j-1]=2;$
+- Variáveis: $A = [3, 5, 2, 8, 9]; n = 5; i=1; j=3; A[j]=2; A[j-1]=5;$ Troca
+- Variáveis: $A = [3, 2, 5, 8, 9]; n = 5; i=1; j=2; A[j]=2; A[j-1]=3;$ Troca
+- Variáveis: $A = [2, 3, 5, 8, 9]; n = 5; i=2; j=5; A[j]=9; A[j-1]=8;$
+- Variáveis: $A = [2, 3, 5, 8, 9]; n = 5; i=2; j=4; A[j]=8; A[j-1]=5;$
+- Variáveis: $A = [2, 3, 5, 8, 9]; n = 5; i=2; j=3; A[j]=5; A[j-1]=3;$
+- Variáveis: $A = [2, 3, 5, 8, 9]; n = 5; i=3; j=5; A[j]=9; A[j-1]=8;$
+- Variáveis: $A = [2, 3, 5, 8, 9]; n = 5; i=3; j=4; A[j]=8; A[j-1]=5;$
+- Variáveis: $A = [2, 3, 5, 8, 9]; n = 5; i=4; j=5; A[j]=9; A[j-1]=8;$
+- Fim
+
 #### 4.b. O que esse algoritmo faz?
+
+Bubble sort: ordena lista de forma crescente.
 
 #### 4.c. Qual sua complexidade de pior caso?
 
+O pior caso é quando a lista está ordenada de forma decrescente.
+
+Como são dois loops, um dentro do outro, ambos percorrendo aproximadamente n elementos, temos que a complexidade de pior caso é $O(n^2)$.
+
+<!-- [JV: depois descobrir qual é a função f(n)] -->
+
 #### 4.d. Qual sua complexidade de melhor caso?
+
+O seu melhor caso ocorre quando a lista já está ordenada de forma crescente.
+
+Mesmo que o algoritmo não precise fazer troca alguma, ainda assim ele percorre aproximadamente $n^2$ elementos, sendo assim, a complexidade de melhor caso é $O(n^2)$.
 
 ### **Exercício 5.** Determine um limite superior assintótico para as funções abaixo (de preferência o mais apertado possível)
 
