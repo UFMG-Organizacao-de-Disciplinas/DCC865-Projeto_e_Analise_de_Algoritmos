@@ -169,8 +169,8 @@ Para essa questão é importante considerarmos que:
 #### 7.1. $2n^3 + n^4 - 1$
 
 - $f(n) = 2n^3 + n^4 - 1$
-- $O(f(n)) = O(2n^3 + n^4 - 1)$
-- $O(f(n)) = O(n^4)$
+- $o(f(n)) = o(2n^3 + n^4 - 1)$
+- $o(f(n)) = o(n^4)$
 
 ---
 
@@ -185,8 +185,8 @@ Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de
 #### 7.2. $2^n + 5 \log n + n^2$
 
 - $f(n) = 2^n + 5 \log n + n^2$
-- $O(f(n)) = O(2^n + 5 \log n + n^2)$
-- $O(f(n)) = O(2^n)$
+- $o(f(n)) = o(2^n + 5 \log n + n^2)$
+- $o(f(n)) = o(2^n)$
 
 ---
 
@@ -199,9 +199,9 @@ Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de
 #### 7.3. $\log_{10} n + \log_{3} 10$
 
 - $f(n) = \log_{10} n + \log_{3} 10$
-- $O(f(n)) = O(\log_{10} n + \log_{3} 10)$
-- $O(f(n)) = O(\log_{10} n) + C_1$
-- $O(f(n)) = O(\log n)$
+- $o(f(n)) = o(\log_{10} n + \log_{3} 10)$
+- $o(f(n)) = o(\log_{10} n) + C_1$
+- $o(f(n)) = o(\log n)$
 
 ---
 
@@ -214,8 +214,8 @@ Se considerarmos que o $n_0 = 10$ e $c = 1$, sabemos que para todos os valores d
 #### 7.4. $n + n \log n + \log n$
 
 - $f(n) = n + n \log n + \log n$
-- $O(f(n)) = O(n + n \log n + \log n)$
-- $O(f(n)) = O(n \log n)$
+- $o(f(n)) = o(n + n \log n + \log n)$
+- $o(f(n)) = o(n \log n)$
 
 ---
 
@@ -228,8 +228,8 @@ Se considerarmos que o $n_0 = 10$ e $c = 1$, sabemos que para todos os valores d
 #### 7.5. $4^n + 2^n + n$
 
 - $f(n) = 4^n + 2^n + n$
-- $O(f(n)) = O(4^n + 2^n + n)$
-- $O(f(n)) = O(4^n)$
+- $o(f(n)) = o(4^n + 2^n + n)$
+- $o(f(n)) = o(4^n)$
 
 ---
 
@@ -347,8 +347,8 @@ Para essa questão é importante considerarmos que:
 #### 9.1. $2n^3 + n^4 - 1$
 
 - $f(n) = 2n^3 + n^4 - 1$
-- $\Omega(f(n)) = \Omega(2n^3 + n^4 - 1)$
-- $\Omega(f(n)) = \Omega(n^4)$
+- $\omega(f(n)) = \omega(2n^3 + n^4 - 1)$
+- $\omega(f(n)) = \omega(n^4)$
 
 ---
 
@@ -361,8 +361,8 @@ Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de
 #### 9.2. $2^n + 5 \log n + n^2$
 
 - $f(n) = 2^n + 5 \log n + n^2$
-- $\Omega(f(n)) = \Omega(2^n + 5 \log n + n^2)$
-- $\Omega(f(n)) = \Omega(2^n)$
+- $\omega(f(n)) = \omega(2^n + 5 \log n + n^2)$
+- $\omega(f(n)) = \omega(2^n)$
 
 ---
 
