@@ -820,6 +820,13 @@ Substituindo...
 
 ### **Exercício 3.** Usando o teorema mestre determine uma equivalência assintótica para
 
+- Teorema Mestre
+  - Sejam $a \geq 1$ e $b > 1$ constantes, $f(n)$ uma função, e $T(n) = aT(\frac{n}{b}) + f(n)$, então, para algum $\epsilon > 0$:
+    - Se $f(n) = O(n^{\log_{b}(a) - \epsilon}) \implies T(n) = \Theta(n^{\log_{b}(a)})$ [<=]
+    - Se $f(n) = \Theta(n^{\log_{b}(a)}) \implies T(n) = \Theta(n^{\log_{b}(a)} * log(n))$ [=]
+    - Se $f(n) = \Omega(n^{\log_{b}(a) + \epsilon})$ e $a f (\frac{n}{b}) \leq cf(n)$ então $\implies T(n) = \Theta(f(n))$ [>=]
+
+![a](https://static.todamateria.com.br/upload/lo/ga/logaritmodefinicao.jpg)
 
 #### 1. $T (n) = 2T ( \frac{n}{4} ) + 1$
 
