@@ -830,12 +830,70 @@ Substituindo...
 
 #### 1. $T (n) = 2T ( \frac{n}{4} ) + 1$
 
+- $a = 2; b = 4; f(n) = 1$
+
+$n^{\log_{b}(a) \pm \epsilon} = n^{\log_{4}(2) \pm \epsilon} = n^{\frac{1}{2} \pm \epsilon}$
+
+Considerando $\epsilon = \frac{1}{2}$, temos que:
+
+- $n^{\frac{1}{2} - \frac{1}{2}} = n^0 = 1$
+
+Então $f(n) = O(1)$, $f(n) = 1 = O(1)$. Logo, $T(n) = \Theta(n^{\log_{4}(2)}) = \Theta(n^{\frac{1}{2}}) = \Theta(\sqrt{n})$
 
 ---
 
+- f(n) = 1
+- $1 = O(n^{\log_{b}(a) \pm \epsilon})$
+- $1 = O(n^{\log_{4}(2) \pm \epsilon})$
+- $1 = O(n^{\frac{1}{2} \pm \epsilon})$
+- [JV: para que n^{a alguma coisa} seja uma constante, seu expoente precisa ser 0]
+- $0 = \frac{1}{2} \pm \epsilon$
+- $\epsilon = \pm \frac{1}{2}$
 
 #### 2. $T (n) = 2T ( \frac{n}{4} ) + n$
 
+Encontrando $a$, $b$ e $f(n)$:
+
+- $a = 2; b = 4; f(n) = n$
+
+Para o primeiro caso:
+
+- $n^{\log_{b}(a) - \epsilon} = n^{\log_{4}(2) - \epsilon} = n^{\frac{1}{2} - \epsilon}$
+
+- $f(n) = n$
+- $n = O(n^{\frac{1}{2} - \epsilon})$
+  - Pra isso ser verdade, eu teria que dizer que o expoente de n é 1, então:
+- $1 = \frac{1}{2} - \epsilon$
+- $\epsilon = \frac{1}{2} - 1$
+- $\epsilon = \frac{-1}{2}$
+  - O que não pode ser verdade, pois o $\epsilon$ precisa ser positivo.
+
+Para o segundo caso:
+
+- $n = \Theta(n^{\frac{1}{2}})$
+- $n = \Theta(\sqrt{n})$
+
+Para o terceiro caso:
+
+- $n = \Omega(n^{\frac{1}{2} + \epsilon})$
+  - Considerando que $\epsilon = \frac{1}{2}$, temos que:
+- $n = \Omega(n^{\frac{1}{2} + \frac{1}{2}})$
+- $n = \Omega(n)$ 👍
+
+Segundo teste do terceiro caso:
+
+- $a f (\frac{n}{b}) \leq cf(n)$
+- $2 * f( \frac{n}{4} ) \leq c * f(n)$
+- $2 * \frac{n}{4} \leq c * n$
+- $\frac{n}{2} \leq c * n$
+  - Se considerarmos $c = \frac{1}{2}$, temos que:
+- $\frac{n}{2} \leq \frac{1}{2} * n$
+- $\frac{n}{2} \leq \frac{n}{2}$ 👍
+
+Logo:
+
+- $T(n) = \Theta(f(n))$
+- $T(n) = \Theta(n)$
 
 #### 3. $T (n) = 2T ( \frac{n}{4} ) + \log n$
 
