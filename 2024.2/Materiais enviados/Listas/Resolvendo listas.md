@@ -820,20 +820,35 @@ Substituindo...
 
 ### **Exercício 3.** Usando o teorema mestre determine uma equivalência assintótica para
 
-1. $T (n) = 2T ( \frac{n}{4} ) + 1$
-2. $T (n) = 2T ( \frac{n}{4} ) + n$
-3. $T (n) = 2T ( \frac{n}{4} ) + \log n$
-4. $T (n) = 4T ( \frac{n}{2} ) + 1$
-5. $T (n) = 4T ( \frac{n}{2} ) + n$
-6. $T (n) = 4T ( \frac{n}{2} ) + \log n$
-7. $T (n) = 2T ( \frac{n}{2} ) + 1$
-8. $T (n) = 2T ( \frac{n}{2} ) + \log n$
-9. $T (n) = 2T ( \frac{n}{2} ) + n$
-10. $T (n) = 2T ( \frac{n}{3} ) + 1$
-11. $T (n) = 2T ( \frac{n}{3} ) + \log n$
-12. $T (n) = 2T ( \frac{n}{3} ) + n$
+
+#### 1. $T (n) = 2T ( \frac{n}{4} ) + 1$
+
 
 ---
+
+
+#### 2. $T (n) = 2T ( \frac{n}{4} ) + n$
+
+
+#### 3. $T (n) = 2T ( \frac{n}{4} ) + \log n$
+
+#### 4. $T (n) = 4T ( \frac{n}{2} ) + 1$
+
+#### 5. $T (n) = 4T ( \frac{n}{2} ) + n$
+
+#### 6. $T (n) = 4T ( \frac{n}{2} ) + \log n$
+
+#### 7. $T (n) = 2T ( \frac{n}{2} ) + 1$
+
+#### 8. $T (n) = 2T ( \frac{n}{2} ) + \log n$
+
+#### 9. $T (n) = 2T ( \frac{n}{2} ) + n$
+
+#### 10. $T (n) = 2T ( \frac{n}{3} ) + 1$
+
+#### 11. $T (n) = 2T ( \frac{n}{3} ) + \log n$
+
+#### 12. $T (n) = 2T ( \frac{n}{3} ) + n$
 
 ### **Exercício 4.** Determine um limite assintótico para $T (n) = 2T (\sqrt{n})$. Dica: Faça uma substituição de variável. Faça $m = \log n$
 
