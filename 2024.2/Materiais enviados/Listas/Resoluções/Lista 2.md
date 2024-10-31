@@ -461,6 +461,28 @@ Cada uma dessas operações possui custo O(1). Vamos definir uma nova operação
 
 #### **Exercício 8.** Qual a complexidade amortizada da operação de **multi-pop** dada uma sequência de operações de push, pop e **multi-pop** em uma pilha originalmente vazia?
 
+Complexidade multi-pop:
+
+- Algoritmo para **multi-pop**:
+  - Entrada: pilha $S$ e inteiro $k$
+  - $restaRemover \leftarrow k$ [C_1]
+  - **ENQUANTO** !vazio(S) **E** restaRemover > 0 **FAÇA:** [C_2]
+    - pop(S) [C_3]
+    - $restaRemover \leftarrow restaRemover - 1$ [C_4]
+
+- $C_1: 1 = O(1)$
+- $C_2: O(1) + 1 = O(1)$ [Considerando que O(vazio(S)) = O(1)]
+- $C_3: 1 = O(1)$
+- $C_4: 2 = O(1)$
+
+---
+
+Através do método contável, consideraremos que no pior caso, teremos $n$ operações de **push**. Então, como cada operação de **push** tem complexidade O(1), a complexidade total será de O(n).
+
+Então, ao fazermos a complexidade do pior caso, divida pelo número de operações, teremos a complexidade amortizada.
+
+- Análise de complexidade amortizada: $\frac{O(n)}{n} = O(1)$
+
 ---
 
 #### **Exercício 9.** Qual o custo computacional de sequência de n operações de **push**, **pop** e **multi-pop** em uma pilha com inicialmente $s_O$ elementos e que termina com $s_n$ elementos?
