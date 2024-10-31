@@ -394,21 +394,48 @@ Logo:
 
 ---
 
-- $T(n) = T(\frac{n}{4}) + T(\frac{n}{5}) + T(\frac{n}{6}) + n$
-
-- $T(4) = T(\frac{4}{4}) + T(\frac{4}{5}) + T(\frac{4}{6}) + 4$
-- $T(5) = T(\frac{5}{4}) + T(\frac{5}{5}) + T(\frac{5}{6}) + 5$
-- $T(6) = T(\frac{6}{4}) + T(\frac{6}{5}) + T(\frac{6}{6}) + 6$
-
-- $T(4) = T(1) + T(\frac{4}{5}) + T(\frac{4}{6}) + 4$
-- $T(5) = T(\frac{5}{4}) + T(1) + T(\frac{5}{6}) + 5$
-- $T(6) = T(\frac{6}{4}) + T(\frac{6}{5}) + T(1) + 6$
+- Teorema Mestre
+  - Sejam $a \geq 1$ e $b > 1$ constantes, $f(n)$ uma função, e $T(n) = aT(\frac{n}{b}) + f(n)$, então, para algum $\epsilon > 0$:
+    - Se $f(n) = O(n^{\log_{b}(a) - \epsilon}) \implies T(n) = \Theta(n^{\log_{b}(a)})$ [<=]
+    - Se $f(n) = \Theta(n^{\log_{b}(a)}) \implies T(n) = \Theta(n^{\log_{b}(a)} * log(n))$ [=]
+    - Se $f(n) = \Omega(n^{\log_{b}(a) + \epsilon})$ e $a f (\frac{n}{b}) \leq cf(n)$ então $\implies T(n) = \Theta(f(n))$ [>=]
 
 ---
 
 - $T(n) = T(\frac{n}{4}) + T(\frac{n}{5}) + T(\frac{n}{6}) + n$
+- $T^{+}(n) = T(\frac{n}{4}) + T(\frac{n}{4}) + T(\frac{n}{4}) + n$
+  - $T^{+}(n) = 3T(\frac{n}{4}) + n$
+- $T^{-}(n) = T(\frac{n}{6}) + T(\frac{n}{6}) + T(\frac{n}{6}) + n$
+  - $T^{-}(n) = 3T(\frac{n}{6}) + n$
 
-- $T(\frac{n}{4}) = T(\frac{\frac{n}{4}}{4}) + T(\frac{\frac{n}{4}}{5}) + T(\frac{\frac{n}{4}}{6}) + n$
+- Executando o Teorema Mestre para $T^{+}(n)$:
+  - $a = 3; b = 4; f(n) = n$
+  - $\log_{b}(a) = \log_{4}(3)$
+  - Caso 1:
+    - $n^{\log_{b}(a) - \epsilon} = n^{\log_{4}(3) - \epsilon}$
+    - $f(n) = n = O(n^{\log_{4}(3) - \epsilon})$
+    - $n^1 = O(n^{\log_{4}(3) - \epsilon})$ [#confia]
+    - $1 = \log_{4}(3) - \epsilon$
+    - $\epsilon = \log_{4}(3) - 1$
+    - Com isso:
+      - $T^{+}(n) = \Theta(n^{\log_{4}(3)})$
+- Executando o Teorema Mestre para $T^{-}(n)$:
+  - $a = 3; b = 6; f(n) = n$
+  - $\log_{b}(a) = \log_{6}(3)$
+  - Caso 1:
+    - $n^{\log_{b}(a) - \epsilon} = n^{\log_{6}(3) - \epsilon}$
+    - $f(n) = n = O(n^{\log_{6}(3) - \epsilon})$
+    - $n^1 = O(n^{\log_{6}(3) - \epsilon})$ [#confia]
+    - $1 = \log_{6}(3) - \epsilon$
+    - $\epsilon = \log_{6}(3) - 1$
+    - Com isso:
+      - $T^{-}(n) = \Theta(n^{\log_{6}(3)})$
+
+---
+
+Então, considerando a equivalência assintótica para $T^{+}(n)$ e $T^{-}(n)$, desconsideraremos a base do $\log$, enfim tendo que:
+
+$T(n) = \Theta(n^{\log 3})$
 
 ### Complexidade Amortizada
 
