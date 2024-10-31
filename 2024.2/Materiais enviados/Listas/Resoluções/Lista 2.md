@@ -452,6 +452,13 @@ Cada uma dessas operações possui custo O(1). Vamos definir uma nova operação
 
 ---
 
+- Algoritmo para **multi-pop**:
+  - Entrada: pilha $S$ e inteiro $k$
+  - $restaRemover \leftarrow k$
+  - **ENQUANTO** !vazio(S) **E** restaRemover > 0 **FAÇA:**
+    - pop(S)
+    - $restaRemover \leftarrow restaRemover - 1$
+
 #### **Exercício 8.** Qual a complexidade amortizada da operação de **multi-pop** dada uma sequência de operações de push, pop e **multi-pop** em uma pilha originalmente vazia?
 
 ---
