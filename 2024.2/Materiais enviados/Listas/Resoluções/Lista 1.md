@@ -83,6 +83,10 @@ Como o algoritmo em questão conta a quantidade de números pares, sua execuçã
 
 #### 2.c. Pior caso
 
+<!-- - $\log_{a} b = x \Leftrightarrow a^x = b$ -->
+<!-- - $x^k > \log n$ -->
+  <!-- - Vai depender do valor de $k$; Principalmente se $0 < k < 1$; -->
+
 ### **Exercício 3.** Considere o seguinte algoritmo
 
 - ***Pseudocódigo Q3***
