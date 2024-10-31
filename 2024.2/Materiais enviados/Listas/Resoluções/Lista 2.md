@@ -361,6 +361,55 @@ Logo:
 
 #### 3. $T (n) = 2T ( \frac{n}{4} ) + \log n$
 
+- $a = 2; b = 4; f(n) = \log n$
+
+- $\log_{b}(a) = \log_{4}(2) = \frac{1}{2}$
+
+Para o primeiro caso:
+
+- $n^{\log_{b}(a) - \epsilon} = n^{\frac{1}{2} - \epsilon}$
+- $f(n) = \log n = O(n^{\frac{1}{2} - \epsilon})$
+  - Considerando $\epsilon = 1$, temos que:
+- $n^{\frac{1}{2} - 1}$
+- $n^{\frac{-1}{2}}$
+- $\frac{1}{\sqrt{n}}$
+  - $f(n) = \log n = O(\frac{1}{\sqrt{n}})$ 👎
+
+---
+
+- $n^2$
+- $n^{\frac{1}{2}} = \sqrt n$
+- $n^{-1} = \frac{1}{n}$
+- $n^{-2} = \frac{1}{n^2}$
+- $n^{- \frac{1}{2}} = \frac{1}{\sqrt n}$
+
+---
+
+Para o segundo caso:
+
+- $f(n) = \log n = \Theta(n^{\frac{1}{2}})$
+- $\log n =? \Theta(\sqrt{n})$ 👎❓
+
+<!-- - $\log n \Leftrightarrow n^x = 2$ -->
+<!-- - $\sqrt{n} \Leftrightarrow n^{1/2}$ -->
+
+Para o terceiro caso:
+
+- $f(n) = \log n = \Omega(n^{\frac{1}{2} + \epsilon})$
+  - Considerando $\epsilon = \frac{1}{2}$, temos que:
+- $\log n =? \Omega(n^{\frac{1}{2} + \frac{1}{2}})$
+- $\log n =? \Omega(n)$👎❓
+
+---
+
+Tentando pelo método outro lá.
+
+- $T (n) = 2T ( \frac{n}{4} ) + \log n$
+- $T (\frac{n}{4}) = 2T ( \frac{\frac{n}{4}}{4} ) + \log \frac{n}{4}$
+  - $T (\frac{n}{4}) = 2T ( \frac{n}{4*4} ) + \log \frac{n}{4}$
+- $T (\frac{n}{4*4}) = 2T ( \frac{n}{4*4*4} ) + \log \frac{n}{4*4}$
+- ...
+
 #### 4. $T (n) = 4T ( \frac{n}{2} ) + 1$
 
 #### 5. $T (n) = 4T ( \frac{n}{2} ) + n$
