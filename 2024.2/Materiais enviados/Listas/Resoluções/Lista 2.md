@@ -441,8 +441,8 @@ $T(n) = \Theta(n^{\log 3})$
 
 Para as questões a seguir considere uma pilha S que possui duas operações
 
-- **pop(S)**: remove (desempilha) o topo da pilha S.
-- **push(S,x)**: empilha o elemento x na pilha S.
+- **pop(S)**: remove (desempilha) o topo da pilha $S$.
+- **push(S,x)**: empilha o elemento x na pilha $S$.
 
 Cada uma dessas operações possui custo O(1). Vamos definir uma nova operação para esta estrutura, a operação **multi-pop(S,k)** que remove os k últimos elementos empilhados.
 
