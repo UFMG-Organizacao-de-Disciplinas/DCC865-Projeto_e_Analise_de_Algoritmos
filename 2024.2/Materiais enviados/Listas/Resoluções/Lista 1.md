@@ -192,7 +192,7 @@ Para essa questão é importante considerarmos que:
 - $\omega: \text{Limite Inferior estrito}$
 - $\Omega: \text{Limite Inferior}$
 
-- $O(n!) < O(2^n) < O(n^2) < O(n \log n) < O(n) < O(log n) < O(1)$
+- $O(n!) < O(2^n) < O(n^2) < O(n \log n) < O(n) < O(\log n) < O(1)$
 
 #### 5.1. $2n^3 + n^4 - 1$
 
@@ -249,7 +249,7 @@ Para essa questão é importante considerarmos que:
 - $\omega: \text{Limite Inferior estrito}$
 - $\Omega: \text{Limite Inferior}$
 
-- $O(n!) < O(2^n) < O(n^2) < O(n \log n) < O(n) < O(log n) < O(1)$
+- $O(n!) < O(2^n) < O(n^2) < O(n \log n) < O(n) < O(\log n) < O(1)$
 
 > Limite Superior Estrito (o)
 >
@@ -345,7 +345,7 @@ Para essa questão é importante considerarmos que:
 - $\omega: \text{Limite Inferior estrito}$
 - $\Omega: \text{Limite Inferior}$
 
-- $O(n!) < O(2^n) < O(n^2) < O(n \log n) < O(n) < O(log n) < O(1)$
+- $O(n!) < O(2^n) < O(n^2) < O(n \log n) < O(n) < O(\log n) < O(1)$
 
 > Limite Inferior ($\Omega$)
 >
@@ -432,7 +432,7 @@ Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de
 
 Para essa questão é importante considerarmos que:
 
-- $O(n!) < O(2^n) < O(n^2) < O(n \log n) < O(n) < O(log n) < O(1)$
+- $O(n!) < O(2^n) < O(n^2) < O(n \log n) < O(n) < O(\log n) < O(1)$
 
 > Limite Inferior Assintótico Estrito ($\omega$)
 >
