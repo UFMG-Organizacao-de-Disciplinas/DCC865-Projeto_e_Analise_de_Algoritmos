@@ -483,6 +483,32 @@ Então, ao fazermos a complexidade do pior caso, divida pelo número de operaç�
 
 - Análise de complexidade amortizada: $\frac{O(n)}{n} = O(1)$
 
+#### **Exercício 9.** Qual o custo computacional de sequência de $n$ operações de **push**, **pop** e **multi-pop** em uma pilha com inicialmente $s_O$ elementos e que termina com $s_n$ elementos?
+
+Considerarei que serão realizados separadamente $n$ operações de push; $n$ operações de pop; e $n$ operações de multi-pop.
+
+- push: adiciona um elemento
+- pop: remove um elemento
+- multi-pop: remove k elementos
+
 ---
 
-#### **Exercício 9.** Qual o custo computacional de sequência de n operações de **push**, **pop** e **multi-pop** em uma pilha com inicialmente $s_O$ elementos e que termina com $s_n$ elementos?
+Determinemos que:
+
+- $S_O$ é a quantidade inicial de elementos na pilha
+- $S_n$ é a quantidade final de elementos na pilha
+- $P$ é a quantidade de operações de push
+- $O$ é a quantidade de operações de pop
+- $M$ é a quantidade de operações de multi-pop
+- $n$ é a quantidade total de operações realizadas, sendo ela igual à soma de operações de push, pop e multi-pop.
+  - Ou seja, $n = P + O + M$
+
+Então após n operações distribuídas aleatoriamente entre P operações de Push, O operações de Pop e M operações de Multi-Pop, teremos que $n = P + O + M$. A complexidade de cada operação é O(1), então a complexidade de P operações de Push é $P*O(1) = O(P)$, a complexidade de O operações de Pop é $O*O(1) = O(O)$ e a complexidade de M operações de Multi-Pop é $M*O(1) = O(M)$.
+
+Então, considerando também que $S_n$ é a quantidade de elementos após as n operações, Podemos dizer que $S_n = S_O + P - O - M$. Então a variação de elementos será dado por $S_n - S_O = P - O - M$.
+
+Sendo assim, o custo computacional será de $O(P) + O(O) + O(M) = O(P + O + M) = O(n)$.
+
+---
+
+[JV: NÃO TENHO CERTEZA ALGUMA DO QUE EU TÔ DIZENDO AQUI]
