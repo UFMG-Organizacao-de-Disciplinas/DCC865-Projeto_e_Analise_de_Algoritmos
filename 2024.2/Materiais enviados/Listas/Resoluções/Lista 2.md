@@ -147,76 +147,169 @@ Enxugando:
   
 #### 3. $T (n) = T (n - 1) + n$
 
-0. $T (n  ) = T (n - 1) + n$
-1. $T (n-1) = T (n - 2) + (n-1) + n$
-2. $T (n-2) = T (n - 3) + (n-2) + (n-1) + n$
-3. $\vdots$
-4. $T(n-k) = T(n-(k+1)) + \sum_{i=0}^{k} (n-i)$
+- $P_0: T (n  ) = T (n - 1) + n$
+- $P_1: T (n-1) = T (n - 2) + (n-1)$
+- $P_2: T (n-2) = T (n - 3) + (n-2)$
+- $P_3: T (n-3) = T (n - 4) + (n-3)$
+- $\vdots$
+
+Substituindo os passos no caso base:
+
+- $T(n) = T(n-1) + n$
+- $T(n) = (T(n-2) + (n-1)) + n$
+  - $T(n) = T(n-2) + (n-1) + n$
+  - $T(n) = T(n-2) + 2n - 1$
+- $T(n) = T(n-3) + (n-2) + 2n - 1$
+  - $T(n) = T(n-3) + 3n - 3$
+- $T(n) = T(n-3) + 3n - 3$
+  - $T(n) = T(n-4) + (n-3) + 3n - 3$
+  - $T(n) = T(n-4) + 4n - 6$
+- $\vdots$
+- $T(n) = T(n-k) + kn - \sum_{i=0}^{k-1} i$
+- $T(n) = T(n-k) + kn - \frac{k \cdot (k-1)}{2}$
 
 ---
 
-0. $T(n-0) = T(n - (0 + 1)) + (n - (0 - 0))$
-1. $T(n-1) = T(n - (1 + 1)) + (n - (1 - 0)) + (n - (1 - 1))$
-2. $T(n-2) = T(n - (2 + 1)) + (n - (2 - 0)) + (n - (2 - 1)) + (n - (2 - 2))$
-3. $\vdots$
-4. $T(n-k) = T(n - (k + 1)) + \sum_{i=0}^{k} (n - (k - i))$
-5. $\vdots$ *Eq 1.3*
-6. $T(n-(n-1)) = T(0) + \sum_{i=0}^{n-1} (n - (n-1 - i))$
-7. $\vdots$ *Eq 1.3.1*
-8. $T(1) = 1 + \frac{n*(n+1)}{2}$
+Calculando $k$ para alcançar o caso base:
 
----
+- $T(n-k) = T(0)$
+- $n-k = 0$
+- $n = k$
 
-$$
-Eq 1.3:\\
-T(n-(k+1)) = T(0)\\
-n-(k+1) = 0\\
-n = k+1\\
-k = n-1
-$$
+Substituindo $k$ na equação:
 
----
-
-$$
-Eq 1.3.1:\\
-\sum_{i=0}^{n-1} (n - (n-1 - i)) =\\
-\sum_{i=0}^{n-1} (n - n + 1 + i) =\\
-\sum_{i=0}^{n-1} (1 + i) =\\
-(1+0) + (1+1) + (1+2) + \dots + (1+(n-2)) + (1+(n-1)) =\\
-1 + 2 + 3 + \dots + (n-1) + n =\\
-1 + 2 + 3 + \dots +  (n-3) + (n-2) + (n-1) + n =\\
-\frac{n*(n+1)}{2}
-$$
+- $T(n) = T(0) + n^2 - \frac{n \cdot (n-1)}{2}$
+- $T(n) = 1 + n^2 - \frac{n^2 - n}{2}$
+- $T(n) = 1 + n^2 + \frac{- n^2 + n}{2}$
+- $T(n) = 1 + n^2 + \frac{- n^2}{2} + \frac{n}{2}$
+- $T(n) = \Theta(1) + \Theta(n^2) + \Theta(\frac{- n^2}{2}) + \Theta(\frac{n}{2})$
+- $T(n) = \Theta(n^2)$
 
 #### 4. $T (n) = 2T (n - 1) + n^2 + 1$
 
-0. $T (n  ) = 2T (n - 1) + n^2 + 1$
-1. $T (n-1) = 2T (n - 2) + (n-1)^2 + 1 + n^2 + 1$
-2. $T (n-2) = 2T (n - 3) + (n-2)^2 + 1 + (n-1)^2 + 1 + n^2 + 1$
-3. $T (n-3) = 2T (n - 4) + (n-3)^2 + 1 + (n-2)^2 + 1 + (n-1)^2 + 1 + n^2 + 1$
-4. $\vdots$
+- $P_0: T (n  ) = 2T (n - 1) + (n  )^2 + 1$
+- $P_1: T (n-1) = 2T (n - 2) + (n-1)^2 + 1$
+- $P_2: T (n-2) = 2T (n - 3) + (n-2)^2 + 1$
+- $P_3: T (n-3) = 2T (n - 4) + (n-3)^2 + 1$
+- $P_4: T (n-4) = 2T (n - 5) + (n-4)^2 + 1$
+- $\vdots$
 
 ---
 
-0. $T(n-0) = 2T(n - (0 + 1)) + (0 + 1) + (n-(0-0))^2$
-1. $T(n-1) = 2T(n - (1 + 1)) + (1 + 1) + (n-(1-0))^2 + (n-(1-1))^2$
-2. $T(n-2) = 2T(n - (2 + 1)) + (2 + 1) + (n-(2-0))^2 + (n-(2-1))^2 + (n-(2-2))^2$
-3. $\vdots$
-4. $T(n-k) = 2T(n - (k + 1)) + (k + 1) + \sum_{i=0}^{k} (n-(k-i))^2$
-5. $\vdots$ *EQ 1.4*
-6. $T(n-(n-1)) = T(0) + (n-1) + \sum_{i=0}^{n-1} (n-(n-1-i))^2 \Leftrightarrow T(1) = 1 + n - 1 + \sum_{i=0}^{n-1} (i+1)^2$
-7. $\vdots$ *EQ 1.3.1*
-8. $T(1) = 1 + n - 1 + \frac{n*(n+1)}{2}$$
+Substituindo os passos no caso base:
+
+- $T(n) = 2T(n-1) + n^2 + 1$
+- $T(n) = 2(2T(n-2) + (n-1)^2 + 1) + n^2 + 1$
+  - $T(n) = 4T(n-2) + 2(n-1)^2 + 2 + n^2 + 1$
+- $T(n) = 4(2T (n-3) + (n-2)^2 + 1) + 2(n-1)^2 + 2 + n^2 + 1$
+  - $T(n) = 8T(n-3) + 4(n-2)^2 + 4 + 2(n-1)^2 + 2 + n^2 + 1$
+- $T(n) = 8(2T (n-4) + (n-3)^2 + 1) + 4(n-2)^2 + 4 + 2(n-1)^2 + 2 + n^2 + 1$
+  - $T(n) = 16T(n-4) + 8(n-3)^2 + 8 + 4(n-2)^2 + 4 + 2(n-1)^2 + 2 + n^2 + 1$
+
+Reordenando os termos:
+
+- $T(n) = 16T(n-4) + 8(n-3)^2 + 4(n-2)^2 + 2(n-1)^2 + (n)^2 + (8 + 4 + 2 + 1)$
+
+Adicionando mais uns detalhes pra facilitar o entendimento da progressão:
+
+- $T(n) = 16T(n-4) + 8(n-3)^2 + 4(n-2)^2 + 2(n-1)^2 + 1(n-0)^2 + (8 + 4 + 2 + 1)$
+- $T(n) = (2^4)T(n-4) + (2^3)(n-3)^2 + (2^2)(n-2)^2 + (2^1)(n-1)^2 + (2^0)(n-0)^2 + (8 + 4 + 2 + 1)$
+- $T(n) = (2^4)T(n-4) + (2^3)(n-3)^2 + (2^2)(n-2)^2 + (2^1)(n-1)^2 + (2^0)(n-0)^2 + (15)$
+- $T(n) = (2^4)T(n-4) + (2^3)(n-3)^2 + (2^2)(n-2)^2 + (2^1)(n-1)^2 + (2^0)(n-0)^2 + (2^4 - 1)$
+- $T(n) = \left( (2^4)T(n-4) + (2^3)(n-3)^2 + (2^2)(n-2)^2 + (2^1)(n-1)^2 + (2^0)(n-0)^2 \right) + (2^4 - 1)$
+- $\vdots$
+- $Eq. 1: T(n) = 2^kT(n-k) + \sum_{i=0}^{k-1} \left( 2^i(n-i)^2 \right) + (2^k - 1)$
+- ou
+- $Eq. 2: T(n) = 2^kT(n-k) + \sum_{i=0}^{k-1} \left( 2^i(n-i)^2 + 2^i\right)$
 
 ---
 
-$$
-Eq 1.4:\\
-T(n-(k+1)) = T(0)\\
-n-(k+1) = 0\\
-n = k+1\\
-k = n-1
-$$
+Distribuindo a $Eq. 1$:
+
+- $Eq. 1: T(n) = 2^kT(n-k) + \sum_{i=0}^{k-1} \left( 2^i(n-i)^2 \right) + (2^k - 1)$
+- Considerando que $f(n) = 2^i(n-i)^2$
+- $f(n) = 2^i(n-i)^2$
+- $f(n) = 2^i(n^2- 2ni + i^2)$
+- $f(n) = (2^i)*(n^2- 2ni + i^2)$
+- $f(n) = ((2^i)*n^2- (2^i)*2ni + (2^i)*i^2)$
+- $f(n) = (2^i)*n^2 - (2^i)*2ni + (2^i)*i^2$
+
+Retornando o $f(n)$ ao somatório:
+
+- $T(n) = 2^kT(n-k) + \sum_{i=0}^{k-1} \left( (2^i)*n^2 - (2^i)*2ni + (2^i)*i^2 \right) + (2^k - 1)$
+
+Considerando que $g(n) = \sum_{i=0}^{k-1} \left( (2^i)*n^2 - (2^i)*2ni + (2^i)*i^2 \right)$
+
+- $g(n) = \sum_{i=0}^{k-1} \left( (2^i)*n^2 - (2^i)*2ni + (2^i)*i^2 \right)$
+- $g(n) = \sum_{i=0}^{k-1} (2^i)*n^2 - \sum_{i=0}^{k-1} (2^i)*2ni + \sum_{i=0}^{k-1} (2^i)*i^2$
+- $g(n) = n^2 \sum_{i=0}^{k-1} (2^i) - 2n \sum_{i=0}^{k-1} (2^i)*i + \sum_{i=0}^{k-1} (2^i)*i^2$
+
+---
+
+Considerando que $h(n) = \sum_{i=0}^{k-1} (2^i)$
+
+- $h(n) = \sum_{i=0}^{k-1} (2^i)$
+- $h(n) = 2^0 + 2^1 + 2^2 + \ldots + 2^{k-1}$
+
+##### Bira
+
+
+BIRA
+
+- $\sum_{i=1}^{n} \left( 2^i * (n-i)^2 \right)$
+- $b(n) = \sum_{i=1}^{n} \left( 2^i * (n-i)^2 \right)$
+- $b(n) - b(n-1) = 2n * (n-n)^2$ #COPILOT
+- $b(n) - b(n-1) = (\sum_{i=1}^{n} \left( 2^i * (n-i)^2 \right))-(\sum_{i=1}^{n-1} \left( 2^i * ((n-1)-i)^2 \right))$
+- $b(n) - b(n-1) = (\sum_{i=1}^{n-1} \left( 2^i * (n-i)^2 \right)) + (2^n * (n-n)^2) -(\sum_{i=1}^{n-1} \left( 2^i * ((n-1)-i)^2 \right))$
+- $b(n) - b(n-1) = (\sum_{i=1}^{n-1} \left( 2^i * (n-i)^2 \right)) + (2^n * (0)^2) -(\sum_{i=1}^{n-1} \left( 2^i * ((n-1)-i)^2 \right))$
+- $b(n) - b(n-1) = (\sum_{i=1}^{n-1} \left( 2^i * (n-i)^2 \right)) + (0) -(\sum_{i=1}^{n-1} \left( 2^i * ((n-1)-i)^2 \right))$
+- $b(n) - b(n-1) = \sum_{i=1}^{n-1} \left( 2^i * (n-i)^2 \right) - \sum_{i=1}^{n-1} \left( 2^i * ((n-1)-i)^2 \right)$
+- $b(n) - b(n-1) = \sum_{i=1}^{n-1} \left( (2^i * (n-i)^2) - (2^i * ((n-1)-i)^2) \right)$
+- $b(n) - b(n-1) = \sum_{i=1}^{n-1} \left( 2^i * (n-i)^2 - 2^i * ((n-1)-i)^2 \right)$
+- $b(n) - b(n-1) = \sum_{i=1}^{n-1} \left( 2^i * ((n-i)^2 - (n-i-1)^2) \right)$
+- $b(n) - b(n-1) = \sum_{i=1}^{n-1} \left( 2^i * (2*(n-i) - 1) \right)$
+
+Definindo $c(n) = \sum_{i=1}^{n-1} \left( 2^i * (2*(n-i) - 1) \right)$
+
+---
+
+---
+
+ABANDONANDO A BAGUNÇA ANTERIOR E SEGUINDO PRO MÉTODO INDUTIVO.
+
+Recorrência base: $T (n) = 2T (n - 1) + n^2 + 1$
+
+- $T (n) = \Omega(2^n)$
+
+- $2^1T (n - 1)$
+- $2^2T (n - 2)$
+- $2^3T (n - 3)$
+- ...
+
+---
+
+- $T(n) \leq 2^n - 2* n^2$
+
+Por hipótese de indução:
+
+- $T(n-1) \leq 2^{n-1} - (n-1)^2$
+
+Passo indutivo:
+
+- $T(n) \leq 2T(n-1) + n^2 + 1$
+- $T(n) \leq 2(2^{n-1} - 2* (n-1)^2) + n^2 + 1$
+- $T(n) \leq 2*2^{n-1} - 4*(n-1)^2 + n^2 + 1$
+- $T(n) \leq 2^{n} - 4*(n-1)^2 + n^2 + 1$
+- $T(n) \leq 2^{n} - 4*(n^2 - 2n + 1) + n^2 + 1$
+- $T(n) \leq 2^{n} - (4*n^2 - 4*2n + 4*1) + n^2 + 1$
+- $T(n) \leq 2^{n} - (4*n^2 - 8n + 4) + n^2 + 1$
+- $T(n) \leq 2^{n} - 4*n^2 + 8n - 4 + n^2 + 1$
+- $T(n) \leq 2^{n} - 3n^2 + 8n - 3$
+- $T(n) \leq 2^{n} - 3n^2 + 8n - 3 \leq 2^n - 2* n^2$
+
+Como $2^n - 3n^2 + 8n - 3 \leq 2^n - 2* n^2$ é verdade, então $T(n) = \Omega(2^n)$ para $n$ grande o bastante.
+
+---
 
 ---
 
