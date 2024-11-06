@@ -656,6 +656,19 @@ Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de
 
 #### 11.5. $f (n) \neq o(f (n))$
 
+- $f = o(g)$ Para todo $c > 0$ existe $n_0$ tal que: $f(n) < c*g(n)$ para todo $n > n_0$
+
+---
+
+Segundo a definição do limite superior estrito, temos que:
+
+- $f = o(g); f(n) < c*g(n); c > 0; n \geq n_0$
+- Então, como nesse caso temos $g(n) = f(n)$:
+- $f = o(f(n)); f(n) < c*f(n); n \geq n_0$
+- $\frac{f(n)}{f(n)} < c$
+- $1 < c$
+- Essa afirmação precisaria ser verdadeira para todo $c > 0$, o que não seria verdade para $c = 1$, visto que $1 \nless 1$.
+
 #### 11.6. $f (n) \neq w(f (n))$
 
 ---
