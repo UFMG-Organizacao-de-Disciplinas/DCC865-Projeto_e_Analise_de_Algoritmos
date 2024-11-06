@@ -810,6 +810,8 @@ Então após n operações distribuídas aleatoriamente entre P operações de P
 
 Então, considerando também que $S_n$ é a quantidade de elementos após as n operações, Podemos dizer que $S_n = S_O + P - O - M$. Então a variação de elementos será dado por $S_n - S_O = P - O - M$.
 
+[ Bira: Custo de todos multi-pop: $S_O + n - S_n$ ]
+
 Sendo assim, o custo computacional será de $O(P) + O(O) + O(M) = O(P + O + M) = O(n)$.
 
 ---
