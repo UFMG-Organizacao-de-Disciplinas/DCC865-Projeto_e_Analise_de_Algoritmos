@@ -507,6 +507,11 @@ Ou seja:
 
 ### **Exercício 5.** Determine um limite assintótico para $T (n) = 2T (\sqrt{n}) + \log n$. Dica: Faça uma substituição de variável. Faça $m = \log n$
 
+- Se $m = \log n$, então $n = 2^m$
+- $\sqrt{n} = n^\frac{1}{2}$
+- Juntando ambos:
+  - $(n)^\frac{1}{2} = (2^m)^\frac{1}{2} = 2^\frac{m}{2}$
+
 ---
 
 ### **Exercício 6.** Determine e prove uma equivalência assintótica para $T (n) = T ( \frac{n}{4} ) + T ( \frac{n}{5} ) + T ( \frac{n}{6} ) + n$
