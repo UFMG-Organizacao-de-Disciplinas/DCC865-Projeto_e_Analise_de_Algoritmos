@@ -449,7 +449,7 @@ Então, se tivermos na equação $T (n) = 2T (\sqrt{n})$ um valor de $n$ tal que
 
 - $Eq. 3: T (2^m) = 2T (2^\frac{m}{2})$
 
-Criemos arbitrariamente uma nova função de conversão $Eq. 4: R(m) = T(2^m)$.
+Criemos arbitrariamente uma nova função de conversão $Eq. 4: T(n) = T(2^m) = R(m)$.
 
 Para que consigamos obter um $T (2^\frac{m}{2})$ encontrado na $Eq. 2$, precisaríamos que na função $R$, o parâmetro fosse $\frac{m}{2}$, então:
 
@@ -481,9 +481,9 @@ Como o caso 1 é verdadeiro, temos que:
 - $R(m) = \Theta(m^{1})$
 - $R(m) = \Theta(m)$
 
-Substituindo $m$ pelo seu valor inicial ($\log n$), temos que:
+Substituindo $m$ pelo seu valor inicial ($\log n$), e utilizando a definição da $Eq. 4$ temos que:
 
-- $R(\log n) = \Theta(\log n)$
+- $T(n) = \Theta(\log n)$
 
 ---
 
