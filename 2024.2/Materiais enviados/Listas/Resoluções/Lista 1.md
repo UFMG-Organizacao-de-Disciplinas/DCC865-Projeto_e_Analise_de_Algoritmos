@@ -357,6 +357,18 @@ Para essa questão é importante considerarmos que:
 
 ---
 
+---
+
+### Tabela resumindo as respostas das questões 5 e 6
+
+| # Equação | Função                      | Limite Superior (O) (Q 5, 6) |
+| --------- | --------------------------- | ---------------------------- |
+| .1        | $2n^3 + n^4 - 1$            | $n^4$                        |
+| .2        | $2^n + 5 \log n + n^2$      | $2^n$                        |
+| .3        | $\log_{10} n + \log_{3} 10$ | $\log n$                     |
+| .4        | $n + n \log n + \log n$     | $n \log n$                   |
+| .5        | $4^n + 2^n + n$             | $2^n$                        |
+
 ### **Exercício 6.** Determine um limite superior assintótico para as funções abaixo (de preferência o mais apertado possível) - [IGNORADA POR SER EXATAMENTE IGUAL AO EXERCÍCIO 5]
 
 - 6.1. $2n^3 + n^4 - 1$
