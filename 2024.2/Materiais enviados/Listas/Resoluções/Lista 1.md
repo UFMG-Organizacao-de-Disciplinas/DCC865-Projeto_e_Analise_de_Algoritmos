@@ -133,7 +133,7 @@ Onde temos que:
 
 Somando os passos:
 
-- $T(n) = C_1 + C_2 + \sum_{i=0}^{n-1} C_3 + C_4 + \sum_{j=0}^{n-1} C_5 + C_6 + C_7 + \sum_{k=0}^{n-1} C_8 + C_9$
+- $T(n) = C_1 + C_2 + \sum_{i=0}^{n-1} \left( C_3 + C_4 + \sum_{j=0}^{n-1} \left( C_5 + C_6 + C_7 + \sum_{k=0}^{n-1} \left( C_8 + C_9 \right) \right) \right)$
 
 Simplificando os limites do somatório pela quantidade de elementos:
 
