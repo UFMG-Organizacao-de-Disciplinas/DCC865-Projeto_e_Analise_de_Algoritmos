@@ -284,15 +284,17 @@ Nesse caso, o algoritmo percorrerá todos os elementos da lista, porém não rea
 
 #### 4.b. O que esse algoritmo faz?
 
-Bubble sort: ordena lista de forma crescente.
+Este é o algoritmo de ordenação conhecido como Bubble Sort. Ele percorre toda a lista de números, começando à esquerda e colocando todos os menores números à esquerda e os maiores à direita, ou seja, ordenando de forma crescente. Ele faz isso percorrendo a lista e sempre que o número na posição verificada for menor que o anterior, ele troca. Em cada uma das iterações de $i$ ele encontrará o $i$-ésimo menor número e o colocará na posição $i$ do vetor.
 
 #### 4.c. Qual sua complexidade de pior caso?
 
-O pior caso é quando a lista está ordenada de forma decrescente.
+O pior caso é quando a lista está ordenada de forma decrescente, precisando então realizar a maior quantidade de trocas possíveis.
 
-Como são dois loops, um dentro do outro, ambos percorrendo aproximadamente n elementos, temos que a complexidade de pior caso é $O(n^2)$.
+Como são dois loops, um dentro do outro, ambos percorrendo aproximadamente $n$ elementos, temos que a complexidade de pior caso é $O(n^2)$.
 
-<!-- [JV: depois descobrir qual é a função f(n)] -->
+[JV: preciso depois descobrir qual é a função f(n)?]
+
+[JV: Talvez usaria aquela ideia de $\frac{n*(n-1)}{2}$, mas que igualmente seria $O(n^2)$]
 
 #### 4.d. Qual sua complexidade de melhor caso?
 
@@ -311,6 +313,14 @@ Para essa questão é importante considerarmos que:
 - $\Omega: \text{Limite Inferior}$
 
 - $O(n!) < O(2^n) < O(n^2) < O(n \log n) < O(n) < O(\log n) < O(1)$
+
+---
+
+> Limite Superior (O)
+>
+> $f = O(g)$ Existem $n_0$ e $c$ tal que: $f(n) \leq c \cdot g(n)$ para todo $n \geq n_0$
+
+- $f = o(g); f(n) < c*g(n); n \geq n_0$
 
 #### 5.1. $2n^3 + n^4 - 1$
 
