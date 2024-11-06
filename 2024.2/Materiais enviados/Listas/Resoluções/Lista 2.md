@@ -477,9 +477,13 @@ Assim, podemos agora aplicar o método de preferência para a resolução de rec
 
 Como o caso 1 é verdadeiro, temos que:
 
-- $T(n) = \Theta(n^{\log_{b}(a)})$
-- $T(n) = \Theta(n^{1})$
-- $T(n) = \Theta(n)$
+- $R(m) = \Theta(m^{\log_{b}(a)})$
+- $R(m) = \Theta(m^{1})$
+- $R(m) = \Theta(m)$
+
+Substituindo $m$ pelo seu valor inicial ($\log n$), temos que:
+
+- $R(\log n) = \Theta(\log n)$
 
 ---
 
