@@ -188,43 +188,73 @@ Ao desconsiderarmos essas duas situações, teremos que todos os três casos (me
 
 #### 3.a. Simule a execução do algoritmo para o vetor [3, 5, 2, 8, 9]
 
-- Variáveis: $A = [3, 5, 2, 8, 9]; n = 5; i=2; chave(A[i])=5; j=1; A[j]=3;$
-- Variáveis: $A = [3, 5, 2, 8, 9]; n = 5; i=3; chave(A[i])=2; j=2; A[j]=5;$
-  - $A = [3, 5, 5, 8, 9];
-  - $A = [3, 2, 5, 8, 9];
-- Variáveis: $A = [3, 2, 5, 8, 9]; n = 5; i=3; chave(A[i])=2; j=1; A[j]=3;$
-  - $A = [3, 3, 5, 8, 9];
-  - $A = [2, 3, 5, 8, 9];
-- Variáveis: $A = [2, 3, 5, 8, 9]; n = 5; i=4; chave(A[i])=8; j=3; A[j]=5;$
-- Variáveis: $A = [2, 3, 5, 8, 9]; n = 5; i=5; chave(A[i])=9; j=4; A[j]=2;$
-- FIM: $A = [2, 3, 5, 8, 9];$
+- Variáveis:
+  - $n = 5; A = [3, 5, 2, 8, 9]; i=2; chave(A[i])=5; j=1; A[j]=3;$
+  - $n = 5; A = [3, 5, 2, 8, 9]; i=3; chave(A[i])=2; j=2; A[j]=5;$
+    - $A = [3, 5, 5, 8, 9];$
+    - $A = [3, 2, 5, 8, 9];$
+  - $n = 5; A = [3, 2, 5, 8, 9]; i=3; chave(A[i])=2; j=1; A[j]=3;$
+    - $A = [3, 3, 5, 8, 9];$
+    - $A = [2, 3, 5, 8, 9];$
+  - $n = 5; A = [2, 3, 5, 8, 9]; i=4; chave(A[i])=8; j=3; A[j]=5;$
+  - $n = 5; A = [2, 3, 5, 8, 9]; i=5; chave(A[i])=9; j=4; A[j]=2;$
+  - FIM: $A = [2, 3, 5, 8, 9];$
 
 #### 3.b. O que esse algoritmo faz?
+
+Esse é o algoritmo conhecido como Insertion Sort que ordena uma lista de números de forma crescente. Seu algoritmo consiste em percorrer toda a lista de números, sempre checando se o número atual é maior que todos os anteriores, assim colocando o novo número na posição correta para que a lista fique ordenada.
 
 #### 3.c. Qual sua complexidade de pior caso?
 
 Calculando o custo de cada passo:
 
 - ***Pseudocódigo Q3***
-  - **Entrada:** vetor de inteiros A, tamanho n de A
-  - **para todo** j $\leftarrow$ $2$ até $n$ **faça** [1]
-    - $chave \leftarrow A[j]$; [2]
-    - $i \leftarrow j - 1$; [3]
-    - enquanto $i > 0$ e $A[i] \geq chave$ **faça** [4]
-      - $A[i + 1] \leftarrow A[i]$; [5]
-      - $i \leftarrow i - 1$; [6]
-    - $A[i + 1] \leftarrow chave$; [7]
+  - **Entrada:** vetor de inteiros $A$, tamanho $n$ de $A$
+  - **para todo** $i \leftarrow 2$ até $n$ **faça** $[\text{inicial: }C_1, \text{por ciclo: }C_2]$
+    - $chave \leftarrow A[i]$; $[C_3]$
+    - $j \leftarrow i - 1$; $[C_4]$
+    - **enquanto** $j > 0$ e $A[j] > chave$ **faça** $[\text{inicial: }C_5, \text{por ciclo: }C_6]$
+      - $A[j + 1] \leftarrow A[j]$; $[C_7]$
+      - $j \leftarrow j - 1$; $[C_8]$
+    - $A[j + 1] \leftarrow chave$; $[C_9]$
   - **retorna** A;
 
-- [1] $C12$
-- [2] $$
-- [3] $$
-- [4] $$
-- [5] $$
-- [6] $$
-- [7] $$
+Gerando a equação:
+
+- $T(n) = C_1 + \sum_{i=2}^{n} (C_2 + C_3 + C_4 + C_5 + C_9) + \sum_{j = i - 1}^{j \geq 0 \wedge  } (C_6 + C_7 + C_8)$
+- $T(n) = C_1 + \sum_{i=2}^{n} \left( C_{2, 3, 4, 5, 9} + \sum_{j = 1}^{i-1} C_{6, 7, 8} \right)$
+- $T(n) = C_1 + (n-1) \cdot \left( C_{2, 3, 4, 5, 9} + \sum_{j = 1}^{i-1} C_{6, 7, 8} \right)$
+- $T(n) = C_1 + n \cdot C_{2, 3, 4, 5, 9} - C_{2, 3, 4, 5, 9} + (n-1) \cdot \left(\sum_{j = 1}^{i-1} C_{6, 7, 8} \right)$
+
+[JV: Fiquei confuso quanto ao que fazer no caso do somatório que aumenta de acordo com a variação do i]
+
+Descrevendo as constantes:
+
+- $C_1 = 2$ (1 atribuição; 1 comparação inicial)
+- $C_2 = 2$ (1 comparação; 1 incremento)
+- $C_3 = 2$ (1 atribuição; 1 acesso ao índice)
+- $C_4 = 2$ (1 atribuição; 1 operação matemática)
+- $C_5 = 3$ (2 comparações; 1 acesso ao índice)
+- $C_6 = 3$ (2 comparações; 1 acesso ao índice)
+- $C_7 = 3$ (2 acessos ao índice; 1 operação; 1 atribuição)
+- $C_8 = 2$ (1 atribuição; 1 operação matemática)
+- $C_9 = 3$ (1 operação matemática; 1 acesso ao índice; 1 atribuição)
+
+---
+
+Para esse algoritmo, o pior caso ocorre quando a comparação $A[j]>chave$ sempre for verdadeira. Esse caso se dá quando a lista está ordenada de forma decrescente, pois sua chave sempre será menor que todos os itens percorridos pela variável $j$, assim fazendo a maior quantidade de trocas possíveis.
+
+[JV: Sinto que houve um salto lógico aqui, não entendi ao certo como justificar alcançar o $n^2$]
+
+Dessa forma, temos que a complexidade de pior caso é $O(n^2)$.
 
 #### 3.d. Qual sua complexidade de melhor caso?
+
+O melhor caso ocorre quando a lista já está ordenada de forma crescente, pois a chave sempre será maior que o primeiro item verificado pela variável $j$, assim poupando a verificação com os demais.
+
+[JV: eu precisaria explicar mais sobre a decomposição das constantes em O()?]
+
+Nesse caso, o algoritmo percorrerá todos os elementos da lista, porém não realizará nenhuma troca, sendo assim, a complexidade de melhor caso é $O(n)$.
 
 ### **Exercício 4.** Considere o seguinte algoritmo
 
