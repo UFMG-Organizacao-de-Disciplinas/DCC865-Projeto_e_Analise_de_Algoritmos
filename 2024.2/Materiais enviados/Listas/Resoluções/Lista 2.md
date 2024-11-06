@@ -511,10 +511,82 @@ Ou seja:
 
 ### **Exercício 5.** Determine um limite assintótico para $T (n) = 2T (\sqrt{n}) + \log n$. Dica: Faça uma substituição de variável. Faça $m = \log n$
 
-- Se $m = \log n$, então $n = 2^m$
-- $\sqrt{n} = n^\frac{1}{2}$
-- Juntando ambos:
-  - $(n)^\frac{1}{2} = (2^m)^\frac{1}{2} = 2^\frac{m}{2}$
+#### Resolvendo com alteração de variável Q5
+
+- Aplicando a dica:
+  - $m = \log n \Leftrightarrow 2^m = n$
+- Usando a definição de raiz quadrada:
+  - $\sqrt{n} = n^\frac{1}{2}$
+- Unindo ambos:
+  - $\sqrt{n} = (n)^\frac{1}{2} = (2^m)^\frac{1}{2} = 2^\frac{m}{2}$
+
+$Eq. 1: T (n) = 2T (\sqrt{n}) + \log n$
+
+Substituindo $\sqrt{n}$ por $n^\frac{1}{2}$ na $Eq. 1$:
+
+$Eq. 2: T (n) = 2T (n^\frac{1}{2}) + \log n$
+
+Então, se tivermos na equação $T (n) = 2T (\sqrt{n}) + \log n$ um valor de $n$ tal que $n = 2^m$, então teremos que:
+
+- $Eq. 3: T (2^m) = 2T (2^\frac{m}{2}) + \log (2^m)$
+
+- $\log (2^m) \Leftrightarrow 2^x = 2^m \implies x = m$
+- $\log (2^m) = m$
+
+- $Eq. 4: T (2^m) = 2T (2^\frac{m}{2}) + m$
+
+Criemos arbitrariamente uma nova função de conversão $Eq. 5: T(n) = T(2^m) = R(m)$.
+
+Para que consigamos obter um $T (2^\frac{m}{2})$ encontrado na $Eq. 3$, precisaríamos que na função $R$, o parâmetro fosse $\frac{m}{2}$, então:
+
+- $Eq. 6: R(\frac{m}{2}) = T(2^\frac{m}{2})$
+
+Assim, substituindo os termos da $Eq. 4$ pelos da $Eq. 5$ e $Eq. 6$, temos que:
+
+- $Eq. 7: R(m) = 2R (\frac{m}{2}) + m$
+
+Assim, podemos agora aplicar o método de preferência para a resolução de recorrências.
+
+##### Teorema Mestre Q5
+
+- Teorema Mestre
+  - Sejam $a \geq 1$ e $b > 1$ constantes, $f(n)$ uma função, e $T(n) = aT(\frac{n}{b}) + f(n)$, então, para algum $\epsilon > 0$:
+    - Se $f(n) = O(n^{\log_{b}(a) - \epsilon}) \implies T(n) = \Theta(n^{\log_{b}(a)})$ [<=]
+    - Se $f(n) = \Theta(n^{\log_{b}(a)}) \implies T(n) = \Theta(n^{\log_{b}(a)} * log(n))$ [=]
+    - Se $f(n) = \Omega(n^{\log_{b}(a) + \epsilon})$ e $a f (\frac{n}{b}) \leq cf(n)$ então $\implies T(n) = \Theta(f(n))$ [>=]
+
+![a](https://static.todamateria.com.br/upload/lo/ga/logaritmodefinicao.jpg)
+
+---
+
+- $a = 2; b = 2; f(m) = m$
+
+- $\log_{b}(a) = \log_{2}(2) = 1$
+
+- Caso 1
+  - $f(m) = O(m^{\log_{b}(a) - \epsilon})$
+  - $m = O(m^{1 - \epsilon})$
+  - $m^1 = O(m^{1 - \epsilon})$
+    - Caso 1 inválido visto que o menor dos $\epsilon$ ainda assim não será válido.
+- Caso 2
+  - $f(m) = \Theta(m^{\log_{b}(a)})$
+  - $m = \Theta(m^{1})$
+  - $m = \Theta(m)$
+  - 👍
+
+Como o Caso 2 é verdadeiro, temos que:
+
+- $R(m) = \Theta(m^{\log_{b}(a)} \cdot \log m)$
+- $R(m) = \Theta(m^{1} \cdot \log m)$
+- $R(m) = \Theta(m \cdot \log m)$
+- $R(m) = \Theta(m \log m)$
+
+Substituindo $m$ pelo seu valor inicial ($\log n$), e utilizando a definição da $Eq. 5$ temos que:
+
+- $T(n) = \Theta((\log n) \log (\log n))$
+- $T(n) = \Theta(\log n \log^2 n)$
+
+---
 
 ---
 
