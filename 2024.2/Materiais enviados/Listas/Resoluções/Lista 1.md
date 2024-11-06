@@ -38,6 +38,10 @@ Somando os passos:
 - $T(n) = C_{1, 2} + \sum_{i=0}^{n-1} \left(C_{3, 4} + P_5*C_5 \right)$
 - $T(n) = C_{1, 2} + n*C_{3, 4} + n*P_5*C_5$
 
+- $O(T(n)) = O(C_{1, 2}) + O(n*C_{3, 4}) + O(n*P_5*C_5)$
+- $O(T(n)) = O(1) + O(n) + O(n)$
+- $O(T(n)) = O(n)$
+
 Onde temos que:
 
 - $C_1 = 1$ (1 atribuição)
@@ -57,11 +61,37 @@ Temos então que sua função de complexidade é:
 
 Como o algoritmo em questão conta a quantidade de números pares, sua execução variará de acordo com a quantidade de números pares. Sendo assim, o melhor caso é quando não há números pares no vetor $a$.
 
-- $P_5 = 1$
+Dessa forma, ele realizará todos os passos do algoritmo, porém não entrará no bloco condicional, ou seja, $n*P_5*C_5 = 0$.
+
+- $MelhorT(n) = C_{1, 2} + n*C_{3, 4} + n*P_5*C_5$
+- $MelhorT(n) = C_{1, 2} + n*C_{3, 4}$
+
+- $\Omega(T(n)) = \Omega(C_{1, 2}) + \Omega(n*C_{3, 4})$
+- $\Omega(T(n)) = \Omega(1) + \Omega(n)$
+- $\Omega(T(n)) = \Omega(n)$
 
 #### 1.b. Caso médio
 
+Em média, teremos que a quantidade de números pares será exatamente a metade dos números do vetor $a$, ou seja, $P_5 = 0,5$. Dessa forma, temos que:
+
+- $MédioT(n) = C_{1, 2} + n*C_{3, 4} + n*P_5*C_5$
+- $MédioT(n) = C_{1, 2} + n*C_{3, 4} + n*0,5*C_5$
+
+- $\Theta(T(n)) = \Theta(C_{1, 2}) + \Theta(n*C_{3, 4}) + \Theta(n*0,5*C_5)$
+- $\Theta(T(n)) = \Theta(1) + \Theta(n) + \Theta(n)$
+- $\Theta(T(n)) = \Theta(n)$
+
 #### 1.c. Pior caso
+
+O pior caso é quando todos os números do vetor $a$ são pares, ou seja, $P_5 = 1$. Dessa forma, temos que:
+
+- $PiorT(n) = C_{1, 2} + n*C_{3, 4} + n*P_5*C_5$
+- $PiorT(n) = C_{1, 2} + n*C_{3, 4} + n*1*C_5$
+- $PiorT(n) = C_{1, 2} + n*C_{3, 4} + n*C_5$
+
+- $O(T(n)) = O(C_{1, 2}) + O(n*C_{3, 4}) + O(n*C_5)$
+- $O(T(n)) = O(1) + O(n) + O(n)$
+- $O(T(n)) = O(n)$
 
 ### **Exercício 2.** Determine a função de complexidade do algoritmo abaixo e indique sua complexidade de melhor caso, caso médio e pior caso
 
