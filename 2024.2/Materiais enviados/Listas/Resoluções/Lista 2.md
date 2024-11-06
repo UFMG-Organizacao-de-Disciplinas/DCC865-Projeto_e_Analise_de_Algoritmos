@@ -531,21 +531,28 @@ Ou seja:
 
 - $T(n) = T(\frac{n}{4}) + T(\frac{n}{5}) + T(\frac{n}{6}) + n$
 - $T^{+}(n) = T(\frac{n}{4}) + T(\frac{n}{4}) + T(\frac{n}{4}) + n$
+  - Consideraremos que $T^{+}(n)$ como sendo uma função similar que seja **maior** que $T(n)$
   - $T^{+}(n) = 3T(\frac{n}{4}) + n$
 - $T^{-}(n) = T(\frac{n}{6}) + T(\frac{n}{6}) + T(\frac{n}{6}) + n$
+  - Consideraremos que $T^{-}(n)$ como sendo uma função similar que seja **menor** que $T(n)$
   - $T^{-}(n) = 3T(\frac{n}{6}) + n$
 
 - Executando o Teorema Mestre para $T^{+}(n)$:
   - $a = 3; b = 4; f(n) = n$
-  - $\log_{b}(a) = \log_{4}(3)$
+  - $\log_{b}(a) = \log_{4}(3) = 0,792$
   - Caso 1:
     - $n^{\log_{b}(a) - \epsilon} = n^{\log_{4}(3) - \epsilon}$
     - $f(n) = n = O(n^{\log_{4}(3) - \epsilon})$
-    - $n^1 = O(n^{\log_{4}(3) - \epsilon})$ [#confia]
-    - $1 = \log_{4}(3) - \epsilon$
-    - $\epsilon = \log_{4}(3) - 1$
-    - Com isso:
-      - $T^{+}(n) = \Theta(n^{\log_{4}(3)})$
+    - $n^1 = O(n^{\log_{4}(3) - \epsilon})$
+    - $1 < \log_{4}(3) - \epsilon$
+    - $\epsilon < 0,792 - 1$
+    - $\epsilon < -0,208$
+    - $0 < \epsilon < -0,208$ 👎
+    - Com isso, entendemos que o caso 1 não é válido
+  - Caso 2:
+    - $n^{\log_{b}(a)} = n^{\log_{4}(3)}$
+    - $f(n) = n = \Theta(n^{\log_{4}(3)})$
+    - $n^1 = \Theta(n^{0,792})$
 - Executando o Teorema Mestre para $T^{-}(n)$:
   - $a = 3; b = 6; f(n) = n$
   - $\log_{b}(a) = \log_{6}(3)$
