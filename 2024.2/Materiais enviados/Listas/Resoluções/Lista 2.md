@@ -430,6 +430,79 @@ Tentando pelo método outro lá.
 
 ### **Exercício 4.** Determine um limite assintótico para $T (n) = 2T (\sqrt{n})$. Dica: Faça uma substituição de variável. Faça $m = \log n$
 
+#### Resolvendo com alteração de variável
+
+- Aplicando a dica:
+  - $m = \log n \Leftrightarrow 2^m = n$
+- Usando a definição de raiz quadrada:
+  - $\sqrt{n} = n^\frac{1}{2}$
+- Unindo ambos:
+  - $\sqrt{n} = (n)^\frac{1}{2} = (2^m)^\frac{1}{2} = 2^\frac{m}{2}$
+
+$Eq. 1: T (n) = 2T (\sqrt{n})$
+
+Substituindo $\sqrt{n}$ por $n^\frac{1}{2}$ na $Eq. 1$:
+
+$Eq. 2: T (n) = 2T (n^\frac{1}{2})$
+
+Então, se tivermos na equação $T (n) = 2T (\sqrt{n})$ um valor de $n$ tal que $n = 2^m$, então teremos que:
+
+- $Eq. 3: T (2^m) = 2T (2^\frac{m}{2})$
+
+Criemos arbitrariamente uma nova função de conversão $Eq. 4: R(m) = T(2^m)$.
+
+Para que consigamos obter um $T (2^\frac{m}{2})$ encontrado na $Eq. 2$, precisaríamos que na função $R$, o parâmetro fosse $\frac{m}{2}$, então:
+
+- $Eq. 5: R(\frac{m}{2}) = T(2^\frac{m}{2})$
+
+Assim, substituindo os termos da $Eq. 3$ pelos da $Eq. 4$ e $Eq. 5$, temos que:
+
+- $R(m) = 2R (\frac{m}{2})$
+
+Assim, podemos agora aplicar o método de preferência para a resolução de recorrências.
+
+##### Teorema Mestre
+
+- $a = 2; b = 2; f(n) = 0$
+
+- $\log_{b}(a) = \log_{2}(2) = 1$
+
+- Caso 1
+  - $f(n) = O(n^{\log_{b}(a) - \epsilon})$
+  - $0 = O(n^{1 - \epsilon})$
+  - Para $\epsilon = 1$, temos que:
+  - $0 = O(n^{1 - 1})$
+  - $0 = O(n^0)$
+  - $0 = O(1)$
+
+Como o caso 1 é verdadeiro, temos que:
+
+- $T(n) = \Theta(n^{\log_{b}(a)})$
+- $T(n) = \Theta(n^{1})$
+- $T(n) = \Theta(n)$
+
+---
+
+#### Tentativa de outro método sem a conversão de variáveis
+
+Expandindo:
+
+- $T (n) = 2T (\sqrt{n})$
+- $T (n) = 2T (n^\frac{1}{2})$
+- $T (n) = 2(2T (n^\frac{1}{4}))$
+- $T (n) = 2(2(2T (n^\frac{1}{8})))$
+- $T (n) = 2(2(2(2T (n^\frac{1}{16}))))$
+
+Ou seja:
+
+- $T (n) = 2^1 T (n^\frac{1}{2^1})$
+- $T (n) = 2^2 T (n^\frac{1}{2^2})$
+- $T (n) = 2^3 T (n^\frac{1}{2^3})$
+- $\vdots$
+- $T (n) = 2^k T (n^\frac{1}{2^k})$
+
+---
+
 ---
 
 ### **Exercício 5.** Determine um limite assintótico para $T (n) = 2T (\sqrt{n}) + \log n$. Dica: Faça uma substituição de variável. Faça $m = \log n$
