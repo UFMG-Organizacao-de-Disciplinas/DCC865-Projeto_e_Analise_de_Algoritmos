@@ -683,7 +683,56 @@ Segundo a definição do limite superior estrito, temos que:
 
 ### **Exercício 14.** Prove que $\sum^{n}_{i=1} i = \Theta (n^2)$, utilizando uma prova por indução
 
+Para provar por indução, primeiro precisamos provar o $\sum^{n}_{i=1} i = O(n^2)$ e depois o $\sum^{n}_{i=1} i = \Omega (n^2)$.
+
+Para provrar que $\sum^{n}_{i=1} i = \Omega (n^2)$, pela definição do $\Omega$, temos que:
+
+- $f = \Omega(g)$ Existem $n_0$ e $c$ tal que: $f(n) \geq c \cdot g(n)$ para todo $n \geq n_0$
+
+- Caso base: $n_0 = 1$ e $c = \frac{1}{10}$
+  - $\sum^{1}_{i=1} i \geq \frac{1}{10} \cdot 1^2$
+  - $1 \geq \frac{1}{10}$
+- Hipótese de indução: $n = k$
+  - $\sum_{i=1}^{k} i \geq \frac{1}{10} \cdot k^2$
+- Passo indutivo: $n = k+1$
+  - $\sum_{i=1}^{k+1} i \geq \frac{1}{10} \cdot (k+1)^2$
+- Resolvendo então indutivamente, partindo da hipótese de indução e alcançando o passo indutivo:
+  - $\sum_{i=1}^{k} i \geq \frac{1}{10} \cdot k^2$
+  - $\sum_{i=1}^{k} i + (k+1) \geq \frac{1}{10} \cdot k^2 + (k+1)$
+    - Provando que $\frac{1}{10} \cdot k^2 + (k+1) \geq \frac{1}{10} \cdot (k+1)^2$:
+      - $\frac{1}{10} \cdot k^2 + (k+1) \geq \frac{1}{10} \cdot k^2 + \frac{1}{10} \cdot (2k+1)$
+      - $k+1 \geq \frac{2k+1}{10}$
+      - $k+1 \geq \frac{k}{5} + \frac{1}{10}$
+  - $\sum_{i=1}^{k+1} i \geq \frac{1}{10} \cdot k^2 + (k+1) \geq \frac{1}{10} \cdot (k + 1)^2$
+  - $\sum_{i=1}^{k+1} i \geq \frac{1}{10} \cdot (k + 1)^2$
+
 ---
+
+#### Prova sem ser por indução
+
+- $\sum_{i=1}^{n} i$;
+- $\sum_{i=1}^{n} i = 1 + 2 + 3 + ... + n-2 + n-1 + n$;
+- Somando as extremidades, temos:
+- $(1+n) + (2+n-1) + (3+n-2) + \dots$; E serão $n/2$ pares, então:
+- $(n+1) + (n+1) + (n+1) + \dots$; E serão $n/2$ pares, então:
+- $(\frac{n}{2})*(n+1) = \frac{n*(1+n)}{2} = \frac{n^2}{2} + \frac{n}{2}$;
+- $\Theta(\frac{n^2}{2} + \frac{n}{2})$
+- $\Theta(\frac{n^2}{2})$
+- $\Theta(n^2)$
+
+[JV: isso não é por indução. Tenho que refazer 😢]
+
+---
+
+#### Roberta
+
+- $\sum_{i=1}^{k} i \geq \frac{1}{10} \cdot k^2$
+- $\sum_{i=1}^{k} i + (k+1) \geq \frac{1}{10} \cdot k^2 + (k+1)$
+- $\sum_{i=1}^{k+1} i \geq \frac{1}{10} \cdot k^2 + \frac{1}{10} \cdot(k+1)$
+- $\sum_{i=1}^{k+1} i \geq \frac{1}{10} \cdot (k^2 + k + 1)$
+<!-- - $\sum_{i=1}^{k+1} i \geq \frac{1}{10} \cdot (k^2 + k + 1) + \frac{k}{10}$ [JV: 😠] -->
+<!-- - $\sum_{i=1}^{k+1} i \geq \frac{1}{10} \cdot (k^2 + 2k + 1)$ -->
+- $\sum_{i=1}^{k+1} i \geq \frac{1}{10} \cdot (k + 1)^2$
 
 ### **Exercício 15.** Prove que $\sum^{n}_{i=1} \frac{1}{k} = \Theta(\log n)$
 
