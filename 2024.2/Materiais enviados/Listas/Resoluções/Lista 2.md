@@ -302,7 +302,7 @@ Considerando $\epsilon = \frac{1}{2}$, temos que:
 
 - $n^{\frac{1}{2} - \frac{1}{2}} = n^0 = 1$
 
-Então $f(n) = O(1)$, $f(n) = 1 = O(1)$. Logo, $T(n) = \Theta(n^{\log_{4}(2)}) = \Theta(n^{\frac{1}{2}}) = \Theta(\sqrt{n})$
+Então $f(n) = O(1)$, $f(n) = 1 = O(1)$. Logo, $T(n) = \Theta(n^{\log_{4}(2)}) = \Theta(n^\frac{1}{2}) = \Theta(\sqrt{n})$
 
 ---
 
@@ -493,7 +493,7 @@ Para as questões a seguir considere uma pilha S que possui duas operações
 - **pop(S)**: remove (desempilha) o topo da pilha $S$.
 - **push(S,x)**: empilha o elemento x na pilha $S$.
 
-Cada uma dessas operações possui custo O(1). Vamos definir uma nova operação para esta estrutura, a operação **multi-pop(S,k)** que remove os k últimos elementos empilhados.
+Cada uma dessas operações possui custo O(1). Vamos definir uma nova operação para esta estrutura, a operação **multi-pop(S,k)** que remove os $k$ últimos elementos empilhados.
 
 ---
 
@@ -514,10 +514,10 @@ Complexidade multi-pop:
 
 - Algoritmo para **multi-pop**:
   - Entrada: pilha $S$ e inteiro $k$
-  - $restaRemover \leftarrow k$ [C_1]
-  - **ENQUANTO** !vazio(S) **E** restaRemover > 0 **FAÇA:** [C_2]
-    - pop(S) [C_3]
-    - $restaRemover \leftarrow restaRemover - 1$ [C_4]
+  - $restaRemover \leftarrow k$ $[C_1]$
+  - **ENQUANTO** !vazio(S) **E** restaRemover > 0 **FAÇA:** $[C_2]$
+    - pop(S) $[C_3]$
+    - $restaRemover \leftarrow restaRemover - 1$ $[C_4]$
 
 - $C_1: 1 = O(1)$
 - $C_2: O(1) + 1 = O(1)$ [Considerando que O(vazio(S)) = O(1)]

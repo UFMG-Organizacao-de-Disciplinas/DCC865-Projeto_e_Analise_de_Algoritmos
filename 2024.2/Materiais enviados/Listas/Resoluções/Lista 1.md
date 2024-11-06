@@ -34,8 +34,8 @@ Contando a quantidade de passos:
 
 Somando os passos:
 
-- $T(n) = C_1 + C_2 + \sum_{i=0}^{n-1} ((C_3 + C_4) + P_5*C_5$)
-- $T(n) = C_{1, 2} + \sum_{i=0}^{n-1} (C_{3, 4} + P_5*C_5$)
+- $T(n) = C_1 + C_2 + \sum_{i=0}^{n-1} \left(C_3 + C_4 + P_5*C_5 \right)$
+- $T(n) = C_{1, 2} + \sum_{i=0}^{n-1} \left(C_{3, 4} + P_5*C_5 \right)$
 - $T(n) = C_{1, 2} + n*C_{3, 4} + n*P_5*C_5$
 
 Onde temos que:
@@ -69,10 +69,10 @@ Como o algoritmo em questão conta a quantidade de números pares, sua execuçã
   - **Entrada:** Matrizes $n \times n$ $A$ e $B$
   - C $\leftarrow$ matriz vazia;
   - **para todo** $i \leftarrow 0$ até $n - 1$ **faça**
-    - **para todo** $j $\leftarrow$ 0$ até $n - 1$ **faça**
+    - **para todo** $j \leftarrow 0$ até $n - 1$ **faça**
       - $C[i, j] \leftarrow 0$;
       - **para todo** $k \leftarrow 0$ até $n - 1$ **faça**
-        - $C[i, j] \leftarrow C[i, j] + A[i, k] ∗ B[k, j]$;
+        - $C[i, j] \leftarrow C[i, j] + A[i, k] * B[k, j]$;
   - **retorna** $C$;
 
 ---
@@ -91,7 +91,7 @@ Como o algoritmo em questão conta a quantidade de números pares, sua execuçã
 
 - ***Pseudocódigo Q3***
   - **Entrada:** vetor de inteiros $A$, tamanho $n$ de $A$
-  - **para todo** i $\leftarrow$ $2$ até $n$ **faça**
+  - **para todo** $i \leftarrow 2$ até $n$ **faça**
     - $chave \leftarrow A[i]$;
     - $j \leftarrow i - 1$;
     - **enquanto** $j > 0$ e $A[j] > chave$ **faça**
@@ -184,7 +184,7 @@ Como são dois loops, um dentro do outro, ambos percorrendo aproximadamente n el
 
 O seu melhor caso ocorre quando a lista já está ordenada de forma crescente.
 
-Mesmo que o algoritmo não precise fazer troca alguma, ainda assim ele percorre aproximadamente $n^2$ elementos, sendo assim, a complexidade de melhor caso é $O(n^2)$.
+Mesmo que o algoritmo não precise fazer troca alguma, ainda assim ele percorre aproximadamente $n^2$ elementos, sendo assim, a complexidade de melhor caso segue sendo $O(n^2)$.
 
 ### **Exercício 5.** Determine um limite superior assintótico para as funções abaixo (de preferência o mais apertado possível)
 
