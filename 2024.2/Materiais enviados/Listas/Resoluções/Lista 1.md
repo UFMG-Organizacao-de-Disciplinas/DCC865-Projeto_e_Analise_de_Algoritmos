@@ -107,15 +107,69 @@ O pior caso é quando todos os números do vetor $a$ são pares, ou seja, $P_5 =
 
 ---
 
+Contando a quantidade de passos:
+
+- ***Pseudocódigo Q2***
+  - **Entrada:** Matrizes $n \times n$ $A$ e $B$
+  - C $\leftarrow$ matriz vazia; [$C_1$]
+  - **para todo** $i \leftarrow 0$ até $n - 1$ **faça** [Inicial: $C_2$; por ciclo: $C_3$]
+    - **para todo** $j \leftarrow 0$ até $n - 1$ **faça** [Inicial: $C_4$; por ciclo: $C_5$]
+      - $C[i, j] \leftarrow 0$; [$C_6$]
+      - **para todo** $k \leftarrow 0$ até $n - 1$ **faça** [Inicial: $C_7$; por ciclo: $C_8$]
+        - $C[i, j] \leftarrow C[i, j] + A[i, k] * B[k, j]$; [$C_9$]
+  - **retorna** $C$;
+
+Onde temos que:
+
+- $C_1 = n^2$ (Preenchimento de matriz com zeros)
+- $C_2 = 2$ (1 atribuição; 1 comparação inicial)
+- $C_3 = 2$ (1 comparação; 1 incremento)
+- $C_4 = 2$ (1 atribuição; 1 comparação inicial)
+- $C_5 = 2$ (1 comparação; 1 incremento)
+- $C_6 = 3$ (2 acesso ao índice; 1 atribuição)
+- $C_7 = 2$ (1 atribuição; 1 comparação inicial)
+- $C_8 = 2$ (1 comparação; 1 incremento)
+- $C_9 = 5$ (4*(2 acessos ao índice); 1 atribuição; 2 operações matemáticas)
+
+Somando os passos:
+
+- $T(n) = C_1 + C_2 + \sum_{i=0}^{n-1} C_3 + C_4 + \sum_{j=0}^{n-1} C_5 + C_6 + C_7 + \sum_{k=0}^{n-1} C_8 + C_9$
+
+Simplificando os limites do somatório pela quantidade de elementos:
+
+- $T(n) = C_1 + C_2 + \sum_{i=1}^{n} \left( C_3 + C_4 + \sum_{j=1}^{n} \left( C_5 + C_6 + C_7 + \sum_{k=1}^{n} (C_8 + C_9) \right) \right)$
+- $T(n) = C_{1, 2} + \sum_{i=1}^{n} \left( C_{3, 4} + \sum_{j=1}^{n} \left( C_{5, 6, 7} + \sum_{k=1}^{n} (C_{8, 9}) \right) \right)$
+- $T(n) = C_{1, 2} + \sum_{i=1}^{n} \left( C_{3, 4} + \sum_{j=1}^{n} \left( C_{5, 6, 7} + n*C_{8, 9} \right) \right)$
+- $T(n) = C_{1, 2} + \sum_{i=1}^{n} \left( C_{3, 4} + n*C_{5, 6, 7} + n*n*C_{8, 9} \right)$
+- $T(n) = C_{1, 2} + n*C_{3, 4} + n*n*C_{5, 6, 7} + n*n*n*C_{8, 9}$
+- $T(n) = C_{1, 2} + n*C_{3, 4} + n^2*C_{5, 6, 7} + n^3*C_{8, 9}$
+
+Temos então que sua função de complexidade é:
+
+- $T(n) = C_{1, 2} + n*C_{3, 4} + n^2*C_{5, 6, 7} + n^3*C_{8, 9}$
+
+E podemos considerar que é dominada assintoticamente por $n^3$.
+
+- $O(T(n)) = O(C_{1, 2}) + O(n*C_{3, 4}) + O(n^2*C_{5, 6, 7}) + O(n^3*C_{8, 9})$
+- $O(T(n)) = O(1) + O(n) + O(n^2) + O(n^3)$
+- $O(T(n)) = O(n^3)$
+
 #### 2.a. Melhor caso
 
 #### 2.b. Caso médio
 
 #### 2.c. Pior caso
 
-<!-- - $\log_{a} b = x \Leftrightarrow a^x = b$ -->
-<!-- - $x^k > \log n$ -->
-  <!-- - Vai depender do valor de $k$; Principalmente se $0 < k < 1$; -->
+O **algoritmo 2** é um algoritmo de multiplicação de matrizes, onde a matriz resultante é preenchida com zeros e depois é feita a multiplicação de cada elemento da matriz resultante com os elementos das matrizes $A$ e $B$.
+
+De modo geral, o custo computacional desse algoritmo poderá variar de acordo com duas situações:
+
+- A ordem da matriz;
+- O tamanho dos valores das matrizes.
+
+É esperado que uma multiplicação entre números grandes tenha um custo computacional maior do que uma multiplicação entre números pequenos ou que sejam iguais a zero.
+
+Ao desconsiderarmos essas duas situações, teremos que todos os três casos (melhor, médio e pior) terão o mesmo custo computacional, ou seja, $O(n^3)$. Isso porque em todos os casos, o algoritmo terá que percorrer todos os elementos das matrizes $A$ e $B$ e realizar a multiplicação de cada elemento da matriz resultante.
 
 ### **Exercício 3.** Considere o seguinte algoritmo
 
