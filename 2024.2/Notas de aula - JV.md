@@ -1411,6 +1411,14 @@ Matriz: $O(n^2 * \log n)$
 
 ##### Algoritmo de Prim; Algoritmo de Kruskal
 
+### Sem Aula - 28/10/2024
+
+### Sem Aula - 30/10/2024
+
+### Sem Aula - 04/11/2024 - Seria aula de exercícios, mas a aula de exercícios foi adiantada em um sábado prévio
+
+### Prova 1 - 06/11/2024
+
 ## Estudar
 
 - Material de Pré-PAA
