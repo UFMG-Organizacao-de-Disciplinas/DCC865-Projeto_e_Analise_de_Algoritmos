@@ -1419,6 +1419,130 @@ Matriz: $O(n^2 * \log n)$
 
 ### Prova 1 - 06/11/2024
 
+### Aula 9 - 11/11/2024 - [13h10, 14h40]
+
+- Ele removerá o exercício do Bom Presidente do Trabalho Prático 1.
+- Ele perguntou sobre o que achamos da prova
+  - Eu: gostei e desgostei de serem questões de estilo diferente da lista
+  - Gustavo: achou que foi longa demais pro tempo
+  - Helio Victor: não gostou do limite de espaço pra resolução das questões
+  - Professor: Ele manterá esse tipo de questão diferente nas provas, em especial essas que seguem um raciocínio inverso do que geralmente estudado; Ele fará provas menores; E também removerá o retângulo de limitação de espaço para resolução das questões.
+- Na segunda dia 25/11/2024 ele irá corrigir a prova em aula e nos mostrar nossas provas corrigidas
+
+#### Slide - Árvore Geradora Mínima
+
+##### Slide - Árvore Geradora Mínima - 1
+
+- **Árvore Geradora Mínima:** árvore que conecta todos os vértices com o menor custo possível.
+- Todas arestas não são arcos, ou seja, não são direcionados.
+- As arestas são pesadas.
+- Não necessariamente a árvore geradora mínima é única.
+
+##### Slide - Árvore Geradora Mínima - 2 - Exemplo
+
+##### Slide - Árvore Geradora Mínima - 3 - Kruskal
+
+- **Algoritmo de Kruskal:** ordena as arestas por peso e vai adicionando as arestas de menor peso que não formem ciclo.
+- Uma das arestas mais leves de um grafo sempre está na sua árvore geradora mínima.
+- POdemos usar essa observação para incluir arestas na árvore de forma simples.
+- Vamos tentar colocar todas as arestas de menor peso na árvore.
+
+---
+
+Explicação:
+
+Grafo: $G = (V, E)$ com pesos $W_{uv}$ tal que $uv \in E(G)$.
+
+- $uv$ tem o peso mínimo.
+- $T = (V, A)$ é uma árvore geradora mínima de $G$.
+  - Seu peso seria $C(T) = \sum_{e \in A} W_e$.
+- $T + uv$ tem um ciclo $C$.
+- Se $uv$ tem o menor peso, e causou um ciclo, então remover qualquer outra aresta (chamemos de $zw$) do ciclo e adicionar $uv$ vai gerar uma árvore geradora mínima.
+- $T* = T + uv - zw$ é uma árvore geradora.
+  - Seu peso seria: $C(T*) = (\sum_{e \in A} W_e) + W_{uv} - W_{zw}$.
+- Então, $C(T) - C(T*) = W_{zw} - W_{uv}$
+- Para que $T$ seja uma árvore geradora mínima, $W_{zw} = W_{uv}$.
+
+##### Slide - 4 - Kruskal - Algoritmo
+
+- **Algoritmo 1:** KRUSKAL(G)
+  - $A \leftarrow \emptyset$ [Eq1]
+  - $E \leftarrow \text{ordenar}(E)$ [Eq2]
+  - **para todo** $uv \in E$ em ordem **faça** [Eq3]
+    - **se** $uv + A$ não tem um ciclo **então** [Eq4]
+      - $A \leftarrow A \cup \{uv\}$ [Eq5]
+    - **fim se**
+  - **fim para**
+
+
+- Complexidades
+  - Lista de Adjacência
+    - Equações
+      - $Eq1 = O(1)$
+      - $Eq2 = O(m \log m)$, onde m é o número de arestas; Como $m$ é limitado por $n^2$, então
+        - $Eq2 = O(m \log n^2) = O(m \log n)$
+      - $Eq3 = O(m)$
+      - $Eq4 = O(X)$ onde X é um tempo que não se sabe
+        - com DFS: $X = n + m$, porém como $m \geq n - 1$, então $X = n$
+      - $Eq5 = O(Y)$ onde Y é um tempo que não se sabe
+        - com Lista Encadeada: $Y = 1$
+    - Somatório
+      - $O(1) + O(m \log n) + O(m)*O(X + Y)$
+      - $O(m \log n) + O(mX + mY)$
+      - $O(m \log n) + O(mn + m)$
+      - $O(m \log n) + O(mn)$
+      - $O(mn)$
+  - Matriz de Adjacência
+    - Equações
+      - $Eq1 = O(1)$
+      - $Eq2 = O(n^2  + m \log n)$
+      - $Eq3 = O(m)$
+      - $Eq4 = O(n^2)$
+      - $Eq5 = O(1)$
+    - Somatório
+      - $O(1) + O(n^2 + m \log n) + O(mn^2) + O(m)$
+      - $O(n^2 + m \log n) + O(mn^2)$
+      - $O(n^2 + m \log n + mn^2)$
+      - $O(mn^2)$
+
+É interessante notar que o critério de desempate no algoritmo de ordenação poderá gerar AGMs diferentes.
+
+Ele menciona que no exemplo dele está escolhendo "Lexicograficamente o menor" (ele tá escolhendo as arestas pelo que tiver o menor label "A < B < C < D")
+
+Poderia-se usar a ideia de histograma para poder ordenar as arestas de forma mais eficiente, em $O(n)$, caso o valor máximo dos pesos esteja limitado.
+
+- Complexidade ao usar Heap ao invés de lista ordenada:
+  - Equações
+    - $Eq1 = O(1)$
+    - $Eq2 = O(m)$: criar heap
+    - $Eq3 = O(\log m) \cdot m$: retirar do heap $\cdot$ número de arestas
+    - $Eq4 = O(n)$: verificar se tem ciclo
+    - $Eq5 = O(1)$: adicionar ao heap
+  - Somatório
+    - $O(1) + O(m) + O(m \log m) + (mn + m \cdot 1) = O(mn)$
+- Se usar UnionFind, dá para converter $O(n)$ em $O(\log n)$; Mas o $O(1)$ vira $O(\log n)$.
+  - O que no geral me resulta numa complexidade total:
+    - Heap + UnionFind + Lista de Adjacência: $O(m \log n)$
+- Poderia também trocar o Heap por um Heap de Fibonacci que amortizado resultaria em $O(m)$.
+
+Ele gosta de fazer questões de ponderar o que aconteceria ao alterar as estruturas de dados dos algoritmos.
+
+No geral ele apenas gostaria que a gente entendesse a complexidade do algoritmo usando Lista ou Matriz de Adjacência. Não necessitando das trocas de estruturas de dados.
+
+Normalmente os algoritmos que já vimos como "Busca em profundidade" serão úteis para resolver problemas das listas.
+
+Cuidado com o "testa todas as possibilidades", visto que isso pode ser MUITO grande.
+
+O Algoritmo de Prim é similar, mas vai fazendo algo parecido com o algoritmo de busca em largura.
+
+Ele comentou algo sobre a troca de $m$ por $n$, mas não entendi bem o que seria.
+
+Ele prefere que se escreva $\log m$ ao invés de $\log n$, ou o contrário, não entendi.
+
+- $m$ é no máximo $n^2$, e o $\log m$ é no máximo $\log n^2 = 2 \log n$ então $\log m = O(\log n)$
+
+##### Slide - 5 - Kruskal - Exemplo
+
 ## Estudar
 
 - Material de Pré-PAA
