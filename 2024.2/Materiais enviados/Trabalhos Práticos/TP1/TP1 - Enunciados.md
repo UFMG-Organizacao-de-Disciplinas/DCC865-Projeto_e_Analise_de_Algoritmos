@@ -55,18 +55,18 @@ Para cada possível mapa, indique o custo mínimo para reconstruir o país.
 
 | Exemplo de Entrada | Exemplo de Saída |
 | ------------------ | ---------------- |
-| 2                  | 4                |
-| 3 3 2 1            | 12               |
-| 1 2                |                  |
-| 3 1                |                  |
-| 2 3                |                  |
-| 6 6 2 5            |                  |
-| 1 3                |                  |
-| 3 4                |                  |
-| 2 4                |                  |
-| 1 2                |                  |
-| 2 3                |                  |
-| 5 6                |                  |
+| 2                  | &nbsp;           |
+| 3 3 2 1            | 4                |
+| 1 2                | &nbsp;           |
+| 3 1                | &nbsp;           |
+| 2 3                | &nbsp;           |
+| 6 6 2 5            | 12               |
+| 1 3                | &nbsp;           |
+| 3 4                | &nbsp;           |
+| 2 4                | &nbsp;           |
+| 1 2                | &nbsp;           |
+| 2 3                | &nbsp;           |
+| 5 6                | &nbsp;           |
 
 X Olimpíada Interna de Programação do IFSULDEMINAS - OLIP 2020
 
@@ -90,7 +90,7 @@ Na figura exemplo, Alice e Bob geraram dois filhos, Gina e Bonnie. Ainda, um tes
 
 ### Entrada - beecrowd | 3356
 
-A primeira linha da entrada possui três números inteiros $N (3 ≤ N ≤ 15)$, $C (0 < C ≤ N)$ e $T (0 < T ≤ N*(N-1))$, que representam, respectivamente, o número de animais, o número de relações de parentesco conhecidas e o número de casos de teste. Em seguida, são fornecidas as $C$ relações de parentesco com os dois nomes dos pais e o respectivo filho gerado. Depois dos cruzamentos são fornecidos os $T$ casos de teste, cada um composto pelos nomes dos dois animais que se pretende cruzar. Cada nome de animal é composto por até 10 letras do alfabeto português (26 letras) e todos os nomes são separados por um único espaço entre si.
+A primeira linha da entrada possui três números inteiros $N (3 \leq N \leq 15)$, $C (0 < C \leq N)$ e $T (0 < T \leq N*(N-1))$, que representam, respectivamente, o número de animais, o número de relações de parentesco conhecidas e o número de casos de teste. Em seguida, são fornecidas as $C$ relações de parentesco com os dois nomes dos pais e o respectivo filho gerado. Depois dos cruzamentos são fornecidos os $T$ casos de teste, cada um composto pelos nomes dos dois animais que se pretende cruzar. Cada nome de animal é composto por até 10 letras do alfabeto português (26 letras) e todos os nomes são separados por um único espaço entre si.
 
 ### Saída - beecrowd | 3356
 
