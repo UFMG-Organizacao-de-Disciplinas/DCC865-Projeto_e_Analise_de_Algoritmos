@@ -1543,6 +1543,138 @@ Ele prefere que se escreva $\log m$ ao invés de $\log n$, ou o contrário, não
 
 ##### Slide - 5 - Kruskal - Exemplo
 
+### Aula 10 - 13/11/2025 - [13h10, 14h34]
+
+- Ele vai fazer um formulário para confirmar se vai trocar a aula de exercícios do dia 25/11/2024 (segunda) para o dia 23/11/2024 (sábado).
+
+#### Slide - 4? - Árvore Geradora Mínima - Prim
+
+##### Slide - 4 - Árvore Geradora Mínima - Prim
+
+- Uma das arestas mais leves de um grafo sempre estão na sua árvore geradora mínima.
+- As demais arestas devem formar uma árvore.
+- Vamos tentar construir essa árvore.
+
+---
+
+Kruskal vai pegando as arestas mais leves de forma gulosa e confirmando se formam ciclos.
+
+Com o algoritmo de Prim, ele não precisa verificar se forma ciclo.
+
+Primeiro separa em dois conjuntos: o que já visitou e o que ainda vai visitar.
+
+##### Prim - Algoritmo
+
+- **Algoritmo 2:** PRIM(G)
+  - **para todo** $u \in V(G)$ **faça**
+    - $c[u] \leftarrow \infty$
+    - $\pi[u] \leftarrow u$
+  - **fim**
+  - Selecione a menor aresta $uv$;
+  - $c[u] ...$
+  - $\vdots$
+  - **Enquanto** $Q \diff \emptyset$ **faça** [Eq1]
+    - $u \leftarrow mira__minimo(Q)$; [Eq2]
+    - **para todo** $v \in N(u)$ **faça** [Eq3]
+      - **se** $v \in Q$ e $W_{uv} < c[v]$ **então**
+        - $\pi[v] \leftarrow u$
+        - $c[v] \leftarrow W_{uv}$ [Eq4]
+      - **fim se**
+    - **fim para**
+  - **fim enquanto**
+
+---
+
+- Complexidades
+  - Considerando que $Q$ é uma lista ordenada
+  - Lista de Adjacência
+    - Em caso de $Q$ ordenado:
+      - Equações
+        - $Eq1 = O(n)$
+        - $Eq2 = O(1) (\text{Lista ordenada}) || O(n) (\text{Lista desordenada})$
+        - $Eq3 = O(d(v))$
+        - $Eq4 = O(n) (\text{Lista ordenada}) || O(1) (\text{Lista desordenada})$
+      - Somatório
+        - $\sum_{v \in V(G)} \left( O(1) + O(d(v) \cdot O(n) \right) =$
+        - $\sum_{v \in V(G)} O(1) + \sum_{v \in V(G)} O(d(v) \cdot O(n)) =$
+        - $O(n) + O(m \cdot n)$
+      - Em caso de $Q$ não ordenado
+        - Equações
+          - $Eq1 = O(n)$
+          - $Eq2 = O(n)$
+          - $Eq3 = O(d(v))$
+          - $Eq4 = O(1)$
+        - Somatório
+          - $\sum_{v \in V(G)} \left( O(n) + O(d(v) \cdot O(1) \right) =$
+          - $\sum_{v \in V(G)} O(n) + \sum_{v \in V(G)} O(d(v) \cdot O(1)) =$
+          - $O(n^2) + O(m)$
+      - Em caso de $Q$ "Estrutura mágica" (heap)
+        - Equações
+          - $Eq1 = O(n)$
+          - $Eq2 = O(\log n)$
+          - $Eq3 = O(d(v))$
+          - $Eq4 = O(\log n)$
+        - Somatório
+          <!-- - $\sum_{v \in V(G)} \left( O(\log n) + O(d(v) \cdot O(\log n) \right) =$ -->
+          <!-- - $\sum_{v \in V(G)} O(\log n) + \sum_{v \in V(G)} O(d(v) \cdot O(\log n)) =$ -->
+          - $O(n \log n) + O(m \log n)$
+      - Em caso de $Q$ "Estrutura mágica" 2 (Heap de Fibonacci)
+        - Equações
+          - $Eq1 = O(n)$
+          - $Eq2 = O(\log n)$
+          - $Eq3 = O(d(v))$
+          - $Eq4 = O(1)$
+        - Somatório
+          <!-- - $\sum_{v \in V(G)} \left( O(\log n) + O(d(v) \cdot O(1) \right) =$ -->
+          <!-- - $\sum_{v \in V(G)} O(\log n) + \sum_{v \in V(G)} O(d(v) \cdot O(1)) =$ -->
+          - $O(n \log n) + O(m)$
+
+Ele mais uma vez comentou sobre gostar da ideia de ficar trocando qual é a estrutura de dados para ver como a complexidade muda.
+
+Não sei quantas ou quais estruturas ele espera que saibamos.
+
+Ele se importa que saibamos como que o algoritmo funciona e de que forma as estruturas de dados influenciam na complexidade.
+
+Ele vai colocar na prova as complexidades dos "algoritmos mágicos".
+
+##### Prim - Exemplos
+
+#### Slide 5 - fluxo
+
+- Fonte ($s$): tudo sai, nada entra
+- Sumidouro ($t$): tudo entra, nada sai
+
+##### Fluxo em rede
+
+- **Rede**: é um grafo direcionado $G = (V, A)$ com dois vértices particulares $s$ (fonte) e $t$ (sumidouro); e capacidades $c_{uv} \geq 0$ em seus arcos.
+- **Fluxo**: é uma função nos arcos do grafo tal que:
+    1. $f(uv) \leq c_{uv}$ para todo $uv \in A(G)$
+    2. $\sum_{u \in V(G)} f(vu) = \sum_{u \in V(G)} f(uv)$ para todo $V(G) - \{s, t\}$
+- Definimos o **valor do fluxo** $f$, $|f|$, como sendo $|f| = \sum_{u \in V(G)} f(su)$
+
+Nunca pode passar mais fluxo do que a capacidade.
+
+Conservação de fluxo: tudo que entra, também tem que sair.
+
+##### Rede - Exemplo
+
+Todos os arcos são unidirecionais.
+
+```mermaid
+graph TD
+    s-->|(0/4)|V1
+    s-->|(0/2)|V2
+    s-->|(0/2)|V3
+    V1-->|(0/1)|V3
+    V1-->|(0/2)|V4
+    V2-->|(0/1)|V3
+    V2-->|(0/2)|V5
+    V3-->|(0/1)|V4
+    V3-->|(0/1)|V5
+    V4-->|(0/4)|t
+    V5-->|(0/3)|t
+```
+
 ## Estudar
 
 - Material de Pré-PAA
