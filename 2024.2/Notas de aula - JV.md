@@ -1675,6 +1675,122 @@ graph TD
     V5-->|(0/3)|t
 ```
 
+### Aula 11 - 18/11/2024 - [13h10, 14h40]
+
+#### Slide - Aula 11 - Fluxo
+
+##### Fluxo na Rede - Exemplo
+
+##### Problema de Fluxo Máximo
+
+- Dado uma rede, como $s$ e $t$ conhecidos.
+- Na rede, temos apenas um dos arcos $uv$ ou $vu$. Não temos arcos em ambos...
+- ...
+
+##### Ford-Fulkerson
+
+- Capacidade Residual: para calcular a capacidade residual, converte-se a notação: "(fluxo/capacidade)" em dois arcos. O primeiro com a capacidade residual (capacidade - fluxo) e o segundo, no sentido inverso, com o fluxo.
+
+###### Caminho Aumentante
+
+Sempre que tem um novo caminho $s \to t$ no novo grafo gerado, ele pode aumentar o fluxo. Caso o caminho passe por um dos arcos de fluxo, isso significa que pode-se re-rotear o fluxo para que haja maior fluxo por outro caminho.
+
+O valor de fluxo do caminho será o menor valor de capacidade residual do caminho.
+
+**Arestas saturadas**: o fluxo é igual sua capacidade.
+
+---
+
+- **Algoritmo 5:** FORD-FULKERSON(G, s, t)
+  - $f \leftarrow 0$
+  - Compute $G_f$;
+  - **Enquanto** $\exists$ caminho aumentante $P$ **faça**:
+    - $Compute c^f(P)$;
+    - Aumente $f$ de $c^f(P)$;
+    - Atualize $G_f$;
+  - **fim enquanto**
+  - **retorne** $|f|$
+
+###### Ford-Fulkerson - Exemplo
+
+Grafos.
+
+Fluxo máximo = Soma(S) = Soma(T)
+
+##### Ford-Fulkerson - Complexidades
+
+- **Algoritmo 5:** FORD-FULKERSON(G, s, t)
+  - $f \leftarrow 0$
+  - Compute $G_f$;
+  - **Enquanto** $\exists$ caminho aumentante $P$ **faça**:
+    - $Compute c^f(P)$;
+    - Aumente $f$ de $c^f(P)$;
+    - Atualize $G_f$;
+  - **fim enquanto**
+  - **retorne** $|f|$
+
+---
+
+- **Inicializar $f$**: $O(m)$
+- **Computar $G_f$**: $O(m)$
+- **Achar $p$**: $O(n+m)$
+- **Calcular $c^f(P)$**: $O(n)$
+- **Aumentar $f$ e atualizar $G_f$**: $O(n)$
+- Assumindo que nossos valores são inteiros, o laço é realizado no máximo $|f|$ vezes.
+
+Complexidade total:
+
+- $O(m) + (O(m) + O(n+m) + O(n))
+- $O(m+n)$
+- Considerando que no mínimo o algoritmo aumenta 1 no fluxo. E que no máximo aumentará "$|f|$" (número do fluxo) vezes.
+- $O(|f| \cdot (n + m)))$
+- Complexidade do Ford-Fulkerson-Ingênuo: $O(|f| \cdot (n + m)))$
+- Não é um algoritmo polinomial. É um algoritmo pseudo-polinomial.
+  - Isso porque o valor de $|f|$ é desconhecido, e necessitaria que o algoritmo fosse executado para saber o valor de $|f|$.
+
+---
+
+- Considere que vamos saturar uma aresta em cada caminho aumentante.
+- Vamos usar uma busca em largura para determinar o menor caminho (em número de arestas) aumentante de $s$ até $t$.
+- Complexidade do Ford-Fulkerson-(Edmonds-Karp)
+  - $O(n \cdot m^2)$
+
+A complexidade só se torna polinomial se for utilizado um algoritmo de busca em largura.
+
+##### Corte
+
+- **$Corte (S, T)$**: numa rede $G = (V, A)$, é uma partição de $V$ tal que $s \in S$ e $t \in T$.
+
+Em todo corte, o fluxo de $S \to T$ é igual ao fluxo de $s \to T$. Logo o somatório dos fluxos que saem de $S$ é igual ao somatório dos fluxos que entram em $T$.
+
+Ele normalmente vai utilizar o termo "corte" para se referir tanto para a separação dos dois grupos quanto para o conjunto de arcos que foram cortados.
+
+A soma das capacidades do corte deve ser pelo menos igual ao fluxo máximo.
+
+---
+
+$$
+\sum_{v \in V} f(sv) = |f| \leq C(S, T) = \sum_{v \in S} \sum_{u \in T} C_{vu}
+$$
+
+---
+
+Existe um corte tal que toda sua capacidade está saturada. E se ela tá saturada, quer dizer que ela é a que tem a menor capacidade.
+
+$$
+max(|f|) = min(C(S, T))
+$$
+
+###### Corte e Fluxo
+
+##### E se fossem várias fontes e/ou vários sumidouros?
+
+Poderia-se criar um novo vértice falso que seria a fonte de todas as fontes e o sumidouro de todos os sumidouros.
+
+Porém, se quiséssemos que o fluxo de $S_1$ para $S_1$ fosse distinto do fluxo de $S_2$ para $S_2$, isso não seria possível. Nesse caso, se tornaria um problema de multi-fluxo.
+
+Geralmente o conceito de fluxo é utilizado como uma ferramenta de modelagem de problema.
+
 ## Estudar
 
 - Material de Pré-PAA
