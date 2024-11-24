@@ -1,8 +1,11 @@
 # Lista 3
 
 Universidade Federal de Minas Gerais
+
 Departamento de Computação
+
 Projeto e Análise de Algoritmos - 2024.2
+
 Professor: Marcio Costa Santos
 
 ## Exercício 1. Mostre que dado um grafo não orientado $G = (V, E)$ temos que $\sum_{v \in V} d(v) = 2|E(G)|$
@@ -264,7 +267,7 @@ def get_transposed_list(G):
 ---
 ---
 
-## Exercício 6. Definimos o quadrado de um grafo simples $G = (V, A)$ não orientado, como o grafo $G^2 = (V, A^2)# onde
+## Exercício 6. Definimos o quadrado de um grafo simples $G = (V, A)$ não orientado, como o grafo $G^2 = (V, A^2)$ onde
 
 - $V (G^2) = V (G)$
 - $E (G^2) = {uv | \exists z \in V (G), z \neq u \neq v, uz \in E(G), vz \in E(G)}$
@@ -447,12 +450,12 @@ graph LR
     style F fill:#fff,color:#000
     
     %% Vértices
-    A(("A (1/)"))
-    B(("B (/)"))
-    C(("C (/)"))
-    D(("D (/)"))
-    E(("E (/)"))
-    F(("F (/)"))
+    A(("A <br> (1/)"))
+    B(("B <br> (/)"))
+    C(("C <br> (/)"))
+    D(("D <br> (/)"))
+    E(("E <br> (/)"))
+    F(("F <br> (/)"))
 
     %% Arestas
     A -->|F| B
@@ -482,12 +485,12 @@ graph LR
     style F fill:#fff,color:#000
     
     %% Vértices
-    A(("A (1/)"))
-    B(("B (2/)"))
-    C(("C (/)"))
-    D(("D (/)"))
-    E(("E (/)"))
-    F(("F (/)"))
+    A(("A <br> (1/)"))
+    B(("B <br> (2/)"))
+    C(("C <br> (/)"))
+    D(("D <br> (/)"))
+    E(("E <br> (/)"))
+    F(("F <br> (/)"))
 
     %% Arestas
     A -->|T| B
@@ -517,12 +520,12 @@ graph LR
     style F fill:#fff,color:#000
     
     %% Vértices
-    A(("A (1/)"))
-    B(("B (2/)"))
-    C(("C (3/)"))
-    D(("D (/)"))
-    E(("E (/)"))
-    F(("F (/)"))
+    A(("A <br> (1/)"))
+    B(("B <br> (2/)"))
+    C(("C <br> (3/)"))
+    D(("D <br> (/)"))
+    E(("E <br> (/)"))
+    F(("F <br> (/)"))
 
     %% Arestas
     A -->|T| B
@@ -552,12 +555,12 @@ graph LR
     style F fill:#fff,color:#000
     
     %% Vértices
-    A(("A (1/)"))
-    B(("B (2/)"))
-    C(("C (3/)"))
-    D(("D (4/)"))
-    E(("E (/)"))
-    F(("F (/)"))
+    A(("A <br> (1/)"))
+    B(("B <br> (2/)"))
+    C(("C <br> (3/)"))
+    D(("D <br> (4/)"))
+    E(("E <br> (/)"))
+    F(("F <br> (/)"))
 
     %% Arestas
     A -->|T| B
@@ -587,12 +590,12 @@ graph LR
     style F fill:#fff,color:#000
     
     %% Vértices
-    A(("A (1/)"))
-    B(("B (2/)"))
-    C(("C (3/)"))
-    D(("D (4/5)"))
-    E(("E (/)"))
-    F(("F (/)"))
+    A(("A <br> (1/)"))
+    B(("B <br> (2/)"))
+    C(("C <br> (3/)"))
+    D(("D <br> (4/5)"))
+    E(("E <br> (/)"))
+    F(("F <br> (/)"))
 
     %% Arestas
     A -->|T| B
@@ -622,12 +625,12 @@ graph LR
     style F fill:#fff,color:#000
     
     %% Vértices
-    A(("A (1/)"))
-    B(("B (2/)"))
-    C(("C (3/6)"))
-    D(("D (4/5)"))
-    E(("E (/)"))
-    F(("F (/)"))
+    A(("A <br> (1/)"))
+    B(("B <br> (2/)"))
+    C(("C <br> (3/6)"))
+    D(("D <br> (4/5)"))
+    E(("E <br> (/)"))
+    F(("F <br> (/)"))
 
     %% Arestas
     A -->|T| B
@@ -657,12 +660,12 @@ graph LR
     style F fill:#fff,color:#000
     
     %% Vértices
-    A(("A (1/)"))
-    B(("B (2/7)"))
-    C(("C (3/6)"))
-    D(("D (4/5)"))
-    E(("E (/)"))
-    F(("F (/)"))
+    A(("A <br> (1/)"))
+    B(("B <br> (2/7)"))
+    C(("C <br> (3/6)"))
+    D(("D <br> (4/5)"))
+    E(("E <br> (/)"))
+    F(("F <br> (/)"))
 
     %% Arestas
     A -->|T| B
@@ -692,12 +695,12 @@ graph LR
     style F fill:#fff,color:#000
     
     %% Vértices
-    A(("A (1/8)"))
-    B(("B (2/7)"))
-    C(("C (3/6)"))
-    D(("D (4/5)"))
-    E(("E (/)"))
-    F(("F (/)"))
+    A(("A <br> (1/8)"))
+    B(("B <br> (2/7)"))
+    C(("C <br> (3/6)"))
+    D(("D <br> (4/5)"))
+    E(("E <br> (/)"))
+    F(("F <br> (/)"))
 
     %% Arestas
     A -->|T| B
@@ -727,12 +730,12 @@ graph LR
     style F fill:#fff,color:#000
     
     %% Vértices
-    A(("A (1/8)"))
-    B(("B (2/7)"))
-    C(("C (3/6)"))
-    D(("D (4/5)"))
-    E(("E (9/)"))
-    F(("F (/)"))
+    A(("A <br> (1/8)"))
+    B(("B <br> (2/7)"))
+    C(("C <br> (3/6)"))
+    D(("D <br> (4/5)"))
+    E(("E <br> (9/)"))
+    F(("F <br> (/)"))
 
     %% Arestas
     A -->|T| B
@@ -762,12 +765,12 @@ graph LR
     style F fill:#fff,color:#000
     
     %% Vértices
-    A(("A (1/8)"))
-    B(("B (2/7)"))
-    C(("C (3/6)"))
-    D(("D (4/5)"))
-    E(("E (9/)"))
-    F(("F (/)"))
+    A(("A <br> (1/8)"))
+    B(("B <br> (2/7)"))
+    C(("C <br> (3/6)"))
+    D(("D <br> (4/5)"))
+    E(("E <br> (9/)"))
+    F(("F <br> (/)"))
 
     %% Arestas
     A -->|T| B
@@ -797,12 +800,12 @@ graph LR
     style F fill:#999,color:#000
     
     %% Vértices
-    A(("A (1/8)"))
-    B(("B (2/7)"))
-    C(("C (3/6)"))
-    D(("D (4/5)"))
-    E(("E (9/)"))
-    F(("F (10/)"))
+    A(("A <br> (1/8)"))
+    B(("B <br> (2/7)"))
+    C(("C <br> (3/6)"))
+    D(("D <br> (4/5)"))
+    E(("E <br> (9/)"))
+    F(("F <br> (10/)"))
 
     %% Arestas
     A -->|T| B
@@ -832,12 +835,12 @@ graph LR
     style F fill:#999,color:#000
     
     %% Vértices
-    A(("A (1/8)"))
-    B(("B (2/7)"))
-    C(("C (3/6)"))
-    D(("D (4/5)"))
-    E(("E (9/)"))
-    F(("F (10/)"))
+    A(("A <br> (1/8)"))
+    B(("B <br> (2/7)"))
+    C(("C <br> (3/6)"))
+    D(("D <br> (4/5)"))
+    E(("E <br> (9/)"))
+    F(("F <br> (10/)"))
 
     %% Arestas
     A -->|T| B
@@ -867,12 +870,12 @@ graph LR
     style F fill:#000,color:#fff
     
     %% Vértices
-    A(("A (1/8)"))
-    B(("B (2/7)"))
-    C(("C (3/6)"))
-    D(("D (4/5)"))
-    E(("E (9/)"))
-    F(("F (10/11)"))
+    A(("A <br> (1/8)"))
+    B(("B <br> (2/7)"))
+    C(("C <br> (3/6)"))
+    D(("D <br> (4/5)"))
+    E(("E <br> (9/)"))
+    F(("F <br> (10/11)"))
 
     %% Arestas
     A -->|T| B
@@ -902,12 +905,12 @@ graph LR
     style F fill:#000,color:#fff
     
     %% Vértices
-    A(("A (1/8)"))
-    B(("B (2/7)"))
-    C(("C (3/6)"))
-    D(("D (4/5)"))
-    E(("E (9/12)"))
-    F(("F (10/11)"))
+    A(("A <br> (1/8)"))
+    B(("B <br> (2/7)"))
+    C(("C <br> (3/6)"))
+    D(("D <br> (4/5)"))
+    E(("E <br> (9/12)"))
+    F(("F <br> (10/11)"))
 
     %% Arestas
     A -->|T| B
@@ -937,12 +940,12 @@ graph LR
     style F fill:#000,color:#fff
     
     %% Vértices
-    A(("A (1/8)"))
-    B(("B (2/7)"))
-    C(("C (3/6)"))
-    D(("D (4/5)"))
-    E(("E (9/12)"))
-    F(("F (10/11)"))
+    A(("A <br> (1/8)"))
+    B(("B <br> (2/7)"))
+    C(("C <br> (3/6)"))
+    D(("D <br> (4/5)"))
+    E(("E <br> (9/12)"))
+    F(("F <br> (10/11)"))
 
     %% Arestas
     A -->|T| B
@@ -968,6 +971,8 @@ graph LR
 ---
 
 ## Exercício 10. Aplique o algoritmo de busca em profundidade para o grafo abaixo
+
+---
 
 ```mermaid
 graph LR
@@ -1006,6 +1011,9 @@ graph LR
     V8 -->|F| V3
     V9 -->|F| V6
 ```
+
+---
+---
 
 ## Exercício 11. Apresente uma versão não recursiva para o algoritmo de busca em profundidade que possua a mesma complexidade da versão recursiva
 
@@ -1239,34 +1247,34 @@ graph TD
 ```mermaid
 graph LR
     %% Coloração: fundo branco, texto preto
-    style V1  fill:#fff,color:#000
-    style V2  fill:#fff,color:#000
-    style V3  fill:#fff,color:#000
-    style V4  fill:#fff,color:#000
-    style V5  fill:#fff,color:#000
-    style V6  fill:#fff,color:#000
-    style V7  fill:#fff,color:#000
-    style V8  fill:#fff,color:#000
-    style V9  fill:#fff,color:#000
-    style V10 fill:#fff,color:#000
-    style V11 fill:#fff,color:#000
-    style V12 fill:#fff,color:#000
-    style V13 fill:#fff,color:#000
+    style V1  fill:#000,color:#fff
+    style V2  fill:#000,color:#fff
+    style V3  fill:#000,color:#fff
+    style V4  fill:#000,color:#fff
+    style V5  fill:#000,color:#fff
+    style V6  fill:#000,color:#fff
+    style V7  fill:#000,color:#fff
+    style V8  fill:#000,color:#fff
+    style V9  fill:#000,color:#fff
+    style V10 fill:#000,color:#fff
+    style V11 fill:#000,color:#fff
+    style V12 fill:#000,color:#fff
+    style V13 fill:#000,color:#fff
 
     %% Vértices
-    V1(("1 (1/10)"))
-    V2(("2 (16/17)"))
-    V3(("3 (15/18)"))
-    V4(("4 (2/9)"))
-    V5(("5 (5/8)"))
-    V6(("6 (14/19)"))
-    V7(("7 (24/25)"))
-    V8(("8 (22/23)"))
-    V9(("9 (12/21)"))
-    V10(("10 (11/26)"))
-    V11(("11 (3/4)"))
-    V12(("12 (6/7)"))
-    V13(("13 (13/20)"))
+    V1(("1 <br> (1/10)"))
+    V2(("2 <br> (16/17)"))
+    V3(("3 <br> (15/18)"))
+    V4(("4 <br> (2/9)"))
+    V5(("5 <br> (5/8)"))
+    V6(("6 <br> (14/19)"))
+    V7(("7 <br> (24/25)"))
+    V8(("8 <br> (22/23)"))
+    V9(("9 <br> (12/21)"))
+    V10(("10 <br> (11/26)"))
+    V11(("11 <br> (3/4)"))
+    V12(("12 <br> (6/7)"))
+    V13(("13 <br> (13/20)"))
 
     %% Arestas
     V1 <--> V2
