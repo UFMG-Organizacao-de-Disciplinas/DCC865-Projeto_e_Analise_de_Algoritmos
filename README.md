@@ -18,7 +18,7 @@
 
 <!-- LINKS -->
 
-[LinkPréPAA]: <2024.2\pré-PAA – Gabriel Coutinho.pdf>
+[LinkPréPAA]: <2024.2\pré-PAA - Gabriel Coutinho.pdf>
 
 [LinkGabrielCoutinho]: https://www.youtube.com/playlist?list=PLOEEGO60ewE4fxFTdd_1p1lSY9lPzItOV
 [LinkVinicius]: https://youtube.com/channel/UCBAlRvvRj_R7PYhMLVLyXCA

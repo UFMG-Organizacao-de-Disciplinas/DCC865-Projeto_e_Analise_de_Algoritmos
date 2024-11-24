@@ -260,7 +260,7 @@ Universidade Federal de Minas Gerais
 
 Departamento de Computação
 
-Projeto e Análise de Algoritmos – 2024.2
+Projeto e Análise de Algoritmos - 2024.2
 
 Professor: Marcio Costa Santos
 
