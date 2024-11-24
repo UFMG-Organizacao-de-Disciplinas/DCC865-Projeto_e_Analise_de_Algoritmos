@@ -1791,6 +1791,420 @@ Porém, se quiséssemos que o fluxo de $S_1$ para $S_1$ fosse distinto do fluxo 
 
 Geralmente o conceito de fluxo é utilizado como uma ferramenta de modelagem de problema.
 
+### Aula 11.1 - 23/11/2024 - [09h00, 12h00]
+
+#### Lista 3 - Questão 4 - Grafos e Complementos
+
+##### Grafo original
+
+```mermaid
+  graph TD
+    A --- B
+    B --- C
+```
+
+- **Matriz de Adjacência**
+  - $M = \begin{bmatrix}
+    X & A & B & C \\
+    A & 0 & 1 & 0 \\
+    B & 1 & 0 & 1 \\
+    C & 0 & 1 & 0 \\
+  \end{bmatrix}$
+
+##### Grafo Complementar
+
+```mermaid
+  graph TD
+    A --- C
+    B
+```
+
+- **Matriz de Adjacência**
+  - $M = \begin{bmatrix}
+    X & A & B & C \\
+    A & 0 & 0 & 1 \\
+    B & 0 & 0 & 0 \\
+    C & 1 & 0 & 0 \\
+  \end{bmatrix}$
+
+##### Grafo Complementar - Pseudocódigo para Matriz de Adjacência
+
+- **Pseudocódigo: obter complemento**
+  - **FOR** $i \in [1, ..., n]$
+    - **FOR** $j \in [1, ..., n]$
+      - **IF** $i != j:$
+        - **FLIP** $M[i][j]$
+
+##### Grafo Complementar - Pseudocódigo para Lista de Adjacência
+
+- **Pseudocódigo: obter complemento**
+  - **FOR** $v \in V(G)$
+    - COMPLEMENTO_LIST(Adj[v])
+
+- **Pseudocódigo: COMPLEMENTO_LIST** $\cong$ $V - N(v) - v$
+  - **FOR** $i \in {1, \dots, n}$
+    - **IF** #i \in N(v)$:
+      - ...
+    - **ELSE**:
+      - $L \leftarrow L + {i}$
+
+#### Lista 3 - Questão 6 - Quadrado do Grafo
+
+> Para obter o quadrado de um grafo, deve-se tornar os vizinhos dos seus vizinhos, seus vizinhos.
+>
+> Ou seja, se $v$ é vizinho de $u$ e $u$ é vizinho de $w$, então $w$ passa a ser vizinho de $v$.
+
+##### Grafo {Q}
+
+```mermaid
+graph TD
+  A --> B
+  A --> C
+  C --> D
+```
+
+##### Grafo $Q^2$
+
+```mermaid
+graph TD
+  A --> B
+  A --> C
+  C --> D
+
+  A --> D
+  B --> C
+```
+
+##### Grafo $Q^2$ - Pseudocódigo
+
+- **Pseudocódigo: obter quadrado**
+  - **FOR** $v \in V(G^2)$
+    - **FOR** $u \in v(v)$ $[O(n^3)]$
+      - **IF** $(\exists K: Kv \in E(G), Ku \in E(G))$
+        - $\exists K: Kv \in E(G), Ku \in E(G) \cong$
+          - **FOR** $k \in V(G^2)$
+            - **IF** $Ku \in E(G)$ **AND** $Kv \in E(G)$
+
+- **Pseudocódigo: olhar vizinhos dos vizinhos**
+  - **FOR** $v \in V(G^2)$ $[O(|V|)]$
+    - **FOR** $k \in N(v)$ $[O(d(v)) \implies O(\Delta(G))]$
+      - **FOR** $u \in N(k)$ $[O(d(k)) \implies O(\Delta(G))]$
+
+Isso daí de cima poderia ser: $O(|V|) = O(n)$ onde $n$ é o número de vértices. Os dois de baixo seriam $O(\Delta^2(G))$. Então no final: $O(n \cdot \Delta^2(G))$.
+
+$\sum_{v \in V} \sum_{k \in N(v)} O(d(k)) = O(\Delta \cdot m)$
+
+Não é essa complexidade: $\sum_{v \in V} O(d(v)  = O(m)$
+
+#### Lista 3 - Questão 5 - Grafo Transposto
+
+Falou superficialmente sobre fazer um swap entre os triângulos superior e inferior.
+
+#### Lista 3 - Questão 7 - Como modificar estruturas pra guardar pesos
+
+Na matriz eu poderia guardar o peso na posição $M_{uv}$. Poderia também ter uma matriz de pesos.
+
+Caso o grafo tivesse múltiplas arestas... complicaria. De que forma eu guardaria isso?
+
+Cada célula da matriz poderia ser uma lista. Ou então a matriz passaria a ser um cubo.
+
+#### Lista 3 - Questão 9 - Busca em profundidade
+
+> Na descrição da busca em profundidade vista em sala classificamos as arestas do grafo de entrada de acordo após a execução da busca em profundidade. É possível realizar essa classificação durante a execução da busca? Como?
+
+Se não me engano ele está fazendo referência ao uso do Teorema do Parêntese.
+
+Exemplo de grafo:
+
+```mermaid
+graph TD
+  1 --> 2
+  1 --> 3
+  2 --> 4
+  2 --> 6
+  3 --> 4
+  3 --> 6
+  3 --> 7
+  4 --> 8
+  6 --> 8
+```
+
+Aresta de árvore vs aresta de avanço vs aresta de Retorno vs Aresta de passagem: [Estou com um pouco de dúvida, logo, não tenho certeza se o que anotei abaixo está correto.]
+
+- **Aresta de avanço:** aquelas que saem de um vértice e vão para um dos vértices descendentes.
+  - Quando todas as arestas estão brancas, todas elas serão de avanço.
+- **Aresta de árvore:** todas aquelas utilizadas para criar a árvore geradora mínima
+- **Aresta de retorno:** aquelas que saem de um vértice e vão para um dos vértices ascendentes.
+- **Aresta de passagem:** aquelas que saem de um vértice e vão para um dos vértices que já foram pintados de pretos por alguma outra busca anterior.
+
+Respondendo à pergunta, dá sim para modificar o algoritmo para ir classificando as arestas durante a execução da busca.
+
+#### Lista 3 - Questão 8 - Busca em profundidade
+
+##### Parentização
+
+```mermaid
+graph TD
+  F --> E
+  F --> D
+  E --> A
+  D --> B
+  D --> C
+```
+
+- **Parentização:** $(F(E(A))(D(B)(C)))$
+- Podemos até fazer uma correlação direta dos parênteses com o número de descoberta:
+  - **Parentização:** $( F ( E ( A ) ) ( D ( B ) ( C  )  )  )$
+  - **Parentização:** $1 F 2 E 3 A 4 5 6 D 7 B 8 9 C 10 11 12$
+  - **Parentização:** $1 F 2 E 3 A 4 5 6 D 7 B 8 9 C 10 11 12$
+
+##### L3Q8 ii
+
+> uma aresta de retorno se e somente se $i[v] \leq i[u] < f[u] \leq f[v]$
+
+A Kênia perguntou se a questão do $\leq$ era para ser $<$. Ficou meio que entendido que embora não surja caso em que haja a igualdade, a igualdade é permitida. De forma similar em que $x \leq 3; x \leq 4$ é verdadeiro para $x = 2$.
+
+Uma possibilidade em que isso possa talvez ocorrer é quando temos um laço no grafo.
+
+#### Lista 3 - Questão 16 - Componentes Fortemente Conexas
+
+Com a adição de um arco, a quantidade de componentes fortemente conexas pode reduzir, inclusive a ponto de conseguir ter apenas uma componente fortemente conexa.
+
+Exemplo:
+
+```mermaid
+graph TD
+  A --> B
+  B --> C
+  C --> D
+```
+
+```mermaid
+graph TD
+  A --> B
+  B --> C
+  C --> D
+  D --> A
+```
+
+#### Lista 4
+
+##### L4Q1, 2, 3 - Busca em largura - Cores
+
+- Pra BFS:
+  1. Preto: não conexo
+  2. Cinza: não conexo
+  3. Branco: não conexo
+
+Contra-exemplo pros cinzas e brancos:
+
+```mermaid
+graph TD
+  A[Preto] ---|| B
+  A ---|| C
+  B[Preto] ---|| C
+  B ---|| D
+  B ---|| E
+  C[Preto] ---|| F
+  D[Cinza] ---|| G[Branco]
+  E[Cinza] ---|| H[Branco]
+  F[Cinza] ---|| H
+```
+
+Prova dos pretos por indução
+
+- **Base:** $G^{0}_{preto} é conexo
+- **Hipótese:** $G^{i: iteração}_{preto}$ é conexo
+- **Passo:** $G^{i+1}_{preto}$ é conexo
+  - $v$ é visitado na iteraçao $i + 1$
+  - $v$ é cinza
+  - $v$ tem um pai PRETO $u$
+  - $uv \in E(G)$
+  - $G^{i+1} = G^{i} + v$
+
+---
+
+- Pra DFS:
+  1. Preto: não conexo
+  2. Cinza: não conexo
+  3. Branco: não conexo
+
+```mermaid
+graph TD
+  A --> B
+  A --> C
+  A --> D
+```
+
+Estão considerando que BFS roda apenas em um vértice. Já o DFS roda em todos os vértices.
+
+##### L4Q6 - Caminho mínimo
+
+Não preciso começar pelo vértice mais ancestral.
+
+###### Ciclo
+
+Isso é ciclo:
+
+```mermaid
+graph TD
+  A --> B
+  B --> A
+```
+
+```mermaid
+graph TD
+  A <-> B
+```
+
+Isso não é ciclo:
+
+```mermaid
+graph TD
+  A --- B
+```
+
+##### L4Q9 - Caminho mínimo - Bellman-Ford
+
+Poderia fazer uma ordenação topológica dos vértices de forma que todas as arestas fossem percorridas em ordem.
+
+- Lista = Ordenação Topológica (G) [O(n + m)]
+- Seguindo Lista faça
+  - Bellman-Ford uma vez [O (m)]
+
+Complexidade: $O(n + m) + O(m)$
+
+##### L4Q4 - Na verdade deveria ser L4Q10 - Caminho mínimo de uma folha até a raiz
+
+#### L4Q11 - Inequações
+
+> Considere um conjunto de m inequações sobre n variáveis na forma $x_i - x_j \leq b_k$. Apresente um algoritmo para determinar se esse conjunto de inequações possui uma solução viável ou não. Qual a complexidade do seu algoritmo?
+
+- $x_1 - x_2 \leq 3$
+- $x_2 - x_3 \leq -10$
+
+Obs. 1: Vai ter algum zero, porque mesmo num caso em que haja, todos poderiam ser reduzidos pelo menor valor para que o menor se torne 0.
+
+- $x_1 - x_2 \leq   3 \implies x_1 \leq   3 + x_2$
+- $x_2 - x_3 \leq -10 \implies x_2 \leq -10 + x_3$
+
+```mermaid
+graph TD
+  A[X_1]
+  B[X_2]
+  C[X_3]
+  
+  C -->|-10| B
+  B -->|3| A
+```
+
+```mermaid
+graph TD
+  A[X_1 = -7]
+  B[X_2 = -10]
+  C[X_3 = 0]
+  
+  C -->|-10| B
+  B -->|3| A
+```
+
+```mermaid
+graph TD
+  S[Fonte]
+  A[X_1 = -7]
+  B[X_2 = -10]
+  C[X_3 = 0]
+  
+  S -->|0| A
+  S -->|0| B
+  S -->|0| C
+  C -->|-10| B
+  B -->|3| A
+```
+
+Bellman-Ford gera uma árvore de caminhos mínimos.
+
+Se houver um ciclo negativo, então não há solução. Porque se somasse todas as equações o lado esquerdo viraria zero e o lado direito seria negativo, então $0 \leq negativo$ dá problema.
+
+- $X_i - X_j = K$
+  - $X_i - X_j \leq K$
+  - $X_i - X_j \leq -K$
+
+#### Lista 6
+
+##### L6Q1 - Definição de fluxo
+
+- Restrições do fluxo
+  1. Respeitar capacidades:
+     - $f(u, v) \leq C_{uv} \forall uv \in E(G)$ => $O(m)$
+  2. Conservação de fluxo:
+     - $\sum_{u \in V} \f(u, v) = \sum_{u \in V} f(v, u)$ => $O(n^2)$
+  3. Igualdade entre fonte e sumidouro:
+     - $\sum_{u \in V} \f(s, v) = \sum_{u \in V} f(u, t)$ => $O(n)$
+  4. Sumidouro com saída nula e fonte com entrada nula: [JV: eu que adicionei e não verifiquei se essa checagem tá correta]
+     - $\sum_{u \in V} f(t, u) = 0$
+     - $\sum_{u \in V} f(u, s) = 0$
+
+- **Pseudocódigo:** graph_check_flow(): ...
+
+##### L6Q3, 4, 5
+
+A constante multiplicativa ($\alpha$) é $0 \leq \alpha \leq 1$
+
+Os dois fluxos somados estão exatamente na mesma rede.
+
+- $f$ Fluxo e $\Beta \in \Q$
+- $f^{\beta} = \beta \circ f$
+- $f^{\beta} (u, v) = \beta f(u, v)$
+
+- Fluxos: $f_A$ e $f_B$
+- Fluxo resultante: $f = f_A(u, v) + f_B(u, v)$
+  - Inválido pois num caso em que qualquer um dos fluxos atinge a capacidade, o outro fluxo não poderá passar, assim sendo inválido.
+- $f^{Convex}_{A, B} (u, v) = \alpha f_A(u, v) + (1 - \alpha) f_B(u, v)$
+
+##### L6Q6 - Alocação de professores à disciplinas
+
+> Exercício 6. Considere o seguinte problema: Temos um conjunto professores $P$ e um conjunto de disciplinas $D$. Cada professor $p$ pode dar um conjunto de disciplinas $D(p) \subseteq D$. Desejamos atribuir a cada professor uma disciplina de maneira a maximizar o número de disciplinas com professores para ministrá-las. Como podemos modelar esse problema como um problema em grafos?
+
+```mermaid
+graph TD
+  subgraph Professores
+    P1
+    P2
+    P3
+    P4
+  end
+
+  subgraph Disciplinas
+    D1
+    D2
+    D3
+    D4
+    D5
+  end
+
+  P1 -->|1| D1
+  P1 -->|1| D2
+  P2 -->|1| D1
+  P2 -->|1| D3
+  P3 -->|1| D2
+  P3 -->|1| D3
+  P4 -->|1| D4
+  P4 -->|1| D5
+
+  Fonte -->|1| P1
+  Fonte -->|1| P2
+  Fonte -->|1| P3
+
+  D1 -->|1| Sumidouro
+  D2 -->|1| Sumidouro
+  D3 -->|1| Sumidouro
+```
+
+Para que cada professor só possa pegar uma disciplina, basta que a capacidade de cada aresta de entrada nos vértices professores seja 1.
+
+Se quisermos cobrir o máximo de disciplinhas, basta que a capacidade de cada aresta de entrada seja igual ao grau de saída de cada um dos vértices professores.
+
 ## Estudar
 
 - Material de Pré-PAA
