@@ -2000,15 +2000,30 @@ Contra-exemplo pros cinzas e brancos:
 
 ```mermaid
 graph TD
-  A[Preto] ---|| B
-  A ---|| C
-  B[Preto] ---|| C
-  B ---|| D
-  B ---|| E
-  C[Preto] ---|| F
-  D[Cinza] ---|| G[Branco]
-  E[Cinza] ---|| H[Branco]
-  F[Cinza] ---|| H
+  %% Coloração
+  style A fill:#000,color:#fff
+
+
+  %% Vértices
+  A((Preto))
+  B((Preto))
+  C((Preto))
+  D((Cinza))
+  E((Cinza))
+  F((Cinza))
+  G((Branco))
+  H((Branco))
+
+  %% Arestas
+  A --- B
+  A --- C
+  B --- C
+  B --- D
+  B --- E
+  C --- F
+  D --- G
+  E --- H
+  F --- H
 ```
 
 Prova dos pretos por indução
@@ -2076,7 +2091,7 @@ Complexidade: $O(n + m) + O(m)$
 
 ##### L4Q4 - Na verdade deveria ser L4Q10 - Caminho mínimo de uma folha até a raiz
 
-#### L4Q11 - Inequações
+##### L4Q11 - Inequações
 
 > Considere um conjunto de m inequações sobre n variáveis na forma $x_i - x_j \leq b_k$. Apresente um algoritmo para determinar se esse conjunto de inequações possui uma solução viável ou não. Qual a complexidade do seu algoritmo?
 
@@ -2089,31 +2104,31 @@ Obs. 1: Vai ter algum zero, porque mesmo num caso em que haja, todos poderiam se
 - $x_2 - x_3 \leq -10 \implies x_2 \leq -10 + x_3$
 
 ```mermaid
-graph TD
-  A[X_1]
-  B[X_2]
-  C[X_3]
+graph LR
+  A(("$$X_1$$"))
+  B(("$$X_2$$"))
+  C(("$$X_3$$"))
   
   C -->|-10| B
   B -->|3| A
 ```
 
 ```mermaid
-graph TD
-  A[X_1 = -7]
-  B[X_2 = -10]
-  C[X_3 = 0]
+graph LR
+  A(("$$X_1 = -7$$"))
+  B(("$$X_2 = -10$$"))
+  C(("$$X_3 = 0$$"))
   
   C -->|-10| B
   B -->|3| A
 ```
 
 ```mermaid
-graph TD
-  S[Fonte]
-  A[X_1 = -7]
-  B[X_2 = -10]
-  C[X_3 = 0]
+graph LR
+  S(("$$Fonte$$"))
+  A(("$$X_1 = -7$$"))
+  B(("$$X_2 = -10$$"))
+  C(("$$X_3 = 0$$"))
   
   S -->|0| A
   S -->|0| B
