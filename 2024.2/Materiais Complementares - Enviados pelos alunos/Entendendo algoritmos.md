@@ -283,136 +283,210 @@ Segundo o professor:
 
 <!-- ### PEDIR AJUDA PRA ENTENDER ISSO -->
 
-- Considerando que:
-  - $X = O(checa_ciclo)$
-  - $Y = O(insere_A)$
-  - $m = |E|$
-
-- **Lista de Adjacência:** $O(m \log n + mX + nY)$
-- **Matriz de Adjacência:** $O(n^2 \log n + n^2X + nY)$
-
-<!-- GPT: -->
-
-Vamos analisar cuidadosamente o que pode estar faltando para você alcançar a lógica do professor em relação à análise da complexidade do algoritmo de Kruskal. Aqui estão os principais pontos a considerar e onde o entendimento pode ser refinado:
-
----
-
-### 1. **Decomposição da Complexidade**
-
-A complexidade total do Kruskal pode ser decomposta da seguinte forma:
-
-$$O(Ordenação) + O(E) \cdot (O(checa\_ciclo) + O(insere\_A))$$
-
-Essa fórmula é válida e faz sentido, mas o professor está especificando os tempos de execução de cada operação **dependendo da estrutura de dados utilizada** (lista de adjacência ou matriz de adjacência).
-
-#### Passos detalhados
-
-1. **Ordenação das arestas**:
-   - O número de arestas é \( m \) (ou \( |E| \)).
-   - Ordenar as arestas pelo peso requer \( O(m \log m) \), mas \( m \leq n^2 \), então \( O(m \log m) = O(m \log n) \) usando \( \log m = \log n^2 = 2\log n \).
-
-2. **Laço principal (iterações sobre as arestas):**
-   - A iteração é feita sobre \( m \) arestas.
-   - Em cada iteração, duas operações ocorrem:
-     - **Checar se adicionar uma aresta forma um ciclo** (\( O(checa\_ciclo) \)).
-     - **Inserir a aresta na solução \( A \)** (\( O(insere\_A) \)).
-
----
-
-### 2. **Checar Ciclos (\( O(checa\_ciclo) \))**
-
-O professor usa o contexto do **Union-Find** para determinar a presença de ciclos. No Union-Find, o custo de checar ciclos depende de:
-- **Busca (find):** Para verificar se os dois vértices de uma aresta pertencem ao mesmo conjunto.
-- Esse custo é **quase constante** devido à compressão de caminhos e à união por tamanho/classificação:
-  \[
-  O(checa\_ciclo) = O(\alpha(n)), \text{ onde } \alpha(n) \text{ é a inversa da função de Ackermann}.
-  \]
-- Como \( \alpha(n) \) é extremamente pequeno, podemos aproximá-lo como **constante** para propósitos práticos.
-
-#### O que isso significa?
-- O termo \( O(E) \cdot O(checa\_ciclo) \) reduz para algo **próximo de \( O(E) \)**, mas ele ainda o deixa como \( mX \) para indicar dependência do custo específico do ciclo.
-
----
-
-### 3. **Inserir na Solução (\( O(insere\_A) \))**
-
-A operação de inserir uma aresta na solução \( A \) pode ter custos diferentes dependendo da estrutura de dados usada para armazenar \( A \):
-- Se for uma **lista de adjacência**, a inserção é \( O(1) \) para cada aresta. Logo, \( O(insere\_A) = O(1) \), e o custo total será \( O(m) \).
-- Se for uma **matriz de adjacência**, a atualização pode exigir operações mais complexas, como atualizar \( O(n) \) posições (uma linha ou coluna inteira), dependendo da implementação.
-
-O professor provavelmente está generalizando isso como \( nY \), pois \( Y \) pode variar dependendo da estrutura.
-
----
-
-### 4. **Como a Estrutura de Dados Afeta o Cálculo?**
-
-Agora vamos interpretar as fórmulas que o professor apresenta para as duas representações:
-
-#### **Lista de Adjacência:**
-
-\[
-O(m \log n + mX + nY)
-\]
-- \( m \log n \): Ordenação das \( m \) arestas.
-- \( mX \): Custo de checar ciclos para \( m \) arestas.
-- \( nY \): Inserção das arestas na solução (aqui \( Y \) é provavelmente \( O(1) \), então o custo total é dominado por outros termos).
-
-#### **Matriz de Adjacência:**
-\[
-O(n^2 \log n + n^2X + nY)
-\]
-- \( n^2 \log n \): Ordenação, porque no caso pior \( m = O(n^2) \).
-- \( n^2X \): Checar ciclos para \( n^2 \) arestas.
-- \( nY \): Inserção das arestas na matriz (provavelmente maior que para lista).
-
----
-
-### 5. **O que pode estar faltando?**
-
-Talvez o que precise de mais atenção para "fechar" o raciocínio seja entender as seguintes questões:
-
-1. **Impacto da estrutura de dados no custo das operações**:
-   - Como a lista de adjacência e a matriz de adjacência afetam \( O(checa\_ciclo) \) e \( O(insere\_A) \).
-   - Na lista de adjacência, o custo de inserir arestas ou verificar ciclos é mais eficiente do que na matriz.
-2. **Generalização de \( X \) e \( Y \)**:
-   - \( X \) pode ser tratado como \( O(\alpha(n)) \) devido ao Union-Find.
-   - \( Y \) é normalmente \( O(1) \), mas pode variar se a matriz exigir atualizações mais pesadas.
-
-3. **Separação de termos \( m \) e \( n^2 \)**:
-   - Na matriz, \( m \) pode crescer até \( n^2 \), então o custo \( O(n^2 \log n) \) passa a dominar.
-
-Se precisar de mais detalhamento em algum ponto específico, posso te ajudar a reforçar! 😊
+- Caso geral
+  - Considerando que:
+    - $X = O(checa_ciclo)$
+    - $Y = O(insere_A)$
+    - $m = |E|$
+    - **Complexidade:**
+      - **Matriz de Adjacência:** $O(n^2 \log n + n^2X + nY)$
+      - **Lista de Adjacência:** $O(m \log n + mX + nY)$
+- BFS:
+  - $X = O(n)$ (DFS)
+  - $Y = O(1)$
+  - **Complexidade:**
+    - **Matriz de Adjacência:** $O(n^2 \log n + n^2n + n*1) = O(n^3)$
+    - **Lista de Adjacência:** $O(m \log n + mn + n*1) = O(mn)$
+- Union-find
+  - $X = O(\log n) \cong O(1)$
+  - $Y = O(1)$
+  - **Complexidade:**
+    - **Matriz de Adjacência:** $O(n^2 \log n + n^2 + n) = O(n^2 \log n)$
+    - **Lista de Adjacência:** $O(m \log n + m + n) = O(m \log n)$
 
 #### Prim
 
-### Breadth First Search (BFS)
+- **Descrição:** tendo como raiz o vértice árbitrário $r$, o algoritmo tenta sempre adicionar a aresta de menor peso que liga um vértice já visitado a um vértice não visitado. E vai construindo a árvore geradora mínima ao definir os pais de cada vértice.
+
+- **Algoritmo: Prim(G)**
+  - **Entrada:** Grafo $G(V, E)$
+  - **para todo** $u \in V(G)$ **faça**
+    - $c[u] \leftarrow \infty;$
+    - $\pi[u] \leftarrow u;$
+  - **fim**
+  - Selecione a menor aresta $uv;$
+  - $c[u] \leftarrow 0;$
+  - $Q \leftarrow V(G);$ [JV: Não entendi o que seria $Q$]
+  - **enquanto** $Q \neq \emptyset$ **faça**
+    - $u \leftarrow$ obter_menor_vértice($Q$);
+    - **para todo** $v \in N(u)$ **faça**
+      - **se** $v \in Q$ e $w(u, v) < c[v]$ **então**
+        - $\pi[v] \leftarrow u;$
+        - $c[v] \leftarrow w(u, v);$
+      - **fim**
+    - **fim**
+  - **fim**
+
+---
+
+##### Prim - Complexidade - Lista Ordenada
+
+| Tarefa                         | Comp. Lista Ordenada |
+| ------------------------------ | -------------------- |
+| Ordenar os vértices por $c[v]$ | $O(V \log V)$        |
+| Obter o menor vértice          | $O(1)$               |
+| Re-ordenar após mudança        | $O(V)$               |
+| Buscar um elemento             | $O(V)$               |
+
+- **Matriz de Adjacências:** $O(V + V \log V + V + V^2*V) = O(V^3)$
+- **Lista de Adjacências:** $O(V + V \log V + V + EV) = O(EV)$
+
+---
+
+| Tarefa                         | Comp. Heap  |
+| ------------------------------ | ----------- |
+| Ordenar os vértices por $c[v]$ | $O(V)$      |
+| Obter o menor vértice          | $O(1)$      |
+| Re-ordenar após mudança        | $O(\log V)$ |
+| Buscar um elemento             | $O(\log V)$ |
+
+- **Matriz de Adjacências:** $O(V + V*1 + V + V^2*\log V) = O(V^2 \log V)$
+- **Lista de Adjacências:** $O(V + V  + V*1 + E \log V + V + EV) = O(EV)$
+
+---
+
+| Tarefa                         | Comp. Heap de Fibonacci |
+| ------------------------------ | ----------------------- |
+| Ordenar os vértices por $c[v]$ | $O(V)$                  |
+| Obter o menor vértice          | $O(\log V)$             |
+| Re-ordenar após mudança        | $O(1)$                  |
+| Buscar um elemento             | $O(1)$                  |
+
+- **Matriz de Adjacências:** $O(V + V + V \log V + V^2*1) = O(V^2)$
+- **Lista de Adjacências:** $O(V + V  + V \log V + E*1) = O(E + V \log V)$
+
+### Caminho Mínimo (Shortest Path)
+
+- **Propriedade fundamental:** se $<u, v_1, \dots, v_k, v>$ é um caminho mínimo de $u$ a $v$, então $<u, v_1, \dots, v_k>$ é um caminho mínimo de $u$ a $v_k$.
+
+#### Bellman-Ford - Apenas pesos positivos
+
+- **Descrição:** o algoritmo vai percorrer todas os vértices e todas as arestas, sempre atualizando os vetores de distância e de predecessores. Assim, para cada vértice (menos o último), ele verificará se cada uma das arestas existentes no grafo geram uma solução melhor.
+
+- **Algoritmo: Inicializa(G, s)**
+  - **para todo** $v \in V(G)$ **faça**
+    - $d[v] \leftarrow \infty;$
+    - $\pi[v] \leftarrow v;$
+  - **fim**
+  - $d[s] \leftarrow 0;$
+
+---
+
+- **Algoritmo: Relaxa(G, u, v)**
+  - **se** $d[v] > d[u] + w(u, v)$ **então**
+    - $d[v] \leftarrow d[u] + w(u, v);$
+    - $\pi[v] \leftarrow u;$
+  - **fim**
+  - $d[s] \leftarrow 0;$
+
+---
+
+- **Algoritmo: Bellman-Ford(G, s)**
+  - Inicializa(G, s);
+  - **para** $i$ de $1$ até $|V(G)|$ **faça**
+    - **para todo** $uv \in E(G)$ **faça**
+      - Relaxa(G, u, v);
+    - **fim**
+
+##### Complexidade e Análise
+
+- **Complexidade:**
+  - **Matriz de Adjacência:** $O(|V|^3) = O(n^3)$
+  - **Lista de Adjacência:** $O(|V||E|) = O(nm)$
+
+<!-- #### Dijkstra -->
+
+<!-- ### Breadth First Search (BFS) -->
 
 ### Fluxo
 
+- **Conceitos:**
+  - **Rede:** um grafo direcionado $G = (V, A)$ com dois vértices particulares $s$ (fonte) e $t$ (sumidouro), e capacidades $c_{uv} \geq 0$ em seus arcos
+  - **Fluxo:** é uma função nos arcos do grafo tal que:
+      1. $f(uv) \leq c_{uv}$ para todo $uv \in A(G)$
+      2. $\sum_{u \in V(G)} f(vu) = \sum_{u \in V(G)} f(uv)$ para todo $v \in V(G) - \{s, t\}$
+  - **Valor do Fluxo ($|f|$):** $|f| = \sum_{u \in V(G)} f(su)$
+
+---
+
+- **Corte (S, T)**: é uma partição de $V$ tal que $s \in S$ e $t \in T$.
+  - [JV: $s$ é a fonte e $t$ é o sumidouro. $s$ estará num conjunto e $t$ estará no outro. Essa divisão da rede em dois conjuntos é o corte.]
+  - **Fluxo de um corte (S, T):** [JV: seria basicamente a quantide de água que está passando pelas arestas que ligam $S$ a $T$.]
+  - **Capacidade de um corte (S, T):** [JV: seria a capacidade total das arestas que ligam $S$ a $T$.]
+  - **Relação entre Corte e Fluxo:**
+    - $|f| = f(S, T) \leq c(S, T)$
+  - Fluxo Máximo - Corte Mínimo
+    - O valor do fluxo máximo é igual à capacidade mínima de um corte.
+    - [JV: ou seja, estou cortando exatamente os arcos saturados, visto que o fluxo máximo atingiu o limite de capacidade deles.]
+
 #### Ford-Fulkerson
 
-start with 0 flow
-while there exists an augmenting path: // iterative algorithm
-  find an augmenting path (for now, 'any' graph traversal will do)
-  compute bottleneck capacity
-  increase flow on the path by the bottleneck capacity
+- **Descrição:** busca por um caminho de $s$ a $t$ que ainda tenha capacidade disponível, e aumenta o fluxo nesse caminho.
+
+- **Conceitos:**
+  - **Caminho aumentante:** é um caminho de $s$ a $t$ que ainda tem capacidade disponível.
+  - **Capacidade Residual:** é a capacidade ainda não utilizada pelo fluxo em um arco.
+    - **Matematicamente:**
+      - A capacidade residual ($c_{uv}^{f}$) será $c_{uv} - f(uv)$, onde $c_{uv}$ é a capacidade do arco e $f(uv)$ é o fluxo que passa por ele.
+      - E gerará também um arco de volta $f(uv)$ que será o fluxo utilizado.
+  - **Rede Residual ($G_f)$:** é o grafo que representa a capacidade residual de cada arco. [JV: me parece ser o conjunto de todas as capacidades residuais]
+    - **Matematicamente:**
+      - $G_f = (V, A_f)$, onde:
+        - $V_f = V$
+        - $A_f = \{uv \in A(G) | c_{uv}^{f} > 0\}$
+  - **Capacidade Residual de um caminho:** é o máximo fluxo que pode ser aumentado nesse caminho.
+    - **Matematicamente:**
+      - $c^f(p) = \min\{c^{f}_{uv} | uv \in p\}$
+
+- **Pseudocódigo:**
+  - Começa com fluxo 0
+  - Enquanto existir caminho aumentante:
+    - Procure caminho aumentante
+    - Calcule capacidade máxima de aumento
+    - Aumente o fluxo pela capacidade máxima
+
+- **Algoritmo: Ford-Fulkerson(G, s, t)**
+  - $f \leftarrow \emptyset;$
+  - Calcular $G_f;$
+  - **enquanto** $\exists$ caminho aumentante $p$ **faça**
+    - Calcular $c^f(p);$
+    - Aumente $f$ de $c^f(p);$
+    - Atualize $G_f;$
+  - **fim**
+  - **retorna** $|f|$
+
+---
+
+##### Ford-Fulkerson - Complexidade
+
+- Inicializar $f$: O($E$)
+- Computar $G_f$: O($E$)
+- Achar $p$: O($V + E$)
+- Calcular $c^f(p)$: O($V$)
+- Aumentar $f$ e atualizar $G_f$: O($V$)
+
+Se os valores são inteiros, o laço é realizado no máximo $|f|$ vezes.
+
+- Complexidade Ford-Fulkerson-Ingênuo: $|f|O(V + E)$
 
 #### Edmonds-Karp
 
-Implementation: We first ignore capacity of the edges first (assume all edges in the residual graph have weight 1), and we run O(E) BFS to find the shortest (in terms of # of edges used) augmenting path. Everything else is the same as the basic Ford-Fulkerson Method outlined earlier.
+- **Descrição:** é uma variação do Ford-Fulkerson que sempre escolhe o caminho aumentante mais curto através da BFS, visando sempre saturar uma aresta.
 
-It can be proven that Edmonds-Karp will use at most O(VE) iterations thus it runs in at most in O(VE * E) = O(VE^2) time.
+- Complexidade: $O(VE^2)$
 
-#### Dinic
+<!-- #### Dinic -->
 
-Dinic's algorithm also uses similar strategy of finding shortest augmenting paths first.
+<!-- Dinic's algorithm also uses similar strategy of finding shortest augmenting paths first. -->
 
-But Dinic's algorithm runs in a faster time of O(V^2 × E) due to the more efficient usage of BFS shortest path information.
-
-This slide will be expanded.
-
-### Shortest Path
-
-#### Bellman-Ford
-
-#### Dijkstra
+<!-- But Dinic's algorithm runs in a faster time of O(V^2 × E) due to the more efficient usage of BFS shortest path information. -->
