@@ -316,7 +316,7 @@ Segundo o professor:
   - **fim**
   - Selecione a menor aresta $uv;$
   - $c[u] \leftarrow 0;$
-  - $Q \leftarrow V(G);$ [JV: Não entendi o que seria $Q$]
+  - $Q \leftarrow V(G);$ [JV: Não entendi o que seria $Q$ || Aparentemente isso daqui é uma fila de prioridade, ou seja, uma lista ordenada que sempre se mantém ordenada]
   - **enquanto** $Q \neq \emptyset$ **faça**
     - $u \leftarrow$ obter_menor_vértice($Q$);
     - **para todo** $v \in N(u)$ **faça**
@@ -387,7 +387,6 @@ Segundo o professor:
     - $d[v] \leftarrow d[u] + w(u, v);$
     - $\pi[v] \leftarrow u;$
   - **fim**
-  - $d[s] \leftarrow 0;$
 
 ---
 
@@ -421,7 +420,7 @@ Segundo o professor:
 
 - **Corte (S, T)**: é uma partição de $V$ tal que $s \in S$ e $t \in T$.
   - [JV: $s$ é a fonte e $t$ é o sumidouro. $s$ estará num conjunto e $t$ estará no outro. Essa divisão da rede em dois conjuntos é o corte.]
-  - **Fluxo de um corte (S, T):** [JV: seria basicamente a quantide de água que está passando pelas arestas que ligam $S$ a $T$.]
+  - **Fluxo de um corte (S, T):** [JV: seria basicamente a quantidade de água que está passando pelas arestas que ligam $S$ a $T$.]
   - **Capacidade de um corte (S, T):** [JV: seria a capacidade total das arestas que ligam $S$ a $T$.]
   - **Relação entre Corte e Fluxo:**
     - $|f| = f(S, T) \leq c(S, T)$
