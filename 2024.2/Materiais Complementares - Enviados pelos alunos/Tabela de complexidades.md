@@ -23,9 +23,9 @@
 
 | Símbolo  | Significado                   |
 | -------- | ----------------------------- |
-| V        | Vertices                      |
-| E        | Edges (Arestas)               |
-| F        | Fluxo                         |
+| $V$      | Vertices                      |
+| $E$      | Edges (Arestas)               |
+| $F$      | Fluxo                         |
 | $\alpha$ | Constante Inversa de Ackerman |
 
 ## Observações

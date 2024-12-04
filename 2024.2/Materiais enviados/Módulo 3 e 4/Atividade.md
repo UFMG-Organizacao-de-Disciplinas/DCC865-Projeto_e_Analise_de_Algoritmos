@@ -27,15 +27,15 @@ Os PDFs acima e o livro-texto do K. H. Rosen podem ser encontrados na mesma [pas
 
 - Módulo 3 – Paradigma Divisão e Conquista
   - Livro Kleinberg e Tardos: Cap. 5
-    - Exercicios resolvidos 1 e 2, e
-    - Exercicios 1, 2, 6 (ao final do capítulo).
+    - Exercícios resolvidos 1 e 2, e
+    - Exercícios 1, 2, 6 (ao final do capítulo).
   - Livro Cormen (3rd Ed.): Cap. 9
-    - Exercicios 9-1, 9.3-1, 9.3-5, 9.3-8.
+    - Exercícios 9-1, 9.3-1, 9.3-5, 9.3-8.
 - Módulo 3 – Paradigma Programação Dinâmica
   - Livro Kleinberg e Tardos: Cap. 6
     - Exercicio resolvido 1, e
-    - Exercicios 1, 3, 7, 13 (ao final do capítulo).
+    - Exercícios 1, 3, 7, 13 (ao final do capítulo).
 - Módulo 4 – NP e Intratabilidade Computacional
   - Livro Kleinberg e Tardos: Cap. 8
-    - Exercicios resolvidos 1 e 2, e
-    - Exercicios 1, 2, 3, 5, 17, 26 (ao final do capítulo).
+    - Exercícios resolvidos 1 e 2, e
+    - Exercícios 1, 2, 3, 5, 17, 26 (ao final do capítulo).
