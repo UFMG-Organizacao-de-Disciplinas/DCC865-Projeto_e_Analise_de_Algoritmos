@@ -1,12 +1,13 @@
 # Trabalho Prático 1
 
-|   #   |      | Problema                    | Submissão | Aceito | Nível | Peso |
-| :---: | ---- | --------------------------- | :-------: | :----: | ----: | ---: |
-|   1   | 1128 | [Ir e Vir][IrEVir]          |     -     |   -    |     4 |  100 |
-|   2   | 1447 | [Back to the Future][BttF]  |     -     |   -    |     7 |  100 |
-|   3   | 1550 | [Inversão][Inversao]        |     -     |   -    |     7 |  100 |
-|   4   | 3158 | [O Bom Presidente][OBP]     |     -     |   -    |     5 |  100 |
-|   5   | 3356 | [Reprodução Controlada][RC] |     -     |   -    |     3 |  100 |
+|   #   |      | Problema                        | Submissão | Aceito | Nível | Peso |
+| :---: | ---- | ------------------------------- | :-------: | :----: | ----: | ---: |
+|   1   | 1128 | [Ir e Vir][IrEVir]              |     -     |   -    |     4 |  100 |
+|   2   | 1447 | [Back to the Future][BttF]      |     -     |   -    |     7 |  100 |
+|   3   | 1550 | [Inversão][Inversao]            |     -     |   -    |     7 |  100 |
+|   4   | 3158 | [O Bom Presidente][OBP]         |     -     |   -    |     5 |  100 |
+|   5   | 3356 | [Reprodução Controlada][RC]     |     -     |   -    |     3 |  100 |
+|   6   | 1362 | [Minha Camiseta Me Serve][MCMS] |     -     |   -    |     6 |  100 |
 
 ---
 
@@ -71,6 +72,46 @@ Para cada possível mapa, indique o custo mínimo para reconstruir o país.
 X Olimpíada Interna de Programação do IFSULDEMINAS - OLIP 2020
 
 ---
+
+```mermaid
+graph LR
+  %% Vértices
+  A((1))
+  B((2))
+  C((3))
+
+  %% Arestas
+  A <-->|1| B & C
+  B <-->|1| C
+```
+
+---
+
+```mermaid
+graph LR
+  %% Coloração
+  style A fill:#50c7c7, color:#000, stroke:#000
+  style B fill:#50c7c7, color:#000, stroke:#000
+  style C fill:#50c7c7, color:#000, stroke:#000
+  style D fill:#50c7c7, color:#000, stroke:#000
+
+  style E fill:#f0f0f0, color:#000, stroke:#000
+  style F fill:#f0f0f0, color:#000, stroke:#000
+
+  %% Vértices
+  A((1))
+  B((2))
+  C((3))
+  D((4))
+  E((5))
+  F((6))
+
+  %% Arestas
+  A <-->|5| B & C
+  B <-->|5| C & D
+  C <-->|5| D
+  E <-->|5| F
+```
 
 ## [beecrowd | 3356 - Reprodução Controlada][RC]
 
@@ -242,5 +283,51 @@ Para cada caso de teste seu programa deve imprimir uma linha contendo um inteiro
 | 0 0                |                  |
 
 Maratona de Programação da SBC 2010
+
+---
+
+## [beecrowd | 1362 - Minha Camiseta Me Serve][MCMS]
+
+[MCMS]: https://judge.beecrowd.com/pt/problems/view/1362
+
+Por Ginés García Mateos, UM  Espanha
+
+Timelimit: 1
+
+Nosso amigo Victor é instrutor em um programa ambiental voluntário. O chefe de Victor pediu para ele distribuir $N$ camisetas para $M$ voluntários ($N$ é múltiplo de seis, e $N \geq M$). Cada voluntário deve receber exatamente uma camiseta (se $N \neq M$, algumas camisetas podem sobrar). Há o mesmo número de camisetas disponíveis para cada tamanho de camiseta possível: XXL, XL, L, M, S e XS (siglas em inglês para P, M, G, etc.). Victor tem um pequeno problema: apenas dois tamanhos de camisetas servem para cada voluntário.
+
+Você deve escrever um programa que decide se Victor pode distribuir as camisetas de tal forma que todo voluntário tenha uma camiseta que lhe serve.
+
+## Entrada - beecrowd | 1362
+
+A primeira linha da entrada contém o número de casos de teste.
+
+Para cada caso de teste, há uma linha contendo os números $N$ e $M$. O número $N$ é múltiplo de seis, $1 \leq N \leq 36$, e indica o número total de camisetas disponíveis. O número $M$, $1 \leq M \leq 30$, indica o número de voluntários, com $N \geq M$. As próximas $M$ linhas descrevem os voluntários, um por linha. Cada linha contém dois tamanhos de camiseta possíveis (XXL, XL, L, M, S ou XS) separados por um espaço, indicando quais tamanhos servem para o voluntário.
+
+## Saída - beecrowd | 1362
+
+Para cada caso teste, imprima uma linha contendo YES se existe pelo menos uma maneira de distribuir as camisetas de tal forma que todo voluntário tenha uma camiseta que lhe serve, ou NO caso contrário.
+
+| Exemplo de Entrada | Exemplo de Saída |
+| ------------------ | ---------------- |
+| 3                  | YES              |
+| 18 6               | &nbsp;           |
+| L XL               | &nbsp;           |
+| XL L               | &nbsp;           |
+| XXL XL             | &nbsp;           |
+| S XS               | &nbsp;           |
+| M S                | &nbsp;           |
+| M L                | &nbsp;           |
+| 6 4                | NO               |
+| S XL               | &nbsp;           |
+| L S                | &nbsp;           |
+| L XL               | &nbsp;           |
+| L XL               | &nbsp;           |
+| 6 1                | YES              |
+| L M                | &nbsp;           |
+
+[JV: Precisei colocar "&nbsp;" porque o ipynb não aceita tabelas com células vazias.]
+
+OMP'09, Facultad de Informatica. Universidad de Murcia (SPAIN).
 
 ---
