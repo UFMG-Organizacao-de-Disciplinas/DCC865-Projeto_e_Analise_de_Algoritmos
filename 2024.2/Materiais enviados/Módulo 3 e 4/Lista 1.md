@@ -49,18 +49,18 @@
 
 ## Lista de Exercícios - Olga
 
-- Módulo 3 – Paradigma Divisão e Conquista
-  - Livro Kleinberg e Tardos: Cap. 5
+- [Módulo 3 – Paradigma Divisão e Conquista](#módulo-3---paradigma-divisão-e-conquista)
+  - [Livro Kleinberg e Tardos: Cap. 5](#livro-kleinberg-e-tardos-cap-5)
     - Exercícios resolvidos 1 e 2, e
     - Exercícios 1, 2, 6 (ao final do capítulo).
-  - Livro Cormen (3rd Ed.): Cap. 9
+  - [Livro Cormen (3rd Ed.): Cap. 9](#livro-cormen-3rd-ed-cap-9)
     - Exercícios 9-1, 9.3-1, 9.3-5, 9.3-8.
-- Módulo 3 – Paradigma Programação Dinâmica
-  - Livro Kleinberg e Tardos: Cap. 6
+- [Módulo 3 – Paradigma Programação Dinâmica](#módulo-3---paradigma-programação-dinâmica)
+  - [Livro Kleinberg e Tardos: Cap. 6](#livro-kleinberg-e-tardos-cap-6)
     - Exercício resolvido 1, e
     - Exercícios 1, 3, 7, 13 (ao final do capítulo).
-- Módulo 4 – NP e Intratabilidade Computacional
-  - Livro Kleinberg e Tardos: Cap. 8
+- [Módulo 4 – NP e Intratabilidade Computacional](#módulo-4---np-e-intratabilidade-computacional)
+  - [Livro Kleinberg e Tardos: Cap. 8](#livro-kleinberg-e-tardos-cap-8)
     - Exercícios resolvidos 1 e 2, e
     - Exercícios 1, 2, 3, 5, 17, 26 (ao final do capítulo).
 
