@@ -8,9 +8,9 @@
   - [Módulo 3 - Paradigma Divisão e Conquista](#módulo-3---paradigma-divisão-e-conquista)
     - [Livro Kleinberg e Tardos: Cap. 5](#livro-kleinberg-e-tardos-cap-5)
       - [Cap. 5, Solved Exercise 1 (Pag. 242)](#cap-5-solved-exercise-1-pag-242)
-      - [Cap. 5, Solved Exercise 1 (Pag. 243-244) - Solution](#cap-5-solved-exercise-1-pag-243-244---solution)
+        - [Cap. 5, Solved Exercise 1 (Pag. 243-244) - Solution](#cap-5-solved-exercise-1-pag-243-244---solution)
       - [Cap. 5, Solved Exercise 2 (Pag. 244-245)](#cap-5-solved-exercise-2-pag-244-245)
-      - [Cap. 5, Solved Exercise 2 (Pag. 245-246) - Solution](#cap-5-solved-exercise-2-pag-245-246---solution)
+        - [Cap. 5, Solved Exercise 2 (Pag. 245-246) - Solution](#cap-5-solved-exercise-2-pag-245-246---solution)
       - [Cap. 5, Exercise 1 (Pag. 246)](#cap-5-exercise-1-pag-246)
       - [Cap. 5, Exercise 2 (Pag. 246)](#cap-5-exercise-2-pag-246)
       - [Cap. 5, Exercise 6 (Pag. 246)](#cap-5-exercise-6-pag-246)
@@ -24,15 +24,15 @@
     - [Livro Kleinberg e Tardos: Cap. 6](#livro-kleinberg-e-tardos-cap-6)
       - [Cap. 6, Solved Exercise 1 (Pag. 307)](#cap-6-solved-exercise-1-pag-307)
         - [Cap. 6, Solved Exercise 1 (Pag. 307) - Solution](#cap-6-solved-exercise-1-pag-307---solution)
-      - [Cap. 6, Exercises 1 (Pag. 312)](#cap-6-exercises-1-pag-312)
+      - [Cap. 6, Exercise 1 (Pag. 312)](#cap-6-exercise-1-pag-312)
         - [Cap. 6, Exercise 1a (Pag. 312)](#cap-6-exercise-1a-pag-312)
         - [Cap. 6, Exercise 1b (Pag. 312)](#cap-6-exercise-1b-pag-312)
         - [Cap. 6, Exercise 1c (Pag. 313)](#cap-6-exercise-1c-pag-313)
-        - [Cap. 6, Exercise 3 (Pag. 314)](#cap-6-exercise-3-pag-314)
-      - [Cap. 6, Exercises 3a (Pag. 314)](#cap-6-exercises-3a-pag-314)
-      - [Cap. 6, Exercise 3b (Pag. 315)](#cap-6-exercise-3b-pag-315)
-      - [Cap. 6, Exercises 7 (Pag. 318-319)](#cap-6-exercises-7-pag-318-319)
-      - [Cap. 6, Exercises 13 (Pag. 324)](#cap-6-exercises-13-pag-324)
+      - [Cap. 6, Exercise 3 (Pag. 314)](#cap-6-exercise-3-pag-314)
+        - [Cap. 6, Exercise 3a (Pag. 314)](#cap-6-exercise-3a-pag-314)
+        - [Cap. 6, Exercise 3b (Pag. 315)](#cap-6-exercise-3b-pag-315)
+      - [Cap. 6, Exercise 7 (Pag. 318-319)](#cap-6-exercise-7-pag-318-319)
+      - [Cap. 6, Exercise 13 (Pag. 324)](#cap-6-exercise-13-pag-324)
   - [Módulo 4 - NP e Intratabilidade Computacional](#módulo-4---np-e-intratabilidade-computacional)
     - [Livro Kleinberg e Tardos: Cap. 8](#livro-kleinberg-e-tardos-cap-8)
       - [Cap. 8, Solved Exercise 1 (Pag. 500-502)](#cap-8-solved-exercise-1-pag-500-502)
@@ -74,7 +74,7 @@ Suppose you are given an array $A$ with $n$ entries, with each entry holding a d
 
 You'd like to find the "peak entry" $p$ without having to read the entire array-in fact, by reading as few entries of $A$ as possible. Show how to find the entry $p$ by reading at most $O(\log n)$ entries of $A$.
 
-#### Cap. 5, Solved Exercise 1 (Pag. 243-244) - Solution
+##### Cap. 5, Solved Exercise 1 (Pag. 243-244) - Solution
 
 Let's start with a general discussion on how to achieve a running time of $O(\log n)$ and then come back to the specific problem here. If one needs to compute something using only $O(\log n)$ operations, a useful strategy that we discussed in Chapter 2 is to perform a constant amount of work, throw away half the input, and continue recursively on what's left. This was the idea, for example, behind the $O(\log n)$ running time for binary search.
 
@@ -126,7 +126,7 @@ Clearly, there's a simple algorithm that takes time $O(n^2)$: try all possible p
 
 Show how to find the correct numbers $i$ and $j$ in time $O(n \log n)$.
 
-#### Cap. 5, Solved Exercise 2 (Pag. 245-246) - Solution
+##### Cap. 5, Solved Exercise 2 (Pag. 245-246) - Solution
 
 We've seen a number of instances in this chapter where a brute-force search over pairs of elements can be reduced to $O(n \log n)$ by divide and conquer. Since we're faced with a similar issue here, let's think about how we might apply a divide-and-conquer strategy.
 
@@ -246,7 +246,7 @@ Given the values $e(j)$ for all $j$, the running time of the algorithm is $O(n)$
 
 Here's a final observation on this problem. Clearly, the solution looks very much like that of the Weighted Interval Scheduling Problem, and there's a fundamental reason for that. In fact, our billboard placement problem can be directly encoded as an instance of Weighted Interval Scheduling, as follows. Suppose that for each site $x_i$, we define an interval with endpoints $[x_i - 5, x_i]$ and weight $r_i$. Then, given any nonoverlapping set of intervals, the corresponding set of sites has the property that no two lie within 5 miles of each other. Conversely, given any such set of sites (no two within 5 miles), the intervals associated with them will be nonoverlapping. Thus the collections of nonoverlapping intervals correspond precisely to the set of valid billboard placements, and so dropping the set of intervals we've just defined (with their weights) into an algorithm for Weighted Interval Scheduling will yield the desired solution.
 
-#### Cap. 6, Exercises 1 (Pag. 312)
+#### Cap. 6, Exercise 1 (Pag. 312)
 
 Let $G = (V, E)$ be an undirected graph with $n$ nodes. Recall that a subset of the nodes is called an independent set if no two of them are joined by an edge. Finding large independent sets is difficult in general; but here we'll see that it can be done efficiently if the graph is "simple" enough.
 
@@ -306,7 +306,7 @@ Give an example to show that the following algorithm also does not always find a
 
 Give an algorithm that takes an $n$-node path $G$ with weights and returns an independent set of maximum total weight. The running time should be polynomial in $n$, independent of the values of the weights.
 
-##### Cap. 6, Exercise 3 (Pag. 314)
+#### Cap. 6, Exercise 3 (Pag. 314)
 
 Let $G = (V, E)$ be a directed graph with nodes $v_1, \dots, v_n$. We say that $G$ is an _ordered graph_ if it has the following properties.
 
@@ -337,7 +337,7 @@ graph LR
     C --> E
 ```
 
-#### Cap. 6, Exercises 3a (Pag. 314)
+##### Cap. 6, Exercise 3a (Pag. 314)
 
 Show that the following algorithm does not correctly solve this problem, by giving an example of an ordered graph on which it does not return the correct answer.
 
@@ -357,17 +357,17 @@ Show that the following algorithm does not correctly solve this problem, by givi
 
 In your example, say what the correct answer is and also what the algorithm above finds.
 
-#### Cap. 6, Exercise 3b (Pag. 315)
+##### Cap. 6, Exercise 3b (Pag. 315)
 
 Give an efficient algorithm that takes an ordered graph $G$ and returns the length of the longest path that begins at $v_1$ and ends at $v_n$. (Again, the length of a path is the number of edges in the path.)
 
-#### Cap. 6, Exercises 7 (Pag. 318-319)
+#### Cap. 6, Exercise 7 (Pag. 318-319)
 
 As a solved exercise in Chapter 5, we gave an algorithm with $O(n \log n)$ running time for the following problem. We're looking at the price of a given stock over $n$ consecutive days, numbered $i = 1, 2, \dots, n$. For each day $i$, we have a price $p(i)$ per share for the stock on that day. (We'll assume for simplicity that the price was fixed during each day.) We'd like to know: How should we choose a day $i$ on which to buy the stock and a later day $j > i$ on which to sell it, if we want to maximize the profit per share, $p(j) - p(i)$? (If there is no way to make money during the $n$ days, we should conclude this instead.)
 
 In the solved exercise, we showed how to find the optimal pair of days $i$ and $j$ in time $O(n \log n)$. But, in fact, it's possible to do better than this. Show how to find the optimal numbers $i$ and $j$ in time $O(n)$.
 
-#### Cap. 6, Exercises 13 (Pag. 324)
+#### Cap. 6, Exercise 13 (Pag. 324)
 
 The problem of searching for cycles in graphs arises naturally in financial trading applications. Consider a firm that trades shares in $n$ different companies. For each pair $i \neq j$, they maintain a trade ratio $r_{ij}$, meaning that one share of $i$ trades for $r_{ij}$ shares of $j$. Here we allow the rate $r$ to be fractional; that is, $r_{ij} = \frac{2}{3}$ means that you can trade three shares of $i$ to get two shares of $j$.
 
