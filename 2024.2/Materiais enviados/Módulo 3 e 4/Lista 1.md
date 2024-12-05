@@ -73,7 +73,7 @@ In all these cases, we perform at most three probes of the array A and reduce th
 
 You're consulting for a small computation-intensive investment company, and they have the following type of problem that they want to solve over and over. A typical instance of the problem is the following. They're doing a simulation in which they look at $n$ consecutive days of a given stock, at some point in the past. Let's number the days $i = 1, 2, \dots, n$; for each day $i$, they have a price $p(i)$ per share for the stock on that day. (We'll assume for simplicity that the price was fixed during each day.) Suppose during this time period, they wanted to buy $1,000$ shares on some day and sell all these shares on some (later) day. They want to know: When should they have bought and when should they have sold in order to have made as much money as possible? (If there was no way to make money during the n days, you should report this instead.)
 
-For example, suppose $n = 3, p(1) = 9, p(2) = 1, p(3) = 5$. Then you should return "buy on $2$, sell on $3$" (buying on day $2$ and selling on day $3$ means they would have made \$4 per share, the maximum possible for that period).
+For example, suppose $n = 3$, $p(1) = 9$, $p(2) = 1$, $p(3) = 5$. Then you should return "buy on $2$, sell on $3$" (buying on day $2$ and selling on day $3$ means they would have made \$4 per share, the maximum possible for that period).
 
 Clearly, there's a simple algorithm that takes time $O(n^2)$: try all possible pairs of buy/sell days and see which makes them the most money. Your investment friends were hoping for something a little better.
 
@@ -127,11 +127,11 @@ You are given such a complete binary tree $T$, but the labeling is only specifie
 
 #### Cap. 9, Exercises 9.1-1 (Pág. 215)
 
-Show that the second smallest of $n$ elements can be found with $n + \lroof \log n \rroof - 2$ comparisons in the worst case. (Hint: Also find the smallest element.)
+Show that the second smallest of $n$ elements can be found with $n + \empheqbiglroof \log n \empheqbiglroof - 2$ comparisons in the worst case. (Hint: Also find the smallest element.)
 
 #### Cap. 9, Exercises 9.1-2 * (Pág. 215)
 
-Prove the lower bound of $\lroof 3n/2 \rroof$ comparisons in the worst case to find both the maximum and minimum of $n$ numbers. (Hint: Consider how many numbers are potentially either the maximum or minimum, and investigate how a comparison affects these counts.)
+Prove the lower bound of $\empheqbiglroof 3n/2 \empheqbiglroof$ comparisons in the worst case to find both the maximum and minimum of $n$ numbers. (Hint: Consider how many numbers are potentially either the maximum or minimum, and investigate how a comparison affects these counts.)
 
 #### Cap. 9, Exercises 9.3-1 (Pág. 223)
 
@@ -159,11 +159,11 @@ Regulations imposed by the county's Highway Department require that no two of th
 
 **Example.** Suppose $M = 20$, $n = 4$,
 
-$${x_1, x_2, x_3, x_4} = {6, 7, 12, 14},$$
+$$\{x_1, x_2, x_3, x_4\} = \{6, 7, 12, 14\},$$
 
 and
 
-$${r_1, r_2, r_3, r_4} = {5, 6, 5, 1}.$$
+$$\{r_1, r_2, r_3, r_4\} = \{5, 6, 5, 1\}.$$
 
 Then the optimal solution would be to place billboards at $x_1$ and $x_3$, for a total revenue of 10.
 
@@ -173,7 +173,7 @@ Give an algorithm that takes an instance of this problem as input and returns th
 
 We can naturally apply dynamic programming to this problem if we reason as follows. Consider an optimal solution for a given input instance; in this solution, we either place a billboard at site $x_n$ or not. If we don't, the optimal solution on sites $x_1, \dots, x_n$ is really the same as the optimal solution on sites $x_1, \dots, x_{n-1}$; if we do, then we should eliminate $x_n$ and all other sites that are within 5 miles of it, and find an optimal solution on what's left. The same reasoning applies when we're looking at the problem defined by just the first $j$ sites, $x_1, \dots, x_j$: we either include $x_j$ in the optimal solution or we don't, with the same consequences.
 
-Let's define some notation to help express this. For a site $x_j$, we let $e(j)$ denote the easternmost site $x_i$ that is more than 5 miles from $x_j$. Since sites are numbered west to east, this means that the sites $x_1, x_2, \dots, x_e(j)$ are still valid options once we've chosen to place a billboard at x_j, but the sites $x_{e(j)+1}, \dots, $x_{j-1}$ are not.
+Let's define some notation to help express this. For a site $x_j$, we let $e(j)$ denote the easternmost site $x_i$ that is more than 5 miles from $x_j$. Since sites are numbered west to east, this means that the sites $x_1, x_2, \dots, x_e(j)$ are still valid options once we've chosen to place a billboard at $x_j$, but the sites $x_{e(j)+1}, \dots, x_{j-1}$ are not.
 
 Now, our reasoning above justifies the following recurrence. If we let $OPT(j)$ denote the revenue from the optimal subset of sites among $x_1, \dots, x_j$, then we have
 
@@ -188,14 +188,14 @@ To turn this into an algorithm, we just need to define an array $M$ that will st
 - Initialize $M[0] = 0$ and $M[1] = r1$
 - For $j = 2, 3, \dots, n:$
   - Compute $M[j]$ using the recurrence
-- $Endfor$
+- Endfor
 - Return $M[n]$
 
 ---
 
 As with all the dynamic programming algorithms we've seen in this chapter, an optimal _set_ of billboards can be found by tracing back through the values in array $M$.
 
-Given the values $e(j)$ for all $j$, the running time of the algorithm is $O(n)$, since each iteration of the loop takes constant time. We can also compute all $e(j)$ values in $O(n)$ time as follows. For each site location #x_i#, we define $x^{'}_{i} = x_i - 5$. We then merge the sorted list $x_1, \dots, x_n$ with the sorted list $x^{'}_{1}, \dots, x^{'}_{n} in linear time, as we saw how to do in Chapter 2. We now scan through this merged list; when we get to the entry x^{'}_{j}, we know that anything from this point onward to $x_j$ cannot be chosen together with $x_j$ (since it's within 5 miles), and so we simply define $e(j)$ to be the largest value of $i$ for which we've seen $x_i$ in our scan.
+Given the values $e(j)$ for all $j$, the running time of the algorithm is $O(n)$, since each iteration of the loop takes constant time. We can also compute all $e(j)$ values in $O(n)$ time as follows. For each site location #x_i#, we define $x^{'}_{i} = x_i - 5$. We then merge the sorted list $x_1, \dots, x_n$ with the sorted list $x^{'}_{1}, \dots, x^{'}_{n}$ in linear time, as we saw how to do in Chapter 2. We now scan through this merged list; when we get to the entry $x^{'}_{j}$, we know that anything from this point onward to $x_j$ cannot be chosen together with $x_j$ (since it's within 5 miles), and so we simply define $e(j)$ to be the largest value of $i$ for which we've seen $x_i$ in our scan.
 
 Here's a final observation on this problem. Clearly, the solution looks very much like that of the Weighted Interval Scheduling Problem, and there's a fundamental reason for that. In fact, our billboard placement problem can be directly encoded as an instance of Weighted Interval Scheduling, as follows. Suppose that for each site $x_i$, we define an interval with endpoints $[x_i - 5, x_i]$ and weight $r_i$. Then, given any nonoverlapping set of intervals, the corresponding set of sites has the property that no two lie within 5 miles of each other. Conversely, given any such set of sites (no two within 5 miles), the intervals associated with them will be nonoverlapping. Thus the collections of nonoverlapping intervals correspond precisely to the set of valid billboard placements, and so dropping the set of intervals we've just defined (with their weights) into an algorithm for Weighted Interval Scheduling will yield the desired solution.
 
@@ -223,7 +223,10 @@ Graph LR
   D((3))
   E((6))
 
-  A <--> B <--> C <--> D <--> E
+  A <--> B
+  B <--> C
+  C <--> D
+  D <--> E
 ```
 
 ##### Cap. 6, Exercise 1a (Pág. 312)
@@ -272,16 +275,19 @@ The length of a path is the number of edges in it. The goal in this question is 
 **Figure 6.29** The correct answer for this ordered graph is 3: The longest path from $v_1$ to $v_n$ uses the three edges $(v_1, v_2)$, $(v_2, v_4)$, and $(v_4, v_5)$.
 
 ```mermaid
-Graph LR
-    A(("v_1"))
-    B(("v_2"))
-    C(("v_3"))
-    D(("v_4"))
-    E(("v_5"))
+graph LR
+    A(("`v_1`"))
+    B(("`v_2`"))
+    C(("`v_3`"))
+    D(("`v_4`"))
+    E(("`v_5`"))
 
-    A --> B & D
-    B --> D & E
-    C --> D --> E
+    A --> B
+    A --> D
+    B --> D
+    B --> E
+    C --> D
+    C --> E
 ```
 
 #### Cap. 6, Exercises 3a (Pág. 314)
@@ -332,7 +338,7 @@ You're consulting for a small high-tech company that maintains a high-security c
 
 The company management just learned that yesterday the system was used to launch a complex attack on some remote sites. The attack was carried out by accessing $t$ distinct IP addresses over $t$ consecutive minutes: In minute 1, the attack accessed address $i_1$; in minute 2, it accessed address $i_2$; and so on, up to address it in minute $t$.
 
-Who could have been responsible for carrying out this attack? The company checks the logs and ﬁnds to its surprise that there's no single user $u$ who accessed each of the IP addresses involved at the appropriate time; in other words, there's no u so that $I(u, m) = im_$ for each minute $m$ from $1$ to $t$.
+Who could have been responsible for carrying out this attack? The company checks the logs and ﬁnds to its surprise that there's no single user $u$ who accessed each of the IP addresses involved at the appropriate time; in other words, there's no $u$ so that $I(u, m) = i_m$ for each minute $m$ from $1$ to $t$.
 
 So the question becomes: What if there were a small _coalition_ of $k$ users that collectively might have carried out the attack? We will say a subset $S$ of users is a _suspicious coalition_ if, for each minute $m$ from $1$ to $t$, there is at least one user $u \in S$ for which $I(u, m) = i_m$. (In other words, each IP address was accessed at the appropriate time by at least one user in the coalition.)
 
