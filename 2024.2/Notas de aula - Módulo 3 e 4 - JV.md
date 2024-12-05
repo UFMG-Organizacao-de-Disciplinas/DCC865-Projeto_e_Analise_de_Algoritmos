@@ -191,3 +191,57 @@ $\vdots$
 $\vdots$
 
 ###### Shuffling a Linked List
+
+Pensar em casa.
+
+### Aula 2
+
+#### Slide: 05DivideAndConquerI
+
+##### Mergesort (2)
+
+###### Shuffling a Linked List (2)
+
+A forma de embaralhar a lista encadeada seria utilizar o RNG durante a parte da unificação da lista, onde ao juntar as listas que foram divididas pelo mergesort, o RNG seria utilizado para decidir qual elemento seria adicionado à lista final.
+
+##### Counting Inversions
+
+O que se deseja é contar quantas vezes que um par de elementos precisa ser trocado de posição para que a lista fique ordenada.
+
+##### Counting Inversions: divide-and-conquer
+
+Após partir todos os elementos em subconjuntos triviais, ao fazer a junção final, ao percorrer os índices $i$ e $j$, comparará os valores de $A_i$ e $B_j$. Se $A_i > B_j$, então todos os elementos restantes de $A$ também são maiores que $B_j$, então incrementa o contador de inversões de acordo com a quantidade de elementos restantes em $A$.
+
+#### Slide: Merge Demo
+
+#### Slide: 05DivideAndConquerI (2)
+
+##### Randomized Quicksort
+
+#### Slide: Demo quicksort
+
+#### Slide: 05DivideAndConquerI (3)
+
+##### Randomized Quicksort (2)
+
+Escolhe um pivô $p$ aleatoriamente e vai percorrendo da esquerda pra direita a lista. Se o item selecionado for menor que o pivô, troca com o pivô, senão, joga pro final do vetor. Ao final, o pivô estará na posição correta.
+
+No caso de pivôs com valores repetidos, ao trocar o valor $A_i$ com o pivô, ele troca apenas com o primeiro elemento do conjunto de pivôs e avança os índices
+
+###### Divide-and-conquer: quiz 2
+
+Given an array of $n \geq 8$ distinct elements $a_1, a_2, \dots, a_n$, what is the probability that $a_7$ and $a_8$ are compared during randomized quicksort?
+
+a. $0$
+b. $1/n$
+c. $2/n$
+d. $1$ <-
+
+###### Divide-and-conquer: quiz 3
+
+Given an array of $n \geq 2$ distinct elements $a_1, a_2, \dots, a_n$, what is the probability that $a_1$ and $a_n$ are compared during randomized quicksort?
+
+a. $0$
+b. $1/n$
+c. $2/n$ <-
+d. $1$
