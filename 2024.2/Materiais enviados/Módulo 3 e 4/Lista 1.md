@@ -2,6 +2,53 @@
 
 ## Lista de Exercícios
 
+- [Módulo 3, Lista 1](#módulo-3-lista-1)
+  - [Lista de Exercícios](#lista-de-exercícios)
+  - [Lista de Exercícios - Olga](#lista-de-exercícios---olga)
+  - [Módulo 3 - Paradigma Divisão e Conquista](#módulo-3---paradigma-divisão-e-conquista)
+    - [Livro Kleinberg e Tardos: Cap. 5](#livro-kleinberg-e-tardos-cap-5)
+      - [Cap. 5, Solved Exercise 1 (Pag. 242)](#cap-5-solved-exercise-1-pag-242)
+      - [Cap. 5, Solved Exercise 1 (Pag. 243-244) - Solution](#cap-5-solved-exercise-1-pag-243-244---solution)
+      - [Cap. 5, Solved Exercise 2 (Pag. 244-245)](#cap-5-solved-exercise-2-pag-244-245)
+      - [Cap. 5, Solved Exercise 2 (Pag. 245-246) - Solution](#cap-5-solved-exercise-2-pag-245-246---solution)
+      - [Cap. 5, Exercise 1 (Pag. 246)](#cap-5-exercise-1-pag-246)
+      - [Cap. 5, Exercise 2 (Pag. 246)](#cap-5-exercise-2-pag-246)
+      - [Cap. 5, Exercise 6 (Pag. 246)](#cap-5-exercise-6-pag-246)
+    - [Livro Cormen (3rd Ed.): Cap. 9](#livro-cormen-3rd-ed-cap-9)
+      - [Cap. 9, Exercises 9.1-1 (Pag. 215)](#cap-9-exercises-91-1-pag-215)
+      - [Cap. 9, Exercises 9.1-2 \* (Pag. 215)](#cap-9-exercises-91-2--pag-215)
+      - [Cap. 9, Exercises 9.3-1 (Pag. 223)](#cap-9-exercises-93-1-pag-223)
+      - [Cap. 9, Exercises 9.3-5 (Pag. 223)](#cap-9-exercises-93-5-pag-223)
+      - [Cap. 9, Exercises 9.3-8 (Pag. 223)](#cap-9-exercises-93-8-pag-223)
+  - [Módulo 3 - Paradigma Programação Dinâmica](#módulo-3---paradigma-programação-dinâmica)
+    - [Livro Kleinberg e Tardos: Cap. 6](#livro-kleinberg-e-tardos-cap-6)
+      - [Cap. 6, Solved Exercise 1 (Pag. 307)](#cap-6-solved-exercise-1-pag-307)
+        - [Cap. 6, Solved Exercise 1 (Pag. 307) - Solution](#cap-6-solved-exercise-1-pag-307---solution)
+      - [Cap. 6, Exercises 1 (Pag. 312)](#cap-6-exercises-1-pag-312)
+        - [Cap. 6, Exercise 1a (Pag. 312)](#cap-6-exercise-1a-pag-312)
+        - [Cap. 6, Exercise 1b (Pag. 312)](#cap-6-exercise-1b-pag-312)
+        - [Cap. 6, Exercise 1c (Pag. 313)](#cap-6-exercise-1c-pag-313)
+        - [Cap. 6, Exercise 3 (Pag. 314)](#cap-6-exercise-3-pag-314)
+      - [Cap. 6, Exercises 3a (Pag. 314)](#cap-6-exercises-3a-pag-314)
+      - [Cap. 6, Exercise 3b (Pag. 315)](#cap-6-exercise-3b-pag-315)
+      - [Cap. 6, Exercises 7 (Pag. 318-319)](#cap-6-exercises-7-pag-318-319)
+      - [Cap. 6, Exercises 13 (Pag. 324)](#cap-6-exercises-13-pag-324)
+  - [Módulo 4 - NP e Intratabilidade Computacional](#módulo-4---np-e-intratabilidade-computacional)
+    - [Livro Kleinberg e Tardos: Cap. 8](#livro-kleinberg-e-tardos-cap-8)
+      - [Cap. 8, Solved Exercise 1 (Pag. 500-502)](#cap-8-solved-exercise-1-pag-500-502)
+        - [Cap. 8, Solved Exercise 1 (Pag. 501-502) - Solution](#cap-8-solved-exercise-1-pag-501-502---solution)
+        - [Cap. 8, Solved Exercise 1 (Pag. 501-502) - Proof](#cap-8-solved-exercise-1-pag-501-502---proof)
+      - [Cap. 8, Solved Exercise 2 (Pag. 502-505)](#cap-8-solved-exercise-2-pag-502-505)
+        - [Cap. 8, Solved Exercise 2 (Pag. 503-505) - Solution](#cap-8-solved-exercise-2-pag-503-505---solution)
+      - [Cap. 8, Exercise 1 (Pag. 505)](#cap-8-exercise-1-pag-505)
+      - [Cap. 8, Exercise 2 (Pag. 505)](#cap-8-exercise-2-pag-505)
+      - [Cap. 8, Exercise 3 (Pag. 505-506)](#cap-8-exercise-3-pag-505-506)
+      - [Cap. 8, Exercise 5 (Pag. 506-507)](#cap-8-exercise-5-pag-506-507)
+      - [Cap. 8, Exercise 17 (Pag. 513)](#cap-8-exercise-17-pag-513)
+      - [Cap. 8, Exercise 26 (Pag. 518)](#cap-8-exercise-26-pag-518)
+
+## Lista de Exercícios - Olga
+
 - Módulo 3 – Paradigma Divisão e Conquista
   - Livro Kleinberg e Tardos: Cap. 5
     - Exercícios resolvidos 1 e 2, e
@@ -21,13 +68,13 @@
 
 ### Livro Kleinberg e Tardos: Cap. 5
 
-#### Cap. 5, Solved Exercise 1 (Pág. 242)
+#### Cap. 5, Solved Exercise 1 (Pag. 242)
 
 Suppose you are given an array $A$ with $n$ entries, with each entry holding a distinct number. You are told that the sequence of values $A[1], A[2], \dots, A[n]$ is unimodal: For some index $p$ between $1$ and $n$, the values in the array entries increase up to position $p$ in $A$ and then decrease the remainder of the way until position $n$. (So if you were to draw a plot with the array position $j$ on the $x$-axis and the value of the entry $A[j]$ on the $y$-axis, the plotted points would rise until $x$-value $p$, where they'd achieve their maximum, and then fall from there on.)
 
 You'd like to find the "peak entry" $p$ without having to read the entire array-in fact, by reading as few entries of $A$ as possible. Show how to find the entry $p$ by reading at most $O(\log n)$ entries of $A$.
 
-#### Cap. 5, Solved Exercise 1 (Pág. 243~244) - Solution
+#### Cap. 5, Solved Exercise 1 (Pag. 243-244) - Solution
 
 Let's start with a general discussion on how to achieve a running time of $O(\log n)$ and then come back to the specific problem here. If one needs to compute something using only $O(\log n)$ operations, a useful strategy that we discussed in Chapter 2 is to perform a constant amount of work, throw away half the input, and continue recursively on what's left. This was the idea, for example, behind the $O(\log n)$ running time for binary search.
 
@@ -69,7 +116,7 @@ So suppose we look at the value $A[n/2]$. From this value alone, we can't tell w
 
 In all these cases, we perform at most three probes of the array A and reduce the problem to one of at most half the size. Thus we can apply (5.16) to conclude that the running time is $O(\log n)$.
 
-#### Cap. 5, Solved Exercise 2 (Pág. 244~245)
+#### Cap. 5, Solved Exercise 2 (Pag. 244-245)
 
 You're consulting for a small computation-intensive investment company, and they have the following type of problem that they want to solve over and over. A typical instance of the problem is the following. They're doing a simulation in which they look at $n$ consecutive days of a given stock, at some point in the past. Let's number the days $i = 1, 2, \dots, n$; for each day $i$, they have a price $p(i)$ per share for the stock on that day. (We'll assume for simplicity that the price was fixed during each day.) Suppose during this time period, they wanted to buy $1,000$ shares on some day and sell all these shares on some (later) day. They want to know: When should they have bought and when should they have sold in order to have made as much money as possible? (If there was no way to make money during the n days, you should report this instead.)
 
@@ -79,7 +126,7 @@ Clearly, there's a simple algorithm that takes time $O(n^2)$: try all possible p
 
 Show how to find the correct numbers $i$ and $j$ in time $O(n \log n)$.
 
-#### Cap. 5, Solved Exercise 2 (Pág. 245~246) - Solution
+#### Cap. 5, Solved Exercise 2 (Pag. 245-246) - Solution
 
 We've seen a number of instances in this chapter where a brute-force search over pairs of elements can be reduced to $O(n \log n)$ by divide and conquer. Since we're faced with a similar issue here, let's think about how we might apply a divide-and-conquer strategy.
 
@@ -103,7 +150,7 @@ as desired.
 
 We note that this is not the best running time achievable for this problem. In fact, one can find the optimal pair of days in $O(n)$ time using dynamic programming, the topic of the next chapter; at the end of that chapter, we will pose this question as Exercise 7.
 
-#### Cap. 5, Exercise 1 (Pág. 246)
+#### Cap. 5, Exercise 1 (Pag. 246)
 
 You are interested in analyzing some hard-to-obtain data from two separate databases. Each database contains n numerical values-so there are $2n$ values total-and you may assume that no two values are the same. You'd like to determine the median of this set of $2n$ values, which we will define here to be the $n^{th}$ smallest value.
 
@@ -111,13 +158,13 @@ However, the only way you can access these values is through queries to the data
 
 Give an algorithm that finds the median value using at most $O(\log n)$ queries.
 
-#### Cap. 5, Exercise 2 (Pág. 246)
+#### Cap. 5, Exercise 2 (Pag. 246)
 
 Recall the problem of finding the number of inversions. As in the text, we are given a sequence of $n$ numbers $a_1, \dots, a_n$, which we assume are all distinct, and we define an inversion to be a pair $i < j$ such that $a_i > a_j$.
 
 We motivated the problem of counting inversions as a good measure of how different two orderings are. However, one might feel that this measure is too sensitive. Let's call a pair a significant inversion if $i < j$ and $a_i > 2a_j$. Give an $O(n \log n)$ algorithm to count the number of significant inversions between two orderings.
 
-#### Cap. 5, Exercise 6 (Pág. 246)
+#### Cap. 5, Exercise 6 (Pag. 246)
 
 Consider an $n$-node complete binary tree $T$, where $n = 2^d - 1$ for some $d$. Each node $v$ of $T$ is labeled with a real number $x_v$. You may assume that the real numbers labeling the nodes are all distinct. A node $v$ of $T$ is a local minimum if the label $x_v$ is less than the label $x_w$ for all nodes $w$ that are joined to $v$ by an edge.
 
@@ -125,25 +172,25 @@ You are given such a complete binary tree $T$, but the labeling is only specifie
 
 ### Livro Cormen (3rd Ed.): Cap. 9
 
-#### Cap. 9, Exercises 9.1-1 (Pág. 215)
+#### Cap. 9, Exercises 9.1-1 (Pag. 215)
 
 Show that the second smallest of $n$ elements can be found with $n + \empheqbiglroof \log n \empheqbiglroof - 2$ comparisons in the worst case. (Hint: Also find the smallest element.)
 
-#### Cap. 9, Exercises 9.1-2 * (Pág. 215)
+#### Cap. 9, Exercises 9.1-2 * (Pag. 215)
 
 Prove the lower bound of $\empheqbiglroof 3n/2 \empheqbiglroof$ comparisons in the worst case to find both the maximum and minimum of $n$ numbers. (Hint: Consider how many numbers are potentially either the maximum or minimum, and investigate how a comparison affects these counts.)
 
-#### Cap. 9, Exercises 9.3-1 (Pág. 223)
+#### Cap. 9, Exercises 9.3-1 (Pag. 223)
 
 In the algorithm SELECT, the input elements are divided into groups of 5. Will
 the algorithm work in linear time if they are divided into groups of 7? Argue that
 SELECT does not run in linear time if groups of 3 are used.
 
-#### Cap. 9, Exercises 9.3-5 (Pág. 223)
+#### Cap. 9, Exercises 9.3-5 (Pag. 223)
 
 Suppose that you have a "black-box" worst-case linear-time median subroutine. Give a simple, linear-time algorithm that solves the selection problem for an arbitrary order statistic.
 
-#### Cap. 9, Exercises 9.3-8 (Pág. 223)
+#### Cap. 9, Exercises 9.3-8 (Pag. 223)
 
 Let $X[1 .. n]$ and $Y[1 .. n]$ be two arrays, each containing $n$ numbers already in sorted order. Give an $O(\log n)$-time algorithm to find the median of all $2n$ elements in arrays $X$ and $Y$.
 
@@ -151,7 +198,7 @@ Let $X[1 .. n]$ and $Y[1 .. n]$ be two arrays, each containing $n$ numbers alrea
 
 ### Livro Kleinberg e Tardos: Cap. 6
 
-#### Cap. 6, Solved Exercise 1 (Pág. 307)
+#### Cap. 6, Solved Exercise 1 (Pag. 307)
 
 Suppose you are managing the construction of billboards on the Stephen Daedalus Memorial Highway, a heavily traveled stretch of road that runs west-east for $M$ miles. The possible sites for billboards are given by numbers $x_1, x_2, \dots, x_n$, each in the interval $[0, M]$ (specifying their position along the highway, measured in miles from its western end). If you place a billboard at location $x_i$, you receive a revenue of $r_i > 0$.
 
@@ -169,7 +216,7 @@ Then the optimal solution would be to place billboards at $x_1$ and $x_3$, for a
 
 Give an algorithm that takes an instance of this problem as input and returns the maximum total revenue that can be obtained from any valid subset of sites. The running time of the algorithm should be polynomial in $n$.
 
-##### Cap. 6, Solved Exercise 1 (Pág. 307) - Solution
+##### Cap. 6, Solved Exercise 1 (Pag. 307) - Solution
 
 We can naturally apply dynamic programming to this problem if we reason as follows. Consider an optimal solution for a given input instance; in this solution, we either place a billboard at site $x_n$ or not. If we don't, the optimal solution on sites $x_1, \dots, x_n$ is really the same as the optimal solution on sites $x_1, \dots, x_{n-1}$; if we do, then we should eliminate $x_n$ and all other sites that are within 5 miles of it, and find an optimal solution on what's left. The same reasoning applies when we're looking at the problem defined by just the first $j$ sites, $x_1, \dots, x_j$: we either include $x_j$ in the optimal solution or we don't, with the same consequences.
 
@@ -199,7 +246,7 @@ Given the values $e(j)$ for all $j$, the running time of the algorithm is $O(n)$
 
 Here's a final observation on this problem. Clearly, the solution looks very much like that of the Weighted Interval Scheduling Problem, and there's a fundamental reason for that. In fact, our billboard placement problem can be directly encoded as an instance of Weighted Interval Scheduling, as follows. Suppose that for each site $x_i$, we define an interval with endpoints $[x_i - 5, x_i]$ and weight $r_i$. Then, given any nonoverlapping set of intervals, the corresponding set of sites has the property that no two lie within 5 miles of each other. Conversely, given any such set of sites (no two within 5 miles), the intervals associated with them will be nonoverlapping. Thus the collections of nonoverlapping intervals correspond precisely to the set of valid billboard placements, and so dropping the set of intervals we've just defined (with their weights) into an algorithm for Weighted Interval Scheduling will yield the desired solution.
 
-#### Cap. 6, Exercises 1 (Pág. 312)
+#### Cap. 6, Exercises 1 (Pag. 312)
 
 Let $G = (V, E)$ be an undirected graph with $n$ nodes. Recall that a subset of the nodes is called an independent set if no two of them are joined by an edge. Finding large independent sets is difficult in general; but here we'll see that it can be done efficiently if the graph is "simple" enough.
 
@@ -229,7 +276,7 @@ Graph LR
   D <--> E
 ```
 
-##### Cap. 6, Exercise 1a (Pág. 312)
+##### Cap. 6, Exercise 1a (Pag. 312)
 
 Give an example to show that the following algorithm _does not_ always find an independent set of maximum total weight.
 
@@ -242,7 +289,7 @@ Give an example to show that the following algorithm _does not_ always find an i
   - Endwhile
   - Return $S$
 
-##### Cap. 6, Exercise 1b (Pág. 312)
+##### Cap. 6, Exercise 1b (Pag. 312)
 
 Give an example to show that the following algorithm also does not always find an independent set of maximum total weight.
 
@@ -255,11 +302,11 @@ Give an example to show that the following algorithm also does not always find a
 
 ---
 
-##### Cap. 6, Exercise 1c (Pág. 313)
+##### Cap. 6, Exercise 1c (Pag. 313)
 
 Give an algorithm that takes an $n$-node path $G$ with weights and returns an independent set of maximum total weight. The running time should be polynomial in $n$, independent of the values of the weights.
 
-##### Cap. 6, Exercise 3 (Pág. 314)
+##### Cap. 6, Exercise 3 (Pag. 314)
 
 Let $G = (V, E)$ be a directed graph with nodes $v_1, \dots, v_n$. We say that $G$ is an _ordered graph_ if it has the following properties.
 
@@ -290,7 +337,7 @@ graph LR
     C --> E
 ```
 
-#### Cap. 6, Exercises 3a (Pág. 314)
+#### Cap. 6, Exercises 3a (Pag. 314)
 
 Show that the following algorithm does not correctly solve this problem, by giving an example of an ordered graph on which it does not return the correct answer.
 
@@ -310,17 +357,17 @@ Show that the following algorithm does not correctly solve this problem, by givi
 
 In your example, say what the correct answer is and also what the algorithm above finds.
 
-#### Cap. 6, Exercise 3b (Pág. 315)
+#### Cap. 6, Exercise 3b (Pag. 315)
 
 Give an efficient algorithm that takes an ordered graph $G$ and returns the length of the longest path that begins at $v_1$ and ends at $v_n$. (Again, the length of a path is the number of edges in the path.)
 
-#### Cap. 6, Exercises 7 (Pág. 318~319)
+#### Cap. 6, Exercises 7 (Pag. 318-319)
 
 As a solved exercise in Chapter 5, we gave an algorithm with $O(n \log n)$ running time for the following problem. We're looking at the price of a given stock over $n$ consecutive days, numbered $i = 1, 2, \dots, n$. For each day $i$, we have a price $p(i)$ per share for the stock on that day. (We'll assume for simplicity that the price was fixed during each day.) We'd like to know: How should we choose a day $i$ on which to buy the stock and a later day $j > i$ on which to sell it, if we want to maximize the profit per share, $p(j) - p(i)$? (If there is no way to make money during the $n$ days, we should conclude this instead.)
 
 In the solved exercise, we showed how to find the optimal pair of days $i$ and $j$ in time $O(n \log n)$. But, in fact, it's possible to do better than this. Show how to find the optimal numbers $i$ and $j$ in time $O(n)$.
 
-#### Cap. 6, Exercises 13 (Pág. 324)
+#### Cap. 6, Exercises 13 (Pag. 324)
 
 The problem of searching for cycles in graphs arises naturally in financial trading applications. Consider a firm that trades shares in $n$ different companies. For each pair $i \neq j$, they maintain a trade ratio $r_{ij}$, meaning that one share of $i$ trades for $r_{ij}$ shares of $j$. Here we allow the rate $r$ to be fractional; that is, $r_{ij} = \frac{2}{3}$ means that you can trade three shares of $i$ to get two shares of $j$.
 
@@ -332,7 +379,7 @@ Give a polynomial-time algorithm that finds such an opportunity cycle, if one ex
 
 ### Livro Kleinberg e Tardos: Cap. 8
 
-#### Cap. 8, Solved Exercise 1 (Pág. 500~502)
+#### Cap. 8, Solved Exercise 1 (Pag. 500-502)
 
 You're consulting for a small high-tech company that maintains a high-security computer system for some sensitive work that it's doing. To make sure this system is not being used for any illicit purposes, they've set up some logging software that records the IP addresses that all their users are accessing over time. We'll assume that each user accesses at most one IP address in any given minute; the software writes a log ﬁle that records, for each user $u$ and each minute $m$, a value $I(u, m)$ that is equal to the IP address (if any) accessed by user $u$ during minute $m$. It sets $I(u, m)$ to the null symbol $\bot$ if $u$ did not access any IP address during minute $m$.
 
@@ -344,7 +391,7 @@ So the question becomes: What if there were a small _coalition_ of $k$ users tha
 
 The _Suspicious Coalition_ Problem_ asks: Given the collection of all values $I(u, m)$, and a number $k$, is there a suspicious coalition of size at most $k$?
 
-##### Cap. 8, Solved Exercise 1 (Pág. 501~502) - Solution
+##### Cap. 8, Solved Exercise 1 (Pag. 501-502) - Solution
 
 First of all, _Suspicious Coalition_ is clearly in $\mathcal{NP}$: If we were to be shown a set $S$ of users, we could check that $S$ has size at most $k$, and that for each minute $m$ from $1$ to $t$, at least one of the users in $S$ accessed the IP address $i_m$.
 
@@ -358,13 +405,13 @@ The following claim will establish that Vertex Cover $\leq_{P}$ Suspicious Coali
 
 > **(8.28)** In the instance constructed, there is a suspicious coalition of size at most $k$ if and only if the graph $G$ contains a vertex cover of size at most $k$.
 
-##### Cap. 8, Solved Exercise 1 (Pág. 501~502) - Proof
+##### Cap. 8, Solved Exercise 1 (Pag. 501-502) - Proof
 
 First, suppose that $G$ contains a vertex cover $C$ of size at most $k$. Then consider the corresponding set $S$ of users in the instance of Suspicious Coalition. For each $t$ from $1$ to $m$, at least one element of $C$ is an end of the edge $e_t$, and the corresponding user in $S$ accessed the IP address $i_t$. Hence the set $S$ is a suspicious coalition.
 
 Conversely, suppose that there is a suspicious coalition $S$ of size at most $k$, and consider the corresponding set of nodes $C$ in $G$. For each $t$ from $1$ to $m$, at least one user in $S$ accessed the IP address $i_t$, and the corresponding node in $C$ is an end of the edge $e_t$. Hence the set $C$ is a vertex cover.
 
-#### Cap. 8, Solved Exercise 2 (Pág. 502~505)
+#### Cap. 8, Solved Exercise 2 (Pag. 502-505)
 
 You've been asked to organize a freshman-level seminar that will meet once a week during the next semester. The plan is to have the first portion of the semester consist of a sequence of $l$ guest lectures by outside speakers, and have the second portion of the semester devoted to a sequence of $p$ hands-on projects that the students will do.
 
@@ -378,7 +425,7 @@ To make this clear, let's consider the following sample instance. Suppose that $
 
 Prove that Lecture Planning is NP-complete.
 
-##### Cap. 8, Solved Exercise 2 (Pág. 503~505) - Solution
+##### Cap. 8, Solved Exercise 2 (Pag. 503-505) - Solution
 
 The problem is in $\mathcal{NP}$ since, given a sequence of speakers, we can check (a) all speakers are available in the weeks when they're scheduled, and (b) that for each project, at least one of the relevant speakers has been scheduled.
 
@@ -406,7 +453,7 @@ Conversely, suppose there is a feasible solution to the instance of Lecture Plan
 
 This concludes the proof that Vertex Cover $\leq_P$ Lecture Planning.
 
-#### Cap. 8, Exercise 1 (Pág. 505)
+#### Cap. 8, Exercise 1 (Pag. 505)
 
 For each of the two questions below, decide whether the answer is (i) "Yes," (ii) "No," or (iii) "Unknown, because it would resolve the question of whether $\mathcal{P}$ = $\mathcal{NP}$." Give a brief explanation of your answer.
 
@@ -414,7 +461,7 @@ For each of the two questions below, decide whether the answer is (i) "Yes," (ii
    - Question: Is it the case that Interval Scheduling $\leq_P$ Vertex Cover?
 2. Question: Is it the case that Independent Set $\leq_P$ Interval Scheduling?
 
-#### Cap. 8, Exercise 2 (Pág. 505)
+#### Cap. 8, Exercise 2 (Pag. 505)
 
 A store trying to analyze the behavior of its customers will often maintain a two-dimensional array $A$, where the rows correspond to its customers and the columns correspond to the products it sells. The entry $A[i, j]$ specifies the quantity of product $j$ that has been purchased by customer $i$.
 
@@ -435,13 +482,13 @@ We can now define the Diverse Subset Problem as follows: Given an $m \times n$ a
 
 Show that Diverse Subset is NP-complete.
 
-#### Cap. 8, Exercise 3 (Pág. 505~506)
+#### Cap. 8, Exercise 3 (Pag. 505-506)
 
 Suppose you're helping to organize a summer sports camp, and the following problem comes up. The camp is supposed to have at least one counselor who's skilled at each of the $n$ sports covered by the camp (baseball, volleyball, and so on). They have received job applications from m potential counselors. For each of the n sports, there is some subset of the m applicants qualified in that sport. The question is: For a given number $k < m$, is it possible to hire at most k of the counselors and have at least one counselor qualified in each of the n sports? We'll call this the _Efficient Recruiting Problem_.
 
 Show that Efficient Recruiting is NP-complete.
 
-#### Cap. 8, Exercise 5 (Pág. 506~507)
+#### Cap. 8, Exercise 5 (Pag. 506-507)
 
 Consider a set $A = {a_1, \dots, a_n}$ and a collection $B_1, B_2, \dots, B_m$ of subsets of $A$ (i.e., $B_i \subseteq A$ for each $i$).
 
@@ -451,11 +498,11 @@ We now define the $Hitting Set Problem$ as follows. We are given a set $A = {a_1
 
 Prove that Hitting Set is NP-complete.
 
-#### Cap. 8, Exercise 17 (Pág. 513)
+#### Cap. 8, Exercise 17 (Pag. 513)
 
 You are given a directed graph $G = (V, E)$ with weights $w$ e on its edges $e \in E$. The weights can be negative or positive. The _Zero-Weight-Cycle Problem_ is to decide if there is a simple cycle in $G$ so that the sum of the edge weights on this cycle is exactly 0. Prove that this problem is NP-complete.
 
-#### Cap. 8, Exercise 26 (Pág. 518)
+#### Cap. 8, Exercise 26 (Pag. 518)
 
 You and a friend have been trekking through various far-off parts of the world and have accumulated a big pile of souvenirs. At the time you weren't really thinking about which of these you were planning to keep and which your friend was going to keep, but now the time has come to divide everything up.
 
