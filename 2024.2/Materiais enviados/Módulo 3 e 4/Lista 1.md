@@ -174,11 +174,11 @@ You are given such a complete binary tree $T$, but the labeling is only specifie
 
 #### Cap. 9, Exercises 9.1-1 (Pag. 215)
 
-Show that the second smallest of $n$ elements can be found with $n + \empheqbiglroof \log n \empheqbiglroof - 2$ comparisons in the worst case. (Hint: Also find the smallest element.)
+Show that the second smallest of $n$ elements can be found with $n + ⌈\log n⌉ - 2$ comparisons in the worst case. (Hint: Also find the smallest element.)
 
 #### Cap. 9, Exercises 9.1-2 * (Pag. 215)
 
-Prove the lower bound of $\empheqbiglroof 3n/2 \empheqbiglroof$ comparisons in the worst case to find both the maximum and minimum of $n$ numbers. (Hint: Consider how many numbers are potentially either the maximum or minimum, and investigate how a comparison affects these counts.)
+Prove the lower bound of $⌈3n/2⌉$ comparisons in the worst case to find both the maximum and minimum of $n$ numbers. (Hint: Consider how many numbers are potentially either the maximum or minimum, and investigate how a comparison affects these counts.)
 
 #### Cap. 9, Exercises 9.3-1 (Pag. 223)
 
@@ -263,7 +263,7 @@ _Find an independent set in a path $G$ whose total weight is as large as possibl
 - **Figure 6.28**
 
 ```mermaid
-Graph LR
+graph LR
   A((1))
   B((8))
   C((6))
