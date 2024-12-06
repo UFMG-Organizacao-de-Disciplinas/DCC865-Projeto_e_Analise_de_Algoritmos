@@ -172,6 +172,54 @@ Clearly, there's a simple algorithm that takes time $O(n^2)$: try all possible p
 
 Show how to find the correct numbers $i$ and $j$ in time $O(n \log n)$.
 
+---
+
+- **Descrição do problema:** tenho $n$ valores inteiros que vão de $1$ a $n$, onde a função $P(i)$ me dá um valor específico segundo uma função desconhecida. Desejo encontrar o maior par de valores $(i, j)$ tal que $P(j) - P(i)$ seja o maior possível. Se não houver um par de valores que satisfaça essa condição, devo retornar que não é possível.
+- **Descrição da solução:**
+- **Pseudocódigo:**
+- **Matematicamente:**
+
+---
+
+|  $i$  | $P(i)$ |
+| :---: | :----: |
+|   0   |   0    |
+|   1   |   9    |
+|   2   |   1    |
+|   3   |   5    |
+|   4   |   7    |
+
+| $P(i)$ |  $i$  |
+| :----: | :---: |
+|   0    |   0   |
+|   1    |   2   |
+|   5    |   3   |
+|   7    |   4   |
+|   9    |   1   |
+
+|  $i$  | $P(i)$ | $\pi{P(i)}$ |
+| :---: | :----: | :---------: |
+|   0   |   0    |    null     |
+|   1   |   9    |      0      |
+|   2   |   1    |      0      |
+|   3   |   5    |      0      |
+|   4   |   7    |      0      |
+
+|  $i$  | $P(i)$ | $\pi(P(i))$ | $\Delta(\pi(P(i)))$ |
+| :---: | :----: | :---------: | :-----------------: |
+|   0   |   5    |      0      |          0          |
+|   1   |   7    |      0      |          2          |
+|   2   |   9    |      0      |          4          |
+|   3   |   6    |      0      |          1          |
+|   4   |   4    |      4      |          0          |
+|   5   |   7    |      4      |          3          |
+|   6   |   9    |      4      |          5          |
+
+---
+
+- **Bira:** recursivamente dividir o array em duas partes e encontrar o menor e maior valor de cada um dos dois arrays. Depois, comparar o menor valor do primeiro array com o maior valor do segundo array e retornar o melhor valor de $(i, j)$ encontrado.
+- **Bira (linear):** percorre $1$ a $n$, mantendo o índice $i$ e o valor $P(i)$ do menor $P(i)$ encontrado até o $i$ verificado, guarda também a diferença entre o $P(i)$ pelo menor $P(i)$ encontrado até então se for maior que a última maior diferença encontrada. Sempre que atualizar o menor $P(i)$ anterior, atualiza o $i$ de retorno. Quando atualizar a diferença, atualiza o $i$ e $j$ de retorno.
+
 ##### Cap. 5, Solved Exercise 2 (Pag. 245-246) - Solution
 
 We've seen a number of instances in this chapter where a brute-force search over pairs of elements can be reduced to $O(n \log n)$ by divide and conquer. Since we're faced with a similar issue here, let's think about how we might apply a divide-and-conquer strategy.
