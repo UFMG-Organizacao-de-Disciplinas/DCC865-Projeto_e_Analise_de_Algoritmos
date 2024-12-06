@@ -242,7 +242,7 @@ To turn this into an algorithm, we just need to define an array $M$ that will st
 
 As with all the dynamic programming algorithms we've seen in this chapter, an optimal _set_ of billboards can be found by tracing back through the values in array $M$.
 
-Given the values $e(j)$ for all $j$, the running time of the algorithm is $O(n)$, since each iteration of the loop takes constant time. We can also compute all $e(j)$ values in $O(n)$ time as follows. For each site location #x_i#, we define $x^{'}_{i} = x_i - 5$. We then merge the sorted list $x_1, \dots, x_n$ with the sorted list $x^{'}_{1}, \dots, x^{'}_{n}$ in linear time, as we saw how to do in Chapter 2. We now scan through this merged list; when we get to the entry $x^{'}_{j}$, we know that anything from this point onward to $x_j$ cannot be chosen together with $x_j$ (since it's within 5 miles), and so we simply define $e(j)$ to be the largest value of $i$ for which we've seen $x_i$ in our scan.
+Given the values $e(j)$ for all $j$, the running time of the algorithm is $O(n)$, since each iteration of the loop takes constant time. We can also compute all $e(j)$ values in $O(n)$ time as follows. For each site location $x_i$, we define $x^{'}_ {i} = x_ i - 5$. We then merge the sorted list $x_1, \dots, x_n$ with the sorted list $x^{'}_ {1}, \dots, x^{'}_ {n}$ in linear time, as we saw how to do in Chapter 2. We now scan through this merged list; when we get to the entry $x^{'}_ {j}$, we know that anything from this point onward to $x_j$ cannot be chosen together with $x_j$ (since it's within 5 miles), and so we simply define $e(j)$ to be the largest value of $i$ for which we've seen $x_i$ in our scan.
 
 Here's a final observation on this problem. Clearly, the solution looks very much like that of the Weighted Interval Scheduling Problem, and there's a fundamental reason for that. In fact, our billboard placement problem can be directly encoded as an instance of Weighted Interval Scheduling, as follows. Suppose that for each site $x_i$, we define an interval with endpoints $[x_i - 5, x_i]$ and weight $r_i$. Then, given any nonoverlapping set of intervals, the corresponding set of sites has the property that no two lie within 5 miles of each other. Conversely, given any such set of sites (no two within 5 miles), the intervals associated with them will be nonoverlapping. Thus the collections of nonoverlapping intervals correspond precisely to the set of valid billboard placements, and so dropping the set of intervals we've just defined (with their weights) into an algorithm for Weighted Interval Scheduling will yield the desired solution.
 
@@ -256,7 +256,7 @@ Consider, for example, the five-node path drawn in Figure 6.28. The weights are 
 
 The goal in this question is to solve the following problem:
 
-_Find an independent set in a path $G$ whose total weight is as large as possible._
+_Find an independent set in a path_ $G$ _whose total weight is as large as possible._
 
 ---
 
