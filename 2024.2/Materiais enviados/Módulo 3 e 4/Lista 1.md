@@ -206,11 +206,15 @@ Regulations imposed by the county's Highway Department require that no two of th
 
 **Example.** Suppose $M = 20$, $n = 4$,
 
-$$\{x_1, x_2, x_3, x_4\} = \{6, 7, 12, 14\},$$
+```math
+\{x_1, x_2, x_3, x_4\} = \{6, 7, 12, 14\},
+```
 
 and
 
-$$\{r_1, r_2, r_3, r_4\} = \{5, 6, 5, 1\}.$$
+```math
+\{r_1, r_2, r_3, r_4\} = \{5, 6, 5, 1\}.
+```
 
 Then the optimal solution would be to place billboards at $x_1$ and $x_3$, for a total revenue of 10.
 
