@@ -81,6 +81,45 @@ Suppose you are given an array $A$ with $n$ entries, with each entry holding a d
 
 You'd like to find the "peak entry" $p$ without having to read the entire array-in fact, by reading as few entries of $A$ as possible. Show how to find the entry $p$ by reading at most $O(\log n)$ entries of $A$.
 
+---
+
+![Cap. 5, S. Exec 1](<Img/Cap. 5, Solved Exercise 1 (Pag. 242).png>)
+
+Unimodal: $A[1] < A[2] < \dots < A[p]$ and $A[p] > A[p+1] > \dots > A[n]$. [JV: só tem um pico | Antes do $p$ vai ser crescente e depois do $p$ vai ser decrescente.]
+
+- **Descrição do problema:** encontrar o pico $p$ do array unimodal $A$.
+
+- **Descrição da solução:** começar na posição $n/2$, verificar se $A[n/2 - 1] < A[n/2] < A[n/2 + 1]$, se sim, o pico está à direita, se não: se $A[n/2 - 1] > A[n/2] > A[n/2 + 1]$, o pico está à esquerda, se não, o pico é $n/2$. Caso ele esteja na esquerda ou direita, repetir a mesma lógica para a metade do array que contém o pico.
+
+- **Pseudocódigo:**
+
+```python
+- def achar_pico(A):
+  - def achar_pico_rec(A, leftIndex, rightIndex):
+    - if leftIndex == rightIndex:
+      - return leftIndex # [JV: ou rightIndex]
+    - midIndex = (leftIndex + rightIndex) // 2
+    - if A[midIndex - 1] < A[midIndex] and A[midIndex] < A[midIndex + 1]:
+      - return achar_pico_rec(A, midIndex + 1, rightIndex)
+    - if A[midIndex - 1] > A[midIndex] and A[midIndex] > A[midIndex + 1]:
+      - return achar_pico_rec(A, leftIndex, midIndex - 1)
+    - return midIndex
+  - n = len(A)
+  - return achar_pico_rec(A, 0, n)
+```
+
+- **Matematicamente:**
+
+$$
+T(A, i, j) =
+\begin{cases}
+i & \text{if } i = j \\
+T(A, ⌊\frac{i+j}{2}⌋ + 1, j) & \text{if } A[⌊\frac{i+j}{2}⌋ - 1] < A[⌊\frac{i+j}{2}⌋] < A[⌊\frac{i+j}{2}⌋ + 1] \\
+T(A, i, ⌊\frac{i+j}{2}⌋ - 1) & \text{if } A[⌊\frac{i+j}{2}⌋ - 1] > A[⌊\frac{i+j}{2}⌋] > A[⌊\frac{i+j}{2}⌋ + 1] \\
+⌊\frac{i+j}{2}⌋ & \text{otherwise}
+\end{cases}
+$$
+
 ##### Cap. 5, Solved Exercise 1 (Pag. 243-244) - Solution
 
 Let's start with a general discussion on how to achieve a running time of $O(\log n)$ and then come back to the specific problem here. If one needs to compute something using only $O(\log n)$ operations, a useful strategy that we discussed in Chapter 2 is to perform a constant amount of work, throw away half the input, and continue recursively on what's left. This was the idea, for example, behind the $O(\log n)$ running time for binary search.
