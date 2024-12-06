@@ -25,10 +25,12 @@
       - [Cap. 6, Solved Exercise 1 (Pag. 307)](#cap-6-solved-exercise-1-pag-307)
         - [Cap. 6, Solved Exercise 1 (Pag. 307) - Solution](#cap-6-solved-exercise-1-pag-307---solution)
       - [Cap. 6, Exercise 1 (Pag. 312)](#cap-6-exercise-1-pag-312)
+        - [Figure 6.28](#figure-628)
         - [Cap. 6, Exercise 1a (Pag. 312)](#cap-6-exercise-1a-pag-312)
         - [Cap. 6, Exercise 1b (Pag. 312)](#cap-6-exercise-1b-pag-312)
         - [Cap. 6, Exercise 1c (Pag. 313)](#cap-6-exercise-1c-pag-313)
       - [Cap. 6, Exercise 3 (Pag. 314)](#cap-6-exercise-3-pag-314)
+        - [Figure 6.29](#figure-629)
         - [Cap. 6, Exercise 3a (Pag. 314)](#cap-6-exercise-3a-pag-314)
         - [Cap. 6, Exercise 3b (Pag. 315)](#cap-6-exercise-3b-pag-315)
       - [Cap. 6, Exercise 7 (Pag. 318-319)](#cap-6-exercise-7-pag-318-319)
@@ -256,7 +258,7 @@ Let $G = (V, E)$ be an undirected graph with $n$ nodes. Recall that a subset of 
 
 Call a graph $G = (V, E)$ a path if its nodes can be written as $v_1, v_2, \dots, v_n$, with an edge between $v_i$ and $v_j$ if and only if the numbers $i$ and $j$ differ by exactly 1. With each node $v_i$, we associate a positive integer weight $w_i$.
 
-Consider, for example, the five-node path drawn in Figure 6.28. The weights are the numbers drawn inside the nodes.
+Consider, for example, the five-node path drawn in [Figure 6.28](#figure-628). The weights are the numbers drawn inside the nodes.
 
 The goal in this question is to solve the following problem:
 
@@ -264,7 +266,7 @@ _Find an independent set in a path_ $G$ _whose total weight is as large as possi
 
 ---
 
-- **Figure 6.28**
+##### Figure 6.28
 
 ```mermaid
 graph LR
@@ -317,13 +319,15 @@ Let $G = (V, E)$ be a directed graph with nodes $v_1, \dots, v_n$. We say that $
 1. Each edge goes from a node with a lower index to a node with a higher index. That is, every directed edge has the form $(v_i, v_j)$ with $i < j$.
 2. Each node except $v_n$ has at least one edge leaving it. That is, for every node $v_i$, $i = 1, 2, \dots, n - 1$, there is at least one edge of the form $(v_i, v_j)$.
 
-The length of a path is the number of edges in it. The goal in this question is to solve the following problem (see Figure 6.29 for an example).
+The length of a path is the number of edges in it. The goal in this question is to solve the following problem (see [Figure 6.29](#figure-628) for an example).
 
 > Given an ordered graph $G$, find the length of the longest path that begins at $v_1$ and ends at $v_n$.
 
 ---
 
-**Figure 6.29** The correct answer for this ordered graph is 3: The longest path from $v_1$ to $v_n$ uses the three edges $(v_1, v_2)$, $(v_2, v_4)$, and $(v_4, v_5)$.
+##### Figure 6.29
+
+The correct answer for this ordered graph is 3: The longest path from $v_1$ to $v_n$ uses the three edges $(v_1, v_2)$, $(v_2, v_4)$, and $(v_4, v_5)$.
 
 ```mermaid
 graph LR
