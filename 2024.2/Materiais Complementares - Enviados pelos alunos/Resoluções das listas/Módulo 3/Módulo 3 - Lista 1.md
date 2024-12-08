@@ -226,7 +226,7 @@ We've seen a number of instances in this chapter where a brute-force search over
 
 A natural approach would be to consider the first $n/2$ days and the final $n/2$ days separately, solving the problem recursively on each of these two sets, and then figure out how to get an overall solution from this in $O(n)$ time. This would give us the usual recurrence $T(n) \leq 2T \left( \frac{n}{2} \right) + O(n)$, and hence $O(n \log n)$ by (5.1).
 
-Also, to make things easier, we'll make the usual assumption that n is a power of 2. This is no loss of generality: if $n'$ is the next power of 2 greater than $n$, we can set $p(i) = p(n)$ for all $i$ between $n$ and $n'$. In this way, we do not change the answer, and we at most double the size of the input (which will not affect the $O()$ notation).
+Also, to make things easier, we'll make the usual assumption that $n$ is a power of 2. This is no loss of generality: if $n'$ is the next power of 2 greater than $n$, we can set $p(i) = p(n)$ for all $i$ between $n$ and $n'$. In this way, we do not change the answer, and we at most double the size of the input (which will not affect the $O()$ notation).
 
 Now, let $S$ be the set of days $1, \dots, n/2$, and $S'$ be the set of days $n/2 + 1, \dots, n$. Our divide-and-conquer algorithm will be based on the following observation: either there is an optimal solution in which the investors are holding the stock at the end of day $n/2$, or there isn't. Now, if there isn't, then the optimal solution is the better of the optimal solutions on the sets $S$ and $S'$. If there is an optimal solution in which they hold the stock at the end of day $n/2$, then the value of this solution is $p(j) - p(i)$ where $i \in S$ and $j \in S'$. But this value is maximized by simply choosing $i \in S$ which minimizes $p(i)$, and choosing $j \in S'$ which maximizes $p(j)$.
 
@@ -246,7 +246,7 @@ We note that this is not the best running time achievable for this problem. In f
 
 #### Cap. 5, Exercise 1 (Pag. 246)
 
-You are interested in analyzing some hard-to-obtain data from two separate databases. Each database contains n numerical values-so there are $2n$ values total-and you may assume that no two values are the same. You'd like to determine the median of this set of $2n$ values, which we will define here to be the $n^{th}$ smallest value.
+You are interested in analyzing some hard-to-obtain data from two separate databases. Each database contains $n$ numerical values - so there are $2n$ values total - and you may assume that no two values are the same. You'd like to determine the median of this set of $2n$ values, which we will define here to be the $n^{th}$ smallest value.
 
 However, the only way you can access these values is through queries to the databases. In a single query, you can specify a value $k$ to one of the two databases, and the chosen database will return the $k^{th}$ smallest value that it contains. Since queries are expensive, you would like to compute the median using as few queries as possible.
 
@@ -584,7 +584,7 @@ Show that Diverse Subset is NP-complete.
 
 #### Cap. 8, Exercise 3 (Pag. 505-506)
 
-Suppose you're helping to organize a summer sports camp, and the following problem comes up. The camp is supposed to have at least one counselor who's skilled at each of the $n$ sports covered by the camp (baseball, volleyball, and so on). They have received job applications from m potential counselors. For each of the n sports, there is some subset of the m applicants qualified in that sport. The question is: For a given number $k < m$, is it possible to hire at most k of the counselors and have at least one counselor qualified in each of the n sports? We'll call this the _Efficient Recruiting Problem_.
+Suppose you're helping to organize a summer sports camp, and the following problem comes up. The camp is supposed to have at least one counselor who's skilled at each of the $n$ sports covered by the camp (baseball, volleyball, and so on). They have received job applications from m potential counselors. For each of the $n$ sports, there is some subset of the m applicants qualified in that sport. The question is: For a given number $k < m$, is it possible to hire at most k of the counselors and have at least one counselor qualified in each of the $n$ sports? We'll call this the _Efficient Recruiting Problem_.
 
 Show that Efficient Recruiting is NP-complete.
 
@@ -606,7 +606,7 @@ You are given a directed graph $G = (V, E)$ with weights $w$ e on its edges $e \
 
 You and a friend have been trekking through various far-off parts of the world and have accumulated a big pile of souvenirs. At the time you weren't really thinking about which of these you were planning to keep and which your friend was going to keep, but now the time has come to divide everything up.
 
-Here's a way you could go about doing this. Suppose there are n objects, labeled $1, 2, \dots, n$, and object $i$ has an agreed-upon _value_ $x_i$. (We could think of this, for example, as a monetary resale value; the case in which you and your friend don't agree on the value is something we won't pursue here.) One reasonable way to divide things would be to look for a _partition_ of the objects into two sets, so that the total value of the objects in each set is the same.
+Here's a way you could go about doing this. Suppose there are $n$ objects, labeled $1, 2, \dots, n$, and object $i$ has an agreed-upon _value_ $x_i$. (We could think of this, for example, as a monetary resale value; the case in which you and your friend don't agree on the value is something we won't pursue here.) One reasonable way to divide things would be to look for a _partition_ of the objects into two sets, so that the total value of the objects in each set is the same.
 
 This suggests solving the following _Number Partitioning Problem_. You are given positive integers $x1, \dots, x_n$; you want to decide whether the numbers can be partitioned into two sets $S_1$ and $S_2$ with the same sum:
 
