@@ -15,6 +15,7 @@ Ceil:  ⌈ ⌉
       - [Cap. 5, Solved Exercise 1 (Pag. 242)](#cap-5-solved-exercise-1-pag-242)
         - [Cap. 5, Solved Exercise 1 (Pag. 243-244) - Solution](#cap-5-solved-exercise-1-pag-243-244---solution)
       - [Cap. 5, Solved Exercise 2 (Pag. 244-245)](#cap-5-solved-exercise-2-pag-244-245)
+        - [Cap. 5, Solved Exercise 2 (Pag. 245-246) - Soluções](#cap-5-solved-exercise-2-pag-245-246---soluções)
         - [Cap. 5, Solved Exercise 2 (Pag. 245-246) - Solution](#cap-5-solved-exercise-2-pag-245-246---solution)
       - [Cap. 5, Exercise 1 (Pag. 246)](#cap-5-exercise-1-pag-246)
       - [Cap. 5, Exercise 2 (Pag. 246)](#cap-5-exercise-2-pag-246)
@@ -175,50 +176,37 @@ Show how to find the correct numbers $i$ and $j$ in time $O(n \log n)$.
 ---
 
 - **Descrição do problema:** tenho $n$ valores inteiros que vão de $1$ a $n$, onde a função $P(i)$ me dá um valor específico segundo uma função desconhecida. Desejo encontrar o maior par de valores $(i, j)$ tal que $P(j) - P(i)$ seja o maior possível. Se não houver um par de valores que satisfaça essa condição, devo retornar que não é possível.
-- **Descrição da solução:**
-- **Pseudocódigo:**
-- **Matematicamente:**
+
+##### Cap. 5, Solved Exercise 2 (Pag. 245-246) - Soluções
+
+- **Bira Recursivo:** recursivamente dividir o array em duas partes e encontrar o menor e maior valor de cada um dos dois arrays. Depois, comparar o menor valor do primeiro array com o maior valor do segundo array e retornar o melhor valor de $(i, j)$ encontrado.
+  - [JV: daria errado pois um caso em que tivéssemos (8, 9) e (1, 2), e pegássemos o menor da esquerda e o maior da direita, teríamos um valor inválido.]
+
+- **JV Recursivo:** não consegui pensar em uma solução recursiva.
 
 ---
 
-|  $i$  | $P(i)$ |
-| :---: | :----: |
-|   0   |   0    |
-|   1   |   9    |
-|   2   |   1    |
-|   3   |   5    |
-|   4   |   7    |
+- **Código - Bira Linear**
 
-| $P(i)$ |  $i$  |
-| :----: | :---: |
-|   0    |   0   |
-|   1    |   2   |
-|   5    |   3   |
-|   7    |   4   |
-|   9    |   1   |
+- **Conceito:** percorre $1$ a $n$, mantendo o índice $i$ e o valor $P(i)$ do menor $P(i)$ encontrado até o $i$ verificado, guarda também a diferença entre o $P(i)$ pelo menor $P(i)$ encontrado até então se for maior que a última maior diferença encontrada. Sempre que atualizar o menor $P(i)$ anterior, atualiza o $i$ de retorno. Quando atualizar a diferença, atualiza o $i$ e $j$ de retorno.
 
-|  $i$  | $P(i)$ | $\pi{P(i)}$ |
-| :---: | :----: | :---------: |
-|   0   |   0    |    null     |
-|   1   |   9    |      0      |
-|   2   |   1    |      0      |
-|   3   |   5    |      0      |
-|   4   |   7    |      0      |
-
-|  $i$  | $P(i)$ | $\pi(P(i))$ | $\Delta(\pi(P(i)))$ |
-| :---: | :----: | :---------: | :-----------------: |
-|   0   |   5    |      0      |          0          |
-|   1   |   7    |      0      |          2          |
-|   2   |   9    |      0      |          4          |
-|   3   |   6    |      0      |          1          |
-|   4   |   4    |      4      |          0          |
-|   5   |   7    |      4      |          3          |
-|   6   |   9    |      4      |          5          |
-
----
-
-- **Bira:** recursivamente dividir o array em duas partes e encontrar o menor e maior valor de cada um dos dois arrays. Depois, comparar o menor valor do primeiro array com o maior valor do segundo array e retornar o melhor valor de $(i, j)$ encontrado.
-- **Bira (linear):** percorre $1$ a $n$, mantendo o índice $i$ e o valor $P(i)$ do menor $P(i)$ encontrado até o $i$ verificado, guarda também a diferença entre o $P(i)$ pelo menor $P(i)$ encontrado até então se for maior que a última maior diferença encontrada. Sempre que atualizar o menor $P(i)$ anterior, atualiza o $i$ de retorno. Quando atualizar a diferença, atualiza o $i$ e $j$ de retorno.
+```python
+def get_best_pair_report(P):
+    n = len(P)
+    i = 0
+    j = 0
+    min_i = 0
+    max_diff = 0
+    for k in range(1, n):
+        if P[k] < P[min_i]:
+            min_i = k
+        diff = P[k] - P[min_i]
+        if diff > max_diff:
+            max_diff = diff
+            i = min_i
+            j = k
+    return f'If there was no way to make money during the {n} days' if i == j else f'buy on {i+1}, sell on {j+1}'
+```
 
 ##### Cap. 5, Solved Exercise 2 (Pag. 245-246) - Solution
 
