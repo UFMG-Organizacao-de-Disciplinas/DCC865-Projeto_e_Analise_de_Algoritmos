@@ -54,12 +54,13 @@
 
 ### Divisão e Conquista
 
-- [Algoritmos 1 - Paradigmas de Algoritmos - Divisão e Conquista (parte 1)](https://youtu.be/Ta_Luz3WD-w)
-- [Algoritmos 1 - Paradigmas de Algoritmos - Divisão e Conquista (parte 2)](https://youtu.be/zI-8z68Nuyg)
-- [Algoritmos 1 - Paradigmas de Algoritmos - Divisão e Conquista (parte 3)](https://youtu.be/b4Kq9V__HY8)
-- [Algoritmos 1 - Paradigmas de Algoritmos - Divisão e Conquista (parte 4)](https://youtu.be/pRC_jW13xJQ)
-- [Algoritmos 1 - Paradigmas de Algoritmos - Divisão e Conquista (parte 5)](https://youtu.be/Ps9bnOIW3-k)
-- [Algoritmos 1 - Paradigmas de Algoritmos - Divisão e Conquista (parte 6)](https://youtu.be/oRBGgzoB33I)
+- Algoritmos 1 - Paradigmas de Algoritmos - Divisão e Conquista
+- [(parte 1)](https://youtu.be/Ta_Luz3WD-w) - Tentativa e Erro, Divisão e Conquista; MergeSort
+- [(parte 2)](https://youtu.be/zI-8z68Nuyg) - MergeSort: Árvore de recursão; Análise de complexidade
+- [(parte 3)](https://youtu.be/b4Kq9V__HY8) - Counting Inversions; Merge-and-Count
+- [(parte 4)](https://youtu.be/pRC_jW13xJQ) - Randomized QuickSort
+- [(parte 5)](https://youtu.be/Ps9bnOIW3-k) - Closest pair of points
+- [(parte 6)](https://youtu.be/oRBGgzoB33I) - Mean of Means; Convex Hull
 
 ### Algoritmos Gulosos
 
