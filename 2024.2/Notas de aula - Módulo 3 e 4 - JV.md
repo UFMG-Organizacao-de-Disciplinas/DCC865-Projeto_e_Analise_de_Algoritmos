@@ -276,3 +276,88 @@ Achar a constante que dá certo para $R = 7$
 
 Ela vai mandar uma enquete para decidir se vai ter a prova dia 20 ou não.
 
+### Aula 4 - 11/12/2024
+
+#### Slide: 05DivideAndConquerI (5)
+
+##### Closest Pair of Points
+
+- **Closes Pair of Points problem:** Dados $n$ pontos em um plano, encontre o par de pontos com a menor distância Euclideanas entre eles.
+
+- Tentativas de solução
+  - **Força bruta:** $\Theta(n^2)$
+  - **Ordenando por $x$ e $y$:** acaba não dando certo porque ordenar por uma coordenada, não garante que na outra será próximo o bastante.
+  - **Dividir em 4 quadrantes com $n/4$ pontos em cada quadrante:**
+    - **Problema:** os quadrantes podem não garantir que os pontos estejam subdivididos de forma a garantir que teremos $n/4$ pontos em cada quadrante.
+  - **Dividir em 2 partes com $n/2$ pontos em cada parte:**
+    - OK 👍
+
+###### Closest Pair of Points: divide-and-conquer
+
+- **Divida:** Divida os pontos em duas partes com $n/2$ pontos em cada parte.
+- **Conquiste:** Encontre a menor distância entre os pares de pontos em cada parte recursivamente.
+- **Combine:** Encontre a menor distância entre os pares de pontos em que um ponto está em uma parte e o outro ponto está na outra parte.
+- Retorne a melhor entre as 3 soluções.
+
+Agora, devemos analisar de que forma podemos encontrar a menor distância entre os pontos de uma parte e outra.
+
+1. Após calcularmos recursivamente os menores pares de pontos de cada parte, devemos calcular a menor distância entre os pontos de uma parte e outra.
+2. Para isso teremos um $\delta = \min(\delta_1, \delta_2)$, onde $\delta_1$ e $\delta_2$ são as menores distâncias encontradas em cada parte.
+3. Com isso, define-se uma faixa de distância $\delta$ em torno da linha que divide as partes.
+4. Para os pontos contidos nessa faixa $[L - \delta, L + \delta]$, ordene-os por $y$.
+5. Checar as distâncias dos pontos em relação aos 7 pontos seguintes.
+   1. $\dots$
+
+---
+
+**Ponto extra:** fazer uma prova para reduzir a constante de quantos pontos podem ser comparados dentro da faixa cinza e que podem ser menores que delta. (Slide: 05DivideAndConquerI, Pág. 73)
+
+---
+
+| Problema         | Bruto    | Esperto       |
+| ---------------- | -------- | ------------- |
+| Closest Pair     | $O(n^2)$ | $O(n \log n)$ |
+| Farthest Pair    | $O(n^2)$ | $O(n \log n)$ |
+| Convex hull      | $O(n^2)$ | $O(n \log n)$ |
+| Delaunay/Voronoi | $O(n^4)$ | $O(n \log n)$ |
+| Euclidean MST    | $O(n^2)$ | $O(n \log n)$ |
+
+#### Slide: 04GreedyAlgorithmsI_select06_DP (1)
+
+##### Greedy Algorithms
+
+###### Coin Changing
+
+- Ela pulou
+
+###### Interval Scheduling
+
+- Heurísticas:
+  - Earliest start time
+  - Earliest finish time (ótima)
+  - Shortest interval
+
+- Interval Scheduling: earliest-finish-time-first algorithm
+
+- EARLIEST-FINISH-TIME-FIRST $(n, s_1, s_2, \dots, s_n, f_1, f_2, \dots, f_n)$
+  - **SORT** jobs by finish times and renumber so that $f_1 \leq f_2 \leq \dots \leq f_n$.
+  - $S \leftarrow \emptyset$ (set of jobs selected)
+  - **FOR** $j = 1$ **TO** $n$
+    - **IF** job $j$ is compatible with $S$
+      - $S \leftarrow S \cup \{ j \}$
+  - **RETURN** $S$
+
+---
+
+Tipo de questão que tem na prova:
+
+A. Yes, because greedy algorithms are always optimal.
+B. Yes, because the same proof of correctness is valid.
+**C. No, because the same proof of correctness is no longer valid.**
+D. No, because you could assign a huge weight to a job that overlaps the job with the earliest finish time.
+
+Explicação: não é porque determinada prova de correção não é válida que o algoritmo não é mais ótimo.
+
+---
+
+Deu um bafafá por confusão da definição da condicional do C.
