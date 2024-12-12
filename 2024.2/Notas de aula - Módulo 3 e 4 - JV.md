@@ -245,3 +245,34 @@ a. $0$
 b. $1/n$
 c. $2/n$ <-
 d. $1$
+
+### Aula 3 - 09/12/2024
+
+#### Slide: 05DivideAndConquerI (4)
+
+##### Randomized Quickselect analysis
+
+Para partir uma barrinha de chocolate em dois pedaços, dará um menor pedaço que será no mínimo $(1/2)n$ e no máximo $n - 1$. Ele terá então, em média, $\frac{((1/2)n) + (n - 1)}{2}$ elementos, que será $\frac{3n - 2}{4}$, o que gira em torno de $3/4$ de $n$.
+
+##### Selection in worst-case linear time
+
+###### Choosing the pivot element
+
+Tarefa de casa: mostrar como encontrar a mediana em 6 comparações. "Em 11 é muito fácil"
+
+##### Median-of-medians Selection Algorithm Recurrence
+
+$C(n) \leq C( \left\lfloor n/5 \right\rfloor ) + C(n - 3 \left\lfloor n/10 \right\rfloor ) + \frac{11}{5}n$
+
+- Super-additive: $C(X) + C(Y) \leq C(X + Y)$
+
+---
+
+Quiz 4: Ponto extra
+
+Achar a constante que dá certo para $R = 7$
+
+---
+
+Ela vai mandar uma enquete para decidir se vai ter a prova dia 20 ou não.
+
