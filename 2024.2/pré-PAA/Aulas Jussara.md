@@ -12,7 +12,7 @@
 
 - [Algoritmos 1 - Grafos: Conceitos, Representação e Exemplos](https://youtu.be/B5kCgjxKERM)
 - [Algoritmos 1 - Grafos - Algoritmos de Busca (parte 1)](https://youtu.be/aoOs3ADVH0s)
-- [](https://youtu.be/jYgCMhck-b8)
+- [Algoritmos 1 - Grafos - Algoritmos de Busca (parte 2)](https://youtu.be/jYgCMhck-b8)
 
 ### Aula do dia 13/08 - Grafos - Algoritmos de Busca (continuação) e exercícios
 
