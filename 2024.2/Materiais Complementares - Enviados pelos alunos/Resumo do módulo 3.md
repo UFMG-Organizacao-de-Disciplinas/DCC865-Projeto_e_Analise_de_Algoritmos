@@ -75,3 +75,23 @@ Apenas se um deles for escolhido como pivô. A chance dele ser escolhido como pi
 ---
 
 Tem toda uma matemática com soma harmônica que eu não entendi.
+
+#### Median-of-medians Selection Algorithm
+
+- **Descrição:** Divide o array em grupos de 5 elementos; Encontra a mediana de cada grupo; Encontra a mediana das medianas; Usa a mediana das medianas como pivô.
+
+---
+
+- **Pseudocódigo**
+
+- **MOM-SELECT** $(A, k)$
+- $n \leftarrow |A|$
+- **SE** $(n < 50)$
+  - **RETORNE** o $k$-ésimo menor elemento de $A$ via mergesort.
+- Agrupe $A$ em $\left\lceil \frac{n}{5} \right\rceil$ grupos de 5 elementos cada (ignore leftovers).
+- $B \leftarrow$ mediana de cada grupo de 5.
+- $p \leftarrow$ MOM-SELECT$(B, \left\lceil \frac{n}{10} \right\rceil)$ <!-- <- Mediana das medianas -->
+- $(L, M, R) \leftarrow$ PARTITION-3-WAY$(A, p)$.
+- **SE** $(k \leq |L|)$ **RETORNE** MOM-SELECT$(L, k)$.
+- **SENÃO SE** $(k > |L| + |M|)$ **RETORNE** MOM-SELECT$(R, k - |L| - |M|)$
+- **SENÃO** **RETORNE** $p$.
