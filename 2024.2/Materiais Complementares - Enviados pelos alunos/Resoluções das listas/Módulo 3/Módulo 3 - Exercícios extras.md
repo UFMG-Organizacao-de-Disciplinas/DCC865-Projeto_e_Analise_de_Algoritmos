@@ -23,7 +23,7 @@ $$
 
 ---
 
-## Tem mais um que não sei quando foi
+## (eu acho que) Tem mais um que não sei quando foi
 
 ## 09/12/2024
 
@@ -34,3 +34,7 @@ $C(n) = C( \left\lfloor n/5 \right\rfloor ) + C( n - 3 \left\lfloor n/10 \right\
 - $\frac{11}{5}n$
   - computar mediana de 5 elementos ($\leq$ 6 comparações por grupo)
   - Particionar
+
+## 11/12/2024
+
+Ponto extra: fazer uma prova para reduzir a constante de quantos pontos podem ser comparados dentro da faixa cinza e que podem ser menores que delta. (Slide: 05DivideAndConquerI, Pág. 73)
