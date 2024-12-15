@@ -10,6 +10,8 @@ Ceil:  ⌈ ⌉
 - [Módulo 3, Lista 1](#módulo-3-lista-1)
   - [Lista de Exercícios](#lista-de-exercícios)
   - [Lista de Exercícios - Olga](#lista-de-exercícios---olga)
+  - [PAA\_ReviaoILC\_ListaExercicios1](#paa_reviaoilc_listaexercicios1)
+  - [PAA\_ReviaoILC\_ListaExercicios2](#paa_reviaoilc_listaexercicios2)
   - [Módulo 3 - Paradigma Divisão e Conquista](#módulo-3---paradigma-divisão-e-conquista)
     - [Livro Kleinberg e Tardos: Cap. 5](#livro-kleinberg-e-tardos-cap-5)
       - [Cap. 5, Solved Exercise 1 (Pag. 242)](#cap-5-solved-exercise-1-pag-242)
@@ -71,6 +73,196 @@ Ceil:  ⌈ ⌉
   - [Livro Kleinberg e Tardos: Cap. 8](#livro-kleinberg-e-tardos-cap-8)
     - Exercícios resolvidos 1 e 2, e
     - Exercícios 1, 2, 3, 5, 17, 26 (ao final do capítulo).
+
+## PAA_ReviaoILC_ListaExercicios1
+
+Area de Teoria DCC/UFMG PAA - Revisão Lógica Computacional (Indução) 2022/02
+
+LISTA DE EXERCÍCIOS
+
+Lista: Indução Fraca e Forte, Boa Ordenação
+
+---
+
+**Leitura necessária:**
+
+- _Matemática Discreta e Suas Aplicações, 6a Edição_ (Kenneth H. Rosen):
+  - Capítulo 4.1: _Indução Matemática_
+  - Capítulo 4.2: _Indução Completa e Boa Ordenação_
+
+---
+
+**Revisão.**
+
+1. Responda formalmente as seguintes perguntas:
+   a. Descreva o princípio da indução matemática fraca.
+   b. Descreva o princípio da indução matemática forte.
+   c. Explique a principal diferença entre a indução fraca e a indução forte.
+   d. Explique o que é o princípio da boa-ordenação.
+
+**Exercícios.**
+
+2. (Rosen 4.1.3) Seja $P(n)$ a afirmação de que $1^2 + 2^2 + \dots + n^2 = n(n + 1)(2n + 1)/6$ para o inteiro positivo $n$.
+   a. Qual é a afirmação $P(1)$?
+   b. Mostre que $P(1)$ é verdadeiro, completando o passo base da demonstração.
+   c. Qual é a hipótese de indução?
+   d. O que você precisa demonstrar no passo indutivo?
+   e. Complete o passo indutivo.
+   f. Explique por que os passos acima mostram que a fórmula é verdadeira para todo inteiro positivo $n$.
+3. (Rosen 4.1.6) Demonstre que $1 \cdot 1! + 2 \cdot 2! + \dots + n \cdot n! = (n + 1)! - 1$, para todo inteiro positivo $n$.
+4. (Rosen 4.1.11) Encontre uma fórmula para $1/2 + 1/4 + 1/8 + \dots + 1/2^n$ examinando os valores dessa expressão para pequenos valores de $n$ e demonstre que a fórmula está correta.
+5. (Rosen 4.1.21) Demonstre que $2^n > n^2$ para $n \geq 5$, $n$ inteiro.
+6. (Rosen 4.1.33) Demonstre que $5$ divide $n^5 - n$ sempre que $n$ é um inteiro não-negativo.
+7. (Rosen 4.1.56) Demonstre que $\neg (p1 \vee p2 \vee \dots \vee p_n) ≡ \neg p_1 \wedge \neg p_2 \wedge \dots \wedge \neg p_n$, para todo $n \geq 1$. (Dica: use a lei de De Morgan que diz que $\neg (p \vee q) ≡ \neg p \wedge \neg q.)$
+8. (Rosen 4.2.3) Seja $P(n)$ a proposição "uma postagem de $n$ centavos pode ser formada utilizando apenas selos de $3$ centavos e selos de $5$ centavos". Esse exercício ilustra uma demonstração por indução forte de que $P(n)$ é verdade para $n \geq 8$.
+   a. Mostre que as proposições $P(8)$, $P(9)$ e $P(10)$ são verdadeiras, completando o passo base da demonstração.
+   b. Qual é a hipótese indutiva da demonstração?
+   c. O quê você necessita demonstrar no passo indutivo?
+   d. Complete o passo indutivo para $k \geq 10$.
+   e. Explique porque estes passos mostram que a proposição é verdadeira sempre que $n \geq 8$.
+9. (Rosen 4.2.12) Utilize indução forte e mostre que todo inteiro positivo n pode ser escrito como a soma no passo indutivo, considere separadamente os casos $k + 1$ ímpar ou par. Note que $(k+1)/2$ é inteiro de potências de $2$ distintas, ou seja, como a soma de um subconjunto dos inteiros $2^0, 2^1 , 2^2, \dots$ (Dica: quando $k + 1$ é par.)
+
+10. Considere uma barra de chocolate formada por uma única fileira de $n$ quadradinhos como na figura abaixo.
+
+```mermaid
+graph LR
+  A["`1`"]
+  B["`2`"]
+  C["`3`"]
+  D["`...`"]
+  E["`n-1`"]
+  F["`n`"]
+```
+
+Suponha que você queira separar todos os quadradinhos da barra, de forma a obter n quadradinhos individuais. Assuma que você pode realizar quebras na barra apenas entre dois quadradinhos con- secutivos (i.e., você nção pode partir um quadradinho no meio, apenas separar um quadradinho do outro).
+
+Usando indução forte, demonstre que para qualquer barra de n quadradinhos são necessárias exatamente $n - 1$ quebras para separar todos os quadradinhos.
+
+11. Encontre o erro na "demonstração" por indução abaixo da afirmação de que em qualquer grupo de n pessoas, com $n \geq 1$, todas têm a mesma cor de olhos.
+
+**"Demonstração".** Seja $P(n) o predicado "Em qualquer grupo de $n$ pessoas, todas têm a mesma cor de olhos". Queremos mostrar que $P(n)$ é verdadeiro para todo inteiro $n \geq 1$.
+
+**Passo base.** $P(1)$ é verdade porque em qualquer grupo de 1 pessoa, essa pessoa tem a mesma cor de olhos que ela mesma.
+
+**Passo indutivo.** Assuma como hipótese de indução que $P(k)$ é verdadeiro para um inteiro $k \geq 1$ arbitrário. Queremos mostrar que $P(k + 1)$ também será verdadeiro.
+
+Note que em um grupo qualquer de $k + 1$ pessoas, podemos colocá-as em fila e observar que as $k$ primeiras formam um grupo de $k$ pessoas. Pela hipótese de indução, essas pessoas têm todas a mesma cor de olhos. Da mesma forma, na fila de $k + 1$ pessoas, as $k$ últimas formam também um grupo de $k$ pessoas e, pela hipótese de indução, têm todas a mesma cor de olhos. Como o grupo de $k$ primeiras pessoas da fila e o grupo de $k$ últimas têm uma interseção, somos obrigados a concluir que todas as pessoas da fila têm a mesma cor de olhos.
+
+## PAA_ReviaoILC_ListaExercicios2
+
+Area de Teoria DCC/UFMG PAA - Revisão Lógica Computacional (Indução) 2022/02
+
+LISTA DE EXERCÍCIOS
+
+Lista: Definições Recursivas e Indução Estrutural, Algoritmos Recursivos
+
+---
+
+**Leitura necessária:**
+
+- _Matemática Discreta e Suas Aplicações, 6a Edição_ (Kenneth H. Rosen):
+  - Capítulo 4.3: _Deﬁnições Recursivas e Indução Estrutural_
+  - Capítulo 4.4: _Algoritmos Recursivos_
+
+---
+
+**Revisão.**
+
+1. Responda formalmente as seguintes perguntas:
+   a. O que é uma deﬁnição recursiva? Quais os elementos essenciais de uma definição recursiva?
+
+**Exercícios.**
+
+2. (Rosen 4.3.3) Encontre $f(2)$, $f(3)$, $f(4)$ e $f(5)$ se $f(n)$ for deﬁnido recursivamente por $f(0) = -1$, $f(1) = 2$ e para $n = 0, 1, 2, \dots$:
+    a. $f(n + 1) = f(n) + 2$.
+    b. $f(n + 1) = 3f(n)$.
+    c. $f(n + 1) = 2^{f(n)}$.
+    d. $f(n + 1) = f(n)^2 + f(n) + 1$.
+
+3. (Rosen 4.3.3) Encontre $f(2)$, $f(3)$, $f(4)$ e $f(5)$ se $f(n)$ for deﬁnido recursivamente por $f(0) = -1$, $f(1) = 2$ e para $n = 0, 1, 2, \dots$:
+   a. $f(n + 1) = f(n) + 3f(n - 1)$
+   d. $f(n + 1) = \frac{f(n-1)}{f(n)}$
+
+4. (Rosen 4.3.7) Dê uma deﬁnição recursiva para a sequência ${a_n}, n = 1, 2, 3, \dots$ se
+   a. $a_n = 6n$.
+   b. $a_n = 2n + 1$.
+   c. $a_n = 10^n$.
+   d. $a_n = 5$.
+
+5. Nesta questão vamos generalizar os operadores de conjunção ($\wedge$) e de disjunção ($\vee$) para um número qualquer de operandos. Isto é feito de maneira similar como generalizamos a operação de soma ($+$) de dois operandos para um número qualquer usando somatórios ($\sum$).
+
+Para isto, complete as seguintes deﬁnições recursivas, onde cada $p_i$, com $i \geq 1$, é uma proposição.
+
+a. Generalização da conjunção:
+
+$$
+\begin{cases}
+\wedge_{i=1}^{0} p_i = ? \\
+\wedge_{i=1}^{n} p_i = ? & n \geq 1\\
+\end{cases}
+$$
+
+b. Generalização da conjunção:
+
+$$
+\begin{cases}
+\vee_{i=1}^{0} p_i = ? \\
+\vee_{i=1}^{n} p_i = ? & n \geq 1\\
+\end{cases}
+$$
+
+6. (Rosen 4.3.25) Dê uma deﬁnição recursiva de:
+(a) o conjunto dos inteiros pares.
+(b) o conjunto dos inteiros positivos congruentes a 2 módulo 3 (ou seja, os inteiros positivos que têm resto 2 na divisão por 3).
+(c) o conjunto dos inteiros positivos nção divisíveis por 5.
+
+7. (Rosen 4.3.27) Seja $S$ um subconjunto dos pares ordenados de inteiros, deﬁnido recursivamente por
+
+_Passo base_: $(0, 0) \in S$,
+
+_Passo recursivo_: Se $(a, b) \in S$, então $(a, b + 1) \in S$, $(a + 1, b + 1) \in S$ e $(a + 2, b + 1) \in S$.
+
+   a. Liste os elementos de $S$ produzidos pelas quatro primeiras aplicações da deﬁnição recursiva.
+   c. Utilize indução estrutural para mostrar que $a \leq 2b$ quando $(a, b) \in S$.
+
+8. (Rosen 4.3.29) Dê uma deﬁnição recursiva para cada um dos conjuntos de pares ordenados de inteiros positivos. (Dica: Plote os pontos no plano e procure por linhas que contenham os pontos do conjunto.)
+
+   a. $S = {(a, b) | a, b \in Z^+, a + b é par}$
+   b. $S = {(a, b) | a, b \in Z^+, a ou b é ímpar}$
+
+9. (Rosen 4.3.35) Dê uma deﬁnição recursiva para o reverso de uma string.
+
+(Dica: primeiro deﬁna o reverso de uma string vazia $\lambda$. Então escreva uma string $w$ de tamanho $n + 1$ como $xy$, onde $x$ é uma string de tamanho $n$, e expresse o reverso de $w$ em termos de $x^R$ e $y$.)
+
+10. (Rosen 4.3.43) Seja $T$ é uma árvore binária completa (ou seja, uma árvore em que todos os vértices internos têm exatamente dois vértices ﬁlhos), seja $n(T)$ o número de vértices na árvore $T$, e seja $h(T)$ a altura (ou seja, o maior caminho da raiz até uma folha da árvore) de $T$. Use indução estrutural para mostrar que $n(T) \geq 2h(T) + 1$.
+
+11. (Rosen 4.4.11) Dê um algoritmo recursivo para encontrar o mínimo de um conjunto ﬁnito de números inteiros, considerando o fato de que o mínimo de n números inteiros é o menor entre o último inteiro da lista e o mínimo dos primeiros $n - 1$ elementos da lista. Exiba como seu algoritmo encontra o mínimo elemento do conjunto $\{3, 5, 1, 2, 4\}$.
+
+12. _Os números de Fibonacci_, $f_0, f_1, f_2, \dots$ são deﬁnidos recursivamente como a seguir:
+
+$$
+\begin{cases}
+f_0 = 0, \\
+f_1 = 1, \\
+f_{n+1} = f_n + f_{n-1}, & \text{para } n = 1, 2, 3, \dots
+$$
+
+Em particular, os primeiros números de Fiboacci são
+
+$$
+f_0 = 0, f_1 = 1, f_2 = 1, f_3 = 2, f_4 = 3, f_5 = 5,
+f_6 = 8, f_7 = 13, f_8 = 21, f_9 = 34, f_10 = 55, \dots
+$$
+
+Utilize indução estrutural para mostrar que
+
+$$
+f_n =
+\frac{1}{\sqrt{5}} \Phi^n -
+\frac{1}{\sqrt{5}} \psi^n,
+$$
+
+para $n = 0, 1, 2, \dots$, onde $\Phi = \frac{1 + \sqrt{5}}{2} \approx 1.61803398$ (a "proporção divina") e $\psi = \frac{1 - \sqrt{5}}{2} \approx -0.61803398$.
 
 ## Módulo 3 - Paradigma Divisão e Conquista
 

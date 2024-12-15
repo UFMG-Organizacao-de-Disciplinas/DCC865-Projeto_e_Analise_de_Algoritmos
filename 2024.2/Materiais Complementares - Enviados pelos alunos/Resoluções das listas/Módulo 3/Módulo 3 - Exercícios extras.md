@@ -1,12 +1,73 @@
 # Exercícios extras
 
-## Desafio de aula - Extra
+<!--
+⌊x⌋: chão \left\lfloor floor
+⌈x⌉: teto \left\rroof roof ceil
+-->
+
+## Possíveis pontos extras
+
+### SHUFFLING A LINKED LIST [JV: Também não sei se vale ponto extra]
+
+- **Problem.** Given a singly linked list, rearrange its nodes uniformly at random. (All $n!$ permutations equally likely.)
+- **Assumption.** Access to a perfect random-number generator.
+- **Performance.** $O(n \log n)$ time, $O(\log n)$ extra space.
+
+### 09/12/2024 [JV: Não sei exatamente o que era pra fazer aqui]
+
+Para grupos de 5 elementos
+
+$C(n) = C( \left\lfloor n/5 \right\rfloor ) + C( n - 3 \left\lfloor n/10 \right\rfloor ) + \frac{11}{5}n$
+
+- $\frac{11}{5}n$
+  - computar mediana de 5 elementos ($\leq 6$ comparações por grupo)
+  - Particionar
+
+### Ponto extra 1: 11/12/2024 - Tentar reduzir o número de pontos para algo abaixo de 7 [JV: esse é pra fazer mesmo]
+
+Exemplo original do Kleinberg (Slide 005DivideAndConquer1 pág 73)
+
+**Definição:** Seja $s_i$ um ponto na faixa de tamanho $2 \delta$, com a $i$-ésima menor coordenada $y$.
+
+**Afirmação:** Se $|j – i| > 7$, então a distância entre $s_i$ e $s_j$ é pelo menos $\delta$.
+
+**Prova:**
+
+- Considere um retângulo $R$ de $2 \delta$ por $\delta$ na faixa cuja mínima coordenada $y$ é a coordenada $y$ do ponto $s_i$.
+- A distância entre $s_i$ e qualquer ponto $s_j$ acima de $R$ é $\geq \delta$.
+- Subdivida $R$ em 8 quadrados.
+- Haverá no máximo 1 ponto por quadrado. (O diâmetro é $\delta/\sqrt{2} < \delta$)
+- No máximo **7** outros pontos podem estar em $R$.
+  - A constante pode ser aprimorada com um argumento mais refinado de geometric packing.
+
+---
+
+**Postulado:** Dado que $\delta$ é a menor distância entre dois pontos dentro do problema dividido de menores distâncias por meio de divisão e conquista. Se $|j – i| > 7$, então a distância entre $s_i$ e $s_j$ é pelo menos $\delta$.
+
+**Ponto extra**: fazer uma prova para reduzir a constante de quantos pontos podem ser comparados dentro da faixa cinza e que podem ser menores que delta.
+
+![Exec aula 11-12-2024](<Img/005DivideAndConquer_73.png>)
+
+---
+
+### Ponto Extra 2 - Divide-and-conquer: Quiz 5 - Mediana das medianas para uma divisão por 7
+
+Suppose that we divide n elements into $\left\lfloor n/5 \right\rfloor$ groups of $r$ elements each, and use the median-of-medians of these $\left\lroof n / r \right\rroof$ groups as the pivot. For which $r$ is the worst-case running time of select $O(n)$?
+
+a. $r = 3$
+b. $r = 7$
+c. Both a and b
+d. Neither a nor b
+
+---
+
+### Ponto extra 3?: Resolvendo Recorrência [JV: aparentemente esse daqui foi só zoeira]
 
 $$
 T(n) =
 \begin{cases}
-  0                                                       & \text{if} n = 1 \\
-  T(\lceil n/2 \rceil) + T(\lfloor n/2 \rfloor) + n - 1   & \text{if} n > 1 \\
+  0                                                       & \text{if } n = 1 \\
+  T(\lceil n/2 \rceil) + T(\lfloor n/2 \rfloor) + n - 1   & \text{if } n > 1 \\
 \end{cases}
 $$
 
@@ -23,23 +84,28 @@ $$
 
 ---
 
-## Tem mais um que não sei quando foi
+## Resoluções JV
 
-## 09/12/2024
+## Resoluções Gustavo
 
-Para grupos de 5 elementos
+### Questão que não sei qual
 
-$C(n) = C( \left\lfloor n/5 \right\rfloor ) + C( n - 3 \left\lfloor n/10 \right\rfloor ) + \frac{11}{5}n$
+![alt text](<Img/Resolução Tarefa Extra Gustavo.jpg>)
 
-- $\frac{11}{5}n$
-  - computar mediana de 5 elementos ($\leq$ 6 comparações por grupo)
-  - Particionar
+### É possível reduzir o número de comparações para o problema de menor distância planar para algo menor que 7?
 
-## 11/12/2024 - Tentar reduzir o número de pontos para algo abaixo de 7
-Exemplo original do Kleinberg (Slide 005DivideAndConquerl pág 73)
+- Resposta:
+  - Opção 01:
+    - Regiões de menor densidade podem resultar em uma comparação com $n < 7$ elementos. Se há uma garantia que a densidade da região é pequena. Em nível de complexidade pode-se reduzir o número máximo de comparações uma vez que nem todos os quadradinhos serão populados
+  - Opção 02:
+    - Usando diagramas de Voronoi no lugar de quadradinhos. O Diagrama divide o espaço em células poligonais e cada célula possui os pontos mais próximos de um ponto específico. Dois pontos só podem ter distância menor do que $\delta$ se as duas células tiverem arestas simultâneas. Então só será necessário comparar cada ponto com suas arestas vizinhas. Se os polígonos resultantes tiverem menos de 7 lados, garantidamente haverão menos de 7 comparações
 
-Ponto extra: fazer uma prova para reduzir a constante de quantos pontos podem ser comparados dentro da faixa cinza e que podem ser menores que delta. (Slide: 05DivideAndConquerI, Pág. 73)
+### Mediana das medianas para uma divisão por 7
 
-Postulado: Dado que δ é a menor distância entre dois pontos dentro do problema dividido de menores distâncias por meio de divisão e conquista. Se $⎜j – i⎟$ > 7, então a distância entre $s_i$ e $s_j$ é pelo menos δ.
+Para o número de elementos iguais a 7
 
-![Exec aula 11-12-2024](<Img/005DivideAndConquer_73.png>)
+Pelo menos metade dos 7 medianas de elementos tem que ser menores ou iguais a p
+
+Além disso, pelo menos Chão(Chão(n/7)/2) (Ou seja, chão(n/14)) medianas tem que ser menores ou iguais a p
+
+Entretanto, como P pode ser maior ou igual a 4 dos elementos, temos que 4*chão(n/14)) tem que ser menores ou iguais a p
