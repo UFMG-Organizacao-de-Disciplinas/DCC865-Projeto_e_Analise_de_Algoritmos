@@ -86,6 +86,41 @@ $$
 
 ## Resoluções JV
 
+### JV: Ponto extra 1: 11/12/2024 - Tentar reduzir o número de pontos para algo abaixo de 7 [JV: esse é pra fazer mesmo]
+
+Exemplo original do Kleinberg (Slide 005DivideAndConquer1 pág 73)
+
+**Definição:** Seja $s_i$ um ponto na faixa de tamanho $2 \delta$, com a $i$-ésima menor coordenada $y$.
+
+**Afirmação:** Se $|j – i| > 7$, então a distância entre $s_i$ e $s_j$ é pelo menos $\delta$.
+
+**Prova:**
+
+- Considere um retângulo $R$ de $2 \delta$ por $\delta$ na faixa cuja mínima coordenada $y$ é a coordenada $y$ do ponto $s_i$.
+- A distância entre $s_i$ e qualquer ponto $s_j$ acima de $R$ é $\geq \delta$.
+- Subdivida $R$ em 8 quadrados.
+- Haverá no máximo 1 ponto por quadrado. (O diâmetro é $\delta/\sqrt{2} < \delta$)
+- No máximo **7** outros pontos podem estar em $R$.
+  - A constante pode ser aprimorada com um argumento mais refinado de geometric packing.
+
+---
+
+**Postulado:** Dado que $\delta$ é a menor distância entre dois pontos dentro do problema dividido de menores distâncias por meio de divisão e conquista. Se $|j – i| > 7$, então a distância entre $s_i$ e $s_j$ é pelo menos $\delta$.
+
+**Ponto extra**: fazer uma prova para reduzir a constante de quantos pontos podem ser comparados dentro da faixa cinza e que podem ser menores que delta.
+
+![Exec aula 11-12-2024](<Img/005DivideAndConquer_73.png>)
+
+---
+
+#### Apenas analisar os quadrados do lado oposto
+
+Como estamos buscando o menor valor, teremos que, caso dois pontos do lado esquerdo tenham valor menor que $\delta$, isso o tornaria o novo $\delta$, sendo assim, consideramos que o menor valor do lado esquerdo do $L$, não pode ser menor que $\delta$. O mesmo raciocínio se mostra válido para o lado direito. Com isso, entendemos que a menor distância entre dois pontos pertencente ao intervalo $[L - \delta, L]$ e ao intervalo $[L, L + \delta]$ é $\delta$. Então, para potencialmente encontrarmos uma solução menor que $\delta$, para um ponto pertencente ao lado esquerdo de $L$, precisamos analisar apenas os pontos do lado direito de $L$ e vice-versa. Assim, reduzindo o número máximo de pontos a serem comparados para 4.
+
+#### Apenas analisar os quadrantes que têm interseção com o círculo de raio $\delta$
+
+A redução pode ser ainda maior, se considerarmos que a distância entre dois pontos é menor que $\delta$ se, e somente se, os dois pontos estiverem contidos em um círculo de raio $\delta$. Assim, podemos considerar que um círculo cujo centro é o ponto $S_i$, esse círculo sobreporá no máximo 2 dos quadrantes do outro lado.
+
 ## Resoluções Gustavo
 
 ### Questão que não sei qual
