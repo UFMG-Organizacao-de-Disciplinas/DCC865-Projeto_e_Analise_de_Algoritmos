@@ -95,6 +95,52 @@ Tem toda uma matemática com soma harmônica que eu não entendi.
 - **SE** $(k \leq |L|)$ **RETORNE** MOM-SELECT$(L, k)$.
 - **SENÃO SE** $(k > |L| + |M|)$ **RETORNE** MOM-SELECT$(R, k - |L| - |M|)$
 - **SENÃO** **RETORNE** $p$.
+
+## Algoritmos Gulosos
+
+### Cashier's Algorithm
+
+- **Descrição:** a cada iteração, adicione uma moeda do maior valor que não nos leva além do valor a ser pago.
+
+- **Observações:** sua otimalidade depende do conjunto de moedas que poderão ser utilizadas. Não só a otimalidade, mas a existência de uma solução.
+  - Exemplo de não-otimalidade:
+    - Valor a ser pago: 6; Moedas: 1, 3, 4
+  - Exemplo de inexistência de solução:
+    - Valor a ser pago: 2; Moedas: 3, 4
+
+- **Propriedades de uma solução ótima:** [JV: No slide fala especificamente sobre as moedas dos EUA e não fala de forma não matematicamente genérica, então não garanto a certeza dessa afirmação.]
+  - Cada moeda deverá ter uma soma em seu valor menor que a o valor da moeda seguinte.
+  - **Matematicamente:**
+    - **Descrição:** cada somatório de valores de moedas não deve exceder o valor da moeda seguinte.
+      - $⌈ \frac{m_{k+1}}{m_k} ⌉ - 1 \leq n_k$
+      - $⌈ \frac{m_{k+1}}{m_k} ⌉ > n_k$
+      - Onde:
+        - $m_k$ é o valor da moeda $k$
+        - $n_k$ é a quantidade de moedas de valor $m_k$
+        - $m_{k+1}$ é o valor da moeda diretamente maior que $m_k$
+    - **Descrição:** o somatório de moedas de valor baixo não deve exceder o valor da moeda de valor mais alto.
+      - $\sum_{i=1}^{k} m_i \cdot n_i \leq m_{k+1} - 1$
+    - **Descrição:** se tenho um valor a ser pago que se encontra entre dois valores de moedas, a solução ótima inclui a moeda diretamente menor que o valor.
+      - $m_k < v \leq m_{k+1}; m_k \in S.O.$
+      - Onde:
+        - $S.O.$ é a solução ótima
+      - [JV: ora... mas isso recai no exemplo de não-otimalidade 🤔]
+
+---
+
+- **Pseudocódigo**
+
+```python
+def cashier(amount, coins):
+  coins.sort(reverse=True)
+  change = []
+  for coin in coins:
+    while coin <= amount:
+      change.append(coin)
+      amount -= coin
+  return change
+```
+
 ### Algoritmos de programação dinâmica
 
 #### Weighted Interval Scheduling - Brute Force
