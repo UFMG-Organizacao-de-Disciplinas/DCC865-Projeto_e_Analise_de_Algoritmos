@@ -361,3 +361,44 @@ Explicação: não é porque determinada prova de correção não é válida que
 ---
 
 Deu um bafafá por confusão da definição da condicional do C.
+
+### Aula 5 - 16/12/2024
+
+Ela começou explicando a parte lógica da afirmação do slide anterior que deu bafafá.
+
+Mas como eu cheguei atrasado só peguei o final.
+
+#### Slide: 06DynamicProgrammingI_select
+
+##### Algorithmic paradigms
+
+- **Greed:** processar o input e tomar decisões de forma míope não voltando atrás.
+- **Divide-and-conquer:** separar em subproblemas menores
+- **Dynamic programming:** resolver subproblemas e guardar as soluções para não ter que resolver novamente.s
+
+##### Dynamic programming history
+
+##### Dynamic programming applications
+
+##### Dynamic programming books
+
+##### 6. DYNAMIC PROGRAMMING I
+
+###### Weighted Interval Scheduling
+
+- Uma tarefa (job ($j$)) começa no tempo $s_j$ e termina no tempo $f_j$, and has weight $w_j > 0$.
+- Dois jobs $i$ e $j$ são compatíveis se $f_i \leq s_j$.
+
+Dynamic programming: binary choice
+
+---
+
+Vou começar a fazer umas anotações mais soltas porque o ritmo tá rápido.
+
+---
+
+Maximum Subarray Problem: que probleminha capcioso! kkkkkkkkkkkkkkkkkkkk
+
+Utilizar lógica de peso dos intervalos nesse problema.
+
+Pra ir linear, vai somando os valores. Se o somatório em determinada posição for menor que o valor atual, define que a melhor solução até então é o valor dessa posição. Depois disso, calcula o maior valor desse vetor de resultados. Com isso encontramos o j. Para encontrarmos o i, precisamos ir retornando do j até encontrar alguém em que a solução tenha o mesmo valor que o valor da posição em si.
