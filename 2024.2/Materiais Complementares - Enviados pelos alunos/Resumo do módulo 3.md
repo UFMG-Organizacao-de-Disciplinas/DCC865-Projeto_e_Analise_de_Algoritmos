@@ -95,3 +95,18 @@ Tem toda uma matemática com soma harmônica que eu não entendi.
 - **SE** $(k \leq |L|)$ **RETORNE** MOM-SELECT$(L, k)$.
 - **SENÃO SE** $(k > |L| + |M|)$ **RETORNE** MOM-SELECT$(R, k - |L| - |M|)$
 - **SENÃO** **RETORNE** $p$.
+### Algoritmos de programação dinâmica
+
+#### Weighted Interval Scheduling - Brute Force
+
+#### Maximum Subarray Problem
+
+#### Kadane's Algorithm
+
+#### Bentley's Algorithm
+
+Complexidade
+
+$(n^2)^x = n^3$
+
+$x = 3/2 = 1 + 1/2$
