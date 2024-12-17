@@ -64,10 +64,11 @@
 
 ### Algoritmos Gulosos
 
-- [Algoritmos 1 - Paradigmas de Algoritmos - Algoritmos Gulosos (parte 1)](https://youtu.be/6LaRjDwbZCc)
-- [Algoritmos 1 - Paradigmas de Algoritmos - Algoritmos Gulosos (parte 2)](https://youtu.be/aSFkVVWFeV4)
-- [Algoritmos 1 - Paradigmas de Algoritmos - Algoritmos Gulosos (parte 3)](https://youtu.be/61nIiWDMNLw)
-- [Algoritmos 1 - Paradigmas de Algoritmos - Algoritmos Gulosos (parte 4)](https://youtu.be/UvNob1BUGvM)
+- Algoritmos 1 - Paradigmas de Algoritmos - Algoritmos Gulosos
+  - [(parte 1)](https://youtu.be/6LaRjDwbZCc) - Coin Changing
+  - [(parte 2)](https://youtu.be/aSFkVVWFeV4)
+  - [(parte 3)](https://youtu.be/61nIiWDMNLw)
+  - [(parte 4)](https://youtu.be/UvNob1BUGvM)
 
 ### Programação Dinâmica
 
