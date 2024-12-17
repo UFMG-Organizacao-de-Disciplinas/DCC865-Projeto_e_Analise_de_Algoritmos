@@ -17,7 +17,7 @@
 
 Para grupos de 5 elementos
 
-$C(n) = C( \left\lfloor n/5 \right\rfloor ) + C( n - 3 \left\lfloor n/10 \right\rfloor ) + \frac{11}{5}n$
+$C(n) = C( ⌊ n/5 ⌋ ) + C(n - 3 ⌊ n/10 ⌋ ) + \frac{11}{5}n$
 
 - $\frac{11}{5}n$
   - computar mediana de 5 elementos ($\leq 6$ comparações por grupo)
@@ -52,7 +52,7 @@ Exemplo original do Kleinberg (Slide 005DivideAndConquer1 pág 73)
 
 ### Ponto Extra 2 - Divide-and-conquer: Quiz 5 - Mediana das medianas para uma divisão por 7
 
-Suppose that we divide n elements into $⌊ n/5 ⌋$ groups of $r$ elements each, and use the median-of-medians of these $⌈ n / r ⌉$ groups as the pivot. For which $r$ is the worst-case running time of select $O(n)$?
+Suppose that we divide $n$ elements into $⌊ n/5 ⌋$ groups of $r$ elements each, and use the median-of-medians of these $⌈n/r⌉$ groups as the pivot. For which $r$ is the worst-case running time of select $O(n)$?
 
 a. $r = 3$
 b. $r = 7$
@@ -123,12 +123,16 @@ A redução pode ser ainda maior, se considerarmos que a distância entre dois p
 
 ### JV: Ponto Extra 2 - Divide-and-conquer: Quiz 5 - Mediana das medianas para uma divisão por 7
 
-Suppose that we divide n elements into $⌊ n/5 ⌋$ groups of $r$ elements each, and use the median-of-medians of these $⌈ n / r ⌉$ groups as the pivot. For which $r$ is the worst-case running time of select $O(n)$?
+Suppose that we divide $n$ elements into $⌊ n/5 ⌋$ groups of $r$ elements each, and use the median-of-medians of these $⌈n/r⌉$ groups as the pivot. For which $r$ is the worst-case running time of select $O(n)$?
 
 a. $r = 3$
 b. $r = 7$
-c. Both a and b
-d. Neither a nor b
+c. Both $a$ and $b$
+d. Neither $a$ nor $b$
+
+---
+
+Achar a constante que dá certo para $R = 7$
 
 ---
 
