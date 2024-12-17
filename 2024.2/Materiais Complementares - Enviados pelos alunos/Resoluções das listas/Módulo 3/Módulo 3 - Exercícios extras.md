@@ -155,3 +155,9 @@ Pelo menos metade dos 7 medianas de elementos tem que ser menores ou iguais a p
 Além disso, pelo menos Chão(Chão(n/7)/2) (Ou seja, chão(n/14)) medianas tem que ser menores ou iguais a p
 
 Entretanto, como P pode ser maior ou igual a 4 dos elementos, temos que 4*chão(n/14)) tem que ser menores ou iguais a p
+
+## Dúvidas
+
+> Non-degeneracy assumption. No two points have the same x-coordinate.
+
+Por que eles não podem ter o mesmo valor de x?
