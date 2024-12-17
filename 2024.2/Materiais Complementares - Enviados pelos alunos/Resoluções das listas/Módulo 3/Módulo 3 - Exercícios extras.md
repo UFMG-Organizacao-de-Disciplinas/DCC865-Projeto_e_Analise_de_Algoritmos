@@ -121,6 +121,17 @@ Como estamos buscando o menor valor, teremos que, caso dois pontos do lado esque
 
 A redução pode ser ainda maior, se considerarmos que a distância entre dois pontos é menor que $\delta$ se, e somente se, os dois pontos estiverem contidos em um círculo de raio $\delta$. Assim, podemos considerar que um círculo cujo centro é o ponto $S_i$, esse círculo sobreporá no máximo 2 dos quadrantes do outro lado.
 
+### JV: Ponto Extra 2 - Divide-and-conquer: Quiz 5 - Mediana das medianas para uma divisão por 7
+
+Suppose that we divide n elements into $⌊ n/5 ⌋$ groups of $r$ elements each, and use the median-of-medians of these $⌈ n / r ⌉$ groups as the pivot. For which $r$ is the worst-case running time of select $O(n)$?
+
+a. $r = 3$
+b. $r = 7$
+c. Both a and b
+d. Neither a nor b
+
+---
+
 ## Resoluções Gustavo
 
 ### Questão que não sei qual
