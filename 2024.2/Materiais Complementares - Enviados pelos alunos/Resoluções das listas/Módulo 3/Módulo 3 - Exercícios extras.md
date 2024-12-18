@@ -136,6 +136,65 @@ Achar a constante que dá certo para $R = 7$
 
 ---
 
+$C(n) \leq C( ⌊ n/5 ⌋ ) + C(n - 3 ⌊ n/10 ⌋ ) + \frac{11}{5}n$
+
+Onze comparações:
+
+```mermaid
+flowchart TD
+    C1{"a < b"} --> L1{"a < c"}
+    C1 --> R1{"b < c"}
+
+    L1 --> M1["a é a mediana"]
+    L1 --> M2["c é a mediana"]
+    R1 --> M3["b é a mediana"]
+    R1 --> M2
+```
+
+```mermaid
+flowchart TD
+    %% Comparação inicial
+    C1{"a < b"} --> C2{"a < c"}
+    C1 --> C3{"b < c"}
+
+    %% Comparações à esquerda
+    C2 --> C4{"a < d"}
+    C2 --> C5{"c < d"}
+
+    C4 --> M1["a é mediana"]
+    C4 --> C6{"d < e"}
+    C5 --> M2["c é mediana"]
+
+    %% Comparações à direita
+    C3 --> C7{"b < d"}
+    C3 --> C8{"c < d"}
+
+    C7 --> M3["b é mediana"]
+    C8 --> C9{"d < e"}
+    C9 --> M4["d é mediana"]
+    C6 --> M5["e é mediana"]
+```
+
+```mermaid
+flowchart TD
+    %% Primeira camada de comparações
+    C1{"a < b"} --> C2{"c < d"}
+    C1 --> C3{"b < c"}
+
+    %% Comparação entre os maiores dos pares
+    C2 --> C4{"a < e"}
+    C3 --> C5{"b < e"}
+
+    %% Comparações para encontrar a mediana
+    C4 --> C6{"a < c"}
+    C5 --> C7{"b < c"}
+    
+    %% Mediana entre os 3 restantes
+    C6 --> M1["a é a mediana"]
+    C7 --> M2["b é a mediana"]
+    C6 --> M3["c é a mediana"]
+```
+
 ## Resoluções Gustavo
 
 ### Questão que não sei qual
