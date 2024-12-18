@@ -402,3 +402,78 @@ Maximum Subarray Problem: que probleminha capcioso! kkkkkkkkkkkkkkkkkkkk
 Utilizar lógica de peso dos intervalos nesse problema.
 
 Pra ir linear, vai somando os valores. Se o somatório em determinada posição for menor que o valor atual, define que a melhor solução até então é o valor dessa posição. Depois disso, calcula o maior valor desse vetor de resultados. Com isso encontramos o j. Para encontrarmos o i, precisamos ir retornando do j até encontrar alguém em que a solução tenha o mesmo valor que o valor da posição em si.
+
+### Aula 6 - 18/12/2024
+
+- Dúvida Pág 35: O que é o "exchange argument"?
+  - É uma lógica similar ao que ela usou na parte da alocação gulosa de tarefas ao longo do tempo. Onde diz algo sobre "se há uma solução melhor do que a ótima encontrada, de tal forma que daria para trocar um segmento da resposta por outro melhor, logo, esse é o novo melhor e a anterior não é ótima".
+
+#### Slide: 06DynamicProgrammingI_select (2)
+
+##### Knapsack problem
+
+É relevante considerarmos a quantidade de bits necessários para representar o peso máximo $W$ da mochila.
+
+$\log_{2} 16 = 4$
+
+Se o algoritmo for linear com relação aos itens... [JV: ela chega em alguma conclusão que eu não entendi]
+
+Se o algoritmo for baseado no peso, então isso depende da quantidade de bits.
+
+Para cada mais um bit, ele multiplicará a quantidade de operações por 2. [JV: não entendi bem por que ela precisa se preocupar com isso agora]
+
+**Contra exemplo do guloso por razão:**
+
+| $i$ | $V_i$ | $W_i$ | $V_i/W_i$     |
+| --- | ----- | ----- | ------------- |
+| 1   | 1     | 1     | 1/1 = 1       |
+| 2   | $w-1$ | $w$   | $(w-1)/w$ < 1 |
+
+###### Dynamic programming: two variables
+
+###### Knapsack problem: bottom-up dynamic programming
+
+- Bellman Equation
+
+$$
+OPT (i, w) =
+\begin{cases}
+  0 & \text{if } i = 0\\
+  OPT (i - 1, w) & \text{if } w_i > w\\
+  \max \{ OPT (i - 1, w), V_i + OPT (i - 1, w - w_i) \} & \text{otherwise}
+\end{cases}
+$$
+
+###### Knapsack problem: bottom-up dynamic programming demo
+
+Como da célula ({1, 2, 3, 4, 5}, 11) pra ({1, 2, 3, 4}, 11) não houve mudança, então consideramos que o item 5 não foi adicionado.
+
+Quando houver variação no valor em relação ao eixo y, então descobriremos qual é o item que tem o valor respectivo a essa variação. Isso significa que ele pertence à solução. E então voltamos no eixo x um número igual ao peso do item adicionado e repetimos o processo.
+
+Dúvida: Não entendi direito o raciocínio do que significa o pseudo polinomial.
+
+#### Slide: 04GreedyAlgorithmsI_select06_DP (2)
+
+##### Coin Changing (2)
+
+Verificar se é ótimo pras moedas brasileiras: Tarefa extra? Ela só falo que "iria deixar pra vocês", mas não mencionou "extra".
+
+Ela menciona também sobre tentar com uma indução forte para checar para uma denominação arbitrária.
+
+"A ordem do processamento das denominações da moeda importa?"
+
+Depois ela mencionou como ser possivelmente extra.
+
+$$
+OPT(i, w) =
+\begin{cases}
+  0 & \text{if } i = 0\\
+  OPT(i - 1, w) & \text{if } w_i > w\\
+  \min \{ OPT(i - 1, w), 1 + OPT(i, w - w_i) \} & \text{otherwise}
+\end{cases}
+$$
+
+
+###### Optimality of cashier's algorithm (for U.S. coin denominations)
+
+- Na tabela mostrada na página 8, estão considerando a quantidade de moedas pegas na solução em que não se pega as moedas de maior valor.
