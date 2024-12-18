@@ -129,6 +129,19 @@ Tem toda uma matemática com soma harmônica que eu não entendi.
 ---
 
 - **Pseudocódigo**
+  - **CASHIERS_ALGORITM** $(x, c_1, c_2, \dots, c_n)$
+  - **SORT** $n$ coin denominations so that $0 < c_1 < c_2 < \dots < c_n$.
+  - $S \leftarrow \emptyset$.
+  - **WHILE** $(x > 0)$
+    - $k \leftarrow$ largest coin denomination $c_k$ such that $c_k \leq x$.
+    - **IF** (no such $k$)
+      - **RETURN** "no solution."
+    - **ELSE**
+      - $x \leftarrow x - c_k$.
+      - $S \leftarrow S \cup \{ k \}$.
+  - **RETURN** $S$.
+
+- **Código**
 
 ```python
 def cashier(amount, coins):
