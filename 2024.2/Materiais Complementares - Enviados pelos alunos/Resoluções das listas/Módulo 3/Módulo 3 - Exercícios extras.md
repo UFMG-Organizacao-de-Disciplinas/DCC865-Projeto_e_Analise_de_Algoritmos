@@ -101,7 +101,7 @@ Exemplo original do Kleinberg (Slide 005DivideAndConquer1 pág 73)
 - Subdivida $R$ em 8 quadrados.
 - Haverá no máximo 1 ponto por quadrado. (O diâmetro é $\delta/\sqrt{2} < \delta$)
 - No máximo **7** outros pontos podem estar em $R$.
-  - A constante pode ser aprimorada com um argumento mais refinado de geometric packing.
+  - A constante pode ser aprimorada com um argumento mais refinado de *geometric packing*.
 
 ---
 
@@ -113,11 +113,15 @@ Exemplo original do Kleinberg (Slide 005DivideAndConquer1 pág 73)
 
 ---
 
-#### Apenas analisar os quadrados do lado oposto
+#### Solução: apenas analisar os quadrados do lado oposto
 
-Como estamos buscando o menor valor, teremos que, caso dois pontos do lado esquerdo tenham valor menor que $\delta$, isso o tornaria o novo $\delta$, sendo assim, consideramos que o menor valor do lado esquerdo do $L$, não pode ser menor que $\delta$. O mesmo raciocínio se mostra válido para o lado direito. Com isso, entendemos que a menor distância entre dois pontos pertencente ao intervalo $[L - \delta, L]$ e ao intervalo $[L, L + \delta]$ é $\delta$. Então, para potencialmente encontrarmos uma solução menor que $\delta$, para um ponto pertencente ao lado esquerdo de $L$, precisamos analisar apenas os pontos do lado direito de $L$ e vice-versa. Assim, reduzindo o número máximo de pontos a serem comparados para 4.
+Como estamos buscando o menor valor, teremos que, caso a distância entre dois pontos de um mesmo lado tenha valor menor que $\delta$, isso o tornaria o novo $\delta$, sendo assim, consideramos que o menor valor entre dois pontos de um mesmo lado do $L$, não pode ser menor que $\delta$.
 
-#### Apenas analisar os quadrantes que têm interseção com o círculo de raio $\delta$
+Com isso, entendemos que a menor distância entre qualquer par de pontos pertencente ao intervalo $[L - \delta, L]$ ou ao intervalo $[L, L + \delta]$ é $\delta$. Então, para potencialmente encontrarmos uma solução menor que $\delta$, para um ponto pertencente ao lado esquerdo de $L$, para cada um dos pontos, precisamos apenas analisar os pontos do lado oposto ao qual ele se encontra.
+
+Assim, considerando ainda a partição em quadrantes, reduz-se o número máximo de pontos a serem comparados para 4.
+
+#### Apenas analisar os quadrantes que têm interseção com o círculo de raio $\delta$ [JV: errado]
 
 A redução pode ser ainda maior, se considerarmos que a distância entre dois pontos é menor que $\delta$ se, e somente se, os dois pontos estiverem contidos em um círculo de raio $\delta$. Assim, podemos considerar que um círculo cujo centro é o ponto $S_i$, esse círculo sobreporá no máximo 2 dos quadrantes do outro lado.
 
