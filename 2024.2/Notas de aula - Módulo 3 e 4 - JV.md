@@ -473,7 +473,6 @@ OPT(i, w) =
 \end{cases}
 $$
 
-
 ###### Optimality of cashier's algorithm (for U.S. coin denominations)
 
 - Na tabela mostrada na página 8, estão considerando a quantidade de moedas pegas na solução em que não se pega as moedas de maior valor.
