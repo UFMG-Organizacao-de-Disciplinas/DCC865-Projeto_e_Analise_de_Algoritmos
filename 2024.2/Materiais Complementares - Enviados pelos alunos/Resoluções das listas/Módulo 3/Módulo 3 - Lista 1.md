@@ -41,8 +41,8 @@ Ceil:  ⌈ ⌉
       - [10. Considere uma barra de chocolate formada por uma única fileira de $n$ quadradinhos como na figura abaixo](#10-considere-uma-barra-de-chocolate-formada-por-uma-única-fileira-de-n-quadradinhos-como-na-figura-abaixo)
       - [11. Encontre o erro na "demonstração" por indução abaixo da afirmação de que em qualquer grupo de n pessoas, com $n \\geq 1$, todas têm a mesma cor de olhos](#11-encontre-o-erro-na-demonstração-por-indução-abaixo-da-afirmação-de-que-em-qualquer-grupo-de-n-pessoas-com-n-geq-1-todas-têm-a-mesma-cor-de-olhos)
   - [PAA\_ReviaoILC\_ListaExercicios2](#paa_reviaoilc_listaexercicios2)
-    - [**Revisão.**](#revisão-1)
-      - [1. Responda formalmente as seguintes perguntas](#1-responda-formalmente-as-seguintes-perguntas-1)
+    - [**Revisão**](#revisão-1)
+      - [1. Responda formalmente as seguintes perguntas (2)](#1-responda-formalmente-as-seguintes-perguntas-2)
         - [a. O que é uma deﬁnição recursiva? Quais os elementos essenciais de uma definição recursiva?](#a-o-que-é-uma-deﬁnição-recursiva-quais-os-elementos-essenciais-de-uma-definição-recursiva)
     - [**Exercícios.**](#exercícios)
       - [2. (Rosen 4.3.3) Encontre $f(2)$, $f(3)$, $f(4)$ e $f(5)$ se $f(n)$ for deﬁnido recursivamente por $f(0) = -1$, $f(1) = 2$ e para $n = 0, 1, 2, \\dots$](#2-rosen-433-encontre-f2-f3-f4-e-f5-se-fn-for-deﬁnido-recursivamente-por-f0---1-f1--2-e-para-n--0-1-2-dots)
@@ -72,8 +72,8 @@ Ceil:  ⌈ ⌉
         - [a. $S = {(a, b) | a, b \\in Z^+, a + b é par}$](#a-s--a-b--a-b-in-z-a--b-é-par)
         - [b. $S = {(a, b) | a, b \\in Z^+, a ou b é ímpar}$](#b-s--a-b--a-b-in-z-a-ou-b-é-ímpar)
       - [9. (Rosen 4.3.35) Dê uma deﬁnição recursiva para o reverso de uma string](#9-rosen-4335-dê-uma-deﬁnição-recursiva-para-o-reverso-de-uma-string)
-      - [10. (Rosen 4.3.43) Seja $T$ é uma árvore binária completa (ou seja, uma árvore em que todos os vértices internos têm exatamente dois vértices ﬁlhos), seja $n(T)$ o número de vértices na árvore $T$, e seja $h(T)$ a altura (ou seja, o maior caminho da raiz até uma folha da árvore) de $T$. Use indução estrutural para mostrar que $n(T) \\geq 2h(T) + 1$.](#10-rosen-4343-seja-t-é-uma-árvore-binária-completa-ou-seja-uma-árvore-em-que-todos-os-vértices-internos-têm-exatamente-dois-vértices-ﬁlhos-seja-nt-o-número-de-vértices-na-árvore-t-e-seja-ht-a-altura-ou-seja-o-maior-caminho-da-raiz-até-uma-folha-da-árvore-de-t-use-indução-estrutural-para-mostrar-que-nt-geq-2ht--1)
-      - [11. (Rosen 4.4.11) Dê um algoritmo recursivo para encontrar o mínimo de um conjunto ﬁnito de números inteiros, considerando o fato de que o mínimo de n números inteiros é o menor entre o último inteiro da lista e o mínimo dos primeiros $n - 1$ elementos da lista. Exiba como seu algoritmo encontra o mínimo elemento do conjunto ${3, 5, 1, 2, 4}$.](#11-rosen-4411-dê-um-algoritmo-recursivo-para-encontrar-o-mínimo-de-um-conjunto-ﬁnito-de-números-inteiros-considerando-o-fato-de-que-o-mínimo-de-n-números-inteiros-é-o-menor-entre-o-último-inteiro-da-lista-e-o-mínimo-dos-primeiros-n---1-elementos-da-lista-exiba-como-seu-algoritmo-encontra-o-mínimo-elemento-do-conjunto-3-5-1-2-4)
+      - [10. (Rosen 4.3.43) Seja $T$ é uma árvore binária completa (ou seja, uma árvore em que todos os vértices internos têm exatamente dois vértices ﬁlhos), seja $n(T)$ o número de vértices na árvore $T$, e seja $h(T)$ a altura (ou seja, o maior caminho da raiz até uma folha da árvore) de $T$. Use indução estrutural para mostrar que $n(T) \\geq 2h(T) + 1$](#10-rosen-4343-seja-t-é-uma-árvore-binária-completa-ou-seja-uma-árvore-em-que-todos-os-vértices-internos-têm-exatamente-dois-vértices-ﬁlhos-seja-nt-o-número-de-vértices-na-árvore-t-e-seja-ht-a-altura-ou-seja-o-maior-caminho-da-raiz-até-uma-folha-da-árvore-de-t-use-indução-estrutural-para-mostrar-que-nt-geq-2ht--1)
+      - [11. (Rosen 4.4.11) Dê um algoritmo recursivo para encontrar o mínimo de um conjunto ﬁnito de números inteiros, considerando o fato de que o mínimo de n números inteiros é o menor entre o último inteiro da lista e o mínimo dos primeiros $n - 1$ elementos da lista. Exiba como seu algoritmo encontra o mínimo elemento do conjunto ${3, 5, 1, 2, 4}$](#11-rosen-4411-dê-um-algoritmo-recursivo-para-encontrar-o-mínimo-de-um-conjunto-ﬁnito-de-números-inteiros-considerando-o-fato-de-que-o-mínimo-de-n-números-inteiros-é-o-menor-entre-o-último-inteiro-da-lista-e-o-mínimo-dos-primeiros-n---1-elementos-da-lista-exiba-como-seu-algoritmo-encontra-o-mínimo-elemento-do-conjunto-3-5-1-2-4)
       - [12. *Os números de Fibonacci*, $f\_0, f\_1, f\_2, \\dots$ são deﬁnidos recursivamente como a seguir](#12-os-números-de-fibonacci-f_0-f_1-f_2-dots-são-deﬁnidos-recursivamente-como-a-seguir)
   - [Módulo 3 - Paradigma Divisão e Conquista](#módulo-3---paradigma-divisão-e-conquista)
     - [Livro Kleinberg e Tardos: Cap. 5](#livro-kleinberg-e-tardos-cap-5)
@@ -306,9 +306,9 @@ Lista: Definições Recursivas e Indução Estrutural, Algoritmos Recursivos
 
 ---
 
-### **Revisão.**
+### **Revisão**
 
-#### 1. Responda formalmente as seguintes perguntas
+#### 1. Responda formalmente as seguintes perguntas (2)
 
 ##### a. O que é uma deﬁnição recursiva? Quais os elementos essenciais de uma definição recursiva?
 
@@ -390,9 +390,9 @@ $$
 
 > (Dica: primeiro deﬁna o reverso de uma string vazia $\lambda$. Então escreva uma string $w$ de tamanho $n + 1$ como $xy$, onde $x$ é uma string de tamanho $n$, e expresse o reverso de $w$ em termos de $x^R$ e $y$.)
 
-#### 10. (Rosen 4.3.43) Seja $T$ é uma árvore binária completa (ou seja, uma árvore em que todos os vértices internos têm exatamente dois vértices ﬁlhos), seja $n(T)$ o número de vértices na árvore $T$, e seja $h(T)$ a altura (ou seja, o maior caminho da raiz até uma folha da árvore) de $T$. Use indução estrutural para mostrar que $n(T) \geq 2h(T) + 1$.
+#### 10. (Rosen 4.3.43) Seja $T$ é uma árvore binária completa (ou seja, uma árvore em que todos os vértices internos têm exatamente dois vértices ﬁlhos), seja $n(T)$ o número de vértices na árvore $T$, e seja $h(T)$ a altura (ou seja, o maior caminho da raiz até uma folha da árvore) de $T$. Use indução estrutural para mostrar que $n(T) \geq 2h(T) + 1$
 
-#### 11. (Rosen 4.4.11) Dê um algoritmo recursivo para encontrar o mínimo de um conjunto ﬁnito de números inteiros, considerando o fato de que o mínimo de n números inteiros é o menor entre o último inteiro da lista e o mínimo dos primeiros $n - 1$ elementos da lista. Exiba como seu algoritmo encontra o mínimo elemento do conjunto $\{3, 5, 1, 2, 4\}$.
+#### 11. (Rosen 4.4.11) Dê um algoritmo recursivo para encontrar o mínimo de um conjunto ﬁnito de números inteiros, considerando o fato de que o mínimo de n números inteiros é o menor entre o último inteiro da lista e o mínimo dos primeiros $n - 1$ elementos da lista. Exiba como seu algoritmo encontra o mínimo elemento do conjunto $\{3, 5, 1, 2, 4\}$
 
 #### 12. *Os números de Fibonacci*, $f_0, f_1, f_2, \dots$ são deﬁnidos recursivamente como a seguir
 
@@ -650,6 +650,8 @@ Then the optimal solution would be to place billboards at $x_1$ and $x_3$, for a
 
 Give an algorithm that takes an instance of this problem as input and returns the maximum total revenue that can be obtained from any valid subset of sites. The running time of the algorithm should be polynomial in $n$.
 
+##### Cap. 6, Solved Exercise 1 (Pag. 307) - Solution JV
+
 ##### Cap. 6, Solved Exercise 1 (Pag. 307) - Solution
 
 We can naturally apply dynamic programming to this problem if we reason as follows. Consider an optimal solution for a given input instance; in this solution, we either place a billboard at site $x_n$ or not. If we don't, the optimal solution on sites $x_1, \dots, x_n$ is really the same as the optimal solution on sites $x_1, \dots, x_{n-1}$; if we do, then we should eliminate $x_n$ and all other sites that are within 5 miles of it, and find an optimal solution on what's left. The same reasoning applies when we're looking at the problem defined by just the first $j$ sites, $x_1, \dots, x_j$: we either include $x_j$ in the optimal solution or we don't, with the same consequences.
@@ -674,7 +676,7 @@ To turn this into an algorithm, we just need to define an array $M$ that will st
 
 ---
 
-As with all the dynamic programming algorithms we've seen in this chapter, an optimal _set_ of billboards can be found by tracing back through the values in array $M$.
+As with all the dynamic programming algorithms we've seen in this chapter, an optimal *set* of billboards can be found by tracing back through the values in array $M$.
 
 Given the values $e(j)$ for all $j$, the running time of the algorithm is $O(n)$, since each iteration of the loop takes constant time. We can also compute all $e(j)$ values in $O(n)$ time as follows. For each site location $x_i$, we define $x^{'}_ {i} = x_ i - 5$. We then merge the sorted list $x_1, \dots, x_n$ with the sorted list $x^{'}_ {1}, \dots, x^{'}_ {n}$ in linear time, as we saw how to do in Chapter 2. We now scan through this merged list; when we get to the entry $x^{'}_ {j}$, we know that anything from this point onward to $x_j$ cannot be chosen together with $x_j$ (since it's within 5 miles), and so we simply define $e(j)$ to be the largest value of $i$ for which we've seen $x_i$ in our scan.
 
@@ -690,7 +692,7 @@ Consider, for example, the five-node path drawn in [Figure 6.28](#figure-628). T
 
 The goal in this question is to solve the following problem:
 
-_Find an independent set in a path_ $G$ _whose total weight is as large as possible._
+*Find an independent set in a path* $G$ *whose total weight is as large as possible.*
 
 ---
 
@@ -712,7 +714,7 @@ graph LR
 
 ##### Cap. 6, Exercise 1a (Pag. 312)
 
-Give an example to show that the following algorithm _does not_ always find an independent set of maximum total weight.
+Give an example to show that the following algorithm *does not* always find an independent set of maximum total weight.
 
 - The "heaviest-first" greedy algorithm
   - Start with $S$ equal to the empty set
@@ -742,7 +744,7 @@ Give an algorithm that takes an $n$-node path $G$ with weights and returns an in
 
 #### Cap. 6, Exercise 3 (Pag. 314)
 
-Let $G = (V, E)$ be a directed graph with nodes $v_1, \dots, v_n$. We say that $G$ is an _ordered graph_ if it has the following properties.
+Let $G = (V, E)$ be a directed graph with nodes $v_1, \dots, v_n$. We say that $G$ is an *ordered graph* if it has the following properties.
 
 1. Each edge goes from a node with a lower index to a node with a higher index. That is, every directed edge has the form $(v_i, v_j)$ with $i < j$.
 2. Each node except $v_n$ has at least one edge leaving it. That is, for every node $v_i$, $i = 1, 2, \dots, n - 1$, there is at least one edge of the form $(v_i, v_j)$.
@@ -823,15 +825,15 @@ The company management just learned that yesterday the system was used to launch
 
 Who could have been responsible for carrying out this attack? The company checks the logs and ﬁnds to its surprise that there's no single user $u$ who accessed each of the IP addresses involved at the appropriate time; in other words, there's no $u$ so that $I(u, m) = i_m$ for each minute $m$ from $1$ to $t$.
 
-So the question becomes: What if there were a small _coalition_ of $k$ users that collectively might have carried out the attack? We will say a subset $S$ of users is a _suspicious coalition_ if, for each minute $m$ from $1$ to $t$, there is at least one user $u \in S$ for which $I(u, m) = i_m$. (In other words, each IP address was accessed at the appropriate time by at least one user in the coalition.)
+So the question becomes: What if there were a small *coalition* of $k$ users that collectively might have carried out the attack? We will say a subset $S$ of users is a *suspicious coalition* if, for each minute $m$ from $1$ to $t$, there is at least one user $u \in S$ for which $I(u, m) = i_m$. (In other words, each IP address was accessed at the appropriate time by at least one user in the coalition.)
 
-The _Suspicious Coalition_ Problem_ asks: Given the collection of all values $I(u, m)$, and a number $k$, is there a suspicious coalition of size at most $k$?
+The *Suspicious Coalition Problem* asks: Given the collection of all values $I(u, m)$, and a number $k$, is there a suspicious coalition of size at most $k$?
 
 ##### Cap. 8, Solved Exercise 1 (Pag. 501-502) - Solution
 
-First of all, _Suspicious Coalition_ is clearly in $\mathcal{NP}$: If we were to be shown a set $S$ of users, we could check that $S$ has size at most $k$, and that for each minute $m$ from $1$ to $t$, at least one of the users in $S$ accessed the IP address $i_m$.
+First of all, *Suspicious Coalition* is clearly in $\mathcal{NP}$: If we were to be shown a set $S$ of users, we could check that $S$ has size at most $k$, and that for each minute $m$ from $1$ to $t$, at least one of the users in $S$ accessed the IP address $i_m$.
 
-Now we want to find a known NP-complete problem and reduce it to _Suspicious Coalition_. Although _Suspicious Coalition_ has lots of features (users, minutes, IP addresses), it's very clearly a covering problem (following the taxonomy described in the chapter): We need to explain all $t$ suspicious accesses, and we're allowed a limited number of users ($k$) with which to do this. Once we've decided it's a covering problem, it's natural to try reducing Vertex Cover or Set Cover to it. And in order to do this, it's useful to push most of its complicated features into the background, leaving just the bare-bones features that will be used to encode Vertex Cover or Set Cover.
+Now we want to find a known NP-complete problem and reduce it to *Suspicious Coalition*. Although *Suspicious Coalition* has lots of features (users, minutes, IP addresses), it's very clearly a covering problem (following the taxonomy described in the chapter): We need to explain all $t$ suspicious accesses, and we're allowed a limited number of users ($k$) with which to do this. Once we've decided it's a covering problem, it's natural to try reducing Vertex Cover or Set Cover to it. And in order to do this, it's useful to push most of its complicated features into the background, leaving just the bare-bones features that will be used to encode Vertex Cover or Set Cover.
 
 Let's focus on reducing Vertex Cover to it. In Vertex Cover, we need to cover every edge, and we're only allowed $k$ nodes. In Suspicious Coalition, we need to "cover" all the accesses, and we're only allowed k users. This parallelism strongly suggests that, given an instance of Vertex Cover consisting of a graph $G = (V, E)$ and a bound $k$, we should construct an instance of Suspicious Coalition in which the users represent the nodes of G and the suspicious accesses represent the edges.
 
