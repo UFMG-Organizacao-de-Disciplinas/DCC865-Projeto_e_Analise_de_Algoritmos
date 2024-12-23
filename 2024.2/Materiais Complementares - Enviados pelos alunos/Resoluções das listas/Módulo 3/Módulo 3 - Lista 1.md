@@ -10,8 +10,71 @@ Ceil:  ⌈ ⌉
 - [Módulo 3, Lista 1](#módulo-3-lista-1)
   - [Lista de Exercícios](#lista-de-exercícios)
   - [Lista de Exercícios - Olga](#lista-de-exercícios---olga)
+    - [*As is*](#as-is)
   - [PAA\_ReviaoILC\_ListaExercicios1](#paa_reviaoilc_listaexercicios1)
+    - [**Leitura necessária:**](#leitura-necessária)
+    - [**Revisão.**](#revisão)
+      - [1. Responda formalmente as seguintes perguntas](#1-responda-formalmente-as-seguintes-perguntas)
+        - [a. Descreva o princípio da indução matemática fraca](#a-descreva-o-princípio-da-indução-matemática-fraca)
+        - [b. Descreva o princípio da indução matemática forte](#b-descreva-o-princípio-da-indução-matemática-forte)
+        - [c. Explique a principal diferença entre a indução fraca e a indução forte](#c-explique-a-principal-diferença-entre-a-indução-fraca-e-a-indução-forte)
+        - [d. Explique o que é o princípio da boa-ordenação](#d-explique-o-que-é-o-princípio-da-boa-ordenação)
+      - [2. (Rosen 4.1.3) Seja $P(n)$ a afirmação de que $1^2 + 2^2 + \\dots + n^2 = n(n + 1)(2n + 1)/6$ para o inteiro positivo $n$](#2-rosen-413-seja-pn-a-afirmação-de-que-12--22--dots--n2--nn--12n--16-para-o-inteiro-positivo-n)
+        - [a. Qual é a afirmação $P(1)$?](#a-qual-é-a-afirmação-p1)
+        - [b. Mostre que $P(1)$ é verdadeiro, completando o passo base da demonstração](#b-mostre-que-p1-é-verdadeiro-completando-o-passo-base-da-demonstração)
+        - [c. Qual é a hipótese de indução?](#c-qual-é-a-hipótese-de-indução)
+        - [d. O que você precisa demonstrar no passo indutivo?](#d-o-que-você-precisa-demonstrar-no-passo-indutivo)
+        - [e. Complete o passo indutivo](#e-complete-o-passo-indutivo)
+        - [f. Explique por que os passos acima mostram que a fórmula é verdadeira para todo inteiro positivo $n$](#f-explique-por-que-os-passos-acima-mostram-que-a-fórmula-é-verdadeira-para-todo-inteiro-positivo-n)
+      - [3. (Rosen 4.1.6) Demonstre que $1 \\cdot 1! + 2 \\cdot 2! + \\dots + n \\cdot n! = (n + 1)! - 1$, para todo inteiro positivo $n$](#3-rosen-416-demonstre-que-1-cdot-1--2-cdot-2--dots--n-cdot-n--n--1---1-para-todo-inteiro-positivo-n)
+      - [4. (Rosen 4.1.11) Encontre uma fórmula para $1/2 + 1/4 + 1/8 + \\dots + 1/2^n$ examinando os valores dessa expressão para pequenos valores de $n$ e demonstre que a fórmula está correta](#4-rosen-4111-encontre-uma-fórmula-para-12--14--18--dots--12n-examinando-os-valores-dessa-expressão-para-pequenos-valores-de-n-e-demonstre-que-a-fórmula-está-correta)
+      - [5. (Rosen 4.1.21) Demonstre que $2^n \> n^2$ para $n \\geq 5$, $n$ inteiro](#5-rosen-4121-demonstre-que-2n--n2-para-n-geq-5-n-inteiro)
+      - [6. (Rosen 4.1.33) Demonstre que $5$ divide $n^5 - n$ sempre que $n$ é um inteiro não-negativo](#6-rosen-4133-demonstre-que-5-divide-n5---n-sempre-que-n-é-um-inteiro-não-negativo)
+      - [7. (Rosen 4.1.56) Demonstre que $\\neg (p1 \\vee p2 \\vee \\dots \\vee p\_n) ≡ \\neg p\_1 \\wedge \\neg p\_2 \\wedge \\dots \\wedge \\neg p\_n$, para todo $n \\geq 1$. (Dica: use a lei de De Morgan que diz que $\\neg (p \\vee q) ≡ \\neg p \\wedge \\neg q.)$](#7-rosen-4156-demonstre-que-neg-p1-vee-p2-vee-dots-vee-p_n--neg-p_1-wedge-neg-p_2-wedge-dots-wedge-neg-p_n-para-todo-n-geq-1-dica-use-a-lei-de-de-morgan-que-diz-que-neg-p-vee-q--neg-p-wedge-neg-q)
+      - [8. (Rosen 4.2.3) Seja $P(n)$ a proposição "uma postagem de $n$ centavos pode ser formada utilizando apenas selos de $3$ centavos e selos de $5$ centavos". Esse exercício ilustra uma demonstração por indução forte de que $P(n)$ é verdade para $n \\geq 8$](#8-rosen-423-seja-pn-a-proposição-uma-postagem-de-n-centavos-pode-ser-formada-utilizando-apenas-selos-de-3-centavos-e-selos-de-5-centavos-esse-exercício-ilustra-uma-demonstração-por-indução-forte-de-que-pn-é-verdade-para-n-geq-8)
+        - [a. Mostre que as proposições $P(8)$, $P(9)$ e $P(10)$ são verdadeiras, completando o passo base da demonstração](#a-mostre-que-as-proposições-p8-p9-e-p10-são-verdadeiras-completando-o-passo-base-da-demonstração)
+        - [b. Qual é a hipótese indutiva da demonstração?](#b-qual-é-a-hipótese-indutiva-da-demonstração)
+        - [c. O quê você necessita demonstrar no passo indutivo?](#c-o-quê-você-necessita-demonstrar-no-passo-indutivo)
+        - [d. Complete o passo indutivo para $k \\geq 10$](#d-complete-o-passo-indutivo-para-k-geq-10)
+        - [e. Explique porque estes passos mostram que a proposição é verdadeira sempre que $n \\geq 8$](#e-explique-porque-estes-passos-mostram-que-a-proposição-é-verdadeira-sempre-que-n-geq-8)
+      - [9. (Rosen 4.2.12) Utilize indução forte e mostre que todo inteiro positivo n pode ser escrito como a soma no passo indutivo, considere separadamente os casos $k + 1$ ímpar ou par. Note que $(k+1)/2$ é inteiro de potências de $2$ distintas, ou seja, como a soma de um subconjunto dos inteiros $2^0, 2^1 , 2^2, \\dots$ (Dica: quando $k + 1$ é par.)](#9-rosen-4212-utilize-indução-forte-e-mostre-que-todo-inteiro-positivo-n-pode-ser-escrito-como-a-soma-no-passo-indutivo-considere-separadamente-os-casos-k--1-ímpar-ou-par-note-que-k12-é-inteiro-de-potências-de-2-distintas-ou-seja-como-a-soma-de-um-subconjunto-dos-inteiros-20-21--22-dots-dica-quando-k--1-é-par)
+      - [10. Considere uma barra de chocolate formada por uma única fileira de $n$ quadradinhos como na figura abaixo](#10-considere-uma-barra-de-chocolate-formada-por-uma-única-fileira-de-n-quadradinhos-como-na-figura-abaixo)
+      - [11. Encontre o erro na "demonstração" por indução abaixo da afirmação de que em qualquer grupo de n pessoas, com $n \\geq 1$, todas têm a mesma cor de olhos](#11-encontre-o-erro-na-demonstração-por-indução-abaixo-da-afirmação-de-que-em-qualquer-grupo-de-n-pessoas-com-n-geq-1-todas-têm-a-mesma-cor-de-olhos)
   - [PAA\_ReviaoILC\_ListaExercicios2](#paa_reviaoilc_listaexercicios2)
+    - [**Revisão.**](#revisão-1)
+      - [1. Responda formalmente as seguintes perguntas](#1-responda-formalmente-as-seguintes-perguntas-1)
+        - [a. O que é uma deﬁnição recursiva? Quais os elementos essenciais de uma definição recursiva?](#a-o-que-é-uma-deﬁnição-recursiva-quais-os-elementos-essenciais-de-uma-definição-recursiva)
+    - [**Exercícios.**](#exercícios)
+      - [2. (Rosen 4.3.3) Encontre $f(2)$, $f(3)$, $f(4)$ e $f(5)$ se $f(n)$ for deﬁnido recursivamente por $f(0) = -1$, $f(1) = 2$ e para $n = 0, 1, 2, \\dots$](#2-rosen-433-encontre-f2-f3-f4-e-f5-se-fn-for-deﬁnido-recursivamente-por-f0---1-f1--2-e-para-n--0-1-2-dots)
+        - [a. $f(n + 1) = f(n) + 2$](#a-fn--1--fn--2)
+        - [b. $f(n + 1) = 3f(n)$](#b-fn--1--3fn)
+        - [c. $f(n + 1) = 2^{f(n)}$](#c-fn--1--2fn)
+        - [d. $f(n + 1) = f(n)^2 + f(n) + 1$](#d-fn--1--fn2--fn--1)
+      - [3. (Rosen 4.3.3) Encontre $f(2)$, $f(3)$, $f(4)$ e $f(5)$ se $f(n)$ for deﬁnido recursivamente por $f(0) = -1$, $f(1) = 2$ e para $n = 0, 1, 2, \\dots$](#3-rosen-433-encontre-f2-f3-f4-e-f5-se-fn-for-deﬁnido-recursivamente-por-f0---1-f1--2-e-para-n--0-1-2-dots)
+        - [a. $f(n + 1) = f(n) + 3f(n - 1)$](#a-fn--1--fn--3fn---1)
+        - [d. $f(n + 1) = \\frac{f(n-1)}{f(n)}$](#d-fn--1--fracfn-1fn)
+      - [4. (Rosen 4.3.7) Dê uma deﬁnição recursiva para a sequência ${a\_n}, n = 1, 2, 3, \\dots$ se](#4-rosen-437-dê-uma-deﬁnição-recursiva-para-a-sequência-a_n-n--1-2-3-dots-se)
+        - [a. $a\_n = 6n$](#a-a_n--6n)
+        - [b. $a\_n = 2n + 1$](#b-a_n--2n--1)
+        - [c. $a\_n = 10^n$](#c-a_n--10n)
+        - [d. $a\_n = 5$](#d-a_n--5)
+      - [5. Nesta questão vamos generalizar os operadores de conjunção ($\\wedge$) e de disjunção ($\\vee$) para um número qualquer de operandos. Isto é feito de maneira similar como generalizamos a operação de soma ($+$) de dois operandos para um número qualquer usando somatórios ($\\sum$)](#5-nesta-questão-vamos-generalizar-os-operadores-de-conjunção-wedge-e-de-disjunção-vee-para-um-número-qualquer-de-operandos-isto-é-feito-de-maneira-similar-como-generalizamos-a-operação-de-soma--de-dois-operandos-para-um-número-qualquer-usando-somatórios-sum)
+        - [a. Generalização da conjunção](#a-generalização-da-conjunção)
+        - [b. Generalização da conjunção](#b-generalização-da-conjunção)
+      - [6. (Rosen 4.3.25) Dê uma deﬁnição recursiva de](#6-rosen-4325-dê-uma-deﬁnição-recursiva-de)
+        - [a. o conjunto dos inteiros pares](#a-o-conjunto-dos-inteiros-pares)
+        - [b. o conjunto dos inteiros positivos congruentes a 2 módulo 3 (ou seja, os inteiros positivos que têm resto 2 na divisão por 3)](#b-o-conjunto-dos-inteiros-positivos-congruentes-a-2-módulo-3-ou-seja-os-inteiros-positivos-que-têm-resto-2-na-divisão-por-3)
+        - [c. o conjunto dos inteiros positivos nção divisíveis por 5](#c-o-conjunto-dos-inteiros-positivos-nção-divisíveis-por-5)
+      - [7. (Rosen 4.3.27) Seja $S$ um subconjunto dos pares ordenados de inteiros, deﬁnido recursivamente por](#7-rosen-4327-seja-s-um-subconjunto-dos-pares-ordenados-de-inteiros-deﬁnido-recursivamente-por)
+        - [a. Liste os elementos de $S$ produzidos pelas quatro primeiras aplicações da deﬁnição recursiva](#a-liste-os-elementos-de-s-produzidos-pelas-quatro-primeiras-aplicações-da-deﬁnição-recursiva)
+        - [c. Utilize indução estrutural para mostrar que $a \\leq 2b$ quando $(a, b) \\in S$](#c-utilize-indução-estrutural-para-mostrar-que-a-leq-2b-quando-a-b-in-s)
+      - [8. (Rosen 4.3.29) Dê uma deﬁnição recursiva para cada um dos conjuntos de pares ordenados de inteiros positivos. (Dica: Plote os pontos no plano e procure por linhas que contenham os pontos do conjunto.)](#8-rosen-4329-dê-uma-deﬁnição-recursiva-para-cada-um-dos-conjuntos-de-pares-ordenados-de-inteiros-positivos-dica-plote-os-pontos-no-plano-e-procure-por-linhas-que-contenham-os-pontos-do-conjunto)
+        - [a. $S = {(a, b) | a, b \\in Z^+, a + b é par}$](#a-s--a-b--a-b-in-z-a--b-é-par)
+        - [b. $S = {(a, b) | a, b \\in Z^+, a ou b é ímpar}$](#b-s--a-b--a-b-in-z-a-ou-b-é-ímpar)
+      - [9. (Rosen 4.3.35) Dê uma deﬁnição recursiva para o reverso de uma string](#9-rosen-4335-dê-uma-deﬁnição-recursiva-para-o-reverso-de-uma-string)
+      - [10. (Rosen 4.3.43) Seja $T$ é uma árvore binária completa (ou seja, uma árvore em que todos os vértices internos têm exatamente dois vértices ﬁlhos), seja $n(T)$ o número de vértices na árvore $T$, e seja $h(T)$ a altura (ou seja, o maior caminho da raiz até uma folha da árvore) de $T$. Use indução estrutural para mostrar que $n(T) \\geq 2h(T) + 1$.](#10-rosen-4343-seja-t-é-uma-árvore-binária-completa-ou-seja-uma-árvore-em-que-todos-os-vértices-internos-têm-exatamente-dois-vértices-ﬁlhos-seja-nt-o-número-de-vértices-na-árvore-t-e-seja-ht-a-altura-ou-seja-o-maior-caminho-da-raiz-até-uma-folha-da-árvore-de-t-use-indução-estrutural-para-mostrar-que-nt-geq-2ht--1)
+      - [11. (Rosen 4.4.11) Dê um algoritmo recursivo para encontrar o mínimo de um conjunto ﬁnito de números inteiros, considerando o fato de que o mínimo de n números inteiros é o menor entre o último inteiro da lista e o mínimo dos primeiros $n - 1$ elementos da lista. Exiba como seu algoritmo encontra o mínimo elemento do conjunto ${3, 5, 1, 2, 4}$.](#11-rosen-4411-dê-um-algoritmo-recursivo-para-encontrar-o-mínimo-de-um-conjunto-ﬁnito-de-números-inteiros-considerando-o-fato-de-que-o-mínimo-de-n-números-inteiros-é-o-menor-entre-o-último-inteiro-da-lista-e-o-mínimo-dos-primeiros-n---1-elementos-da-lista-exiba-como-seu-algoritmo-encontra-o-mínimo-elemento-do-conjunto-3-5-1-2-4)
+      - [12. *Os números de Fibonacci*, $f\_0, f\_1, f\_2, \\dots$ são deﬁnidos recursivamente como a seguir](#12-os-números-de-fibonacci-f_0-f_1-f_2-dots-são-deﬁnidos-recursivamente-como-a-seguir)
   - [Módulo 3 - Paradigma Divisão e Conquista](#módulo-3---paradigma-divisão-e-conquista)
     - [Livro Kleinberg e Tardos: Cap. 5](#livro-kleinberg-e-tardos-cap-5)
       - [Cap. 5, Solved Exercise 1 (Pag. 242)](#cap-5-solved-exercise-1-pag-242)
@@ -31,6 +94,7 @@ Ceil:  ⌈ ⌉
   - [Módulo 3 - Paradigma Programação Dinâmica](#módulo-3---paradigma-programação-dinâmica)
     - [Livro Kleinberg e Tardos: Cap. 6](#livro-kleinberg-e-tardos-cap-6)
       - [Cap. 6, Solved Exercise 1 (Pag. 307)](#cap-6-solved-exercise-1-pag-307)
+        - [Cap. 6, Solved Exercise 1 (Pag. 307) - Solution JV](#cap-6-solved-exercise-1-pag-307---solution-jv)
         - [Cap. 6, Solved Exercise 1 (Pag. 307) - Solution](#cap-6-solved-exercise-1-pag-307---solution)
       - [Cap. 6, Exercise 1 (Pag. 312)](#cap-6-exercise-1-pag-312)
         - [Figure 6.28](#figure-628)
@@ -138,45 +202,67 @@ Lista: Indução Fraca e Forte, Boa Ordenação
 
 ---
 
-**Leitura necessária:**
+### **Leitura necessária:**
 
-- _Matemática Discreta e Suas Aplicações, 6a Edição_ (Kenneth H. Rosen):
-  - Capítulo 4.1: _Indução Matemática_
-  - Capítulo 4.2: _Indução Completa e Boa Ordenação_
+- *Matemática Discreta e Suas Aplicações, 6a Edição* (Kenneth H. Rosen):
+  - Capítulo 4.1: *Indução Matemática*
+  - Capítulo 4.2: *Indução Completa e Boa Ordenação*
 
 ---
 
-**Revisão.**
+### **Revisão.**
 
-1. Responda formalmente as seguintes perguntas:
-   a. Descreva o princípio da indução matemática fraca.
-   b. Descreva o princípio da indução matemática forte.
-   c. Explique a principal diferença entre a indução fraca e a indução forte.
-   d. Explique o que é o princípio da boa-ordenação.
+#### 1. Responda formalmente as seguintes perguntas
+
+##### a. Descreva o princípio da indução matemática fraca
+
+##### b. Descreva o princípio da indução matemática forte
+
+##### c. Explique a principal diferença entre a indução fraca e a indução forte
+
+##### d. Explique o que é o princípio da boa-ordenação
 
 **Exercícios.**
 
-2. (Rosen 4.1.3) Seja $P(n)$ a afirmação de que $1^2 + 2^2 + \dots + n^2 = n(n + 1)(2n + 1)/6$ para o inteiro positivo $n$.
-   a. Qual é a afirmação $P(1)$?
-   b. Mostre que $P(1)$ é verdadeiro, completando o passo base da demonstração.
-   c. Qual é a hipótese de indução?
-   d. O que você precisa demonstrar no passo indutivo?
-   e. Complete o passo indutivo.
-   f. Explique por que os passos acima mostram que a fórmula é verdadeira para todo inteiro positivo $n$.
-3. (Rosen 4.1.6) Demonstre que $1 \cdot 1! + 2 \cdot 2! + \dots + n \cdot n! = (n + 1)! - 1$, para todo inteiro positivo $n$.
-4. (Rosen 4.1.11) Encontre uma fórmula para $1/2 + 1/4 + 1/8 + \dots + 1/2^n$ examinando os valores dessa expressão para pequenos valores de $n$ e demonstre que a fórmula está correta.
-5. (Rosen 4.1.21) Demonstre que $2^n > n^2$ para $n \geq 5$, $n$ inteiro.
-6. (Rosen 4.1.33) Demonstre que $5$ divide $n^5 - n$ sempre que $n$ é um inteiro não-negativo.
-7. (Rosen 4.1.56) Demonstre que $\neg (p1 \vee p2 \vee \dots \vee p_n) ≡ \neg p_1 \wedge \neg p_2 \wedge \dots \wedge \neg p_n$, para todo $n \geq 1$. (Dica: use a lei de De Morgan que diz que $\neg (p \vee q) ≡ \neg p \wedge \neg q.)$
-8. (Rosen 4.2.3) Seja $P(n)$ a proposição "uma postagem de $n$ centavos pode ser formada utilizando apenas selos de $3$ centavos e selos de $5$ centavos". Esse exercício ilustra uma demonstração por indução forte de que $P(n)$ é verdade para $n \geq 8$.
-   a. Mostre que as proposições $P(8)$, $P(9)$ e $P(10)$ são verdadeiras, completando o passo base da demonstração.
-   b. Qual é a hipótese indutiva da demonstração?
-   c. O quê você necessita demonstrar no passo indutivo?
-   d. Complete o passo indutivo para $k \geq 10$.
-   e. Explique porque estes passos mostram que a proposição é verdadeira sempre que $n \geq 8$.
-9. (Rosen 4.2.12) Utilize indução forte e mostre que todo inteiro positivo n pode ser escrito como a soma no passo indutivo, considere separadamente os casos $k + 1$ ímpar ou par. Note que $(k+1)/2$ é inteiro de potências de $2$ distintas, ou seja, como a soma de um subconjunto dos inteiros $2^0, 2^1 , 2^2, \dots$ (Dica: quando $k + 1$ é par.)
+#### 2. (Rosen 4.1.3) Seja $P(n)$ a afirmação de que $1^2 + 2^2 + \dots + n^2 = n(n + 1)(2n + 1)/6$ para o inteiro positivo $n$
 
-10. Considere uma barra de chocolate formada por uma única fileira de $n$ quadradinhos como na figura abaixo.
+##### a. Qual é a afirmação $P(1)$?
+
+##### b. Mostre que $P(1)$ é verdadeiro, completando o passo base da demonstração
+
+##### c. Qual é a hipótese de indução?
+
+##### d. O que você precisa demonstrar no passo indutivo?
+
+##### e. Complete o passo indutivo
+
+##### f. Explique por que os passos acima mostram que a fórmula é verdadeira para todo inteiro positivo $n$
+
+#### 3. (Rosen 4.1.6) Demonstre que $1 \cdot 1! + 2 \cdot 2! + \dots + n \cdot n! = (n + 1)! - 1$, para todo inteiro positivo $n$
+
+#### 4. (Rosen 4.1.11) Encontre uma fórmula para $1/2 + 1/4 + 1/8 + \dots + 1/2^n$ examinando os valores dessa expressão para pequenos valores de $n$ e demonstre que a fórmula está correta
+
+#### 5. (Rosen 4.1.21) Demonstre que $2^n > n^2$ para $n \geq 5$, $n$ inteiro
+
+#### 6. (Rosen 4.1.33) Demonstre que $5$ divide $n^5 - n$ sempre que $n$ é um inteiro não-negativo
+
+#### 7. (Rosen 4.1.56) Demonstre que $\neg (p1 \vee p2 \vee \dots \vee p_n) ≡ \neg p_1 \wedge \neg p_2 \wedge \dots \wedge \neg p_n$, para todo $n \geq 1$. (Dica: use a lei de De Morgan que diz que $\neg (p \vee q) ≡ \neg p \wedge \neg q.)$
+
+#### 8. (Rosen 4.2.3) Seja $P(n)$ a proposição "uma postagem de $n$ centavos pode ser formada utilizando apenas selos de $3$ centavos e selos de $5$ centavos". Esse exercício ilustra uma demonstração por indução forte de que $P(n)$ é verdade para $n \geq 8$
+
+##### a. Mostre que as proposições $P(8)$, $P(9)$ e $P(10)$ são verdadeiras, completando o passo base da demonstração
+
+##### b. Qual é a hipótese indutiva da demonstração?
+
+##### c. O quê você necessita demonstrar no passo indutivo?
+
+##### d. Complete o passo indutivo para $k \geq 10$
+
+##### e. Explique porque estes passos mostram que a proposição é verdadeira sempre que $n \geq 8$
+
+#### 9. (Rosen 4.2.12) Utilize indução forte e mostre que todo inteiro positivo n pode ser escrito como a soma no passo indutivo, considere separadamente os casos $k + 1$ ímpar ou par. Note que $(k+1)/2$ é inteiro de potências de $2$ distintas, ou seja, como a soma de um subconjunto dos inteiros $2^0, 2^1 , 2^2, \dots$ (Dica: quando $k + 1$ é par.)
+
+#### 10. Considere uma barra de chocolate formada por uma única fileira de $n$ quadradinhos como na figura abaixo
 
 ```mermaid
 graph LR
@@ -192,7 +278,7 @@ Suponha que você queira separar todos os quadradinhos da barra, de forma a obte
 
 Usando indução forte, demonstre que para qualquer barra de n quadradinhos são necessárias exatamente $n - 1$ quebras para separar todos os quadradinhos.
 
-11. Encontre o erro na "demonstração" por indução abaixo da afirmação de que em qualquer grupo de n pessoas, com $n \geq 1$, todas têm a mesma cor de olhos.
+#### 11. Encontre o erro na "demonstração" por indução abaixo da afirmação de que em qualquer grupo de n pessoas, com $n \geq 1$, todas têm a mesma cor de olhos
 
 **"Demonstração".** Seja $P(n) o predicado "Em qualquer grupo de $n$ pessoas, todas têm a mesma cor de olhos". Queremos mostrar que $P(n)$ é verdadeiro para todo inteiro $n \geq 1$.
 
@@ -214,40 +300,51 @@ Lista: Definições Recursivas e Indução Estrutural, Algoritmos Recursivos
 
 **Leitura necessária:**
 
-- _Matemática Discreta e Suas Aplicações, 6a Edição_ (Kenneth H. Rosen):
-  - Capítulo 4.3: _Deﬁnições Recursivas e Indução Estrutural_
-  - Capítulo 4.4: _Algoritmos Recursivos_
+- *Matemática Discreta e Suas Aplicações, 6a Edição* (Kenneth H. Rosen):
+  - Capítulo 4.3: *Deﬁnições Recursivas e Indução Estrutural*
+  - Capítulo 4.4: *Algoritmos Recursivos*
 
 ---
 
-**Revisão.**
+### **Revisão.**
 
-1. Responda formalmente as seguintes perguntas:
-   a. O que é uma deﬁnição recursiva? Quais os elementos essenciais de uma definição recursiva?
+#### 1. Responda formalmente as seguintes perguntas
 
-**Exercícios.**
+##### a. O que é uma deﬁnição recursiva? Quais os elementos essenciais de uma definição recursiva?
 
-2. (Rosen 4.3.3) Encontre $f(2)$, $f(3)$, $f(4)$ e $f(5)$ se $f(n)$ for deﬁnido recursivamente por $f(0) = -1$, $f(1) = 2$ e para $n = 0, 1, 2, \dots$:
-    a. $f(n + 1) = f(n) + 2$.
-    b. $f(n + 1) = 3f(n)$.
-    c. $f(n + 1) = 2^{f(n)}$.
-    d. $f(n + 1) = f(n)^2 + f(n) + 1$.
+### **Exercícios.**
 
-3. (Rosen 4.3.3) Encontre $f(2)$, $f(3)$, $f(4)$ e $f(5)$ se $f(n)$ for deﬁnido recursivamente por $f(0) = -1$, $f(1) = 2$ e para $n = 0, 1, 2, \dots$:
-   a. $f(n + 1) = f(n) + 3f(n - 1)$
-   d. $f(n + 1) = \frac{f(n-1)}{f(n)}$
+#### 2. (Rosen 4.3.3) Encontre $f(2)$, $f(3)$, $f(4)$ e $f(5)$ se $f(n)$ for deﬁnido recursivamente por $f(0) = -1$, $f(1) = 2$ e para $n = 0, 1, 2, \dots$
 
-4. (Rosen 4.3.7) Dê uma deﬁnição recursiva para a sequência ${a_n}, n = 1, 2, 3, \dots$ se
-   a. $a_n = 6n$.
-   b. $a_n = 2n + 1$.
-   c. $a_n = 10^n$.
-   d. $a_n = 5$.
+##### a. $f(n + 1) = f(n) + 2$
 
-5. Nesta questão vamos generalizar os operadores de conjunção ($\wedge$) e de disjunção ($\vee$) para um número qualquer de operandos. Isto é feito de maneira similar como generalizamos a operação de soma ($+$) de dois operandos para um número qualquer usando somatórios ($\sum$).
+##### b. $f(n + 1) = 3f(n)$
+
+##### c. $f(n + 1) = 2^{f(n)}$
+
+##### d. $f(n + 1) = f(n)^2 + f(n) + 1$
+
+#### 3. (Rosen 4.3.3) Encontre $f(2)$, $f(3)$, $f(4)$ e $f(5)$ se $f(n)$ for deﬁnido recursivamente por $f(0) = -1$, $f(1) = 2$ e para $n = 0, 1, 2, \dots$
+
+##### a. $f(n + 1) = f(n) + 3f(n - 1)$
+
+##### d. $f(n + 1) = \frac{f(n-1)}{f(n)}$
+
+#### 4. (Rosen 4.3.7) Dê uma deﬁnição recursiva para a sequência ${a_n}, n = 1, 2, 3, \dots$ se
+
+##### a. $a_n = 6n$
+
+##### b. $a_n = 2n + 1$
+
+##### c. $a_n = 10^n$
+
+##### d. $a_n = 5$
+
+#### 5. Nesta questão vamos generalizar os operadores de conjunção ($\wedge$) e de disjunção ($\vee$) para um número qualquer de operandos. Isto é feito de maneira similar como generalizamos a operação de soma ($+$) de dois operandos para um número qualquer usando somatórios ($\sum$)
 
 Para isto, complete as seguintes deﬁnições recursivas, onde cada $p_i$, com $i \geq 1$, é uma proposição.
 
-a. Generalização da conjunção:
+##### a. Generalização da conjunção
 
 $$
 \begin{cases}
@@ -256,7 +353,7 @@ $$
 \end{cases}
 $$
 
-b. Generalização da conjunção:
+##### b. Generalização da conjunção
 
 $$
 \begin{cases}
@@ -265,34 +362,39 @@ $$
 \end{cases}
 $$
 
-6. (Rosen 4.3.25) Dê uma deﬁnição recursiva de:
-(a) o conjunto dos inteiros pares.
-(b) o conjunto dos inteiros positivos congruentes a 2 módulo 3 (ou seja, os inteiros positivos que têm resto 2 na divisão por 3).
-(c) o conjunto dos inteiros positivos nção divisíveis por 5.
+#### 6. (Rosen 4.3.25) Dê uma deﬁnição recursiva de
 
-7. (Rosen 4.3.27) Seja $S$ um subconjunto dos pares ordenados de inteiros, deﬁnido recursivamente por
+##### a. o conjunto dos inteiros pares
 
-_Passo base_: $(0, 0) \in S$,
+##### b. o conjunto dos inteiros positivos congruentes a 2 módulo 3 (ou seja, os inteiros positivos que têm resto 2 na divisão por 3)
 
-_Passo recursivo_: Se $(a, b) \in S$, então $(a, b + 1) \in S$, $(a + 1, b + 1) \in S$ e $(a + 2, b + 1) \in S$.
+##### c. o conjunto dos inteiros positivos nção divisíveis por 5
 
-   a. Liste os elementos de $S$ produzidos pelas quatro primeiras aplicações da deﬁnição recursiva.
-   c. Utilize indução estrutural para mostrar que $a \leq 2b$ quando $(a, b) \in S$.
+#### 7. (Rosen 4.3.27) Seja $S$ um subconjunto dos pares ordenados de inteiros, deﬁnido recursivamente por
 
-8. (Rosen 4.3.29) Dê uma deﬁnição recursiva para cada um dos conjuntos de pares ordenados de inteiros positivos. (Dica: Plote os pontos no plano e procure por linhas que contenham os pontos do conjunto.)
+*Passo base*: $(0, 0) \in S$,
 
-   a. $S = {(a, b) | a, b \in Z^+, a + b é par}$
-   b. $S = {(a, b) | a, b \in Z^+, a ou b é ímpar}$
+*Passo recursivo*: Se $(a, b) \in S$, então $(a, b + 1) \in S$, $(a + 1, b + 1) \in S$ e $(a + 2, b + 1) \in S$.
 
-9. (Rosen 4.3.35) Dê uma deﬁnição recursiva para o reverso de uma string.
+##### a. Liste os elementos de $S$ produzidos pelas quatro primeiras aplicações da deﬁnição recursiva
 
-(Dica: primeiro deﬁna o reverso de uma string vazia $\lambda$. Então escreva uma string $w$ de tamanho $n + 1$ como $xy$, onde $x$ é uma string de tamanho $n$, e expresse o reverso de $w$ em termos de $x^R$ e $y$.)
+##### c. Utilize indução estrutural para mostrar que $a \leq 2b$ quando $(a, b) \in S$
 
-10. (Rosen 4.3.43) Seja $T$ é uma árvore binária completa (ou seja, uma árvore em que todos os vértices internos têm exatamente dois vértices ﬁlhos), seja $n(T)$ o número de vértices na árvore $T$, e seja $h(T)$ a altura (ou seja, o maior caminho da raiz até uma folha da árvore) de $T$. Use indução estrutural para mostrar que $n(T) \geq 2h(T) + 1$.
+#### 8. (Rosen 4.3.29) Dê uma deﬁnição recursiva para cada um dos conjuntos de pares ordenados de inteiros positivos. (Dica: Plote os pontos no plano e procure por linhas que contenham os pontos do conjunto.)
 
-11. (Rosen 4.4.11) Dê um algoritmo recursivo para encontrar o mínimo de um conjunto ﬁnito de números inteiros, considerando o fato de que o mínimo de n números inteiros é o menor entre o último inteiro da lista e o mínimo dos primeiros $n - 1$ elementos da lista. Exiba como seu algoritmo encontra o mínimo elemento do conjunto $\{3, 5, 1, 2, 4\}$.
+##### a. $S = {(a, b) | a, b \in Z^+, a + b é par}$
 
-12. _Os números de Fibonacci_, $f_0, f_1, f_2, \dots$ são deﬁnidos recursivamente como a seguir:
+##### b. $S = {(a, b) | a, b \in Z^+, a ou b é ímpar}$
+
+#### 9. (Rosen 4.3.35) Dê uma deﬁnição recursiva para o reverso de uma string
+
+> (Dica: primeiro deﬁna o reverso de uma string vazia $\lambda$. Então escreva uma string $w$ de tamanho $n + 1$ como $xy$, onde $x$ é uma string de tamanho $n$, e expresse o reverso de $w$ em termos de $x^R$ e $y$.)
+
+#### 10. (Rosen 4.3.43) Seja $T$ é uma árvore binária completa (ou seja, uma árvore em que todos os vértices internos têm exatamente dois vértices ﬁlhos), seja $n(T)$ o número de vértices na árvore $T$, e seja $h(T)$ a altura (ou seja, o maior caminho da raiz até uma folha da árvore) de $T$. Use indução estrutural para mostrar que $n(T) \geq 2h(T) + 1$.
+
+#### 11. (Rosen 4.4.11) Dê um algoritmo recursivo para encontrar o mínimo de um conjunto ﬁnito de números inteiros, considerando o fato de que o mínimo de n números inteiros é o menor entre o último inteiro da lista e o mínimo dos primeiros $n - 1$ elementos da lista. Exiba como seu algoritmo encontra o mínimo elemento do conjunto $\{3, 5, 1, 2, 4\}$.
+
+#### 12. *Os números de Fibonacci*, $f_0, f_1, f_2, \dots$ são deﬁnidos recursivamente como a seguir
 
 $$
 \begin{cases}
