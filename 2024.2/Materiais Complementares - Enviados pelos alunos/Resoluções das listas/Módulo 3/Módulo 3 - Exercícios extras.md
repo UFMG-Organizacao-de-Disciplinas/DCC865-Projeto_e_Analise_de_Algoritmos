@@ -40,7 +40,7 @@ Exemplo original do Kleinberg (Slide 005DivideAndConquer1 pág 73)
 
 ---
 
-### Ponto Extra 2 - Divide-and-conquer: Quiz 5 - Mediana das medianas para uma divisão por 7
+### Ponto Extra 2: 09/12/2024 - Divide-and-conquer: Quiz 5 - Mediana das medianas para uma divisão por 7
 
 Suppose that we divide $n$ elements into $⌊ n/5 ⌋$ groups of $r$ elements each, and use the median-of-medians of these $⌈n/r⌉$ groups as the pivot. For which $r$ is the worst-case running time of select $O(n)$?
 
