@@ -13,16 +13,6 @@
 - **Assumption.** Access to a perfect random-number generator.
 - **Performance.** $O(n \log n)$ time, $O(\log n)$ extra space.
 
-### 09/12/2024 [JV: Não sei exatamente o que era pra fazer aqui]
-
-Para grupos de 5 elementos
-
-$C(n) = C( ⌊ n/5 ⌋ ) + C(n - 3 ⌊ n/10 ⌋ ) + \frac{11}{5}n$
-
-- $\frac{11}{5}n$
-  - computar mediana de 5 elementos ($\leq 6$ comparações por grupo)
-  - Particionar
-
 ### Ponto extra 1: 11/12/2024 - Tentar reduzir o número de pontos para algo abaixo de 7 [JV: esse é pra fazer mesmo]
 
 Exemplo original do Kleinberg (Slide 005DivideAndConquer1 pág 73)
