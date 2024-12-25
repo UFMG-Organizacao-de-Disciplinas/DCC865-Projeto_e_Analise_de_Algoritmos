@@ -893,6 +893,46 @@ Give an algorithm that takes an instance of this problem as input and returns th
 
 ##### Cap. 6, Solved Exercise 1 (Pag. 307) - Solution JV
 
+Anotações:
+
+- Possuo
+  - $x_{1, \dots, n}$ que indica a distância de um ponto passível de receber um outdoor partindo da origem.
+  - $r_{1, \dots, n}$ que indica a receita que um outdoor na posição $x_i$ traria.
+
+Restrição: dois outdoors devem ter mais de 5 milhas de distância entre si.
+
+Objetivo: maximizar a receita obtida com os outdoors.
+
+---
+
+Essa me parece um problema de *weighted interval scheduling*, onde temos um conjunto de intervalos, cada um com um peso associado, e queremos encontrar o subconjunto de intervalos que maximiza a soma dos pesos, sem que dois intervalos se sobreponham.
+
+Nesse caso, os intervalos serão dados por $[s_i, f_i]$, onde $s_i = x_i - 5$ e $f_i = x_i + 5$ e o peso associado a cada intervalo será $r_i$.
+
+Sendo assim, o algoritmo para resolver esse problema será:
+
+```python
+def get_billboard_inputs():
+  max_distance = 20
+  entries_number = 4
+  limit_range = 5
+  positions = [6, 7, 12, 14]
+  revenues = [5, 6, 5, 1]
+  return max_distance, entries_number, positions, revenues, limit_range
+
+def convert_into_weighted_intervals(positions, limit_range):
+  starts = [position - limit_range for position in positions]
+  ends = [position + limit_range for position in positions]
+  return starts, ends
+
+def billboard_construction():
+  max_distance, entries_number, positions, revenues, limit_range = get_billboard_inputs()
+  weights = revenues
+  starts, ends = convert_into_weighted_intervals(positions, limit_range)
+  solution = get_WIS_solution(entries_number, starts, ends, weights)
+  print(solution)
+```
+
 ##### Cap. 6, Solved Exercise 1 (Pag. 307) - Solution
 
 We can naturally apply dynamic programming to this problem if we reason as follows. Consider an optimal solution for a given input instance; in this solution, we either place a billboard at site $x_n$ or not. If we don't, the optimal solution on sites $x_1, \dots, x_n$ is really the same as the optimal solution on sites $x_1, \dots, x_{n-1}$; if we do, then we should eliminate $x_n$ and all other sites that are within 5 miles of it, and find an optimal solution on what's left. The same reasoning applies when we're looking at the problem defined by just the first $j$ sites, $x_1, \dots, x_j$: we either include $x_j$ in the optimal solution or we don't, with the same consequences.
