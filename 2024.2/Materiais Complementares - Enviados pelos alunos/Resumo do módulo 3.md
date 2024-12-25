@@ -158,6 +158,98 @@ def cashier(amount, coins):
 
 #### Weighted Interval Scheduling - Brute Force
 
+- **Descrição:** encontrar o conjunto de intervalos que não se sobrepõem e que tenham o maior somatório possível.
+  - Um intervalo começa em $s_i$ e termina em $f_i$ e tem um peso $w_i$.
+
+- Função auxiliar $p(i)$
+  - **Descrição:** retorna o maior índice $j$ tal que $f_j \leq s_i$.
+
+---
+
+- **Pseudocódigo**
+  - **WIS_TopDown(n, StartingTime, FinishTime, Weight)**
+    - sort intervals by finish time
+    - $p \leftarrow \emptyset$
+    - for $i = 1$ to $n$
+      - $p[i] \leftarrow$ $p(i)$ # find the largest index j such that $f_j \leq s_i$
+    - $M[0] \leftarrow 0$
+    - **Return** M_Compute_Opt(n, M)
+
+  - **WIS_BottomUp(n, StartingTime, FinishTime, Weight)**
+    - sort intervals by finish time
+    - $p \leftarrow \emptyset$
+    - for $i = 1$ to $n$
+      - $p[i] \leftarrow$ $p(i)$ # find the largest index j such that $f_j \leq s_i$
+    - $M[0] \leftarrow 0$
+    - for $j = 1$ to $n$
+      - $M[j] \leftarrow \max \{ M[j-1], w_j + M[p[j]] \}$
+    - **Return** $M[n]$
+
+  - **M_Compute_Opt(j, M)**
+    - **IF** ($M = \emptyset$)
+      - $M[j] \leftarrow \max \{ M_Compute_Opt(j-1, M), w_j + M_Compute_Opt(p[j], M) \}$
+    - **Return** $M[j]$
+
+  - **Find_Solution(j)**
+    - **IF** ($j = 0$)
+      - **Return** $\emptyset$
+    - **ELSE IF** ($w_j + M[p[j]] > M[j-1]$)
+      - **Return** $\{ j \} \cup$ Find_Solution(p[j])
+    - **ELSE**
+      - **Return** Find_Solution(j-1)
+
+---
+
+- **Código**
+
+```python
+# Pode acabar ocorrendo problema com a indexação por 1.
+
+def sort_by_finish_time(starts, ends, weights):
+  return zip(*sorted(zip(starts, ends, weights), key=lambda x: x[1])) # Does it work? Copilot did it for me.
+
+def compute_previous_jobs(n, starts, ends, previous_jobs):
+  previous_jobs = [-1] * (n)
+  for i in range(1, n):
+    # previous_jobs[i] armazenará o maior índice j que tem o seu tempo de término menor ou igual ao tempo de início de i
+    previous_jobs[i] = max([j for j in range(i) if ends[j] <= starts[i]], default=-1)
+  return previous_jobs
+
+def wis_bottom_up(n, starts, ends, weights, previous_jobs):
+  s, f, w = sort_by_finish_time(starts, ends, weights)
+  compute_previous_jobs(n, s, f, previous_jobs)
+  values_vec = [0] * (n)
+  for j in range(1, n):
+    values_vec[j] = max([values_vec[j-1], w[j] + values_vec[previous_jobs[j]]], default=-1)
+  return values_vec
+
+def find_solution(j, weights, values_vec, previous_jobs):
+  if j == 0:
+    return []
+  elif weights[j] + values_vec[previous_jobs[j]] > values_vec[j-1]:
+    return [j] + find_solution(previous_jobs[j], values_vec, previous_jobs)
+  else:
+    return find_solution(j-1, values_vec, previous_jobs)
+
+def input_initial_values():
+  n = 5
+  starts = [1, 2, 4, 6, 8]
+  ends = [3, 5, 7, 9, 10]
+  weights = [5, 1, 8, 4, 6]
+  return n, starts, ends, weights
+
+def get_WIS_solution(n, starts, ends, weights):
+  previous_jobs = []
+  values_vec, weights = wis_bottom_up(n, starts, ends, weights, previous_jobs)
+  solution = find_solution(n-1, weights, values_vec, previous_jobs)
+  return solution
+
+def weighted_interval_scheduling():
+  n, starts, ends, weights = input_initial_values()
+  final_solution = get_WIS_solution(n, starts, ends, weights)
+  print(final_solution)
+```
+
 #### Maximum Subarray Problem
 
 #### Kadane's Algorithm
