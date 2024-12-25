@@ -412,6 +412,7 @@ Encontre $f(2)$, $f(3)$, $f(4)$ e $f(5)$ se $f(n)$ for deﬁnido recursivamente 
 
 #### 3. (Rosen 4.3.3)
 
+Encontre $f(2)$, $f(3)$, $f(4)$ e $f(5)$ se $f(n)$ for deﬁnido recursivamente por $f(0) = -1$, $f(1) = 2$ e para $n = 0, 1, 2, \dots$
 
 ##### a. $f(n + 1) = f(n) + 3f(n - 1)$
 
@@ -421,6 +422,7 @@ Encontre $f(2)$, $f(3)$, $f(4)$ e $f(5)$ se $f(n)$ for deﬁnido recursivamente 
 
 #### 4. (Rosen 4.3.7)
 
+Dê uma deﬁnição recursiva para a sequência $\{a_n\}, n = 1, 2, 3, \dots$ se
 
 ##### a. $a_n = 6n$
 
