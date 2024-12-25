@@ -283,7 +283,7 @@ Utilize indução forte e mostre que todo inteiro positivo n pode ser escrito co
 Considere uma barra de chocolate formada por uma única fileira de $n$ quadradinhos como na figura abaixo
 
 ```mermaid
-graph LR
+graph TD
   A["`1`"]
   B["`2`"]
   C["`3`"]
@@ -441,8 +441,8 @@ Para isto, complete as seguintes deﬁnições recursivas, onde cada $p_i$, com 
 
 $$
 \begin{cases}
-\wedge_{i=1}^{0} p_i = ? \\
-\wedge_{i=1}^{n} p_i = ? & n \geq 1\\
+\wedge_{i=1}^{0} p_i = ?, \\
+\wedge_{i=1}^{n} p_i = ?, & n \geq 1\\
 \end{cases}
 $$
 
@@ -463,7 +463,7 @@ Dê uma deﬁnição recursiva de
 
 ##### b. o conjunto dos inteiros positivos congruentes a 2 módulo 3 (ou seja, os inteiros positivos que têm resto 2 na divisão por 3)
 
-##### c. o conjunto dos inteiros positivos nção divisíveis por 5
+##### c. o conjunto dos inteiros positivos não divisíveis por 5
 
 #### 7. (Rosen 4.3.27)
 
@@ -507,16 +507,17 @@ Dê um algoritmo recursivo para encontrar o mínimo de um conjunto ﬁnito de n�
 
 $$
 \begin{cases}
-f_0 = 0, \\
-f_1 = 1, \\
-f_{n+1} = f_n + f_{n-1}, & \text{para } n = 1, 2, 3, \dots
+  f_0 = 0, \\
+  f_1 = 1, \\
+  f_{n+1} = f_n + f_{n-1}, & \text{para } n = 1, 2, 3, \dots
+\end{cases}
 $$
 
-Em particular, os primeiros números de Fiboacci são
+Em particular, os primeiros números de Fibonacci são
 
 $$
-f_0 = 0, f_1 = 1, f_2 = 1, f_3 = 2, f_4 = 3, f_5 = 5,
-f_6 = 8, f_7 = 13, f_8 = 21, f_9 = 34, f_10 = 55, \dots
+f_{0} = 0, f_{1} = 1, f_{2} = 1, f_{3} = 2, f_{4} = 3, f_{5} = 5,\\
+f_{6} = 8, f_{7} = 13, f_{8} = 21, f_{9} = 34, f_{10} = 55, \dots
 $$
 
 Utilize indução estrutural para mostrar que
