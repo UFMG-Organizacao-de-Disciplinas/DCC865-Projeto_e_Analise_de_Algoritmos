@@ -481,9 +481,13 @@ Seja $S$ um subconjunto dos pares ordenados de inteiros, deﬁnido recursivament
 
 Dê uma deﬁnição recursiva para cada um dos conjuntos de pares ordenados de inteiros positivos. (Dica: Plote os pontos no plano e procure por linhas que contenham os pontos do conjunto.)
 
-##### a. $S = {(a, b) | a, b \in Z^+, a + b é par}$
+##### a
 
-##### b. $S = {(a, b) | a, b \in Z^+, a ou b é ímpar}$
+$S = \{(a, b) | a, b \in Z^+, a + b\}$ é par
+
+##### b
+
+$S = \{(a, b) | a, b \in Z^+, a \text{ ou } b\}$ é ímpar
 
 #### 9. (Rosen 4.3.35)
 
