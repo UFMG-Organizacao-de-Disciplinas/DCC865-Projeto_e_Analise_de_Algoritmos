@@ -252,12 +252,20 @@ def weighted_interval_scheduling():
 
 #### Maximum Subarray Problem
 
-#### Kadane's Algorithm
+##### Kadane's Algorithm
 
-#### Bentley's Algorithm
+##### Bentley's Algorithm
 
 Complexidade
 
 $(n^2)^x = n^3$
 
 $x = 3/2 = 1 + 1/2$
+
+#### Knapsack problem
+
+- **Descrição:** Dado um conjunto de itens, cada um com um peso e um valor, determine o número de cada item a incluir em uma coleção de modo a maximizar o valor total, enquanto se mantém o peso total abaixo de um limite.
+
+#### Coin Change
+
+#### Dijkstra's Algorithm - Efficient Implementation

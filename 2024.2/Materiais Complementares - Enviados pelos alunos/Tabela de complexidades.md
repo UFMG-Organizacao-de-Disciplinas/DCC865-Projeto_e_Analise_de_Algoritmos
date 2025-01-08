@@ -1,7 +1,7 @@
 # Tabelas
 
 | Categoria                      | Nome do algoritmo          | Complexidade em lista de adjacências | Complexidade em matriz de adjacências |
-| ------------------------------ | -------------------------- | ------------------------------------ | ------------------------------------- |
+| :----------------------------- | :------------------------- | :----------------------------------- | :------------------------------------ |
 | Caminhamento                   | Depth First Search (DFS)   | $$O(V+E)$$                           | $$v^2$$                               |
 | Caminhamento                   | Breadth First Search (BFS) | $$O(V+E)$$                           | $$v^2$$                               |
 | Minimum Spanning Tree          | Kruskal                    | $$O(E log E) + EV$$ ou só $$O(EV)$$  | $$O(E log E) + EV$$                   |
