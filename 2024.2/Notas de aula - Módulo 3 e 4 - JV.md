@@ -477,7 +477,7 @@ $$
 
 - Na tabela mostrada na página 8, estão considerando a quantidade de moedas pegas na solução em que não se pega as moedas de maior valor.
 
-### Auka 7 - 06/01/2025
+### Aula 7 - 06/01/2025
 
 #### Slide: 04GreedyAlgorithmsII-edited
 
@@ -544,3 +544,130 @@ Na prova, ela costuma fazer questões sobre: ??? Ela não concluiu oo raciocíni
 ##### Ciclos negativos
 
 Alterando o algoritmo, se rodarmos novamente e houver alteração, então há um ciclo negativo.
+
+### Aula 8 - 08/01/2025
+
+Informações sobre a prova:
+
+- 90 minutos
+- Prova fechada
+- 5 questões
+- Cada questão tem pelo menos uma verdadeira
+- A soma das verdadeiras dá 100% da nota da questão
+- Cada falsa marcada como verdadeira perde 20% da nota da questão
+- Até onde ela sabe, não tem como tirar nota negativa
+- Haverão muitas afirmações no formato $p \rightarrow q$
+- Não pode usar calculadora nem fazer códigos para calcular os resultados
+- 9 horas
+
+Segundo ela, questões discursivas para elaborar algoritmos e equações de recorrência são mais difíceis de se fazer e 90% dos alunos não conseguiriam.
+
+#### Slide: 08IntractabilityI-EditedOlga
+
+##### poly-time reductions
+
+Até então vimos padrões.
+
+- Guloso
+- Divisão e conquista
+- Programação dinâmica
+- Dualidade [JV: não me lembro qual que é essa.]
+- Redução
+
+Temos também os anti-padrões
+
+- NP-completude
+- PSPACE-completude
+- Undecidability
+
+---
+
+[JV: Ela explicou qual que é a definição de tratável e intratável, mas eu dei uma viajada]
+
+Tratabilidade em tempo polinomial:
+
+| Sim                    | Provavelmente não          |
+| ---------------------- | -------------------------- |
+| Shortest path          | Longest path               |
+| Min cut                | Max cut                    |
+| 2-satisfiability       | 3-satisfiability           |
+| Planar 4-colorability  | Planar 3-colorability      |
+| Bipartite vertex cover | Vertex cover               |
+| Matching               | 3d-matching                |
+| Primality testing      | Factoring                  |
+| Linear programming     | Integer linear programming |
+
+Intratável (?) quando força que testemos todas as possibilidades no pior caso.
+
+Redução: se conseguimos resolver o problema Y em tempo polinomial, o que mais poderíamos resolver em tempo polinomial?
+
+Dessa forma, converteremos o problema X em um problema Y, e então aplicaremos a solução polinomial do problema Y para resolver o problema X convertido.
+
+Para isso, devemos considerar também que a conversão de X em Y é polinomial.
+
+Com isso, entendemos que $X \leq_p Y$, pois ele não é mais difícil do que Y, polinomialmente falando.
+
+[JV: eu mesmo não entendo direito essa questão de polinomialidade. Boa sorte pra você que esteja lendo esse material.]
+
+Todas as instâncias do problema X devem ser conversíveis para instâncias do problema Y.
+
+"O Y é pelo menos tão difícil quanto o X".
+
+---
+
+Quiz 1, resposta: C
+
+Quiz 2, resposta: C
+
+##### packing and covering problems
+
+Não há algoritmo polinomial para resolver nenhum desses dois problemas abaixo.
+
+###### Independent Set
+
+- **Definição:** Dado um grafo $G = (V, E)$, e um inteiro $k$, há um subconjunto de $k$ (ou mais) vértices tal que não há dois vérices adjacentes?
+
+###### Vertex Cover
+
+- **Definição:** Dado um grafo $G = (V, E)$, e um inteiro $k$, há um subconjunto de $k$ (ou menos) vértices tal que cada aresta é incidente a pelo menos um vértice do subconjunto?
+
+Quiz 3, resposta: C
+
+---
+
+- **Teorema:** Independent-Set $\leq_p$ Vertex-Cover
+
+##### Set Cover
+
+- **Definição:** Dado um conjunto $U$ de elementos, e uma coleção $S$ de subconjuntos de $U$, e um inteiro $k$, há um subconjunto de $k$ (ou menos) subconjuntos de $S$ cuja união é igual a $U$?
+
+Exemplo:
+
+- $U = \{ 1, 2, 3, 4, 5, 6, 7 \}$
+- $S_a = \{ 3, 7 \}$
+- $S_b = \{ 2, 4 \}$
+- **$S_c = \{ 3, 4, 5, 6 \}$**
+- $S_d = \{ 5 \}$
+- $S_e = \{ 1 \}$
+- **$S_f = \{ 1, 2, 6, 7 \}$**
+- $k = 2$
+
+---
+
+Quiz 4, resposta: C
+
+---
+
+`Vertex Cover` reduces to `set cover`
+
+Na cobertura por conjuntos cujo elemento tenha mais do que duas incidências nos conjuntos, significaria, em uma cobertura de vértices, uma aresta que estaria ligada a 3 vértices. E se esse fosse o caso, não haveria conversibilidade.
+
+##### constraint satisfaction problems
+
+##### sequencing problems
+
+##### partitioning problems
+
+##### graph coloring
+
+##### numerical problems
