@@ -476,3 +476,71 @@ $$
 ###### Optimality of cashier's algorithm (for U.S. coin denominations)
 
 - Na tabela mostrada na página 8, estão considerando a quantidade de moedas pegas na solução em que não se pega as moedas de maior valor.
+
+### Auka 7 - 06/01/2025
+
+#### Slide: 04GreedyAlgorithmsII-edited
+
+Ela comentou algo sobre algum problema não estar presente na prova.
+
+##### Algoritmo de Dijkstra
+
+##### Algoritmo de Dijkstra - Com pesos negativos
+
+O slide está com problema: há uma rota de menor custo que 11.
+
+###### Tentativas falhas
+
+- **Tentativa 1:** Somar uma constante tal que todos os pesos negativos sumam.
+
+##### Ciclo negativo
+
+- **Definição:** soma de ciclo cujo valor é menor que 0.
+
+##### Caminho mínimo e ciclos negativos
+
+- **Lema 1:**
+- **Prova 1:**
+- **Lema 2:**
+- **Prova 2:**
+
+Se não há ciclos negativos, o tamanho doo caminho é $\leq n - 1$.
+
+##### Probleamas: Caminhos mínimos e ciclos negativos
+
+- **Problema 1:** Single-destination shortest-paths problem.
+- **Problema 2:** Negative-cycle problem.
+
+###### Caminhos mínimidos com pesos negativos: programação dinâmica
+
+- Existem dois casos
+  - A [Não anotei ambos, nem entendi. Tô com sono 💤]
+  - B [Não anotei ambos, nem entendi. Tô com sono 💤]
+
+- **Algoritmo Shortest-Paths** (V, E, l, t)
+- **ForEach** node $v \in V$:
+  - $M[0, v] \leftarrow \infty$.
+- $M[0, t] \leftarrow 0$.
+- **For** $i = 1$ **To** $n - 1$:
+  - **ForEach** node $v \in V$:
+    - $M[i, v] \leftarrow M[i - 1, v]$.
+    - **ForEach** edge $(v, w) \in E$:
+      - $M[i, v] \leftarrow \min \{ M[i, v], M[i - 1, w] + \dots \}$
+
+Segundo ela: complexidade é $O(m \cdot \log n)$.
+
+- Otimizações:
+  - espaço: usar um vetor ao invés de matriz.
+
+Na prova, ela costuma fazer questões sobre: ??? Ela não concluiu oo raciocínio.
+
+###### Bellman-Ford-Moore + Analysis
+
+- **Algoritmo Bellman-Ford-Moore** (V, E, c, t)
+  - $\dots$
+
+##### Distance-vector Routing Protocols
+
+##### Ciclos negativos
+
+Alterando o algoritmo, se rodarmos novamente e houver alteração, então há um ciclo negativo.
