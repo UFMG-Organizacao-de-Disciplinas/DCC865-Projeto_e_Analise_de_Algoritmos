@@ -282,6 +282,15 @@ graph LR
   D <--> E
 ```
 
+---
+
+Solução JV/Paulo:
+
+Para cada i, compara com o valor acumulado de i-2. Então:
+
+- 
+
+
 ##### Cap. 6, Exercise 1a (Pag. 312)
 
 Give an example to show that the following algorithm _does not_ always find an independent set of maximum total weight.
