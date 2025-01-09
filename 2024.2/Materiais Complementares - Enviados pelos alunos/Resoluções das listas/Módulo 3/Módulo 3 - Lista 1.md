@@ -83,6 +83,7 @@ Ceil:  ⌈ ⌉
         - [Cap. 5, Solved Exercise 2 (Pag. 245-246) - Soluções](#cap-5-solved-exercise-2-pag-245-246---soluções)
         - [Cap. 5, Solved Exercise 2 (Pag. 245-246) - Solution](#cap-5-solved-exercise-2-pag-245-246---solution)
       - [Cap. 5, Exercise 1 (Pag. 246)](#cap-5-exercise-1-pag-246)
+        - [Cap. 5, Exercise 1 (Pag. 246) - JV](#cap-5-exercise-1-pag-246---jv)
       - [Cap. 5, Exercise 2 (Pag. 246)](#cap-5-exercise-2-pag-246)
       - [Cap. 5, Exercise 6 (Pag. 246)](#cap-5-exercise-6-pag-246)
     - [Livro Cormen (3rd Ed.): Cap. 9](#livro-cormen-3rd-ed-cap-9)
@@ -829,6 +830,58 @@ However, the only way you can access these values is through queries to the data
 
 Give an algorithm that finds the median value using at most $O(\log n)$ queries.
 
+##### Cap. 5, Exercise 1 (Pag. 246) - JV
+
+```python
+""" Medianas """
+
+test_cases = [
+    [[1, 2, 3, 4, 5, 6, 7, 8], [9, 10, 11, 12, 13, 14, 15, 16]], # Mediana nas extremidades internas
+    [[1, 3, 5, 7, 9, 11, 13, 15], [2, 4, 6, 8, 10, 12, 14, 16]], # Mediana no meio da esquerda
+    [[1, 2, 3, 8, 9, 10, 13, 14], [4, 5, 6, 7, 11, 12, 15, 16]], # Mediana no meio da direita
+    [[1, 2, 3, 4, 13, 14, 15, 16], [5, 6, 7, 8, 9, 10, 11, 12]], # Mediana apenas em um deles
+    [[1, 3, 8, 9, 15], [7, 11, 18, 19, 21]], # Mediana apenas em um deles
+    [[1, 3, 8, 29, 35], [7, 11, 18, 19, 21]], # Mediana apenas em um deles
+]
+
+test_case = test_cases[0]
+
+def get_i_a(i):
+    global test_case
+    return test_case[0][i]
+
+def get_i_b(i):
+    global test_case
+    return test_case[1][i]
+
+def get_mean_by_index_query():
+    size = len(test_case[0])
+    
+    left_i = left_j = 0
+    right_i = right_j = size - 1
+    
+    while right_i - left_i > 1:
+        mean_value_i = (right_i + left_i)//2
+        elem_i = get_i_a(mean_value_i)
+        print(f'i> [{left_i}, {right_i}], A[{mean_value_i}] = {elem_i}', end='')
+        
+        mean_value_j = (right_j + left_j)//2
+        elem_j = get_i_b(mean_value_j)
+        print(f' || j> [{left_j}, {right_j}], B[{mean_value_j}] = {elem_j}')
+        
+        if elem_i < elem_j:
+            left_i += mean_value_i
+            right_j -= mean_value_j
+        else:
+            right_i -= mean_value_i
+            left_j += mean_value_j
+    minimun = min(elem_i, elem_j)
+    print(minimun)
+    return minimun
+
+get_mean_by_index_query()
+```
+
 #### Cap. 5, Exercise 2 (Pag. 246)
 
 Recall the problem of finding the number of inversions. As in the text, we are given a sequence of $n$ numbers $a_1, \dots, a_n$, which we assume are all distinct, and we define an inversion to be a pair $i < j$ such that $a_i > a_j$.
@@ -1136,9 +1189,9 @@ You've been asked to organize a freshman-level seminar that will meet once a wee
 
 There are $n$ options for speakers overall, and in week number $i$ (for $i = 1, 2, \dots, l$) a subset $L_i$ of these speakers is available to give a lecture.
 
-On the other hand, each project requires that the students have seen certain background material in order for them to be able to complete the project successfully. In particular, for each project $j$ (for $j = 1, 2, \dots, p$), there is a subset $P_j$ of relevant speakers so that the students need to have seen a lecture by _at least one_ of the speakers in the set $P_j$ in order to be able to complete the project.
+On the other hand, each project requires that the students have seen certain background material in order for them to be able to complete the project successfully. In particular, for each project $j$ (for $j = 1, 2, \dots, p$), there is a subset $P_j$ of relevant speakers so that the students need to have seen a lecture by *at least one* of the speakers in the set $P_j$ in order to be able to complete the project.
 
-So this is the problem: Given these sets, can you select exactly one speaker for each of the first $l$ weeks of the seminar, so that you only choose speakers who are available in their designated week, and so that for each project $j$, the students will have seen at least one of the speakers in the relevant set $P_j$? We'll call this the _Lecture Planning Problem_.
+So this is the problem: Given these sets, can you select exactly one speaker for each of the first $l$ weeks of the seminar, so that you only choose speakers who are available in their designated week, and so that for each project $j$, the students will have seen at least one of the speakers in the relevant set $P_j$? We'll call this the *Lecture Planning Problem*.
 
 To make this clear, let's consider the following sample instance. Suppose that $l = 2, p = 3$, and there are $n = 4$ speakers that we denote $A, B, C, D$. The availability of the speakers is given by the sets $L_1 = {A, B, C}$ and $L_2 = {A, D}$. The relevant speakers for each project are given by the sets $P_1 = {B, C}$, $P_2 = {A, B, D}$, and $P_3 = {C, D}$. Then the answer to this instance of the problem is yes, since we can choose speaker $B$ in the first week and speaker $D$ in the second week; this way, for each of the three projects, students will have seen at least one of the relevant speakers.
 
@@ -1150,7 +1203,7 @@ The problem is in $\mathcal{NP}$ since, given a sequence of speakers, we can che
 
 Now we need to find a known NP-complete problem that we can reduce to Lecture Planning. This is less clear-cut than in the previous exercise, because the statement of the Lecture Planning Problem doesn't immediately map into the taxonomy from the chapter.
 
-There is a useful intuitive view of Lecture Planning, however, that is characteristic of a wide range of constraint satisfaction problems. This intuition is captured, in a strikingly picturesque way, by a description that appeared in the _New Yorker_ of the lawyer David Boies's cross-examination style:
+There is a useful intuitive view of Lecture Planning, however, that is characteristic of a wide range of constraint satisfaction problems. This intuition is captured, in a strikingly picturesque way, by a description that appeared in the *New Yorker* of the lawyer David Boies's cross-examination style:
 
 > During a cross-examination, David takes a friendly walk down the hall with you while he's quietly closing doors. They get to the end of the hall and David turns on you and there's no place to go. He's closed all the doors.
 
@@ -1195,15 +1248,15 @@ $$
 \end{matrix}
 $$
 
-One thing that a store might want to do with this data is the following. Let us say that a subset $S$ of the customers is _diverse_ if no two of the of the customers in $S$ have ever bought the same product (i.e., for each product, at most one of the customers in $S$ has ever bought it). A diverse set of customers can be useful, for example, as a target pool for market research.
+One thing that a store might want to do with this data is the following. Let us say that a subset $S$ of the customers is *diverse* if no two of the of the customers in $S$ have ever bought the same product (i.e., for each product, at most one of the customers in $S$ has ever bought it). A diverse set of customers can be useful, for example, as a target pool for market research.
 
-We can now define the Diverse Subset Problem as follows: Given an $m \times n$ array $A$ as defined above, and a number $k \leq m$, is there a subset of at least $k$ of customers that is _diverse_?
+We can now define the Diverse Subset Problem as follows: Given an $m \times n$ array $A$ as defined above, and a number $k \leq m$, is there a subset of at least $k$ of customers that is *diverse*?
 
 Show that Diverse Subset is NP-complete.
 
 #### Cap. 8, Exercise 3 (Pag. 505-506)
 
-Suppose you're helping to organize a summer sports camp, and the following problem comes up. The camp is supposed to have at least one counselor who's skilled at each of the $n$ sports covered by the camp (baseball, volleyball, and so on). They have received job applications from m potential counselors. For each of the $n$ sports, there is some subset of the m applicants qualified in that sport. The question is: For a given number $k < m$, is it possible to hire at most k of the counselors and have at least one counselor qualified in each of the $n$ sports? We'll call this the _Efficient Recruiting Problem_.
+Suppose you're helping to organize a summer sports camp, and the following problem comes up. The camp is supposed to have at least one counselor who's skilled at each of the $n$ sports covered by the camp (baseball, volleyball, and so on). They have received job applications from m potential counselors. For each of the $n$ sports, there is some subset of the m applicants qualified in that sport. The question is: For a given number $k < m$, is it possible to hire at most k of the counselors and have at least one counselor qualified in each of the $n$ sports? We'll call this the *Efficient Recruiting Problem*.
 
 Show that Efficient Recruiting is NP-complete.
 
@@ -1211,7 +1264,7 @@ Show that Efficient Recruiting is NP-complete.
 
 Consider a set $A = {a_1, \dots, a_n}$ and a collection $B_1, B_2, \dots, B_m$ of subsets of $A$ (i.e., $B_i \subseteq A$ for each $i$).
 
-We say that a set $H \subseteq A$ is a _hitting_ set for the collection $B_1, B_2, \dots, B_m$ if $H$ contains at least one element from each $B_i$—that is, if $H \cap B_i$ is not empty for each $i$ (so $H$ "hits" all the sets $B_i$).
+We say that a set $H \subseteq A$ is a *hitting* set for the collection $B_1, B_2, \dots, B_m$ if $H$ contains at least one element from each $B_i$-that is, if $H \cap B_i$ is not empty for each $i$ (so $H$ "hits" all the sets $B_i$).
 
 We now define the $Hitting Set Problem$ as follows. We are given a set $A = {a_1, \dots, a_n}$, a collection $B_1, B_2, \dots, B_m$ of subsets of $A$, and a number $k$. We are asked: Is there a hitting set $H \subseteq A$ for $B_1, B_2, \dots, B_m$ so that the size of $H$ is at most $k$?
 
@@ -1219,15 +1272,15 @@ Prove that Hitting Set is NP-complete.
 
 #### Cap. 8, Exercise 17 (Pag. 513)
 
-You are given a directed graph $G = (V, E)$ with weights $w$ e on its edges $e \in E$. The weights can be negative or positive. The _Zero-Weight-Cycle Problem_ is to decide if there is a simple cycle in $G$ so that the sum of the edge weights on this cycle is exactly 0. Prove that this problem is NP-complete.
+You are given a directed graph $G = (V, E)$ with weights $w$ e on its edges $e \in E$. The weights can be negative or positive. The *Zero-Weight-Cycle Problem* is to decide if there is a simple cycle in $G$ so that the sum of the edge weights on this cycle is exactly 0. Prove that this problem is NP-complete.
 
 #### Cap. 8, Exercise 26 (Pag. 518)
 
 You and a friend have been trekking through various far-off parts of the world and have accumulated a big pile of souvenirs. At the time you weren't really thinking about which of these you were planning to keep and which your friend was going to keep, but now the time has come to divide everything up.
 
-Here's a way you could go about doing this. Suppose there are $n$ objects, labeled $1, 2, \dots, n$, and object $i$ has an agreed-upon _value_ $x_i$. (We could think of this, for example, as a monetary resale value; the case in which you and your friend don't agree on the value is something we won't pursue here.) One reasonable way to divide things would be to look for a _partition_ of the objects into two sets, so that the total value of the objects in each set is the same.
+Here's a way you could go about doing this. Suppose there are $n$ objects, labeled $1, 2, \dots, n$, and object $i$ has an agreed-upon *value* $x_i$. (We could think of this, for example, as a monetary resale value; the case in which you and your friend don't agree on the value is something we won't pursue here.) One reasonable way to divide things would be to look for a *partition* of the objects into two sets, so that the total value of the objects in each set is the same.
 
-This suggests solving the following _Number Partitioning Problem_. You are given positive integers $x1, \dots, x_n$; you want to decide whether the numbers can be partitioned into two sets $S_1$ and $S_2$ with the same sum:
+This suggests solving the following *Number Partitioning Problem_. You are given positive integers $x1, \dots, x_n$; you want to decide whether the numbers can be partitioned into two sets $S_1$ and $S_2$ with the same sum:
 
 $$\sum_{x_i \in S_1} x_i = \sum_{x_j \in S_2} x_j.$$
 
