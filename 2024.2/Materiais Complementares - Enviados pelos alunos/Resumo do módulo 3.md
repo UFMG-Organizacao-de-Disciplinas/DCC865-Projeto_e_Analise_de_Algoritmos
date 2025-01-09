@@ -1,6 +1,64 @@
 # Resumo do Módulo 3
 
-## Dijkstra 3-way partitioning - $O(n)$
+Esse módulo está dividido em 4 partes (segundo a lista da Olga):
+
+1. [Indução e Recursão](#1-indução-e-recursão)
+2. [Divisão e Conquista](#2-divisão-e-conquista)
+3. [Programação Dinâmica](#3-programação-dinâmica)
+4. [NP](#4-np)
+
+Então, resumirei cada uma dessas partes.
+
+Temos também os slides que ela apresentou em aula, sendo eles:
+
+1. [~~02AlgorithmAnalysis_commonRunningTimesBeforeNP~~](<../Materiais enviados/Módulo 3 e 4/PAA - Livros e Slides/02AlgorithmAnalysis_commonRunningTimesBeforeNP.pdf>)
+2. [04GreedyAlgorithmsI_select06_DP](<../Materiais enviados/Módulo 3 e 4/PAA - Livros e Slides/04GreedyAlgorithmsI_select06_DP.pdf>)
+   - coin changing
+   - interval scheduling
+   - interval partitioning
+   - scheduling to minimize lateness
+   - optimal caching
+3. [05DivideAndConquerI](<../Materiais enviados/Módulo 3 e 4/PAA - Livros e Slides/05DivideAndConquerI.pdf>)
+    - mergesort
+      - [05DemoMerge](<../Materiais enviados/Módulo 3 e 4/PAA - Livros e Slides/05DemoMerge.pdf>)
+         - merge demo
+         - merge-and-count demo
+    - counting inversions
+    - randomized quicksort
+       [05DemoQuick](<../Materiais enviados/Módulo 3 e 4/PAA - Livros e Slides/05DemoQuick.pdf>)
+        - 3-way partitioning demo
+        - randomized quickselect demo
+    - median and selection
+    - closest pair of points
+4. [05DivideAndConquerII-MasterTheorem](<../Materiais enviados/Módulo 3 e 4/PAA - Livros e Slides/05DivideAndConquerII-MasterTheorem.pdf>)
+5. [06DynamicProgrammingI_select](<../Materiais enviados/Módulo 3 e 4/PAA - Livros e Slides/06DynamicProgrammingI_select.pdf>)
+   - weighted interval scheduling
+   - ~~segmented least squares~~
+   - knapsack problem
+   - ~~RNA secondary structure~~
+6. [06DynamicProgrammingII.BellmanFord.editedOlga](<../Materiais enviados/Módulo 3 e 4/PAA - Livros e Slides/06DynamicProgrammingII.BellmanFord.editedOlga.pdf>)
+    - ~~sequence alignment~~
+    - ~~Hirschberg′s algorithm~~
+    - Bellman–Ford–Moore algorithm
+    - distance-vector protocols
+    - negative cycles
+
+Segundo a apresentação dela, está dividido da seguinte forma:
+
+- Módulo 3
+  - Fundamentos Matemáticos
+    - Indução matemática e estrutural
+    - Recursividade
+  - Paradigmas Algortímicos
+    - Divisão e Conquista
+    - Programação Dinâmica
+    - Greedy
+
+## 1. Indução e Recursão
+
+## 2. Divisão e Conquista
+
+### Dijkstra 3-way partitioning - $O(n)$
 
 - **Descrição:** defina um pivô `p`; tenha os ponteiros `i`, `lt` (less than) e `gt` (greater than); O `lt` marca o primeiro elemento do conjunto de valores iguais ao pivô; O `i` começa no primeiro elemento após o conjunto de pivôs e o `gt` começa no último elemento do array; Se o elemento na posição `i` for menor que o pivô, troque com o elemento na posição `lt` e incremente `i` e `lt`; Se o elemento na posição `i` for maior que o pivô, troque com o elemento na posição `gt` e decremente o `gt`; Se o elemento na posição `i` for igual ao pivô, apenas incremente o `i`;
 
@@ -15,19 +73,17 @@ Anotações do slide Demo
   - Se `a[i] > p`, troque `a[gt]` com `a[i]` e decremente `gt`
   - Se `a[i] == p`, apenas incremente `i`
 
-## Randomized quicksort - $O(n \log n)$
+### Randomized quicksort - $O(n \log n)$
 
 - **Descrição:** Defina um pivô aleatório; Coloque os menores à esquerda e os maiores à direita; Recursivamente, aplique o algoritmo nos subarrays à esquerda e à direita do pivô.
 
----
-
-### Anotações do slide Demo
+#### Anotações do slide Demo
 
 - Escolha um pivô aleatório
 - Crie 3 partes do array: Esquerda, Meio e Direita
 - Recursivamente, aplique o algoritmo nos subarrays à parte esquerda e à parte direita do pivô
 
-#### Randomized quicksort - Implementação
+##### Randomized quicksort - Implementação
 
 ```python
 def partition_3_way_dijkstra(A, pivot):
@@ -66,7 +122,7 @@ def randomized_quicksort(A):
   return randomized_quicksort(L) + M + randomized_quicksort(R)
 ```
 
-#### Chance dos elementos $a_i$ e $a_j$ serem comparados
+##### Chance dos elementos $a_i$ e $a_j$ serem comparados
 
 Apenas se um deles for escolhido como pivô. A chance dele ser escolhido como pivô aleatoriamente é $\frac{1}{n}$, onde $n$ é o tamanho do array. Como são dois possíveis pivôs, a chance de um deles ser escolhido é $\frac{1}{n} + \frac{1}{n} = \frac{2}{n}$.
 
@@ -76,7 +132,7 @@ Apenas se um deles for escolhido como pivô. A chance dele ser escolhido como pi
 
 Tem toda uma matemática com soma harmônica que eu não entendi.
 
-#### Median-of-medians Selection Algorithm
+### Median-of-Medians (MoM) Selection Algorithm
 
 - **Descrição:** Divide o array em grupos de 5 elementos; Encontra a mediana de cada grupo; Encontra a mediana das medianas; Usa a mediana das medianas como pivô.
 
@@ -96,9 +152,13 @@ Tem toda uma matemática com soma harmônica que eu não entendi.
 - **SENÃO SE** $(k > |L| + |M|)$ **RETORNE** MOM-SELECT$(R, k - |L| - |M|)$
 - **SENÃO** **RETORNE** $p$.
 
-## Algoritmos Gulosos
+## 3. Programação Dinâmica
 
-### Cashier's Algorithm
+## 4. NP
+
+### Algoritmos Gulosos
+
+#### Cashier's Algorithm
 
 - **Descrição:** a cada iteração, adicione uma moeda do maior valor que não nos leva além do valor a ser pago.
 
@@ -154,9 +214,9 @@ def cashier(amount, coins):
   return change
 ```
 
-### Algoritmos de programação dinâmica
+#### Algoritmos de programação dinâmica
 
-#### Weighted Interval Scheduling - Brute Force
+##### Weighted Interval Scheduling - Brute Force
 
 - **Descrição:** encontrar o conjunto de intervalos que não se sobrepõem e que tenham o maior somatório possível.
   - Um intervalo começa em $s_i$ e termina em $f_i$ e tem um peso $w_i$.
@@ -250,11 +310,11 @@ def weighted_interval_scheduling():
   print(final_solution)
 ```
 
-#### Maximum Subarray Problem
+##### Maximum Subarray Problem
 
-##### Kadane's Algorithm
+###### Kadane's Algorithm
 
-##### Bentley's Algorithm
+###### Bentley's Algorithm
 
 Complexidade
 
@@ -262,10 +322,10 @@ $(n^2)^x = n^3$
 
 $x = 3/2 = 1 + 1/2$
 
-#### Knapsack problem
+##### Knapsack problem
 
 - **Descrição:** Dado um conjunto de itens, cada um com um peso e um valor, determine o número de cada item a incluir em uma coleção de modo a maximizar o valor total, enquanto se mantém o peso total abaixo de um limite.
 
-#### Coin Change
+##### Coin Change
 
-#### Dijkstra's Algorithm - Efficient Implementation
+##### Dijkstra's Algorithm - Efficient Implementation
