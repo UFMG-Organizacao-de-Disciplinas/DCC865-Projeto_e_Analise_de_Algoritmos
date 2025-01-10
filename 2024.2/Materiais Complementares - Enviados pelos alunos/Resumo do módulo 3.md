@@ -330,6 +330,66 @@ Ai, a explicação disso aqui é muito feia. Vou só copiar de lá:
 
 - **Passo Base:** Um vértice isolado é uma árvore binária completa.
 - **Passo Recursivo:** Se $T_1$ e $T_2$ são árvores binárias completas disjuntas com raízes $r_1$ e $r_2$, respectivamente, então pode-se formar uma nova árvore binária completa ao se conectar um vértice $r$ (não presente em $T_1$ ou $T_2$, que chamaremos de raiz) através de uma aresta a $r_1$ e outra aresta a $r_2$.
+
+### Indução Estrutural
+
+Isso aqui tá explicadinho legal, então vou tirar do slide talis qualis:
+
+> - Se um conjunto tem uma definição recursiva, é possível demonstrar propriedades dos elementos deste conjunto através de indução.
+> - A **indução estrutural** é uma maneira de mostrar que se:
+>   1. os elementos iniciais do conjunto (passo base) satisfazem uma certa propriedade, e
+>   2. as regras de construção de novos elementos (passo indutivo) preservam esta propriedade,
+>   - então todos os elementos do conjunto satisfazem a propriedade.
+
+Ele também tem seu passo base e passo indutivo.
+
+No **passo base**, mostra-se que a propriedade é verdadeira para os elementos iniciais do conjunto.
+
+No **passo indutivo**, mostra-se que a propriedade é preservada pelas regras de construção de novos elementos.
+
+A **hipótese de indução** é que a propriedade é verdadeira para todos os elementos que são construídos a partir de elementos iniciais.
+
+#### Exemplo de Indução Estrutural (Exemplo 14 do Slide)
+
+Considerando aquele mesmo conjunto de múltiplos de 3 positivos $M_3$:
+
+```math
+M_3 =
+\begin{cases}
+  3 \in M_3\\
+  x, y \in M_3 \implies x+y \in M_3
+\end{cases}
+```
+
+- **Passo Base:** $3 \in M_3$
+  - É verdadeiro, pois 3 é um múltiplo de 3, visto que $3 = 3 \cdot 1$ e $1 \in \mathbb{Z}$.
+- **Passo Indutivo:** $x, y \in M_3 \implies x+y \in M_3$
+  - Se $x, y \in M_3$, então $x = 3a$ e $y = 3b$ para $a, b \in \mathbb{Z}$.
+  - Então, $x + y = 3a + 3b = 3(a+b)$.
+  - Como $a+b \in \mathbb{Z}$, então $x+y \in M_3$.
+
+#### Outros exemplos, agora com árvores
+
+- **Altura:** $h(T)$.
+
+```math
+h(T) =
+\begin{cases}
+  0 & \text{se } T \text{ é uma folha}\\
+  1 + \max(h(T_1), h(T_2)) & \text{se } T \text{ tem raízes } T_1 \text{ e } T_2
+\end{cases}
+```
+
+- **Número de folhas:** $n(T)$.
+
+```math
+n(T) =
+\begin{cases}
+  1 & \text{se } T \text{ é uma folha}\\
+  1 + n(T_1) + n(T_2) & \text{se } T \text{ tem raízes } T_1 \text{ e } T_2
+\end{cases}
+```
+
 ## Paradigmas Algortímicos
 
 ## 1. Indução e Recursão
