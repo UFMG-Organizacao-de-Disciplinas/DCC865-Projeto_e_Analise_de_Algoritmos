@@ -106,6 +106,32 @@ Com isso concluo a seguinte organização:
 
 #### Indução Matemática Fraca
 
+- **Ideia geral não-matemática:** Para você provar que certa afirmação é verdade, você precisa generalizar de tal forma, que se você utilizar de passos repetidos graduais que te direcionem ao seu objetivo, em algum momento você alcançará o que deseja.
+  - Exemplo: para você chegar no final da escada, você precisa subir o primeiro degrau; Estando no primeiro, você consegue chegar no segundo e assim por diante, até alcançar o último.
+
+A indução fraca tem duas partes:
+
+1. Passo base: Demonstra-se a fórmula mostrada para o primeiro valor.
+2. Passo indutivo: Demonstra-se que a fórmula é verdadeira para $k+1$.
+
+No geral, o que é preciso fazer é ficar descontruindo e reconstruindo a fórmula gerada a partir do $k+1$ para se alcançar a fórmula do passo base, somado a $k+1$.
+
+Exemplo do processo:
+
+- **Fórmula:** $1 + 2 + 3 + \dots + n = \frac{n(n+1)}{2}$
+- **Passo base:** $n = 1$
+  - $1 = \frac{1(1+1)}{2} = 1$
+- **Passo indutivo:** $n = k+1$
+  - $1 + 2 + 3 + \dots + k + (k+1) = \frac{(k+1)((k+1)+1)}{2}$
+    - $\frac{(k+1)((k+1)+1)}{2} =$
+    - $\frac{(k+1)(k+2)}{2} =$
+    - $\frac{k^2 + k + 2k + 2}{2} =$
+    - $\frac{k^2 + k}{2} + \frac{2k + 2}{2} =$
+    - $\frac{k(k+1)}{2} + (k+1) =$
+  - $1 + 2 + 3 + \dots + k + (k+1) = \frac{k(k+1)}{2} + (k+1)$
+
+> O princípio da indução pode ser utilizado para demonstrar propriedades dos números inteiros (se elas forem verdadeiras).
+
 #### Indução Matemática Forte
 
 ### Recursividade
