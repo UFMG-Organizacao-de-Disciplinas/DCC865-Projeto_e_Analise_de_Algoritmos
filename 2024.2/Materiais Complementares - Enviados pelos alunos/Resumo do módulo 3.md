@@ -398,7 +398,37 @@ E aqui não tem nada de muito novo. É só a explicação de recorrência/recurs
 
 ## Paradigmas Algortímicos
 
-## 1. Indução e Recursão
+### [Algoritmos Gulosos 1](<../Materiais enviados/Módulo 3 e 4/PAA - Livros e Slides/04GreedyAlgorithmsI_select06_DP.pdf>)
+
+#### Coin Changing
+
+#### Interval Scheduling
+
+### Divisão e Conquista
+
+#### Mergesort
+
+#### Counting Inversions
+
+#### Randomized Quicksort
+
+#### Median and Selection
+
+##### Median of Medians (MoM) Selection Algorithm
+
+#### Closest Pair of Points (CP)
+
+### Programação Dinâmica (PD)
+
+#### PD1: Weighted Interval Scheduling
+
+#### PD1: knapsack problem
+
+#### PD2: Bellman–Ford–Moore algorithm
+
+#### PD2: Distance-vector protocols
+
+#### PD2: Negative cycles
 
 ## 2. Divisão e Conquista
 
