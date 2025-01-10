@@ -134,6 +134,20 @@ Exemplo do processo:
 
 #### Indução Matemática Forte
 
+Aparentemente, ao invés de provar que você consegue alcançar o caso $k+1$ como era na indução fraca, aqui deve-se provar que todo valor de $j \in [1, k]$ é verdadeiro.
+
+Aqui, deve-se provar que $P(1) \land P(2) \land \dots \land P(k) \implies P(k+1)$.
+
+Afinal, se é tudo verdadeiro até $P(k)$, dificilmente $P(k+1)$ será falso. :stuck_out_tongue_winking_eye:
+
+Cara, esse negócio de Indução Matemática Forte é muito esquisito.
+
+Exemplos de uso:
+
+- Todo número inteiro $n \geq 2$ pode ser escrito como um produto de números primos.
+- Todo número inteiro maior ou igual a 8 pode ser escrito como a soma de 3s e 5s.
+- Todo número inteiro maior ou igual a 12 pode ser escrito como a soma de 4s e 5s.
+
 ### Recursividade
 
 ## Paradigmas Algortímicos
