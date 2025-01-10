@@ -150,6 +150,186 @@ Exemplos de uso:
 
 ### Recursividade
 
+O conceito de recursividade é a ideia de que uma função pode chamar a si mesma.
+
+Exemplos:
+
+- Fatorial: $n! = n \cdot (n-1)!$ ou $fat(n) = n \cdot fat(n-1)$
+- Fibonacci: $Fib(n) = Fib(n-1) + Fib(n-2)$
+
+Mas para isso, é necessário uma condição de parada. Muitas vezes tem-se apenas uma condição de parada, que seria algo como: $f(0) = 1$.
+
+Então, matematicamente, usa-se o seguinte formato:
+
+```math
+fat(n) =
+\begin{cases}
+  1 & \text{para } n = 0 \\
+  n \cdot fat(n-1) & \text{para } n > 0
+\end{cases}
+```
+
+```math
+Fib(n) =
+\begin{cases}
+  0 & \text{para } n = 0 \\
+  1 & \text{para } n = 1 \\
+  Fib(n-1) + Fib(n-2) & \text{para } n > 1
+\end{cases}
+```
+
+ou então
+
+```math
+\begin{cases}
+  fat(0) = 1\\
+  fat(n) = n \cdot fat(n-1) & \text{para } n > 0
+\end{cases}
+```
+
+Agora fazendo algumas equivalências:
+
+```math
+f(n) = a^n
+
+\Leftrightarrow
+
+f(n) =
+\begin{cases}
+  1 & \text{para } n = 0 \\
+  a \cdot f(n-1) & \text{para } n > 0
+\end{cases}
+
+\Leftrightarrow
+
+\begin{cases}
+  f(0) = 1\\
+  f(n) = a \cdot f(n-1) & \text{para } n > 0
+\end{cases}
+```
+
+Conceitualmente então, precisamos de duas partes para definir uma função recursiva:
+
+- Condições de parada/Caso base
+- Relação de recorrência/Passo recursivo
+
+Quando usa-se recursividade para definir conjuntos, o caso base é o conjunto inicial de itens e o passo recursivo é a adição de um novo item ao conjunto.
+
+Existe também uma regra de exclusão (que eu não entendi).
+
+> Elementos que não podem ser gerados a partir da aplicação do passo base e instâncias do passo indutivo não pertencem ao conjunto.
+
+Exemplo de conjuntos gerados por recorrência:
+
+#### Conjunto de múltiplos de 3 positivos $M_3$
+
+```math
+\begin{cases}
+  3 \in M_3\\
+  n \in M_3 \implies n+3 \in M_3
+\end{cases}
+```
+
+ou então
+
+```math
+\begin{cases}
+  3 \in M_3\\
+  (x \in M_3) \land (y \in M_3) \rightarrow (x+y \in M_3)
+\end{cases}
+```
+
+#### Cadeias/Strings/Alfabetos
+
+Para isso, definem-se alguns símbolos e notações:
+
+- $\Sigma$ é o alfabeto
+- $\Sigma^*$ é o conjunto de todas as cadeias possíveis
+- $\epsilon$ é a cadeia vazia
+- $w$ é uma cadeia
+- $|w|$ é o comprimento da cadeia
+- $w[i]$ é o $i$-ésimo símbolo da cadeia
+- $a$ é um dos símbolos presentes no alfabeto
+- $wa$ é a concatenação da cadeia $w$ com o símbolo $a$
+
+Podemos dizer que $\epsilon \in \Sigma^*$. Pois a cadeia vazia está presente no conjunto de todas as possibilidades de junções de símbolos do alfabeto. Mais especificamente seria o caso do $\Sigma^0$, onde ele não é concatenado com nenhum elemento de seu conjunto de símbolos.
+
+Sua definição de recorrência seria o seguinte:
+
+```math
+\begin{cases}
+  \epsilon \in \Sigma^*\\
+  w \in \Sigma^* \implies \forall a \in \Sigma, wa \in \Sigma^*
+\end{cases}
+```
+
+##### Exemplo 12 (do slide)
+
+Dado que $\Sigma = \{0, 1\}$, Qual seria $\Sigma^*$?
+
+- $\Sigma^0 = \{\epsilon\}$: O passo base.
+- $\Sigma^1 = \{\epsilon, 0, 1\}$: Concatenam-se todos os símbolos presentes no $\Sigma$ com os próprios itens.
+- $\Sigma^2 = \{\epsilon, 0, 1, 00, 01, 10, 11\}$: Concatenam-se todos os símbolos presentes no $\Sigma$ com os próprios itens. De novo.
+- $\dots$
+- $\Sigma^*$ = Conjunto de todos os números binários possíveis.
+
+#### Árvores (de grafos)
+
+Primeiro definamos os elementos de um grafo:
+
+- $G$ é o grafo
+  - $G = (V, E)$ onde $V$ e $E$ são definidos abaixo.
+- $V$ é o conjunto de vértices
+  - $v \in V$ é um vértice
+- $E$ é o conjunto de arestas
+  - $e \in E$ é uma aresta
+  - $e = (v_1, v_2)$ é uma aresta que conecta os vértices $v_1$ e $v_2$
+
+Agora, alguns termos relacionados aos grafos:
+
+- **Ciclo:** caminho de arestas consecutivas que começa e termina no mesmo vértice.
+- **Vértice interno:** vértice que está conectado a pelo menos dois outros vértices.
+- **Folha:** vértice que está conectado a apenas um outro vértice.
+
+Exemplo:
+
+```mermaid
+graph LR
+V1((V1))
+V2((V2))
+V3((V3))
+V4((V4))
+V5((V5))
+V6((V6))
+
+V1 <--> V2
+V1 <--> V3
+V2 <--> V5
+V2 <--> V6
+V4 <--> V5
+V5 <--> V6
+```
+
+Nesse exemplo:
+
+- **Ciclo:** $V1 \rightarrow V2 \rightarrow V5 \rightarrow V6 \rightarrow V2 \rightarrow V1$
+- **Vértices internos:** $V1$, $V2$, $V5$, $V6$
+- **Folhas:** $V3$, $V4$
+
+---
+
+Mais definições:
+
+- **Árvore:** grafo conexo sem ciclos.
+- **Árvore binária:** árvore onde cada vértice tem no máximo dois filhos.
+- **Árvore binária completa:** árvore binária onde todos os níveis estão completos, exceto possivelmente o último.
+
+Uma árvore binária completa pode ser definida recursivamente como...
+
+Ai, a explicação disso aqui é muito feia. Vou só copiar de lá:
+
+- **Passo Base:** Um vértice isolado é uma árvore binária completa.
+- **Passo Recursivo:** Se $T_1$ e $T_2$ são árvores binárias completas disjuntas com raízes $r_1$ e $r_2$, respectivamente, então pode-se formar uma nova árvore binária completa ao se conectar um vértice $r$ (não presente em $T_1$ ou $T_2$, que chamaremos de raiz) através de uma aresta a $r_1$ e outra aresta a $r_2$.
 ## Paradigmas Algortímicos
 
 ## 1. Indução e Recursão
