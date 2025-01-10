@@ -390,6 +390,12 @@ n(T) =
 \end{cases}
 ```
 
+### Algoritmos Recursivos
+
+Ora, agora volta a falar sobre recursão/recorrência. Isso seria melhor se estivesse junto com a parte de recursividade...
+
+E aqui não tem nada de muito novo. É só a explicação de recorrência/recursão numa forma mais computacional.
+
 ## Paradigmas Algortímicos
 
 ## 1. Indução e Recursão
