@@ -2,10 +2,10 @@
 
 Esse módulo está dividido em 4 partes (segundo a lista da Olga):
 
-1. [Indução e Recursão](#1-indução-e-recursão)
-2. [Divisão e Conquista](#2-divisão-e-conquista)
-3. [Programação Dinâmica](#3-programação-dinâmica)
-4. [NP](#4-np)
+1. Indução e Recursão
+2. Divisão e Conquista
+3. Programação Dinâmica
+4. NP
 
 ---
 
@@ -70,9 +70,9 @@ Com isso concluo a seguinte organização:
   - [Algoritmos Gulosos 1](<../Materiais enviados/Módulo 3 e 4/PAA - Livros e Slides/04GreedyAlgorithmsI_select06_DP.pdf>)
     - coin changing
     - interval scheduling
-    - interval partitioning
-    - scheduling to minimize lateness
-    - optimal caching
+    - ~~interval partitioning~~
+    - ~~scheduling to minimize lateness~~
+    - ~~optimal caching~~
   - Divisão e Conquista
     - [Divisão e Conquista 1](<../Materiais enviados/Módulo 3 e 4/PAA - Livros e Slides/05DivideAndConquerI.pdf>)
       - Mergesort
