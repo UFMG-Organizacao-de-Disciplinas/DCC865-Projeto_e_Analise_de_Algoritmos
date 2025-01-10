@@ -7,7 +7,20 @@ Esse módulo está dividido em 4 partes (segundo a lista da Olga):
 3. [Programação Dinâmica](#3-programação-dinâmica)
 4. [NP](#4-np)
 
-Então, resumirei cada uma dessas partes.
+---
+
+Segundo a apresentação dela, está dividido da seguinte forma:
+
+- Módulo 3
+  - Fundamentos Matemáticos
+    - Indução matemática e estrutural
+    - Recursividade
+  - Paradigmas Algortímicos
+    - Divisão e Conquista
+    - Programação Dinâmica
+    - Greedy
+
+---
 
 Temos também os slides que ela apresentou em aula, sendo eles:
 
@@ -43,16 +56,49 @@ Temos também os slides que ela apresentou em aula, sendo eles:
     - distance-vector protocols
     - negative cycles
 
-Segundo a apresentação dela, está dividido da seguinte forma:
+Obs.: Ela aparentemente também tá cobrando indução e recursão que é no arquivo [PAA_Inducao_ILC_Slides_Olga](<../Materiais enviados/Módulo 3 e 4/PAA - Livros e Slides/Logica Revisão/PAA_Inducao_ILC_Slides_Olga.pdf>) que ela não apresentou em aula.
 
-- Módulo 3
-  - Fundamentos Matemáticos
-    - Indução matemática e estrutural
-    - Recursividade
-  - Paradigmas Algortímicos
-    - Divisão e Conquista
-    - Programação Dinâmica
-    - Greedy
+---
+
+Com isso concluo a seguinte organização:
+
+- Fundamentos Matemáticos
+  - [Indução e Recursão: Indução Matemática Fraca e Forte, Indução Estrutural, Algoritmos Recursivos](<../Materiais enviados/Módulo 3 e 4/PAA - Livros e Slides/Logica Revisão/PAA_Inducao_ILC_Slides_Olga.pdf>)
+  - Indução matemática e estrutural
+  - Recursividade
+- Paradigmas Algortímicos
+  - [Algoritmos Gulosos 1](<../Materiais enviados/Módulo 3 e 4/PAA - Livros e Slides/04GreedyAlgorithmsI_select06_DP.pdf>)
+    - coin changing
+    - interval scheduling
+    - interval partitioning
+    - scheduling to minimize lateness
+    - optimal caching
+  - Divisão e Conquista
+    - [Divisão e Conquista 1](<../Materiais enviados/Módulo 3 e 4/PAA - Livros e Slides/05DivideAndConquerI.pdf>)
+      - Mergesort
+        - [Mergesort Demo](<../Materiais enviados/Módulo 3 e 4/PAA - Livros e Slides/05DemoMerge.pdf>)
+          - merge demo
+          - merge-and-count demo
+      - counting inversions
+      - randomized quicksort
+        - [Quicksort Demo](<../Materiais enviados/Módulo 3 e 4/PAA - Livros e Slides/05DemoQuick.pdf>)
+          - 3-way partitioning demo
+          - randomized quickselect demo
+      - median and selection
+      - closest pair of points
+    - [Divisão e Conquista 2 - Teorema Mestre](<../Materiais enviados/Módulo 3 e 4/PAA - Livros e Slides/05DivideAndConquerII-MasterTheorem.pdf>)
+  - Programação Dinâmica
+    - [Programação Dinâmica 1](<../Materiais enviados/Módulo 3 e 4/PAA - Livros e Slides/06DynamicProgrammingI_select.pdf>)
+      - weighted interval scheduling
+      - ~~segmented least squares~~
+      - knapsack problem
+      - ~~RNA secondary structure~~
+    - [Programação Dinâmica 2](<../Materiais enviados/Módulo 3 e 4/PAA - Livros e Slides/06DynamicProgrammingII.BellmanFord.editedOlga.pdf>)
+      - ~~sequence alignment~~
+      - ~~Hirschberg′s algorithm~~
+      - Bellman–Ford–Moore algorithm
+      - distance-vector protocols
+      - negative cycles
 
 ## 1. Indução e Recursão
 
