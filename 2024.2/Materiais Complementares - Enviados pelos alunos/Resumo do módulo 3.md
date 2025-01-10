@@ -100,6 +100,18 @@ Com isso concluo a seguinte organização:
       - distance-vector protocols
       - negative cycles
 
+## [Fundamentos Matemáticos](<../Materiais enviados/Módulo 3 e 4/PAA - Livros e Slides/Logica Revisão/PAA_Inducao_ILC_Slides_Olga.pdf>)
+
+### Indução matemática e estrutural
+
+#### Indução Matemática Fraca
+
+#### Indução Matemática Forte
+
+### Recursividade
+
+## Paradigmas Algortímicos
+
 ## 1. Indução e Recursão
 
 ## 2. Divisão e Conquista
