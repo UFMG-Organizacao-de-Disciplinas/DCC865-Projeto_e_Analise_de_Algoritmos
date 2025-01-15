@@ -671,3 +671,158 @@ Na cobertura por conjuntos cujo elemento tenha mais do que duas incidências nos
 ##### graph coloring
 
 ##### numerical problems
+
+### Aula 9 - 13/01/2025 [JV: Faltei]
+
+### Aula 10 - 15/01/2025
+
+#### Slide: 08IntractabilityII_original (1)
+
+##### P vs. NP
+
+###### P
+
+Problema de decisão: X é um conjunto de strings; s é uma string; Algoritmo A resolve
+
+$$
+X: A(s) =
+\begin{cases}
+yes & \text{if } s \in X\\
+no & \text{if } s \notin X
+\end{cases}
+$$
+
+- Problema dos primos
+  - > Polinomial em relação ao log do valor do número na base 2.
+
+Problemas em P:
+
+| Problem       | Description | poly-time algorithm | yes | no  |
+| ------------- | ----------- | ------------------- | --- | --- |
+| Multiple      |             |                     |     |     |
+| Rel-Prime     |             |                     |     |     |
+| Primes        |             |                     |     |     |
+| Edit-Distance |             |                     |     |     |
+| L-Solve       |             |                     |     |     |
+| U-Conn        |             |                     |     |     |
+
+###### NP
+
+> De forma alguma NP quer dizer Não-polinomial.
+
+- Definição: há um algoritmo $C(s, t)$ que é um **certificador**
+
+Prolbmea dos compostos, tem como elementos o conjunto complementar ao dos primos $= \bar{X}$.
+
+o $t$ é basicamente um caso de teste que é aplicado ao $C(s)$ para confirmar se o resultado é verdadeiro.
+
+###### Certifiers and certificates: satisfiability
+
+$t =$ valores de $x_1, x_2, \dots, x_n$ que resultem em uma equação verdadeira.
+
+###### Certifiers and certificates: Hamilton Path
+
+$t =$ sequência de vértices que formam um caminho hamiltoniano.
+
+###### Alguns problemas em NP (Existe certificador poly-time)
+
+| Problem       | Description | certifier | certificate | yes | no  |
+| ------------- | ----------- | --------- | ----------- | --- | --- |
+| L-Solve       |             |           |             |     |     |
+| Composites    |             |           |             |     |     |
+| Factor        |             |           |             |     |     |
+| Sat           |             |           |             |     |     |
+| Hamilton-Path |             |           |             |     |     |
+
+###### Intractability: QUIZ 1 - B
+
+- Não é A, pois "pode sempre haver um certificador de tamanho um a mais.
+- B: Se tem um verificador de tamanho K, pode-se dizer que existe pelo menos um caminho simples mais longo de tamanho que é ao menos $\geq k$.
+
+###### Intractability: QUIZ 2 - E
+
+In complexity theory, the abbreviation NP stands for…
+
+- [ ] Nope
+- [ ] No Problem
+- [ ] Not Polynomial time
+- [ ] Not Polynomial Space
+- [X] Nondeterministic Polynomial time
+
+###### Signiﬁcance of NP [JV: Ela pulou]
+
+###### P, NP, and EXP
+
+- **P:** Decision problems for which there exists a poly-time algorithm.
+- **NP:** Decision problems for which there exists a poly-time certifier.
+- **EXP:** Decision problems for which there exists an exponential-time algorithm.
+
+$2^{|s|}$ é o tamanho do binário que consegue checar todas as possibilidades.
+
+###### The main question: P vs. NP
+
+É tão complexo verificar uma resposta quando é computar a resposta?
+
+- **Consensus opinion:** provavelmente não
+
+###### Reductions: QUIZ 3 - D
+
+Suppose $P \meq NP$. Which of the following are still possible?
+
+- A. $O(n^3)$ algorithm for factoring n-bit integers.
+- B. $O(1.657^n)$ time algorithm for HAMILTON-CYCLE.
+- C. $O(n^{\log \log \log n})$ algorithm for 3-SAT.
+- D. All of the above.
+
+###### Intractability: quiz 4 - Nenhuma, nem a C
+
+Does P = NP?
+
+A. Yes.
+B. No.
+C. None of the above.
+
+##### NP-Complete
+
+###### Polynomial Transformations
+
+- Definição de Cook
+- Definição de Karp
+
+as duas meio que querem dizer a mesma coisa, mas aparentemente são coisas distintas.
+
+###### NP-Complete (2)
+
+###### The "first" NP-complete problem
+
+###### Establishing NP-completeness
+
+Para fazermos uma máquina de Turing não Determinística, precisaríamos percorrer todas as possibilidades, o que tornaria exponencial.
+
+Para reduzir um problema em SAT, teria que converter cada um dos snapshots da máquina de Turing em uma fórmula booleana.
+
+###### Reductions: Quiz 4 - D
+
+Suppose that X $\in$ NP-COMPLETE, Y $\in$ NP, and X $\leq_P$ Y. Which can you infer?
+
+- [ ] A. $Y$ is **$NP$**-complete.
+- [ ] B. If **$Y$** $\notin$ **$P$**, then **$P$** $\neq$ **$NP$**.
+- [ ] C. If **$P$** $\neq$ **$NP$**, then neither $X$ nor $Y$ is in **$P$**.
+- [X] D. All of the above.
+
+- A. Se $X$ é reduzível em $Y$, e $X$ é NP-Completo, então o $Y$ também será.
+- B. Se $Y$ não pertence ao P, e considerando que ele pertence ao NP, então $P \neq NP$.
+- C. [JV: Hmm... me falhou o conceito. Não me lembro do que é NP-Completo]
+- D. Resposta certa
+
+###### Some NP-complete problems
+
+Na prática, a maioria dos problemas **NP** ou são P ou são **NP**-completos
+
+### Aula 11 - 20/01/2025
+
+#### Slide: 08IntractabilityII_original (2)
+
+##### co-NP
+
+##### NP-hard
