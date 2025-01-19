@@ -844,6 +844,22 @@ Give an algorithm that finds the median value using at most $O(\log n)$ queries.
 
 ##### Cap. 5, Exercise 1 (Pag. 246) - JV
 
+- **Pseudocódigo**
+  - **Descrição:** a ideia é dividir o array em duas partes e verificar se o valor do meio de um array é menor que o valor do meio do outro array. A parte menor do array de mentor elemento é descartada, assim como também é descartado a parte maior do array de maior elemento. O processo é repetido até que reste apenas um elemento em cada array, onde o menor valor entre os dois é a mediana procurada.
+  - **AcharMediana(n)**
+    - $elem_i = \text{get_i_a}(n/2)$
+    - $elem_j = \text{get_i_b}(n/2)$
+    - **IF** $elem_i < elem_j$:
+      - **ObterMetadeInferior(A)**
+      - **ObterMetadeSuperior(B)**
+    - **ELSE**:
+      - **ObterMetadeInferior(B)**
+      - **ObterMetadeSuperior(A)**
+
+---
+
+- **Código**
+
 ```python
 """ Medianas """
 
