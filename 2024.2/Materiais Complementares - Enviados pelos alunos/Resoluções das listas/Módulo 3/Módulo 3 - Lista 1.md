@@ -849,70 +849,32 @@ Give an algorithm that finds the median value using at most $O(\log n)$ queries.
 
 ##### Cap. 5, Exercise 1 (Pag. 246) - JV
 
-- **Pseudocódigo**
-  - **Descrição:** a ideia é dividir o array em duas partes e verificar se o valor do meio de um array é menor que o valor do meio do outro array. A parte menor do array de mentor elemento é descartada, assim como também é descartado a parte maior do array de maior elemento. O processo é repetido até que reste apenas um elemento em cada array, onde o menor valor entre os dois é a mediana procurada.
-  - **AcharMediana(n)**
-    - $elem_i = \text{get_i_a}(n/2)$
-    - $elem_j = \text{get_i_b}(n/2)$
-    - **IF** $elem_i < elem_j$:
-      - **ObterMetadeInferior(A)**
-      - **ObterMetadeSuperior(B)**
-    - **ELSE**:
-      - **ObterMetadeInferior(B)**
-      - **ObterMetadeSuperior(A)**
-
----
-
+- **Descrição:** a ideia é dividir o array em duas partes e verificar se o valor do meio de um array é menor que o valor do meio do outro array. A parte menor do array de mentor elemento é descartada, assim como também é descartado a parte maior do array de maior elemento. O processo é repetido até que reste apenas um elemento em cada array, onde o menor valor entre os dois é a mediana procurada.
 - **Código**
 
 ```python
-""" Medianas """
+def get_mean_by_index_query(size):
+    left_a = left_b = 0
+    right_a = right_b = size - 1
 
-test_cases = [
-    [[1, 2, 3, 4, 5, 6, 7, 8], [9, 10, 11, 12, 13, 14, 15, 16]], # Mediana nas extremidades internas
-    [[1, 3, 5, 7, 9, 11, 13, 15], [2, 4, 6, 8, 10, 12, 14, 16]], # Mediana no meio da esquerda
-    [[1, 2, 3, 8, 9, 10, 13, 14], [4, 5, 6, 7, 11, 12, 15, 16]], # Mediana no meio da direita
-    [[1, 2, 3, 4, 13, 14, 15, 16], [5, 6, 7, 8, 9, 10, 11, 12]], # Mediana apenas em um deles
-    [[1, 3, 8, 9, 15], [7, 11, 18, 19, 21]], # Mediana apenas em um deles
-    [[1, 3, 8, 29, 35], [7, 11, 18, 19, 21]], # Mediana apenas em um deles
-]
+    while (left_a < right_a) or (left_b < right_b):
+        mean_index_a = (left_a + right_a)//2
+        mean_value_a = A(mean_index_a)
 
-test_case = test_cases[0]
+        mean_index_b = (left_b + right_b)//2
+        mean_value_b = B(mean_index_b)
 
-def get_i_a(i):
-    global test_case
-    return test_case[0][i]
+        min_offset = min(mean_index_a - left_a, mean_index_b - left_b)
+        min_offset = 1 if min_offset == 0 else min_offset
 
-def get_i_b(i):
-    global test_case
-    return test_case[1][i]
-
-def get_mean_by_index_query():
-    size = len(test_case[0])
-    
-    left_i = left_j = 0
-    right_i = right_j = size - 1
-    
-    while right_i - left_i > 1:
-        mean_value_i = (right_i + left_i)//2
-        elem_i = get_i_a(mean_value_i)
-        print(f'i> [{left_i}, {right_i}], A[{mean_value_i}] = {elem_i}', end='')
-        
-        mean_value_j = (right_j + left_j)//2
-        elem_j = get_i_b(mean_value_j)
-        print(f' || j> [{left_j}, {right_j}], B[{mean_value_j}] = {elem_j}')
-        
-        if elem_i < elem_j:
-            left_i += mean_value_i
-            right_j -= mean_value_j
+        if mean_value_a < mean_value_b:
+            left_a += min_offset
+            right_b -= min_offset
         else:
-            right_i -= mean_value_i
-            left_j += mean_value_j
-    minimun = min(elem_i, elem_j)
-    print(minimun)
-    return minimun
+            left_b += min_offset
+            right_a -= min_offset
 
-get_mean_by_index_query()
+    return min(A(left_a), B(left_b))
 ```
 
 #### Cap. 5, Exercise 2 (Pag. 246)
@@ -950,6 +912,8 @@ Suppose that you have a "black-box" worst-case linear-time median subroutine. Gi
 Let $X[1 .. n]$ and $Y[1 .. n]$ be two arrays, each containing $n$ numbers already in sorted order. Give an $O(\log n)$-time algorithm to find the median of all $2n$ elements in arrays $X$ and $Y$.
 
 ##### Cap. 9, Exercises 9.3-8 (Pag. 223) - JV
+
+O mesmo que em [Cap. 5, Exercise 1 (Pag. 246) - JV](#cap-5-exercise-1-pag-246---jv).
 
 ## Módulo 3 - Paradigma Programação Dinâmica
 
