@@ -67,7 +67,7 @@ Ceil:  ⌈ ⌉
         - [c. o conjunto dos inteiros positivos não divisíveis por 5](#c-o-conjunto-dos-inteiros-positivos-não-divisíveis-por-5)
       - [7. (Rosen 4.3.27)](#7-rosen-4327)
         - [a. Liste os elementos de $S$ produzidos pelas quatro primeiras aplicações da deﬁnição recursiva](#a-liste-os-elementos-de-s-produzidos-pelas-quatro-primeiras-aplicações-da-deﬁnição-recursiva)
-        - [c. Utilize indução estrutural para mostrar que $a \\leq 2b$ quando $(a, b) \\in S$](#c-utilize-indução-estrutural-para-mostrar-que-a-leq-2b-quando-a-b-in-s)
+        - [c. Utilize indução estrutural para mostrar que](#c-utilize-indução-estrutural-para-mostrar-que)
       - [8. (Rosen 4.3.29)](#8-rosen-4329)
         - [a](#a)
         - [b](#b)
@@ -92,6 +92,7 @@ Ceil:  ⌈ ⌉
       - [Cap. 9, Exercises 9.3-1 (Pag. 223)](#cap-9-exercises-93-1-pag-223)
       - [Cap. 9, Exercises 9.3-5 (Pag. 223)](#cap-9-exercises-93-5-pag-223)
       - [Cap. 9, Exercises 9.3-8 (Pag. 223)](#cap-9-exercises-93-8-pag-223)
+        - [Cap. 9, Exercises 9.3-8 (Pag. 223) - JV](#cap-9-exercises-93-8-pag-223---jv)
   - [Módulo 3 - Paradigma Programação Dinâmica](#módulo-3---paradigma-programação-dinâmica)
     - [Livro Kleinberg e Tardos: Cap. 6](#livro-kleinberg-e-tardos-cap-6)
       - [Cap. 6, Solved Exercise 1 (Pag. 307)](#cap-6-solved-exercise-1-pag-307)
@@ -107,7 +108,9 @@ Ceil:  ⌈ ⌉
         - [Cap. 6, Exercise 3a (Pag. 314)](#cap-6-exercise-3a-pag-314)
         - [Cap. 6, Exercise 3b (Pag. 315)](#cap-6-exercise-3b-pag-315)
       - [Cap. 6, Exercise 7 (Pag. 318-319)](#cap-6-exercise-7-pag-318-319)
+        - [Cap. 6, Exercise 7 (Pag. 318-319) - JV](#cap-6-exercise-7-pag-318-319---jv)
       - [Cap. 6, Exercise 13 (Pag. 324)](#cap-6-exercise-13-pag-324)
+        - [Cap. 6, Exercise 13 (Pag. 324) - JV](#cap-6-exercise-13-pag-324---jv)
   - [Módulo 4 - NP e Intratabilidade Computacional](#módulo-4---np-e-intratabilidade-computacional)
     - [Livro Kleinberg e Tardos: Cap. 8](#livro-kleinberg-e-tardos-cap-8)
       - [Cap. 8, Solved Exercise 1 (Pag. 500-502)](#cap-8-solved-exercise-1-pag-500-502)
@@ -615,7 +618,9 @@ Seja $S$ um subconjunto dos pares ordenados de inteiros, deﬁnido recursivament
 
 ##### a. Liste os elementos de $S$ produzidos pelas quatro primeiras aplicações da deﬁnição recursiva
 
-##### c. Utilize indução estrutural para mostrar que $a \leq 2b$ quando $(a, b) \in S$
+##### c. Utilize indução estrutural para mostrar que
+
+$a \leq 2b$ quando $(a, b) \in S$
 
 #### 8. (Rosen 4.3.29)
 
@@ -946,6 +951,8 @@ Suppose that you have a "black-box" worst-case linear-time median subroutine. Gi
 
 Let $X[1 .. n]$ and $Y[1 .. n]$ be two arrays, each containing $n$ numbers already in sorted order. Give an $O(\log n)$-time algorithm to find the median of all $2n$ elements in arrays $X$ and $Y$.
 
+##### Cap. 9, Exercises 9.3-8 (Pag. 223) - JV
+
 ## Módulo 3 - Paradigma Programação Dinâmica
 
 ### Livro Kleinberg e Tardos: Cap. 6
@@ -1167,6 +1174,8 @@ As a solved exercise in Chapter 5, we gave an algorithm with $O(n \log n)$ runni
 
 In the solved exercise, we showed how to find the optimal pair of days $i$ and $j$ in time $O(n \log n)$. But, in fact, it's possible to do better than this. Show how to find the optimal numbers $i$ and $j$ in time $O(n)$.
 
+##### Cap. 6, Exercise 7 (Pag. 318-319) - JV
+
 #### Cap. 6, Exercise 13 (Pag. 324)
 
 The problem of searching for cycles in graphs arises naturally in financial trading applications. Consider a firm that trades shares in $n$ different companies. For each pair $i \neq j$, they maintain a trade ratio $r_{ij}$, meaning that one share of $i$ trades for $r_{ij}$ shares of $j$. Here we allow the rate $r$ to be fractional; that is, $r_{ij} = \frac{2}{3}$ means that you can trade three shares of $i$ to get two shares of $j$.
@@ -1174,6 +1183,8 @@ The problem of searching for cycles in graphs arises naturally in financial trad
 A trading cycle for a sequence of shares $i_1, i_2, \dots, i_k$ consists of successively trading shares in company $i_1$ for shares in company $i_2$, then shares in company $i_2$ for shares $i_3$, and so on, finally trading shares in i k back to shares in company $i_1$. After such a sequence of trades, one ends up with shares in the same company $i_1$ that one starts with. Trading around a cycle is usually a bad idea, as you tend to end up with fewer shares than you started with. But occasionally, for short periods of time, there are opportunities to increase shares. We will call such a cycle an opportunity cycle, if trading along the cycle increases the number of shares. This happens exactly if the product of the ratios along the cycle is above 1. In analyzing the state of the market, a firm engaged in trading would like to know if there are any opportunity cycles.
 
 Give a polynomial-time algorithm that finds such an opportunity cycle, if one exists.
+
+##### Cap. 6, Exercise 13 (Pag. 324) - JV
 
 ## Módulo 4 - NP e Intratabilidade Computacional
 
