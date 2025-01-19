@@ -1138,6 +1138,31 @@ In the solved exercise, we showed how to find the optimal pair of days $i$ and $
 
 ##### Cap. 6, Exercise 7 (Pag. 318-319) - JV
 
+- **JV Recursivo:** não consegui pensar em uma solução recursiva.
+
+---
+
+- **Código - Linear**
+
+- **Conceito:** percorre de $1$ a $n$, mantendo o índice $i$ e o valor $P(i)$ do menor $P(i)$ encontrado até o $i$ verificado. Guarda também a diferença entre o $P(i)$ atual e o menor $P(i)$ encontrado até então se for maior que a última maior diferença encontrada. Sempre que atualizar o menor $P(i)$ anterior, atualiza o $i$ de retorno. Quando atualizar a diferença, atualiza o $i$ e $j$ de retorno.
+
+```python
+def get_best_pair_report_DP(P):
+    n = len(P)
+    i = j = min_i = max_diff = 0
+    for k in range(1, n):
+        if P[k] < P[min_i]:
+            min_i = k
+        diff = P[k] - P[min_i]
+        if max_diff < diff:
+            max_diff = diff
+            i = min_i
+            j = k
+    if i == j:
+        return f'If there was no way to make money during the {n} days'
+    return f'buy on {i+1}, sell on {j+1}'
+```
+
 #### Cap. 6, Exercise 13 (Pag. 324)
 
 The problem of searching for cycles in graphs arises naturally in financial trading applications. Consider a firm that trades shares in $n$ different companies. For each pair $i \neq j$, they maintain a trade ratio $r_{ij}$, meaning that one share of $i$ trades for $r_{ij}$ shares of $j$. Here we allow the rate $r$ to be fractional; that is, $r_{ij} = \frac{2}{3}$ means that you can trade three shares of $i$ to get two shares of $j$.
