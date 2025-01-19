@@ -464,9 +464,13 @@ Dê uma deﬁnição recursiva para a sequência $\{a_n\}, n = 1, 2, 3, \dots$ s
 | $6 \cdot 1$ | $6 \cdot 2$ | $6 \cdot 3$ | $6 \cdot 4$ | $6 \cdot 5$ |
 |     $6$     |    $12$     |    $18$     |    $24$     |    $30$     |
 
+$$
+\begin{cases}
+  A(0) = 0\\
+  A(x + 1) = 6 + A(x)
+\end{cases}
+$$
 
-- $A(0) = 0$
-- $A(x + 1) = 6 + A(x)$
 ---
 
 Testando:
@@ -490,9 +494,13 @@ Testando:
 | $2 \cdot 1$ + 1 | $2 \cdot 2$ + 1 | $2 \cdot 3$ + 1 | $2 \cdot 4$ + 1 | $2 \cdot 5$ + 1 |
 |       $3$       |       $5$       |       $7$       |       $9$       |      $11$       |
 
+$$
+\begin{cases}
+  B(0) = 1\\
+  B(x + 1) = 2 + B(x)
+\end{cases}
+$$
 
-- $B(0) = 1$
-- $B(x + 1) = 2 + B(x)$
 ---
 
 Testando:
@@ -515,9 +523,13 @@ Testando:
 | :----: | :----: | :----: | :----: | :----: |
 | $10^1$ | $10^2$ | $10^3$ | $10^4$ | $10^5$ |
 
+$$
+\begin{cases}
+  C(0) = 1\\
+  C(x + 1) = 10 \cdot C(x)
+\end{cases}
+$$
 
-- $C(0) = 1$
-- $C(x + 1) = 10 \cdot C(x)$
 ---
 
 Testando:
