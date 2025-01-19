@@ -939,9 +939,7 @@ Prove the lower bound of $⌈3n/2⌉$ comparisons in the worst case to find both
 
 #### Cap. 9, Exercises 9.3-1 (Pag. 223)
 
-In the algorithm SELECT, the input elements are divided into groups of 5. Will
-the algorithm work in linear time if they are divided into groups of 7? Argue that
-SELECT does not run in linear time if groups of 3 are used.
+In the algorithm SELECT, the input elements are divided into groups of 5. Will the algorithm work in linear time if they are divided into groups of 7? Argue that SELECT does not run in linear time if groups of 3 are used.
 
 #### Cap. 9, Exercises 9.3-5 (Pag. 223)
 
@@ -1180,7 +1178,7 @@ In the solved exercise, we showed how to find the optimal pair of days $i$ and $
 
 The problem of searching for cycles in graphs arises naturally in financial trading applications. Consider a firm that trades shares in $n$ different companies. For each pair $i \neq j$, they maintain a trade ratio $r_{ij}$, meaning that one share of $i$ trades for $r_{ij}$ shares of $j$. Here we allow the rate $r$ to be fractional; that is, $r_{ij} = \frac{2}{3}$ means that you can trade three shares of $i$ to get two shares of $j$.
 
-A trading cycle for a sequence of shares $i_1, i_2, \dots, i_k$ consists of successively trading shares in company $i_1$ for shares in company $i_2$, then shares in company $i_2$ for shares $i_3$, and so on, finally trading shares in i k back to shares in company $i_1$. After such a sequence of trades, one ends up with shares in the same company $i_1$ that one starts with. Trading around a cycle is usually a bad idea, as you tend to end up with fewer shares than you started with. But occasionally, for short periods of time, there are opportunities to increase shares. We will call such a cycle an opportunity cycle, if trading along the cycle increases the number of shares. This happens exactly if the product of the ratios along the cycle is above 1. In analyzing the state of the market, a firm engaged in trading would like to know if there are any opportunity cycles.
+A trading cycle for a sequence of shares $i_1, i_2, \dots, i_k$ consists of successively trading shares in company $i_1$ for shares in company $i_2$, then shares in company $i_2$ for shares $i_3$, and so on, finally trading shares in $i_k$ back to shares in company $i_1$. After such a sequence of trades, one ends up with shares in the same company $i_1$ that one starts with. Trading around a cycle is usually a bad idea, as you tend to end up with fewer shares than you started with. But occasionally, for short periods of time, there are opportunities to increase shares. We will call such a cycle an opportunity cycle, if trading along the cycle increases the number of shares. This happens exactly if the product of the ratios along the cycle is above 1. In analyzing the state of the market, a firm engaged in trading would like to know if there are any opportunity cycles.
 
 Give a polynomial-time algorithm that finds such an opportunity cycle, if one exists.
 
