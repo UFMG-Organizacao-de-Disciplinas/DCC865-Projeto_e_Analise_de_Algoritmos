@@ -119,8 +119,10 @@ Ceil:  ⌈ ⌉
       - [Cap. 8, Solved Exercise 2 (Pag. 502-505)](#cap-8-solved-exercise-2-pag-502-505)
         - [Cap. 8, Solved Exercise 2 (Pag. 503-505) - Solution](#cap-8-solved-exercise-2-pag-503-505---solution)
       - [Cap. 8, Exercise 1 (Pag. 505)](#cap-8-exercise-1-pag-505)
+        - [Cap. 8, Exercise 1 (Pag. 505) - JV](#cap-8-exercise-1-pag-505---jv)
       - [Cap. 8, Exercise 2 (Pag. 505)](#cap-8-exercise-2-pag-505)
       - [Cap. 8, Exercise 3 (Pag. 505-506)](#cap-8-exercise-3-pag-505-506)
+        - [Cap. 8, Exercise 3 (Pag. 505-506) - JV](#cap-8-exercise-3-pag-505-506---jv)
       - [Cap. 8, Exercise 5 (Pag. 506-507)](#cap-8-exercise-5-pag-506-507)
       - [Cap. 8, Exercise 17 (Pag. 513)](#cap-8-exercise-17-pag-513)
       - [Cap. 8, Exercise 26 (Pag. 518)](#cap-8-exercise-26-pag-518)
@@ -1173,6 +1175,12 @@ Give a polynomial-time algorithm that finds such an opportunity cycle, if one ex
 
 ##### Cap. 6, Exercise 13 (Pag. 324) - JV
 
+O que precisamos encontrar é um ciclo tal que a sequencial multiplicação das razões $r_{ij}$  seja maior que 1. Então teremos um ciclo de oportunidade se: $r_{a_1, a_2} \cdot r_{a_2, a_3} \cdot ... \cdot r_{a_k, a_1} > 1$.
+
+Um dos algoritmos usados para se encontrar ciclos negativos é o algoritmo de Bellman-Ford-Moore, mas, para isso, seria necessário considerarmos um somatório de pesos que, ao final, deveria ser menor que 0. Desse modo, para que o problema em questão se enquadre nos parâmetros do algoritmo, podemos fazer a operação de logaritmo aos dois lados da equação, de modo que o ciclo de oportunidade será encontrado se: $\log(r_{a_1, a_2}) + \log(r_{a_2, a_3}) + ... + \log(r_{a_k, a_1}) > 0$.
+
+O Algoritmo de Bellman-Ford-Moore assegura a existência de ciclo negativo caso, após $n-1$ iterações, ainda haja atualizações nos pesos. Para isso, definiremos que todos os pesos em questão serão $-\log(r_{ij})$. Assim, caso o algoritmo encontre um ciclo negativo, podemos afirmar que há um ciclo de oportunidade, visto que seu somatório será menor que 0.
+
 ## Módulo 4 - NP e Intratabilidade Computacional
 
 ### Livro Kleinberg e Tardos: Cap. 8
@@ -1259,6 +1267,12 @@ For each of the two questions below, decide whether the answer is (i) "Yes," (ii
    - Question: Is it the case that Interval Scheduling $\leq_P$ Vertex Cover?
 2. Question: Is it the case that Independent Set $\leq_P$ Interval Scheduling?
 
+##### Cap. 8, Exercise 1 (Pag. 505) - JV
+
+1. Sim. O problema de Interval Scheduling é um problema de cobertura, onde precisamos encontrar um conjunto de intervalos não sobrepostos de tamanho pelo menos $k$. O problema de Vertex Cover também é um problema de cobertura, onde precisamos encontrar um conjunto de vértices que cubra todas as arestas do grafo.
+   - Ao manipularmos o Interval Scheduling de tal forma que cada uma das tarefas a serem agendadas seja representada por um vértice, e façamos com que todas as tarefas em horários sobrepostos tenham arestas entre si, podemos transformar o problema de Interval Scheduling em um problema de Independent Set. E esse problema, por sua vez, é reduzível para Vertex Cover, assim tornando o problema de Interval Scheduling redutível para Vertex Cover.
+2. Desconhecido. Isso se dá pois o problema de Independent Set é um problema NP-completo, já o problema de Interval Scheduling é um problema polinomial. Por isso, não podemos afirmar que Independent Set é redutível para Interval Scheduling.
+
 #### Cap. 8, Exercise 2 (Pag. 505)
 
 A store trying to analyze the behavior of its customers will often maintain a two-dimensional array $A$, where the rows correspond to its customers and the columns correspond to the products it sells. The entry $A[i, j]$ specifies the quantity of product $j$ that has been purchased by customer $i$.
@@ -1285,6 +1299,12 @@ Show that Diverse Subset is NP-complete.
 Suppose you're helping to organize a summer sports camp, and the following problem comes up. The camp is supposed to have at least one counselor who's skilled at each of the $n$ sports covered by the camp (baseball, volleyball, and so on). They have received job applications from m potential counselors. For each of the $n$ sports, there is some subset of the $m$ applicants qualified in that sport. The question is: For a given number $k < m$, is it possible to hire at most $k$ of the counselors and have at least one counselor qualified in each of the $n$ sports? We'll call this the *Efficient Recruiting Problem*.
 
 Show that Efficient Recruiting is NP-complete.
+
+##### Cap. 8, Exercise 3 (Pag. 505-506) - JV
+
+O problema de *Efficient Recruiting* é um problema de cobertura, onde precisamos encontrar um conjunto de conselheiros (C) que cubra todas as áreas de esporte (E). De forma similar, no problema de *Set Cover* precisamos encontrar um conjunto de conjuntos (C) que cubram todos os elementos (E).
+
+Sendo assim, podemos reduzir o problema de *Efficient Recruiting* para o problema de *Set Cover*, tornando o problema de *Efficient Recruiting* NP-completo.
 
 #### Cap. 8, Exercise 5 (Pag. 506-507)
 
