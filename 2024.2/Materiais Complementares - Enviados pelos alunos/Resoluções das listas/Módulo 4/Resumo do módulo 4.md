@@ -186,3 +186,57 @@ OPT(i, v) =
   - Caso 2: $OPT(n, v) < OPT(n - 1, v)$ para algum vértice $v$
     - Usando a prova do Lema 8, podemos extrair um ciclo negativo do caminho $v \to t$.
     - O ciclo não pode conter `t` pois não há arestas saindo de `t`.
+
+## Intractability
+
+- Dúvidas
+  - 3-SAT reduces to Independent Set: Qual seria o $|\Phi|$? Pág 28.
+  - Num 3-SAT, não necessariamente precisamos definir V ou F pra todos os literais, certo? De que forma isso altera nas outras versões do problema?
+  - "Encoding with gadgets" seria o mesmo que definir novas restrições à forma convertida?
+  - > (Pág 31) **Decision problem**. Does there exist a vertex cover of size ≤ k ? **Search problem**. Find a vertex cover of size ≤ k. **Optimization problem**. Find a vertex cover of minimum size. **Goal**. Show that all three problems poly-time reduce to one another
+    - Afinal, a otimização me parece o mais complexo, e o Vertex Cover tem solução polinomial?
+
+### Hamiltonian Cycle
+
+- Dúvidas:
+  - Não daria problema quando se converte o direcionado para o não-direcionado por causa dos arcos de ida e volta?
+  - Isso do `black, white, blue...` é o tal do gadget?
+  - Muito esquisito o 3-SAT reduzir para o Hamiltonian Cycle.
+
+## PNP
+
+1. **P (Polynomial Time):** Problemas que podem ser resolvidos em tempo polinomial. "Eficientemente solucionáveis".
+   - Explicação: Existe um algoritmo $A(instância) = Solução$ que roda em tempo polinomial.
+   - Ex.: Multiplicação, ordenação, busca binária, etc.
+   - Ex. Slide: Multiple, Rel-Prime, Primes, Edit-Distance, L-Solve, U-Conn, etc.
+2. **NP (Non-deterministic Polynomial Time):** Problemas que podem ser verificados em tempo polinomial. "Eficientemente verificáveis".
+   - Explicação: Existe um algoritmo $C(instância, possível Solução) = Sim/Não$ que roda em tempo polinomial.
+   - Ex.: Fatoração, satisfatibilidade, clique, encontrar primos, SAT, etc.
+   - Ex. Slide: L-Solve, Composites, Factor, Sat, Hamilton-Path, etc.
+   - Ex. Slide. Com certificados polinomial: SAT, Hamilton-Path, Composites.
+3. Externos ao NP:
+   - Ex.: "Qual o melhor próximo movimento no xadrez?"
+4. **NP-Complete:** Problemas que são tão difíceis quanto os mais difíceis problemas em NP.
+   - **Explicação:** Problema $Y \in NP$ tal que para todo problema $X \in NP$, $X \leq_p Y$.
+   - **Categorias:**
+     - **Packing/covering problems**: SET-COVER, VERTEX-COVER,INDEPENDENT-SET.
+     - **Constraint satisfaction problems**: CIRCUIT-SAT, SAT, 3-SAT.
+     - **Sequencing problems**: HAMILTON-CYCLE, TSP.
+     - **Partitioning problems**: 3D-MATCHING, 3-COLOR.
+     - **Numerical problems**: SUBSET-SUM, KNAPSACK.
+5. **NP-intermediate (NPI):** caso $P \neq NP$, então $|NPI| > 0$.
+   - **Explicação:** Problemas NP que não são nem NP-Completo, nem em P.
+   - **Ex.:** Factoring, Graph Isomorphism, etc.
+6. **EXP:** Problemas que têm algoritmos exponenciais.
+7. **Co-NP:** Problemas cuja negação está em NP.
+   - **Explicação:** enquanto no NP você precisaria de um certificador de que a solução é correta, no Co-NP você precisaria de um certificador de que não existe solução correta.
+   - **Ex.:** UN-SAT, No-Hamilton-Path, Primes.
+8. **NP-Difícil:** Problemas que são tão difíceis quanto os mais difíceis problemas em NP.
+
+"Rapidamente perceber que um resultado é correto é mais fácil do que encontrar o resultado?"
+
+- Dúvida:
+  - Afinal, por que é tão relevante a questão da complexidade?
+    - Se pra um certo problema polinomial a entrada tende a crescer exponencialmente, quanto ao tempo, isso não acabaria empatando as coisas?
+  - Não entendi a testagem de primalidade (Página 53)
+  - Nem Factor/Factorize
