@@ -1282,7 +1282,7 @@ Show that Diverse Subset is NP-complete.
 
 #### Cap. 8, Exercise 3 (Pag. 505-506)
 
-Suppose you're helping to organize a summer sports camp, and the following problem comes up. The camp is supposed to have at least one counselor who's skilled at each of the $n$ sports covered by the camp (baseball, volleyball, and so on). They have received job applications from m potential counselors. For each of the $n$ sports, there is some subset of the m applicants qualified in that sport. The question is: For a given number $k < m$, is it possible to hire at most k of the counselors and have at least one counselor qualified in each of the $n$ sports? We'll call this the *Efficient Recruiting Problem*.
+Suppose you're helping to organize a summer sports camp, and the following problem comes up. The camp is supposed to have at least one counselor who's skilled at each of the $n$ sports covered by the camp (baseball, volleyball, and so on). They have received job applications from m potential counselors. For each of the $n$ sports, there is some subset of the $m$ applicants qualified in that sport. The question is: For a given number $k < m$, is it possible to hire at most $k$ of the counselors and have at least one counselor qualified in each of the $n$ sports? We'll call this the *Efficient Recruiting Problem*.
 
 Show that Efficient Recruiting is NP-complete.
 
@@ -1306,7 +1306,7 @@ You and a friend have been trekking through various far-off parts of the world a
 
 Here's a way you could go about doing this. Suppose there are $n$ objects, labeled $1, 2, \dots, n$, and object $i$ has an agreed-upon *value* $x_i$. (We could think of this, for example, as a monetary resale value; the case in which you and your friend don't agree on the value is something we won't pursue here.) One reasonable way to divide things would be to look for a *partition* of the objects into two sets, so that the total value of the objects in each set is the same.
 
-This suggests solving the following *Number Partitioning Problem_. You are given positive integers $x1, \dots, x_n$; you want to decide whether the numbers can be partitioned into two sets $S_1$ and $S_2$ with the same sum:
+This suggests solving the following *Number Partitioning Problem*. You are given positive integers $x_1, \dots, x_n$; you want to decide whether the numbers can be partitioned into two sets $S_1$ and $S_2$ with the same sum:
 
 $$\sum_{x_i \in S_1} x_i = \sum_{x_j \in S_2} x_j.$$
 
