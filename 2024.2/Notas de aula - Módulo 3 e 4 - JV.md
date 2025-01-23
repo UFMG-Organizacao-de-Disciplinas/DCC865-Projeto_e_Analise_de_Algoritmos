@@ -674,6 +674,8 @@ Na cobertura por conjuntos cujo elemento tenha mais do que duas incidências nos
 
 ### Aula 9 - 13/01/2025 [JV: Faltei]
 
+Quiz 5: C?
+
 ### Aula 10 - 15/01/2025
 
 #### Slide: 08IntractabilityII_original (1)
