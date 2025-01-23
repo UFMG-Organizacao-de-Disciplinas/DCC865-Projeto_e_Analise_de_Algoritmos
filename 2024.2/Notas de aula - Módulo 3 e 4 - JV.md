@@ -1,6 +1,6 @@
 # Bloco 2
 
-## Módulo 3
+## Módulo 3 e 4 (Separar depois)
 
 ### Aula 1
 
@@ -823,6 +823,72 @@ Na prática, a maioria dos problemas **NP** ou são P ou são **NP**-completos
 
 #### Slide: 08IntractabilityII_original (2)
 
+- Definição de NP-completo
+  - Ela menciona sobre o algoritmo verificador
+  - "Todo problema em NP se reduz a SAT"
+
+```mermaid
+flowchart TD
+SAT --> 3-SAT
+3-SAT --> Independent-set & dir-ham-cycle & 3-color & subset-sum
+Independent-set --> Vertex-cover --> Set-cover
+dir-ham-cycle --> ham-cycle
+subset-sum --> Knapsack
+```
+
+##### Quiz 4: Resposta - D
+
+#### Slide: 08IntractabilityI-EditedOlga (2)
+
+##### Subset sum
+
+- **Definição:** obter um subconjunto de um conjunto de números cuja soma iguala a determinado valor.
+
+- **Teorema:** 3-Sat $\leq_p$ Subset-Sum
+  - **Prova:** Deve-se construir uma instância do Subset-Sum a partir de uma instância do 3-Sat.
+
+[JV: Tô prestando atenção. Anotar depois como funciona a tabela.]
+
+Não entendi a parte do C1, C2 e C3 da tabela do Subset-Sum.
+
+Acho que consegui entender. Tá sendo feita uma conversão do 3SAT pro Subset-Sum. E não são todas as possíveis subset que viram 3-sat, mas todas 3 sat podem virar subsetsum seguindo alguns critérios muito específicos.
+
+Explicação da conversão de subset-sum into knapsack: basicamente, todos os pesos serão iguais aos valores, e ambos são iguais aos valores dos números dos subset-sum.
+
+Ela explicou sobre a redução de 3-SAT para Subset-Sum e do Subset-Sum para Knapsack.
+
+Eu perguntei sobre casos de conversão de volta do Knapsack pro Subset-Sum. Ela disse que dá, mas teria que dar a volta por máquina de turing, seguindo pra SAT, 3-SAT, até voltar pro Subset-Sum.
+
+#### Slide: 08IntractabilityII_original (3)
+
 ##### co-NP
 
-##### NP-hard
+- Assimetria: Considerando que conseguimos gerar certificadores de que certa instância é verdadeira. Conseguimos similarmente gerar certificadores que verificam que a instância é falsa?
+
+Para poder verificar isso, seria muito mais complexo, pois seria necessário verificar todas as possibilidades.
+
+Com isso, alguns problemas complementares de problemas NP são não-NP.
+
+Os problemas co-NP é o conjunto de problemas cujos complementares são NP.
+
+[JV: A testagem de primalidade é meio esquisita]
+
+Tem também o de factorization que não peguei mt também.
+
+###### Tabela de imagens
+
+| Descrição               | Imagem                              |
+| ----------------------- | ----------------------------------- |
+| Complexidade de classes | ![Complexidade de classes][ImgPNP1] |
+| Complexidade de classes | ![Complexidade de classes][ImgPNP2] |
+| Complexidade de classes | ![Complexidade de classes][ImgPNP3] |
+| Complexidade de classes | ![Complexidade de classes][ImgPNP4] |
+
+[ImgPNP1]: <https://figures.semanticscholar.org/73baf84348b5918494bf02b1ade1950592e2449d/14-Figure2-1.png>
+[ImgPNP2]: <https://figures.semanticscholar.org/73baf84348b5918494bf02b1ade1950592e2449d/14-Figure2-1.png>
+[ImgPNP3]: <https://www.researchgate.net/publication/277054640/figure/fig1/AS:669541470314514@1536642534939/Complexity-Classes-P-P-NP-N-P-Co-NP-Co-N-P-NPC-N-P-complete-PP-pseudo-polynomial.png>
+[ImgPNP4]: <https://www.researchgate.net/publication/267856474/figure/fig14/AS:669218265657350@1536565476485/N-P-versus-co-N-P-Conjecture.png>
+
+##### NP-Hard
+
+Prova suplementar pra P3 e pra P4. Matérias exclusivas. Dia 29 entrega de provas.
