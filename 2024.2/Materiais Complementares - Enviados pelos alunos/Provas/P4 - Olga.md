@@ -79,11 +79,16 @@ CI, CIP_{Máx}
 5. [V] $CIP \in NP$: adivinha $I \sum w = z \exists para Vértices \in I, conec aresta
    - $O(|I|^2 m) m = aresta G$
 
-## Questão 5 - 4,0 pontos
+## Questão 5 - 4,0 pontos (10h39)
 
-1. A
-2. A
-3. A
-4. A
-5. A
+Max Nota disciplinas
 
+Alg PD: $A[i, h] =$ nota total Max primeiras $i \leq n$ disciplinas, $h \leq H$, tal que $A[0, h] = 0 \forall h$ e $A[i, 0] = \sum_{j=1}^{i} f_j(0) \forall i$
+
+---
+
+1. [V]
+2. [F]
+3. [F]
+4. [F]
+5. [F]
