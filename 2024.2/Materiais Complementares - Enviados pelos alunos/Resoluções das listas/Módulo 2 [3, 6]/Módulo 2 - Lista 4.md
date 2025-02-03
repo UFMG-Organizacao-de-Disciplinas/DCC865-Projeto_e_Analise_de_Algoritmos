@@ -8,6 +8,8 @@ Projeto e Análise de Algoritmos - 2024.2
 
 Professor: Marcio Costa Santos
 
+---
+
 ## Exercício 1. Prove ou refute: em uma busca em largura o conjunto formado pelos nós PRETOS sempre induz um grafo conexo
 
 ```mermaid
@@ -193,7 +195,7 @@ graph TD
 
 Nesse caso, a BFS vai retornar os vértices...
 
-## Exercício 8. É possível modificar o algoritmo de busca em largura para calcular o menor caminho mesmo em um grafo ponderado? Como? Qual a nova complexidade desse algo ritmo? Sua abordagem funciona se o grafo tiver pesos negativos?
+## Exercício 8. É possível modificar o algoritmo de busca em largura para calcular o menor caminho mesmo em um grafo ponderado? Como? Qual a nova complexidade desse algoritmo? Sua abordagem funciona se o grafo tiver pesos negativos?
 
 Sim, é possível modificar. Fazendo com que a busca em largura atualize um vetor de menores caminhos até finalizar sua execução.
 
@@ -271,7 +273,7 @@ Bellman_Ford(G, pesos, inicial)
 $$
 \begin{bmatrix*}
   X & A      & B      & E      & H      & F      & C      & D      & G      \\
-  - & \infty & \infty & \infty & \infty & \infty & \infty & \infty & \infty \\
+  0 & \infty & \infty & \infty & \infty & \infty & \infty & \infty & \infty \\
   A & 0      & 2      & \infty & \infty & \infty & \infty & \infty & \infty \\
   B & 0      & 2      & 4      & \infty & \infty & 3      & \infty & \infty \\
   E & 0      & 2      & 4      & \infty & 8      & 3      & 9      & \infty \\

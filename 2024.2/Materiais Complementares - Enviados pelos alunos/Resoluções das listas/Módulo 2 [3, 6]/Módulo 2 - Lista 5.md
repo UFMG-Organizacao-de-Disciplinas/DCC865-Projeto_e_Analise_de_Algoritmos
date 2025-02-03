@@ -5,6 +5,8 @@ Departamento de Computação
 Projeto e Análise de Algoritmos - 2024.2
 Professor: Marcio Costa Santos
 
+---
+
 ## Exercício 1. Considere o grafo abaixo, apresente uma árvore geradora de custo mínimo
 
 ```mermaid
@@ -100,6 +102,6 @@ Sim. Pois um dos passos do algoritmo de Kruskal é a ordenação das arestas. Se
 
 ## Exercício 9. Assuma que os pesos das arestas do grafo de entrada são todos inteiros e limitados por um valor $W$ fixo e conhecido. É possível melhorar a complexidade do algoritmo de Prim?
 
-Sim. Como o algoritmo de Prim utiliza de uma lista de prioridades, pode-se utilziar
+Sim. Como o algoritmo de Prim utiliza de uma lista de prioridades, pode-se utilizar...
 
 ## Exercício 10. Escreva um algoritmo para decidir se um dado grafo é conexo. Que tipo de certificado o seu algoritmo pode devolver para provar uma resposta afirmativa? E para provar uma resposta negativa?

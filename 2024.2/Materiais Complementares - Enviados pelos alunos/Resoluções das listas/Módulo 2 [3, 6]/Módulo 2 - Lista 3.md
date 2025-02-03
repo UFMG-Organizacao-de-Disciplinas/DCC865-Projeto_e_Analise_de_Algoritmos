@@ -1090,7 +1090,8 @@ graph LR
     V10 -->|T| V9
 ```
 
-Ordenação topológica: Ordenar os vértices em ordem decrescente do tempo de finalização. Ou seja, inverte a lista.
+Ordenação topológica: Ordenar os vértices em ordem decrescente do tempo de finalização.
+<!-- Ou seja, inverte a lista. -->
 
 DFS = [1, 4, 11, 2, 5, 9, 6, 7, 8, 3, 10]
 DFS invertida = [10, 3, 8, 7, 6, 9, 5, 2, 11, 4, 1]

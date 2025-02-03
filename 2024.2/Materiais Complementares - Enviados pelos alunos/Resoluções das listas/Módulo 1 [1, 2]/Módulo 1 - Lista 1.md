@@ -252,7 +252,7 @@ Dessa forma, temos que a complexidade de pior caso é $O(n^2)$.
 
 O melhor caso ocorre quando a lista já está ordenada de forma crescente, pois a chave sempre será maior que o primeiro item verificado pela variável $j$, assim poupando a verificação com os demais.
 
-[JV: eu precisaria explicar mais sobre a decomposição das constantes em O()?]
+[JV: eu precisaria explicar mais sobre a decomposição das constantes em $O()$?]
 
 Nesse caso, o algoritmo percorrerá todos os elementos da lista, porém não realizará nenhuma troca, sendo assim, a complexidade de melhor caso é $O(n)$.
 
@@ -292,7 +292,7 @@ O pior caso é quando a lista está ordenada de forma decrescente, precisando en
 
 Como são dois loops, um dentro do outro, ambos percorrendo aproximadamente $n$ elementos, temos que a complexidade de pior caso é $O(n^2)$.
 
-[JV: preciso depois descobrir qual é a função f(n)?]
+[JV: preciso depois descobrir qual é a função $f(n)$?]
 
 [JV: Talvez usaria aquela ideia de $\frac{n*(n-1)}{2}$, mas que igualmente seria $O(n^2)$]
 
@@ -685,7 +685,7 @@ Segundo a definição do limite superior estrito, temos que:
 
 Para provar por indução, primeiro precisamos provar o $\sum^{n}_{i=1} i = O(n^2)$ e depois o $\sum^{n}_{i=1} i = \Omega (n^2)$.
 
-Para provrar que $\sum^{n}_{i=1} i = \Omega (n^2)$, pela definição do $\Omega$, temos que:
+Para provar que $\sum^{n}_{i=1} i = \Omega (n^2)$, pela definição do $\Omega$, temos que:
 
 - $f = \Omega(g)$ Existem $n_0$ e $c$ tal que: $f(n) \geq c \cdot g(n)$ para todo $n \geq n_0$
 

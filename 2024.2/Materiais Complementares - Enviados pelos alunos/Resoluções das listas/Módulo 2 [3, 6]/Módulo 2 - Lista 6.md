@@ -5,7 +5,9 @@ Departamento de Computação
 Projeto e Análise de Algoritmos - 2024.2
 Professor: Marcio Costa Santos
 
-## Exercício 1. Escreva uma função $graph_check_flow()$ que verifique se um suposto fluxo é de fato um fluxo. A função deve receber um grafo $G$, a fonte $s$, o sumidouro $t$, e um suposto fluxo representado por uma matriz f
+---
+
+## Exercício 1. Escreva uma função $graph\_check\_flow()$ que verifique se um suposto fluxo é de fato um fluxo. A função deve receber um grafo $G$, a fonte $s$, o sumidouro $t$, e um suposto fluxo representado por uma matriz f
 
 ## Exercício 2. Determine o fluxo máximo na rede abaixo
 
