@@ -14,138 +14,69 @@ Considere que todas as recorrência descritas possuem caso base (ou casos bases)
 
 ### **Exercício 1.** Determine e prove uma equivalência assintótica para todas as recorrências abaixo
 
-#### 1. $T (n) = T (n - 3) + 1$
+#### 1.1. $T (n) = T (n - 3) + 1$ || R: $\Theta(n)$
+
+- **Exemplificando alguns passos da recorrência**
+  - $T (n  ) = T (n - 3) + 1$
+  - $T (n-3) = T (n - 6) + 1$
+  - $T (n-6) = T (n - 9) + 1$
+  - $\vdots$
+- **Descendo alguns níveis da recorrência**
+  - $T (n) = T (n - 3) + 1$
+  - $T (n) = T (n - 6) + 2$
+  - $T (n) = T (n - 9) + 3$
+  - $\vdots$
+  - $T (n) = T (n - k*3) + k$
+- **Encontrando o caso base**
+  - $n - k*3 = 0$
+  - $n = k*3$
+  - $n = 3k$
+  - $k = \frac{n}{3}$
+- **Retornando aos níveis da recorrência**
+  - $T (n) = T (n - k*3) + k$
+  - $T (n) = T (n - \frac{n}{3}*3) + \frac{n}{3}$
+  - $T (n) = T (n - n) + \frac{n}{3}$
+  - $T (n) = T (0) + \frac{n}{3}$
+  - $\Theta(T(n)) = \Theta(T(0) + \frac{n}{3})$
+  - $\Theta(T(n)) = \Theta(T(0)) + \Theta(\frac{n}{3})$
+    - Por definição: $\Theta(T(0)) = \Theta(1)$
+  - $\Theta(T(n)) = \Theta(1) + \Theta(\frac{n}{3})$
+  - $\Theta(T(n)) = \Theta(n)$
 
 ---
 
-Sequência geral:
+#### 1.2. $T (n) = 2T (n - 2) + \log n$ || R: $\Theta(2^{n/2})$
 
-1. $T (n  ) = T (n - 3) + 1$
-2. $T (n-3) = T (n - 6) + 1$
-3. $T (n-6) = T (n - 9) + 1$
-4. $\vdots$
-5. $T(n - k*3) = T (n - (k+1)*3) + 1$
-6. $\vdots$ Eq 1.1
-7. $T(n - (\frac{n-3}{3})*3) = T (n - (\frac{n-3}{3} + 1)*3) + 1$
+- $T (n  ) = 2T (n - 2) + \log (n)$
+  - $T (n-2) = 2T (n - 4) + \log (n-2)$
+- $T (n  ) = 2(2T (n - 4) + \log (n-2)) + \log (n)$
+  - $T (n-4) = 2T (n - 6) + \log (n-4)$
+- $T (n  ) = 2(2(2T (n - 6) + \log (n-4)) + \log (n-2)) + \log (n)$
+  - $T (n-6) = 2T (n - 8) + \log (n-6)$
+- $T (n  ) = 2(2(2(2T (n - 8) + \log (n-6)) + \log (n-4)) + \log (n-2)) + \log (n)$
+- **Distribuindo**
+- $T (n  ) = (((2*2*2*2T (n - 8) + 2*2*2*\log (n-6)) + 2*2*\log (n-4)) + 2*\log (n-2)) + \log (n)$
+- $T (n  ) = 2^4 T (n - 8) + 2^3 \log (n-6) + 2^2 \log (n-4) + 2^1 \log (n-2) + 2^0 \log (n)$
+- **Generalizando**
+- $T (k) = 2^k T (n - 2k) + \sum_{i=0}^{k-1} 2^i \log (n-2i)$
+  - **Substituindo $k$ para alcançar o caso base**
+  - $n - 2k = 0$
+  - $n = 2k$
+  - $k = n/2$
+- $T(n/2) = 2^{n/2} T (n - 2n/2) + \sum_{i=0}^{(n/2)-1} 2^i \log (n-2i)$
+- **Separando para simplificar**
+- $T(n/2) = X + Y$
+  - $X = 2^{n/2} T (0)$
+    - $\Theta(X) = \Theta(2^{n/2})$
+  - $Y = \sum_{i=0}^{(n/2)-1} 2^i \log (n-2i)$
+    - $\Theta(Y) = \Theta(\sum_{i=0}^{(n/2)-1} 2^i \log (n-2i))$
+    - $\Theta(Y) = \Theta((2^{n/2}-1) \log (n-2(n/2)-1))$
+    - $\Theta(Y) = \Theta((2^{n/2}-1) \log (n-n-1))$
+    - $\Theta(Y) = \Theta((2^{n/2}-1) \log (-1))$ [Esse log negativo tá esquisito...]
+- **Como $\Theta(X) > \Theta(Y)$...**
+- $\Theta(T(n)) = \Theta(2^{n/2})$
 
-- $T(3) = T(0) + 1$
-
----
-
-Sequência com o passo como variável:
-
-1. $P(0): T(n - 0*3) = T (n - (0+1)*3) + 1$
-2. $P(1): T(n - 1*3) = T (n - (1+1)*3) + 1$
-3. $P(3): T(n - 2*3) = T (n - (2+1)*3) + 1$
-4. $\vdots$
-5. $P(k): T(n - k*3) = T (n - (k+1)*3) + 1$
-
----
-
-$$
-\text{Eq 1.1:}\\
-n - (k+1)*3 = 0\\
-n = (k+1)*3\\
-n = 3k + 3\\
-k = \frac{n-3}{3}
-$$
-
----
-
-Descascando a cebola:
-
-1. $T (n  ) = T (n - 3) + 1$
-2. $T (n-3) = T (n - 6) + 1$
-3. $T (n-6) = T (n - 9) + 1$
-4. $\vdots$
-5. $T(n - k*3) = T (n - (k+1)*3) + 1$
-6. $\vdots$ Eq 1.1
-7. $T(n - (\frac{n-3}{3})*3) = T (n - (\frac{n-3}{3} + 1)*3) + 1$
-
-- $T(3) = T(0) + 1$
-- $T(6) = (T(0) + 1) + 1$
-- $T(9) = ((T(0) + 1) + 1) + 1$
-
-- $T(3*1) = T(0) + 1$
-- $T(6*2) = T(0) + 2$
-- $T(9*3) = T(0) + 3$
-- $\vdots$
-- $T(3*k) = T(0) + k$
-- $\vdots$ Eq 1.2
-- $T(3*\frac{n}{3}) = T(0) + \frac{n}{3}$
-- $T(n) = T(0) + \frac{n}{3}$
-- $O(T(n)) = O(T(0) + \frac{n}{3})$
-- Por definição: $O(T(0)) = O(1)$
-- $O(T(n)) = O(1 + \frac{n}{3})$
-- $O(T(n)) = O(C_1*n)$
-- $O(T(n)) = O(n)$
-
----
-
-$$
-\text{Eq 1.2:}\\
-T(3*k) = T(n)\\
-3*k = n\\
-k = \frac{n}{3}
-$$
-
----
-
-#### 2. $T (n) = 2T (n - 2) + \log n$
-
-0. $T (n  ) = 2T (n - 2) + \log n$
-1. $T (n-2) = 2T (n - 4) + \log (n-2)$
-2. $T (n-4) = 2T (n - 6) + \log (n-4)$
-3. $T (n-6) = 2T (n - 8) + \log (n-6)$
-4. $\vdots$
-
----
-
-0. $T(n-2*0) = 2T(n - 2*(0 + 1)) + \log (n-2*0)$
-1. $T(n-2*1) = 2T(n - 2*(1 + 1)) + \log (n-2*1)$
-2. $T(n-2*2) = 2T(n - 2*(2 + 1)) + \log (n-2*2)$
-3. $T(n-2*3) = 2T(n - 2*(3 + 1)) + \log (n-2*3)$
-4. $\vdots$
-5. $T(n-2*k) = 2T(n - 2*(k + 1)) + \log (n-2*k)$
-
----
-
-$$
-\text{Eq 1.2:}\\
-T(n-2*(k+1)) = T(0)\\
-n-2*(k+1) = 0\\
-n = 2*(k+1)\\
-n = 2k + 2\\
-k = \frac{n-2}{2}
-$$
-
----
-
-Substituindo:
-
-1. $T(n-2*3) = 2T(n - 2*(3 + 1)) + \log (n-2*3)$
-2. $T(n-2*2) = 2 (2T(n - 2*(3 + 1)) + \log (n-2*3)) + \log (n-2*2)$
-3. $T(n-2*1) = 2 (2 (2T(n - 2*(3 + 1)) + \log (n-2*3)) + \log (n-2*2)) + \log (n-2*1)$
-4. $T(n-2*0) = 2 (2 (2 (2T(n - 2*(3 + 1)) + \log (n-2*3)) + \log (n-2*2)) + \log (n-2*1)) + \log (n-2*0)$
-
----
-
-Enxugando:
-
-1. $T(n-6) = 2T(n - 8) + \log (n-6)$
-2. $T(n-4) = 2 (2T(n - 8) + \log (n-6)) + \log (n-4)$
-3. $T(n-2) = 2 (2 (2T(n - 8) + \log (n-6)) + \log (n-4)) + \log (n-2)$
-4. $T(n-0) = 2*2*2*2T(n - 8) + 2*2*2*\log (n-6) + 2*2*\log (n-4) + 2*\log (n-2) + \log (n-0)$
-
-- 4: $T(n) = 2^4T(n - 8) + 2^3\log (n-6) + 2^2\log (n-4) + 2\log (n-2) + \log n$
-- 4: $T(n) = 2^4T(n - 2^{4-1}) + 2^{4-1}\log (n-2*{4-1}) + 2^{4-2}\log (n-2*{4-2}) + 2^{4-3}\log (n-2*{4-3}) + 2^{4-4}\log (n-2*{4-4})$
-- k: $T(n) = \sum_{i=0}^{k} 2^{n-i} \log (n-2*(n-i))$
-
----
-
-[JV: aqui já não sei o que fazer, vou chutar que eu meto um O() daquilo ali... Mas eu precisaria converter esse somatório.]
-  
-#### 3. $T (n) = T (n - 1) + n$
+#### 1.3. $T (n) = T (n - 1) + n$ || R: $\Theta(n^2)$
 
 - $P_0: T (n  ) = T (n - 1) + n$
 - $P_1: T (n-1) = T (n - 2) + (n-1)$
@@ -185,195 +116,186 @@ Substituindo $k$ na equação:
 - $T(n) = \Theta(1) + \Theta(n^2) + \Theta(\frac{- n^2}{2}) + \Theta(\frac{n}{2})$
 - $T(n) = \Theta(n^2)$
 
-#### 4. $T (n) = 2T (n - 1) + n^2 + 1$
+#### 1.4. $T (n) = 2T (n - 1) + n^2 + 1$ || $\Theta(2^n * n^2)$
 
-- $P_0: T (n  ) = 2T (n - 1) + (n  )^2 + 1$
-- $P_1: T (n-1) = 2T (n - 2) + (n-1)^2 + 1$
-- $P_2: T (n-2) = 2T (n - 3) + (n-2)^2 + 1$
-- $P_3: T (n-3) = 2T (n - 4) + (n-3)^2 + 1$
-- $P_4: T (n-4) = 2T (n - 5) + (n-4)^2 + 1$
-- $\vdots$
-
----
-
-Substituindo os passos no caso base:
-
-- $T(n) = 2T(n-1) + n^2 + 1$
-- $T(n) = 2(2T(n-2) + (n-1)^2 + 1) + n^2 + 1$
-  - $T(n) = 4T(n-2) + 2(n-1)^2 + 2 + n^2 + 1$
-- $T(n) = 4(2T (n-3) + (n-2)^2 + 1) + 2(n-1)^2 + 2 + n^2 + 1$
-  - $T(n) = 8T(n-3) + 4(n-2)^2 + 4 + 2(n-1)^2 + 2 + n^2 + 1$
-- $T(n) = 8(2T (n-4) + (n-3)^2 + 1) + 4(n-2)^2 + 4 + 2(n-1)^2 + 2 + n^2 + 1$
-  - $T(n) = 16T(n-4) + 8(n-3)^2 + 8 + 4(n-2)^2 + 4 + 2(n-1)^2 + 2 + n^2 + 1$
-
-Reordenando os termos:
-
-- $T(n) = 16T(n-4) + 8(n-3)^2 + 4(n-2)^2 + 2(n-1)^2 + (n)^2 + (8 + 4 + 2 + 1)$
-
-Adicionando mais uns detalhes pra facilitar o entendimento da progressão:
-
-- $T(n) = 16T(n-4) + 8(n-3)^2 + 4(n-2)^2 + 2(n-1)^2 + 1(n-0)^2 + (8 + 4 + 2 + 1)$
-- $T(n) = (2^4)T(n-4) + (2^3)(n-3)^2 + (2^2)(n-2)^2 + (2^1)(n-1)^2 + (2^0)(n-0)^2 + (8 + 4 + 2 + 1)$
-- $T(n) = (2^4)T(n-4) + (2^3)(n-3)^2 + (2^2)(n-2)^2 + (2^1)(n-1)^2 + (2^0)(n-0)^2 + (15)$
-- $T(n) = (2^4)T(n-4) + (2^3)(n-3)^2 + (2^2)(n-2)^2 + (2^1)(n-1)^2 + (2^0)(n-0)^2 + (2^4 - 1)$
-- $T(n) = \left( (2^4)T(n-4) + (2^3)(n-3)^2 + (2^2)(n-2)^2 + (2^1)(n-1)^2 + (2^0)(n-0)^2 \right) + (2^4 - 1)$
-- $\vdots$
-- $Eq. 1: T(n) = 2^kT(n-k) + \sum_{i=0}^{k-1} \left( 2^i(n-i)^2 \right) + (2^k - 1)$
-- ou
-- $Eq. 2: T(n) = 2^kT(n-k) + \sum_{i=0}^{k-1} \left( 2^i(n-i)^2 + 2^i\right)$
-
----
-
-Distribuindo a $Eq. 1$:
-
-- $Eq. 1: T(n) = 2^kT(n-k) + \sum_{i=0}^{k-1} \left( 2^i(n-i)^2 \right) + (2^k - 1)$
-- Considerando que $f(n) = 2^i(n-i)^2$
-- $f(n) = 2^i(n-i)^2$
-- $f(n) = 2^i(n^2- 2ni + i^2)$
-- $f(n) = (2^i)*(n^2- 2ni + i^2)$
-- $f(n) = ((2^i)*n^2- (2^i)*2ni + (2^i)*i^2)$
-- $f(n) = (2^i)*n^2 - (2^i)*2ni + (2^i)*i^2$
-
-Retornando o $f(n)$ ao somatório:
-
-- $T(n) = 2^kT(n-k) + \sum_{i=0}^{k-1} \left( (2^i)*n^2 - (2^i)*2ni + (2^i)*i^2 \right) + (2^k - 1)$
-
-Considerando que $g(n) = \sum_{i=0}^{k-1} \left( (2^i)*n^2 - (2^i)*2ni + (2^i)*i^2 \right)$
-
-- $g(n) = \sum_{i=0}^{k-1} \left( (2^i)*n^2 - (2^i)*2ni + (2^i)*i^2 \right)$
-- $g(n) = \sum_{i=0}^{k-1} (2^i)*n^2 - \sum_{i=0}^{k-1} (2^i)*2ni + \sum_{i=0}^{k-1} (2^i)*i^2$
-- $g(n) = n^2 \sum_{i=0}^{k-1} (2^i) - 2n \sum_{i=0}^{k-1} (2^i)*i + \sum_{i=0}^{k-1} (2^i)*i^2$
-
----
-
-Considerando que $h(n) = \sum_{i=0}^{k-1} (2^i)$
-
-- $h(n) = \sum_{i=0}^{k-1} (2^i)$
-- $h(n) = 2^0 + 2^1 + 2^2 + \ldots + 2^{k-1}$
-
-##### Bira
-
-
-BIRA
-
-- $\sum_{i=1}^{n} \left( 2^i * (n-i)^2 \right)$
-- $b(n) = \sum_{i=1}^{n} \left( 2^i * (n-i)^2 \right)$
-- $b(n) - b(n-1) = 2n * (n-n)^2$ #COPILOT
-- $b(n) - b(n-1) = (\sum_{i=1}^{n} \left( 2^i * (n-i)^2 \right))-(\sum_{i=1}^{n-1} \left( 2^i * ((n-1)-i)^2 \right))$
-- $b(n) - b(n-1) = (\sum_{i=1}^{n-1} \left( 2^i * (n-i)^2 \right)) + (2^n * (n-n)^2) -(\sum_{i=1}^{n-1} \left( 2^i * ((n-1)-i)^2 \right))$
-- $b(n) - b(n-1) = (\sum_{i=1}^{n-1} \left( 2^i * (n-i)^2 \right)) + (2^n * (0)^2) -(\sum_{i=1}^{n-1} \left( 2^i * ((n-1)-i)^2 \right))$
-- $b(n) - b(n-1) = (\sum_{i=1}^{n-1} \left( 2^i * (n-i)^2 \right)) + (0) -(\sum_{i=1}^{n-1} \left( 2^i * ((n-1)-i)^2 \right))$
-- $b(n) - b(n-1) = \sum_{i=1}^{n-1} \left( 2^i * (n-i)^2 \right) - \sum_{i=1}^{n-1} \left( 2^i * ((n-1)-i)^2 \right)$
-- $b(n) - b(n-1) = \sum_{i=1}^{n-1} \left( (2^i * (n-i)^2) - (2^i * ((n-1)-i)^2) \right)$
-- $b(n) - b(n-1) = \sum_{i=1}^{n-1} \left( 2^i * (n-i)^2 - 2^i * ((n-1)-i)^2 \right)$
-- $b(n) - b(n-1) = \sum_{i=1}^{n-1} \left( 2^i * ((n-i)^2 - (n-i-1)^2) \right)$
-- $b(n) - b(n-1) = \sum_{i=1}^{n-1} \left( 2^i * (2*(n-i) - 1) \right)$
-
-Definindo $c(n) = \sum_{i=1}^{n-1} \left( 2^i * (2*(n-i) - 1) \right)$
-
----
-
----
-
-ABANDONANDO A BAGUNÇA ANTERIOR E SEGUINDO PRO MÉTODO INDUTIVO.
-
-Recorrência base: $T (n) = 2T (n - 1) + n^2 + 1$
-
-- $T (n) = \Omega(2^n)$
-
-- $2^1T (n - 1)$
-- $2^2T (n - 2)$
-- $2^3T (n - 3)$
-- ...
-
----
-
-- $T(n) \leq 2^n - 2* n^2$
-
-Por hipótese de indução:
-
-- $T(n-1) \leq 2^{n-1} - (n-1)^2$
-
-Passo indutivo:
-
-- $T(n) \leq 2T(n-1) + n^2 + 1$
-- $T(n) \leq 2(2^{n-1} - 2* (n-1)^2) + n^2 + 1$
-- $T(n) \leq 2*2^{n-1} - 4*(n-1)^2 + n^2 + 1$
-- $T(n) \leq 2^{n} - 4*(n-1)^2 + n^2 + 1$
-- $T(n) \leq 2^{n} - 4*(n^2 - 2n + 1) + n^2 + 1$
-- $T(n) \leq 2^{n} - (4*n^2 - 4*2n + 4*1) + n^2 + 1$
-- $T(n) \leq 2^{n} - (4*n^2 - 8n + 4) + n^2 + 1$
-- $T(n) \leq 2^{n} - 4*n^2 + 8n - 4 + n^2 + 1$
-- $T(n) \leq 2^{n} - 3n^2 + 8n - 3$
-- $T(n) \leq 2^{n} - 3n^2 + 8n - 3 \leq 2^n - 2* n^2$
-
-Como $2^n - 3n^2 + 8n - 3 \leq 2^n - 2* n^2$ é verdade, então $T(n) = \Omega(2^n)$ para $n$ grande o bastante.
-
----
+- **Exemplificando alguns passos da recorrência**
+  - $T (n  ) = 2^{1}*(T (n - 1)) + n^{2} + 1$
+  - $T (n-1) = 2^{1}*(T (n - 2)) + n^{2} + 1$
+  - $T (n-2) = 2^{1}*(T (n - 3)) + n^{2} + 1$
+  - $\vdots$
+- **Descendo alguns níveis da recorrência**
+  - $T (n) = 2^{1}*(T(n - 1)) + n^2 + 1$
+  - $T (n) = 2^{1}*(2^{1}*(T (n - 2)) + n^{2} + 1) + 1$
+  - $T (n) = 2^{1}*(2^{1}*(2^{1}*(T (n - 3)) + n^{2} + 1) + n^{2} + 1) + n^2 + 1$
+- **Simplificando**
+  - $T (n) = 2^{1}*2^{1}*2^{1}*(T (n - 3)) + 2^{1}*2^{1}*n^{2} + 2^{1}*2^{1}*1 + 2^{1}*n^{2} + 2^{1}*1 + n^2 + 1$
+  - $T (n) = 2^{3}*(T (n - 3)) + 2^{2}*n^{2} + 2^{2} + 2^{1}*n^{2} + 2^{1} + n^2 + 1$
+  - **Separando os blocos**
+    - $T (n) = [2^3*(T (n - 3))] + [2^2 * n^2 + 2^1 * n^2 + 2^0 * n^2] + [2^2 + 2^1 + 2^0]$
+  - **Generalizando**
+    - $T (n) = 2^k*(T (n - k)) + \sum_{i=0}^{k-1} 2^i * n^2 + \sum_{i=0}^{k-1} 2^i$
+- **Encontrando o caso base**
+  - $n - k = 0$
+  - $n = k$
+- **Retornando aos níveis da recorrência**
+  - $T (n) = 2^k*(T (n - k)) + \sum_{i=0}^{k-1} 2^i * n^2 + \sum_{i=0}^{k-1} 2^i$
+  - **Substituindo $n = k$**
+    - $T (n) = 2^n*(T (n - n)) + \sum_{i=0}^{n-1} 2^i * n^2 + \sum_{i=0}^{n-1} 2^i$
+    - $T (n) = 2^n*(T (0)) + \sum_{i=0}^{n-1} 2^i * n^2 + \sum_{i=0}^{n-1} 2^i$
+    - **Separando em blocos**
+      - $T (n) = A + B + C$
+        - $A = 2^n*(T (0))$
+          - $\Theta(A) = \Theta(2^n)$
+        - $B = \sum_{i=0}^{n-1} 2^i * n^2$
+          - $\Theta(B) = \Theta(\sum_{i=0}^{n-1} 2^i * n^2)$
+          - $\Theta(B) = \Theta(2^{n-1} * n^2)$
+          - $\Theta(B) = \Theta(2^n * n^2)$
+        - $C = \sum_{i=0}^{n-1} 2^i$
+          - $\Theta(C) = \Theta(\sum_{i=0}^{n-1} 2^i)$
+          - $\Theta(C) = \Theta(2^{n-1})$
+          - $\Theta(C) = \Theta(2^n)$
+      - $\Theta(T(n)) = \Theta(A + B + C)$
+      - $\Theta(T(n)) = \Theta(A) + \Theta(B) + \Theta(C)$
+      - $\Theta(T(n)) = \Theta(2^n) + \Theta(2^n * n^2) + \Theta(2^n)$
+      - $\Theta(T(n)) = \Theta(2^n * n^2)$
 
 ---
 
 ### **Exercício 2.** Determine e prove uma equivalência assintótica para todas as recorrências abaixo. **Não use o teorema mestre**
 
-#### 1. $T (n) = 2T ( \frac{n}{2} ) + 1$
+#### 2.1. $T (n) = 2T ( \frac{n}{2} ) + 1$ || R: $\Theta(n)$
 
-0. $T (n  ) = 2T ( \frac{n}{2} ) + 1$
-1. $T ( \frac{n}{2} ) = 2T ( \frac{n}{ 4} ) + 1$
-2. $T ( \frac{n}{4} ) = 2T ( \frac{n}{ 8} ) + 1$
-3. $T ( \frac{n}{8} ) = 2T ( \frac{n}{16} ) + 1$
-4. $\vdots$
+- **Exemplificando alguns passos da recorrência**
+  - $T ( n*2^{ 0} ) = 2^1*(T (n*2^{-1})) + 1$
+  - $T ( n*2^{-1} ) = 2^1*(T (n*2^{-2})) + 1$
+  - $T ( n*2^{-2} ) = 2^1*(T (n*2^{-3})) + 1$
+  - $T ( n*2^{-3} ) = 2^1*(T (n*2^{-4})) + 1$
+  - $\vdots$
+- **Descendo alguns níveis da recorrência**
+  - $T (n) = 2^1*(T (n*2^{-1})) + 1$
+  - $T (n) = 2^1*(2^1*(T (n*2^{-2})) + 1) + 1$
+  - $T (n) = 2^1*(2^1*(2^1*(T (n*2^{-3})) + 1) + 1) + 1$
+  - $T (n) = 2^1*(2^1*(2^1*(2^1*(T (n*2^{-4})) + 1) + 1) + 1) + 1$
+- **Simplificando**
+  - $T (n) = 2^4*(T (n*2^{-4})) + 2^3 + 2^2 + 2^1 + 2^0$
+  - **Separando os blocos**
+    - $T (n) = 2^4*(T (n*2^{-4})) + [2^3 + 2^2 + 2^1 + 2^0]$
+  - **Generalizando**
+    - $T (n) = 2^k*(T (n*2^{-k})) + \sum_{i=0}^{k} 2^i$
+- **Encontrando o caso base**
+  - $n*2^{-k} = 1$
+  - $n/2^{k} = 1$
+  - $n = 2^{k}$
+  - $k = \log_{2} n$
+- **Retornando aos níveis da recorrência**
+  - $T (n) = 2^k*(T (n*2^{-k})) + \sum_{i=0}^{k} 2^i$
+  - **Substituindo $k = \log_{2} n$**
+    - $T (n) = 2^{\log_{2} n}*(T (n*2^{-\log_{2} n})) + \sum_{i=0}^{\log_{2} n} 2^i$
+    - $T (n) = n*(T (1)) + \sum_{i=0}^{\log_{2} n} 2^i$
+    - **Separando em blocos**
+      - $T (n) = A + B$
+        - $A = n*(T (1))$
+          - $\Theta(A) = \Theta(n)$
+        - $B = \sum_{i=0}^{\log_{2} n} 2^i$
+          - $\Theta(B) = \Theta(\sum_{i=0}^{\log_{2} n} 2^i)$
+          - $\Theta(B) = \Theta(2^{\log_{2} n})$
+          - $\Theta(B) = \Theta(n)$
+      - $\Theta(T(n)) = \Theta(A + B) = \Theta(A) + \Theta(B)$
+      - $\Theta(T(n)) = \Theta(n) + \Theta(n)$
+      - $\Theta(T(n)) = \Theta(n)$
 
----
+#### 2.2. $T (n) = 4T ( \frac{n}{2} ) + \log n$ || R: $\Theta(n^2 * \log n)$
 
-0. $T(\frac{n}{2^{0}}) = 2T(\frac{n}{2^{0+1}}) + 1$
-1. $T(\frac{n}{2^{1}}) = 2T(\frac{n}{2^{1+1}}) + 1$
-2. $T(\frac{n}{2^{2}}) = 2T(\frac{n}{2^{2+1}}) + 1$
-3. $T(\frac{n}{2^{3}}) = 2T(\frac{n}{2^{3+1}}) + 1$
-4. $\vdots$
-5. $T(\frac{n}{2^{k}}) = 2T(\frac{n}{2^{k+1}}) + 1$
-6. $\vdots$ *EQ 2.1*
+- **Exemplificando alguns passos da recorrência**
+  - $T ( n*2^{ 0} ) = 4*(T (n*2^{-1})) + \log (n*2^{ 0})$
+  - $T ( n*2^{-1} ) = 4*(T (n*2^{-2})) + \log (n*2^{-1})$
+  - $T ( n*2^{-2} ) = 4*(T (n*2^{-3})) + \log (n*2^{-2})$
+  - $T ( n*2^{-3} ) = 4*(T (n*2^{-4})) + \log (n*2^{-3})$
+  - $\vdots$
+- **Descendo alguns níveis da recorrência**
+  - $T (n) = 4*(T (n*2^{-1})) + \log (n*2^{ 0})$
+  - $T (n) = 4*(4*(T (n*2^{-2})) + \log (n*2^{-1})) + \log (n*2^{ 0})$
+  - $T (n) = 4*(4*(4*(T (n*2^{-3})) + \log (n*2^{-2})) + \log (n*2^{-1})) + \log (n*2^{ 0})$
+  - $T (n) = 4*(4*(4*(4*(T (n*2^{-4})) + \log (n*2^{-3})) + \log (n*2^{-2})) + \log (n*2^{-1})) + \log (n*2^{ 0})$
+- **Simplificando**
+  - $T (n) = 4^4*(T (n*2^{-4})) + 4^3*\log (n*2^{-3}) + 4^2*\log (n*2^{-2}) + 4^1*\log (n*2^{-1}) + 4^0*\log (n*2^{ 0})$
+  - **Separando os blocos**
+    - $T (n) = 4^4*(T (n*2^{-4})) + [4^3*\log (n*2^{-3}) + 4^2*\log (n*2^{-2}) + 4^1*\log (n*2^{-1}) + 4^0*\log (n*2^{ 0})]$
+    - $T (n) = 4^4*(T (n*2^{-4})) + [4^3*(\log (n) + \log (2^{-3})) + 4^2*(\log (n) + \log (2^{-2})) + 4^1*(\log (n) + \log (2^{-1})) + 4^0*(\log (n) + \log (2^{ 0}))]$
+    - $T (n) = 4^4*(T (n*2^{-4})) + [4^3*\log (n) + 4^3*\log (2^{-3}) + 4^2*\log (n) + 4^2*\log (2^{-2}) + 4^1*\log (n) + 4^1*\log (2^{-1}) + 4^0*\log (n) + 4^0*\log (2^{ 0})]$
+    - $T (n) = 4^4*(T (n*2^{-4})) + [\log(n) * (4^3 + 4^2 + 4^1 + 4^0) + \log(2^{-3}) * 4^3 + \log(2^{-2}) * 4^2 + \log(2^{-1}) * 4^1 + \log(2^{ 0}) * 4^0]$
+  - **Generalizando**
+    - $T (n) = 4^k*(T (n*2^{-k})) + \log (n) * \sum_{i=0}^{k} 4^i + \sum_{i=0}^{k} \log(2^{-i}) * 4^i$ [JV: Esse $\log$ não deveria estar negativo...]
+- **Encontrando o caso base**
+  - $n*2^{-k} = 1$
+  - $n/2^{k} = 1$
+  - $n = 2^{k}$
+  - $k = \log_{2} n$
+- **Retornando aos níveis da recorrência**
+  - $T (n) = 4^k*(T (n*2^{-k})) + \log(n) * \sum_{i=0}^{k} 4^i + \sum_{i=0}^{k} \log(2^{-i}) * 4^i$
+  - **Substituindo $k = \log_{2} n$**
+    - $T (n) = 4^{\log_{2} n}*(T (n*2^{-\log_{2} n})) + \log(n) * \sum_{i=0}^{\log_{2} n} 4^i + \sum_{i=0}^{\log_{2} n} \log(2^{-i}) * 4^i$
+    - $T (n) = [n^2 * (T (1))] + [\log(n) * \sum_{i=0}^{\log_{2} n} 4^i] + [\sum_{i=0}^{\log_{2} n} \log(2^{-i}) * 4^i]$
+    - **Separando em blocos**
+      - $T (n) = A + B + C$
+        - $A = n^2 * (T (1))$
+          - $\Theta(A) = \Theta(n^2)$
+        - $B = \log(n) * \sum_{i=0}^{\log_{2} n} 4^i$
+          - $\Theta(B) = \Theta(\log(n) * \sum_{i=0}^{\log_{2} n} 4^i)$
+          - $\Theta(B) = \Theta(\log(n) * 4^{\log_{2} n})$
+          - $\Theta(B) = \Theta(\log(n) * n^2)$
+          - $\Theta(B) = \Theta(n^2 * \log(n))$
+        - $C = \sum_{i=0}^{\log_{2} n} \log(2^{-i}) * 4^i$
+          - $\Theta(C) = \Theta(\log(2^{-\log_{2} n}) * 4^{\log_{2} n})$
+          - $\Theta(C) = \Theta(-\log(n) * n^2)$ [JV: vou fingir que isso é positivo e seguir daí]
+          - $\Theta(C) = \Theta(n^2 * \log(n))$
+      - $\Theta(T(n)) = \Theta(A + B + C) = \Theta(A) + \Theta(B) + \Theta(C)$
+      - $\Theta(T(n)) = \Theta(n^2) + \Theta(n^2 * \log(n)) + \Theta(n^2 * \log(n))$
+      - $\Theta(T(n)) = \Theta(n^2 * \log(n))$
 
----
+#### 2.3. $T (n) = 7T ( \frac{n}{3} ) + n$ || R: $\Theta(n^{\log_{3} 7})$
 
-$$
-\text{Eq 2.1:}\\
-T(\frac{n}{2^{k+1}}) = T(1)\\
-\frac{n}{2^{k+1}} = 1\\
-n = 2^{k+1}\\
-k = \log_{2} n - 1
-$$
-
-#### 2. $T (n) = 4T ( \frac{n}{2} ) + \log n$
-
-0. $T (       n     ) = 4T ( \frac{n}{ 2} ) + \log n$
-1. $T ( \frac{n}{2} ) = 4T ( \frac{n}{ 4} ) + \log \frac{n}{2}$
-2. $T ( \frac{n}{4} ) = 4T ( \frac{n}{ 8} ) + \log \frac{n}{4}$
-3. $T ( \frac{n}{8} ) = 4T ( \frac{n}{16} ) + \log \frac{n}{8}$
-4. $\vdots$
-
----
-
-1. $T(\frac{n}{2^{0}}) = 4T(\frac{n}{2^{0+1}}) + \log \frac{n}{2^0}$
-2. $T(\frac{n}{2^{1}}) = 4T(\frac{n}{2^{1+1}}) + \log \frac{n}{2^1}$
-3. $T(\frac{n}{2^{2}}) = 4T(\frac{n}{2^{2+1}}) + \log \frac{n}{2^2}$
-4. $T(\frac{n}{2^{3}}) = 4T(\frac{n}{2^{3+1}}) + \log \frac{n}{2^3}$
-5. $\vdots$
-6. $T(\frac{n}{2^{k}}) = 4T(\frac{n}{2^{k+1}}) + \log \frac{n}{2^k}$
-
----
-
-Substituindo...
-
-1. $T ( \frac{n}{8} ) = 4T ( \frac{n}{16} ) + \log \frac{n}{8}$
-2. $T ( \frac{n}{4} ) = 4(4T ( \frac{n}{16} ) + \log \frac{n}{8}) + \log \frac{n}{4}$
-3. $T ( \frac{n}{2} ) = 4(4(4T ( \frac{n}{16} ) + \log \frac{n}{8}) + \log \frac{n}{4}) + \log \frac{n}{2}$
-4. $T (       n     ) = 4(4(4(4T ( \frac{n}{16} ) + \log \frac{n}{8}) + \log \frac{n}{4}) + \log \frac{n}{2}) + \log n$
-
-- $T (       n     ) = 4(4(4(4T ( \frac{n}{16} ) + \log \frac{n}{8}) + \log \frac{n}{4}) + \log \frac{n}{2}) + \log n$
-- $T (n) = 4^4 * T(\frac{n}{2^{3}}) + 4^3 * \log \frac{n}{2^3} + 4^2 * \log \frac{n}{2^2} + 4 * \log \frac{n}{2^1} + \log n$
-- $T (n) = 4^4 * T(\frac{n}{2^{4-1}}) + 4^{4-1} * \log \frac{n}{2^{4-1}} + 4^{4-2} * \log \frac{n}{2^{4-2}} + 4^{4-3} * \log \frac{n}{2^{4-3}} + \log \frac{n}{2^{4-4}}$
-
-#### 3. $T (n) = 7T ( \frac{n}{3} ) + n$
+- **Exemplificando alguns passos da recorrência**
+  - $T ( n*3^{ 0} ) = 7*(T (n*3^{-1})) + n$
+  - $T ( n*3^{-1} ) = 7*(T (n*3^{-2})) + n$
+  - $T ( n*3^{-2} ) = 7*(T (n*3^{-3})) + n$
+  - $T ( n*3^{-3} ) = 7*(T (n*3^{-4})) + n$
+  - $\vdots$
+- **Descendo alguns níveis da recorrência**
+  - $T (n) = 7*(T (n*3^{-1})) + n$
+  - $T (n) = 7*(7*(T (n*3^{-2})) + n) + n$
+  - $T (n) = 7*(7*(7*(T (n*3^{-3})) + n) + n) + n$
+  - $T (n) = 7*(7*(7*(7*(T (n*3^{-4})) + n) + n) + n) + n$
+- **Simplificando**
+  - $T (n) = 7^4*(T (n*3^{-4})) + 7^3*n + 7^2*n + 7^1*n + 7^0*n$
+  - **Separando os blocos**
+    - $T (n) = 7^4*(T (n*3^{-4})) + [7^3*n + 7^2*n + 7^1*n + 7^0*n]$
+  - **Generalizando**
+    - $T (n) = 7^k*(T (n*3^{-k})) + \sum_{i=0}^{k} 7^i * n$
+    - $T (n) = 7^k*(T (n*3^{-k})) + n * \sum_{i=0}^{k} 7^i$
+- **Encontrando o caso base**
+  - $n*3^{-k} = 1$
+  - $n/3^{k} = 1$
+  - $n = 3^{k}$
+  - $k = \log_{3} n$
+- **Retornando aos níveis da recorrência**
+  - $T (n) = 7^k*(T (n*3^{-k})) + n * \sum_{i=0}^{k} 7^i$
+  - **Substituindo $k = \log_{3} n$**
+    - $T (n) = 7^{\log_{3} n}*(T (n*3^{-\log_{3} n})) + n * \sum_{i=0}^{\log_{3} n} 7^i$
+    - $T (n) = n^{\log_{3} 7}*(T (1)) + n * \sum_{i=0}^{\log_{3} n} 7^i$
+    - **Separando em blocos**
+      - $T (n) = A + B$
+        - $A = n^{\log_{3} 7}*(T (1))$
+          - $\Theta(A) = \Theta(n^{\log_{3} 7})$
+        - $B = n * \sum_{i=0}^{\log_{3} n} 7^i$
+          - $\Theta(B) = \Theta(n * \sum_{i=0}^{\log_{3} n} 7^i)$
+          - $\Theta(B) = \Theta(n * 7^{\log_{3} n})$
+          - $\Theta(B) = \Theta(n * n^{\log_{3} 7})$
+          - $\Theta(B) = \Theta(n^{\log_{3} 7 + 1})$
+          - $\Theta(B) = \Theta(n^{\log_{3} 7})$
+      - $\Theta(T(n)) = \Theta(A + B) = \Theta(A) + \Theta(B)$
+      - $\Theta(T(n)) = \Theta(n^{\log_{3} 7}) + \Theta(n^{\log_{3} 7})$
+      - $\Theta(T(n)) = \Theta(n^{\log_{3} 7})$
 
 ### **Exercício 3.** Usando o teorema mestre determine uma equivalência assintótica para
 
@@ -383,143 +305,126 @@ Substituindo...
     - Se $f(n) = \Theta(n^{\log_{b}(a)}) \implies T(n) = \Theta(n^{\log_{b}(a)} * log(n))$ [=]
     - Se $f(n) = \Omega(n^{\log_{b}(a) + \epsilon})$ e $a f (\frac{n}{b}) \leq cf(n)$ então $\implies T(n) = \Theta(f(n))$ [>=]
 
-![a](https://static.todamateria.com.br/upload/lo/ga/logaritmodefinicao.jpg)
-
-#### 1. $T (n) = 2T ( \frac{n}{4} ) + 1$
-
-- $a = 2; b = 4; f(n) = 1$
-
-$n^{\log_{b}(a) \pm \epsilon} = n^{\log_{4}(2) \pm \epsilon} = n^{\frac{1}{2} \pm \epsilon}$
-
-Considerando $\epsilon = \frac{1}{2}$, temos que:
-
-- $n^{\frac{1}{2} - \frac{1}{2}} = n^0 = 1$
-
-Então $f(n) = O(1)$, $f(n) = 1 = O(1)$. Logo, $T(n) = \Theta(n^{\log_{4}(2)}) = \Theta(n^\frac{1}{2}) = \Theta(\sqrt{n})$
-
 ---
 
-- f(n) = 1
-- $1 = O(n^{\log_{b}(a) \pm \epsilon})$
-- $1 = O(n^{\log_{4}(2) \pm \epsilon})$
-- $1 = O(n^{\frac{1}{2} \pm \epsilon})$
-- [JV: para que n^{a alguma coisa} seja uma constante, seu expoente precisa ser 0]
-- $0 = \frac{1}{2} \pm \epsilon$
-- $\epsilon = \pm \frac{1}{2}$
+$$\log_{a} b = x \Leftrightarrow a^x = b$$
 
-#### 2. $T (n) = 2T ( \frac{n}{4} ) + n$
+- $a =$ Base
+- $b =$ Logaritmando
+- $x =$ Logaritmo
 
-Encontrando $a$, $b$ e $f(n)$:
+#### 3.1. $T (n) = 2T ( \frac{n}{4} ) + 1$ || $T(n) = \Theta(\sqrt{n})$
 
-- $a = 2; b = 4; f(n) = n$
+- **Primeiro definimos os 3 termos principais**
+  - $a = 2; b = 4; f(n) = 1$
+- **Depois calculamos $\log_{b}(a)$**
+  - $\log_{4}(2) = \frac{1}{2}$
+- **Então o substituímos na equação do Teorema Mestre**
+  - $n^{\log_{b}(a) \pm \epsilon} = n^{\log_{4}(2) \pm \epsilon} = n^{\frac{1}{2} \pm \epsilon}$
+- **Agora testaremos cada caso**
+  - **CASO 1: verificar se $f(n) = O(n^{\log_{b}(a) - \epsilon})$**
+    - $f(n) = 1 = O(n^{\frac{1}{2} - \epsilon})$
+    - **Agora, deve-se buscar um $\epsilon > 0$ que satisfaça a equação**
+      - $1 = n^0$
+      - Igualando os expoentes, temos:
+      - $0 \leq \frac{1}{2} - \epsilon$
+      - $\epsilon \leq \frac{1}{2}$
+    - $1 = O(n^{\frac{1}{2} - \frac{1}{2}}) = O(n^0) = O(1)$
+    - $1 = O(1)$
+    - **Com isso, o CASO 1 é verdadeiro, o que implica em:** $T(n) = \Theta(n^{\log_{b}(a)})$
+      - $T(n) = \Theta(n^{\log_{4}(2)}) = \Theta(n^\frac{1}{2}) = \Theta(\sqrt{n})$
+- **Com isso, conclui-se que, pelo CASO 1 do Teorema Mestre:**
+  - $T(n) = \Theta(\sqrt{n})$
 
-Para o primeiro caso:
+#### 3.2. $T (n) = 2T ( \frac{n}{4} ) + n$ || $T(n) = \Theta(n)$
 
-- $n^{\log_{b}(a) - \epsilon} = n^{\log_{4}(2) - \epsilon} = n^{\frac{1}{2} - \epsilon}$
+- **Primeiro definimos os 3 termos principais**
+  - $a = 2; b = 4; f(n) = n$
+- **Depois calculamos $\log_{b}(a)$**
+  - $\log_{4}(2) = \frac{1}{2}$
+- **Então o substituímos na equação do Teorema Mestre**
+  - $n^{\log_{b}(a) \pm \epsilon} = n^{\log_{4}(2) \pm \epsilon} = n^{\frac{1}{2} \pm \epsilon}$
+- **Agora testaremos cada caso**
+  - **CASO 1: verificar se $f(n) = O(n^{\log_{b}(a) - \epsilon})$**
+    - $f(n) = n = O(n^{\frac{1}{2} - \epsilon})$
+    - **Agora, deve-se buscar um $\epsilon > 0$ que satisfaça a equação**
+      - $n^1 \leq n^{\frac{1}{2} - \epsilon}$
+      - Igualando os expoentes, temos:
+      - $1 \leq \frac{1}{2} - \epsilon$
+      - $\epsilon \leq \frac{1}{2} - 1$
+      - $\epsilon \leq \frac{-1}{2}$ [JV: Não pode ser negativo]
+    - **Como $\epsilon$ não pode ser negativo, o CASO 1 é falso**
+  - **CASO 2: verificar se $f(n) = \Theta(n^{\log_{b}(a)})$**
+    - $f(n) = n = \Theta(n^{\frac{1}{2}})$
+    - $n = n^{\frac{1}{2}}$
+    - $n = \sqrt{n}$ [JV: Não é verdade]
+    - **Como a igualdade não é verdadeira, o CASO 2 é falso**
+  - **CASO 3: verificar se $f(n) = \Omega(n^{\log_{b}(a) + \epsilon})$ e $a f (\frac{n}{b}) \leq cf(n)$**
+    - **Primeiro, verifica-se $f(n) = \Omega(n^{\log_{b}(a) + \epsilon})$**
+      - $f(n) = n = \Omega(n^{\frac{1}{2} + \epsilon})$
+      - **Agora, deve-se buscar um $\epsilon > 0$ que satisfaça a equação**
+        - $n^1 \geq n^{\frac{1}{2} + \epsilon}$
+        - $1 \geq \frac{1}{2} + \epsilon$
+        - $\epsilon \leq 1 - \frac{1}{2}$
+        - $\epsilon \leq \frac{1}{2}$
+        - Sendo assim, $\epsilon \in ]0, \frac{1}{2}]$
+        - Escolhendo um valor para $\epsilon = \frac{1}{4}$
+        - $n = \Omega(n^{\frac{1}{2} + \frac{1}{4}})$
+        - $n = \Omega(n^{\frac{3}{4}})$
+        - $n = \Omega(n^{0.75})$
+        - **Como a igualdade é verdadeira, a primeira parte do CASO 3 é verdadeiro**
+    - **Agora, verifica-se $a f (\frac{n}{b}) \leq cf(n)$**
+      - $2 * f( \frac{n}{4} ) \leq c * f(n)$
+      - $2 * \frac{n}{4} \leq c * n$
+      - $\frac{n}{2} \leq c * n$
+      - **Se considerarmos $c = \frac{1}{2}$, temos que:**
+        - $\frac{n}{2} \leq \frac{1}{2} * n$
+        - $\frac{n}{2} \leq \frac{n}{2}$
+      - **Com isso, o CASO 3 é verdadeiro, o que implica em:** $T(n) = \Theta(f(n))$
+        - $T(n) = \Theta(n)$
+- **Com isso, conclui-se que, pelo CASO 3 do Teorema Mestre:**
+  - $T(n) = \Theta(n)$
 
-- $f(n) = n$
-- $n = O(n^{\frac{1}{2} - \epsilon})$
-  - Pra isso ser verdade, eu teria que dizer que o expoente de n é 1, então:
-- $1 = \frac{1}{2} - \epsilon$
-- $\epsilon = \frac{1}{2} - 1$
-- $\epsilon = \frac{-1}{2}$
-  - O que não pode ser verdade, pois o $\epsilon$ precisa ser positivo.
+#### 3.3. $T (n) = 2T ( \frac{n}{4} ) + \log n$ || $T(n) = \Theta(\sqrt{n})$
 
-Para o segundo caso:
+- **Primeiro definimos os 3 termos principais**
+  - $a = 2; b = 4; f(n) = \log n$
+- **Depois calculamos $\log_{b}(a)$**
+  - $\log_{4}(2) = \frac{1}{2}$
+- **Então o substituímos na equação do Teorema Mestre**
+  - $n^{\log_{b}(a) \pm \epsilon} = n^{\log_{4}(2) \pm \epsilon} = n^{\frac{1}{2} \pm \epsilon}$
+  - $n^{\frac{1}{2} \pm \epsilon}$
+  - **Agora testaremos cada caso**
+    - **CASO 1: verifica-se $f(n) = O(n^{\log_{b}(a) - \epsilon})$**
+      - $f(n) = \log n = O(n^{\frac{1}{2} - \epsilon})$
+      - **Agora, deve-se buscar um $\epsilon > 0$ que satisfaça a equação**
+        - Testando $\epsilon = \frac{1}{4}$
+          - $n^{\frac{1}{2} - \frac{1}{4}} = n^{\frac{1}{4}}$
+        - $f(n) = \log n = O(n^{\frac{1}{4}})$
+        - Como $\log n$ tende a ser menor que $\sqrt[4]{n}$
+      - **Com isso, o CASO 1 é verdadeiro, o que implica em:** $T(n) = \Theta(n^{\log_{b}(a)})$
+        - $T(n) = \Theta(n^{\log_{4}(2)}) = \Theta(n^\frac{1}{2})$
+        - $T(n) = \Theta(\sqrt{n})$
+- **Com isso, conclui-se que, pelo CASO 1 do Teorema Mestre:**
+  - $T(n) = \Theta(\sqrt{n})$
 
-- $n = \Theta(n^{\frac{1}{2}})$
-- $n = \Theta(\sqrt{n})$
+#### 3.4. $T (n) = 4T ( \frac{n}{2} ) + 1$
 
-Para o terceiro caso:
+#### 3.5. $T (n) = 4T ( \frac{n}{2} ) + n$
 
-- $n = \Omega(n^{\frac{1}{2} + \epsilon})$
-  - Considerando que $\epsilon = \frac{1}{2}$, temos que:
-- $n = \Omega(n^{\frac{1}{2} + \frac{1}{2}})$
-- $n = \Omega(n)$ 👍
+#### 3.6. $T (n) = 4T ( \frac{n}{2} ) + \log n$
 
-Segundo teste do terceiro caso:
+#### 3.7. $T (n) = 2T ( \frac{n}{2} ) + 1$
 
-- $a f (\frac{n}{b}) \leq cf(n)$
-- $2 * f( \frac{n}{4} ) \leq c * f(n)$
-- $2 * \frac{n}{4} \leq c * n$
-- $\frac{n}{2} \leq c * n$
-  - Se considerarmos $c = \frac{1}{2}$, temos que:
-- $\frac{n}{2} \leq \frac{1}{2} * n$
-- $\frac{n}{2} \leq \frac{n}{2}$ 👍
+#### 3.8. $T (n) = 2T ( \frac{n}{2} ) + \log n$
 
-Logo:
+#### 3.9. $T (n) = 2T ( \frac{n}{2} ) + n$
 
-- $T(n) = \Theta(f(n))$
-- $T(n) = \Theta(n)$
+#### 3.10. $T (n) = 2T ( \frac{n}{3} ) + 1$
 
-#### 3. $T (n) = 2T ( \frac{n}{4} ) + \log n$
+#### 3.11. $T (n) = 2T ( \frac{n}{3} ) + \log n$
 
-- $a = 2; b = 4; f(n) = \log n$
-
-- $\log_{b}(a) = \log_{4}(2) = \frac{1}{2}$
-
-Para o primeiro caso:
-
-- $n^{\log_{b}(a) - \epsilon} = n^{\frac{1}{2} - \epsilon}$
-- $f(n) = \log n = O(n^{\frac{1}{2} - \epsilon})$
-  - Considerando $\epsilon = 1$, temos que:
-- $n^{\frac{1}{2} - 1}$
-- $n^{\frac{-1}{2}}$
-- $\frac{1}{\sqrt{n}}$
-  - $f(n) = \log n = O(\frac{1}{\sqrt{n}})$ 👎
-
----
-
-- $n^2$
-- $n^{\frac{1}{2}} = \sqrt n$
-- $n^{-1} = \frac{1}{n}$
-- $n^{-2} = \frac{1}{n^2}$
-- $n^{- \frac{1}{2}} = \frac{1}{\sqrt n}$
-
----
-
-Para o segundo caso:
-
-- $f(n) = \log n = \Theta(n^{\frac{1}{2}})$
-- $\log n =? \Theta(\sqrt{n})$ 👎❓
-
-<!-- - $\log n \Leftrightarrow n^x = 2$ -->
-<!-- - $\sqrt{n} \Leftrightarrow n^{1/2}$ -->
-
-Para o terceiro caso:
-
-- $f(n) = \log n = \Omega(n^{\frac{1}{2} + \epsilon})$
-  - Considerando $\epsilon = \frac{1}{2}$, temos que:
-- $\log n =? \Omega(n^{\frac{1}{2} + \frac{1}{2}})$
-- $\log n =? \Omega(n)$👎❓
-
----
-
-Tentando pelo método outro lá.
-
-- $T (n) = 2T ( \frac{n}{4} ) + \log n$
-- $T (\frac{n}{4}) = 2T ( \frac{\frac{n}{4}}{4} ) + \log \frac{n}{4}$
-  - $T (\frac{n}{4}) = 2T ( \frac{n}{4*4} ) + \log \frac{n}{4}$
-- $T (\frac{n}{4*4}) = 2T ( \frac{n}{4*4*4} ) + \log \frac{n}{4*4}$
-- ...
-
-#### 4. $T (n) = 4T ( \frac{n}{2} ) + 1$
-
-#### 5. $T (n) = 4T ( \frac{n}{2} ) + n$
-
-#### 6. $T (n) = 4T ( \frac{n}{2} ) + \log n$
-
-#### 7. $T (n) = 2T ( \frac{n}{2} ) + 1$
-
-#### 8. $T (n) = 2T ( \frac{n}{2} ) + \log n$
-
-#### 9. $T (n) = 2T ( \frac{n}{2} ) + n$
-
-#### 10. $T (n) = 2T ( \frac{n}{3} ) + 1$
-
-#### 11. $T (n) = 2T ( \frac{n}{3} ) + \log n$
-
-#### 12. $T (n) = 2T ( \frac{n}{3} ) + n$
+#### 3.12. $T (n) = 2T ( \frac{n}{3} ) + n$
 
 ### **Exercício 4.** Determine um limite assintótico para $T (n) = 2T (\sqrt{n})$. Dica: Faça uma substituição de variável. Faça $m = \log n$
 
@@ -648,7 +553,13 @@ Assim, podemos agora aplicar o método de preferência para a resolução de rec
     - Se $f(n) = \Theta(n^{\log_{b}(a)}) \implies T(n) = \Theta(n^{\log_{b}(a)} * log(n))$ [=]
     - Se $f(n) = \Omega(n^{\log_{b}(a) + \epsilon})$ e $a f (\frac{n}{b}) \leq cf(n)$ então $\implies T(n) = \Theta(f(n))$ [>=]
 
-![a](https://static.todamateria.com.br/upload/lo/ga/logaritmodefinicao.jpg)
+---
+
+$$\log_{a} b = x \Leftrightarrow a^x = b$$
+
+- $a =$ Base
+- $b =$ Logaritmando
+- $x =$ Logaritmo
 
 ---
 
@@ -780,7 +691,7 @@ Complexidade multi-pop:
 
 ---
 
-Através do método contável, consideraremos que no pior caso, teremos $n$ operações de **push**. Então, como cada operação de **push** tem complexidade O(1), a complexidade total será de O(n).
+Através do método contável, consideraremos que no pior caso, teremos $n$ operações de **push**. Então, como cada operação de **push** tem complexidade $O(1)$, a complexidade total será de $O(n)$.
 
 Então, ao fazermos a complexidade do pior caso, divida pelo número de operações, teremos a complexidade amortizada.
 
@@ -790,9 +701,9 @@ Então, ao fazermos a complexidade do pior caso, divida pelo número de operaç�
 
 Considerarei que serão realizados separadamente $n$ operações de push; $n$ operações de pop; e $n$ operações de multi-pop.
 
-- push: adiciona um elemento
-- pop: remove um elemento
-- multi-pop: remove k elementos
+- **push**: adiciona um elemento
+- **pop**: remove um elemento
+- **multi-pop**: remove k elementos
 
 ---
 
