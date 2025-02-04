@@ -53,18 +53,24 @@ Como por definição, um caminho terá uma sequência de arestas tal que cada v�
 
 ## Exercício 3. Prove que uma árvore $T = (V, E)$ com $\Delta(T) \geq k$ possui pelo menos $k+1$ vértices
 
----
-
 - $\Delta(T)$ é o grau máximo de um vértice em $T$
+
+Uma árvore $T = (V, E)$ com grau máximo $\Delta(T) \geq k$ possui pelo menos $k+1$ vértices.
+
+**Pela soma dos graus:** Se um vértice tem grau $\geq k$, a soma dos graus é $\geq k + (|V| - 1)$. Como a soma dos graus é $2|E| = 2(|V| - 1)$, obtemos $k + |V| - 1 \leq 2(|V| - 1)$, resultando em $|V| \geq k + 1$.
+
+**Estruturalmente:** Um vértice com $k$ arestas está ligado a $k$ vizinhos distintos, totalizando $k + 1$ vértices. Assim, $\boxed{|V| \geq k + 1}$.
+
+---
 
 ```mermaid
 graph TD
     %% Vértices
     u((u))
-    v((v))
-    w((w))
-    x((x))
-    y((y))
+    v((a))
+    w((b))
+    x((c))
+    y((...))
 
     %% Arestas
     u <--> v
@@ -421,7 +427,7 @@ Poderíamos também criar uma lista de adjacência complementar, onde os valores
 
 ---
 
-[JV: Eles fizeram, mas eu me perdi fazendo a pintura do grafo com Mermaid]
+<!-- [JV: Eles fizeram, mas eu me perdi fazendo a pintura do grafo com Mermaid] -->
 
 ### Pintura do grafo
 
@@ -787,7 +793,7 @@ graph LR
 
 <details>
 
-<summary> ( 1 ( 2 ( 3 ( 4 ( 5 6 ) 7 ) 8 ) ( 9 ( 10 ) ) ) </summary>
+<summary> ( 1 ( 2 ( 3 ( 4 ( 5 6 ) 7 ) 8 ) ( 9 ( 10 ) ) ) ) </summary>
 
 ```mermaid
 graph LR
@@ -822,7 +828,7 @@ graph LR
 
 <details>
 
-<summary> ( 1 ( 2 ( 3 ( 4 ( 5 6 ) 7 ) 8 ) ( 9 ( 10 ) ) ) </summary>
+<summary> ( 1 ( 2 ( 3 ( 4 ( 5 6 ) 7 ) 8 ) ( 9 ( 10 ) ) ) ) </summary>
 
 ```mermaid
 graph LR
@@ -857,7 +863,7 @@ graph LR
 
 <details>
 
-<summary> ( 1 ( 2 ( 3 ( 4 ( 5 6 ) 7 ) 8 ) (9 ( 10 11 ) ) </summary>
+<summary> ( 1 ( 2 ( 3 ( 4 ( 5 6 ) 7 ) 8 ) (9 ( 10 11 ) ) ) ) </summary>
 
 ```mermaid
 graph LR
@@ -892,7 +898,7 @@ graph LR
 
 <details>
 
-<summary> ( 1 ( 2 ( 3 ( 4 ( 5 6 ) 7 ) 8 ) ( 9 ( 10 11 ) 12 ) </summary>
+<summary> ( 1 ( 2 ( 3 ( 4 ( 5 6 ) 7 ) 8 ) ( 9 ( 10 11 ) 12 ) ) ) </summary>
 
 ```mermaid
 graph LR
@@ -927,7 +933,7 @@ graph LR
 
 ---
 
-#### Grafo Final: ( 1 ( 2 ( 3 ( 4 ( 5 6 ) 7 ) 8 ) ( 9 ( 10 11 ) 12 )
+#### Grafo Final: ( 1 ( 2 ( 3 ( 4 ( 5 6 ) 7 ) 8 ) ( 9 ( 10 11 ) 12 ) ) )
 
 ```mermaid
 graph LR
@@ -963,9 +969,9 @@ graph LR
 
 ## Exercício 9. Na descrição da busca em profundidade vista em sala classificamos as arestas do grafo de entrada de acordo após a execução da busca em profundidade. É possível realizar essa classificação durante a execução da busca? Como?
 
----
+<!-- [JV: Eles fizeram, mas eu me perdi fazendo a pintura do grafo com Mermaid] -->
 
-[JV: Eles fizeram, mas eu me perdi fazendo a pintura do grafo com Mermaid]
+Sim. Durante a execução da DFS, sempre que explorar um vizinho do vértice atual, podemos classificar a aresta que liga o vértice atual ao vizinho como uma aresta de árvore, avanço, retorno ou passagem. Será aresta de árvore se o vizinho for branco; retorno se o vizinho for cinza; e se o vizinho for preto, será avanço se o tempo de descoberta do vizinho for maior que o tempo de finalização do vértice atual, e passagem caso contrário.
 
 ---
 ---
@@ -1009,6 +1015,46 @@ graph LR
     V7 -->|F| V5
     V8 -->|F| V2
     V8 -->|F| V3
+    V9 -->|F| V6
+```
+
+---
+
+```mermaid
+graph LR
+    %% Coloração: fundo branco, texto preto
+    style V1 fill:#000,color:#fff
+    style V2 fill:#000,color:#fff
+    style V3 fill:#000,color:#fff
+    style V4 fill:#000,color:#fff
+    style V5 fill:#000,color:#fff
+    style V6 fill:#000,color:#fff
+    style V7 fill:#000,color:#fff
+    style V8 fill:#000,color:#fff
+    style V9 fill:#000,color:#fff
+
+    %% Vértices
+    V1(("1 <br> (13/14)"))
+    V2(("2 <br> (11/12)"))
+    V3(("3 <br> (15/16)"))
+    V4(("4 <br> (5/6)"))
+    V5(("5 <br> (1/2)"))
+    V6(("6 <br> (3/4)"))
+    V7(("7 <br> (7/8)"))
+    V8(("8 <br> (17/18)"))
+    V9(("9 <br> (9/10)"))
+
+    %% Arestas
+    V1 ---|T| V2
+    V1 -->|T| V4
+    V2 -->|T| V4
+    V2 -->|P| V5
+    V3 -->|R| V2
+    V3 -->|F| V5
+    V3 -->|T| V6
+    V7 -->|T| V5
+    V8 -->|R| V2
+    V8 -->|T| V3
     V9 -->|F| V6
 ```
 
@@ -1147,13 +1193,15 @@ def has_cycle(G):
 
 ---
 
-[JV: Segundo eles...]
+<!-- [JV: Segundo eles...] -->
 
-Sim. Usando Union-Find.
+<!-- Sim. Usando Union-Find. -->
 
-[JV: Segundo Copilot...]
+<!-- [JV: Segundo Copilot...] -->
 
 Sim, é possível. Basta adicionar um vetor de pais para cada vértice. Quando um vértice for visitado, o pai do vértice será atualizado. Se um vértice cinza encontrar outro vértice cinza, basta verificar se o vértice encontrado é o pai do vértice atual. Se for, o grafo não possui ciclo. Se não for, o grafo possui ciclo.
+
+Outro detalhe a considerar é que o algoritmo pode ser executado em $O(∣V∣)$ apenas em grafos esparsos. Para grafos densos, a complexidade permanece $O(∣V∣+∣E∣)$.
 
 ---
 ---
@@ -1243,24 +1291,24 @@ graph TD
 
 ## Exercício 17. Aplique o algoritmo para determinar componentes fortemente conexas no grafo orientado abaixo
 
-[JV: não prestei muita atenção nisso]
+<!-- [JV: não prestei muita atenção nisso] -->
 
 ```mermaid
 graph LR
     %% Coloração: fundo branco, texto preto
-    style V1  fill:#000,color:#fff
-    style V2  fill:#000,color:#fff
-    style V3  fill:#000,color:#fff
-    style V4  fill:#000,color:#fff
-    style V5  fill:#000,color:#fff
-    style V6  fill:#000,color:#fff
-    style V7  fill:#000,color:#fff
-    style V8  fill:#000,color:#fff
-    style V9  fill:#000,color:#fff
-    style V10 fill:#000,color:#fff
-    style V11 fill:#000,color:#fff
-    style V12 fill:#000,color:#fff
-    style V13 fill:#000,color:#fff
+    style V1  fill:#5B7A0F,color:#fff
+    style V2  fill:#B1ED1E,color:#fff
+    style V3  fill:#AA8833,color:#fff
+    style V4  fill:#77BBCC,color:#fff
+    style V5  fill:#77BBCC,color:#fff
+    style V6  fill:#AA8833,color:#fff
+    style V7  fill:#00CCCC,color:#fff
+    style V8  fill:#AA8833,color:#fff
+    style V9  fill:#AA8833,color:#fff
+    style V10 fill:#AA8833,color:#fff
+    style V11 fill:#ED5698,color:#fff
+    style V12 fill:#77BBCC,color:#fff
+    style V13 fill:#AA8833,color:#fff
 
     %% Vértices
     V1(("1 <br> (1/10)"))

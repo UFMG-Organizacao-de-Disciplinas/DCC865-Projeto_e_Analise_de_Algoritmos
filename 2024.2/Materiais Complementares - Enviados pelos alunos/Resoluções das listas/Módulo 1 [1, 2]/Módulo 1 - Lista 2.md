@@ -313,6 +313,8 @@ $$\log_{a} b = x \Leftrightarrow a^x = b$$
 - $b =$ Logaritmando
 - $x =$ Logaritmo
 
+---
+
 #### 3.1. $T (n) = 2T ( \frac{n}{4} ) + 1$ || $T(n) = \Theta(\sqrt{n})$
 
 - **Primeiro definimos os 3 termos principais**
@@ -335,6 +337,8 @@ $$\log_{a} b = x \Leftrightarrow a^x = b$$
       - $T(n) = \Theta(n^{\log_{4}(2)}) = \Theta(n^\frac{1}{2}) = \Theta(\sqrt{n})$
 - **Com isso, conclui-se que, pelo CASO 1 do Teorema Mestre:**
   - $T(n) = \Theta(\sqrt{n})$
+
+---
 
 #### 3.2. $T (n) = 2T ( \frac{n}{4} ) + n$ || $T(n) = \Theta(n)$
 
@@ -385,6 +389,8 @@ $$\log_{a} b = x \Leftrightarrow a^x = b$$
 - **Com isso, conclui-se que, pelo CASO 3 do Teorema Mestre:**
   - $T(n) = \Theta(n)$
 
+---
+
 #### 3.3. $T (n) = 2T ( \frac{n}{4} ) + \log n$ || $T(n) = \Theta(\sqrt{n})$
 
 - **Primeiro definimos os 3 termos principais**
@@ -408,23 +414,212 @@ $$\log_{a} b = x \Leftrightarrow a^x = b$$
 - **Com isso, conclui-se que, pelo CASO 1 do Teorema Mestre:**
   - $T(n) = \Theta(\sqrt{n})$
 
-#### 3.4. $T (n) = 4T ( \frac{n}{2} ) + 1$
+---
 
-#### 3.5. $T (n) = 4T ( \frac{n}{2} ) + n$
+#### 3.4. $T(n) = 4T\left(\frac{n}{2}\right) + 1$  ||  $T(n) = \Theta(n^2)$
 
-#### 3.6. $T (n) = 4T ( \frac{n}{2} ) + \log n$
+- **Primeiro definimos os 3 termos principais**  
+  - $a = 4$; $b = 2$; $f(n) = 1$
+- **Depois calculamos $\log_b(a)$**  
+  - $\log_2(4) = 2$
+- **Então substituímos na equação do Teorema Mestre**  
+  - $n^{\log_b(a) \pm \epsilon} = n^{2 \pm \epsilon}$
+- **Agora testaremos cada caso**
+  - **CASO 1: verificar se $f(n) = O\left(n^{\log_b(a) - \epsilon}\right)$**  
+    - Temos $f(n) = 1$ e queremos verificar se existe algum $\epsilon > 0$ tal que:
+      $$1 = O\left(n^{2-\epsilon}\right)$$
+    - Escolhendo, por exemplo, $\epsilon = 1$, temos $n^{2-1} = n$. Como $1 = O(n)$ (pois para $n \ge 1$, $1 \le c\cdot n$ para alguma constante $c$), a condição é satisfeita.
+    - **Portanto, o CASO 1 é verdadeiro.**
+  - **Consequentemente, pelo CASO 1 do Teorema Mestre, concluímos que:**
+    - $T(n) = \Theta\left(n^{\log_b(a)}\right) = \Theta(n^2)$
+- **Com isso, conclui-se que, pelo CASO 1 do Teorema Mestre:**
+  - $T(n) = \Theta(n^2)$
 
-#### 3.7. $T (n) = 2T ( \frac{n}{2} ) + 1$
+---
 
-#### 3.8. $T (n) = 2T ( \frac{n}{2} ) + \log n$
+#### 3.5. $T(n) = 4T(n/2) + n$  ||  $T(n) = \Theta(n^2)$  
 
-#### 3.9. $T (n) = 2T ( \frac{n}{2} ) + n$
+- **Primeiro definimos os 3 termos principais**  
+  - $a = 4$; $b = 2$; $f(n) = n$
+- **Depois calculamos $\log_b(a)$**  
+  - $ \log_2(4) = 2$
+- **Então substituímos na equação do Teorema Mestre**  
+  - $ n^{\log_b(a) \pm \epsilon} = n^{2 \pm \epsilon}$
+- **Agora testaremos cada caso**
+  - **CASO 1: verificar se $f(n) = O(n^{\log_b(a) - \epsilon})$**  
+    - $n = O(n^{2-\epsilon})$  
+    - Se escolhermos, por exemplo, $\epsilon = 1$, então $n^{2-1} = n$.  
+    - Assim, temos $n = O(n)$, o que é verdadeiro.  
+    - **Portanto, o CASO 1 é satisfeito.**
+- **Consequentemente, pelo CASO 1 do Teorema Mestre, concluímos que:**  
+  - $T(n) = \Theta(n^{\log_b(a)}) = \Theta(n^2)$
+- **Com isso, conclui-se que, pelo Teorema Mestre:**  
+  - $T(n) = \Theta(n^2)$
 
-#### 3.10. $T (n) = 2T ( \frac{n}{3} ) + 1$
+---
 
-#### 3.11. $T (n) = 2T ( \frac{n}{3} ) + \log n$
+#### 3.6. $T(n) = 4T(n/2) + \log n$  
 
-#### 3.12. $T (n) = 2T ( \frac{n}{3} ) + n$
+- **Primeiro definimos os 3 termos principais**  
+  - $a = 4$; $b = 2$; $f(n) = \log n$
+- **Depois calculamos $\log_b(a)$**  
+  - $\log_2(4) = 2$
+- **Então substituímos na equação do Teorema Mestre**  
+  - $n^{\log_b(a) \pm \epsilon} = n^{2 \pm \epsilon}$
+
+- **Agora testaremos os casos do Teorema Mestre, na ordem correta:**  
+  - **CASO 1: verificar se $f(n) = O(n^{\log_b(a) - \epsilon})$**  
+    - Precisamos encontrar um $\epsilon > 0$ tal que:
+      - $\log n = O(n^{2 - \epsilon})$
+    - Como $\log n$ cresce mais lentamente que qualquer potência positiva de $n$, podemos escolher $\epsilon = 1$, o que dá:
+      - $\log n = O(n^{1})$, que é verdadeiro.
+    - **Com isso, o CASO 1 é verdadeiro, o que implica em:** $T(n) = \Theta(n^2)$  
+
+- **Com isso, conclui-se que, pelo CASO 1 do Teorema Mestre:**  
+  - $T(n) = \Theta(n^2)$  
+
+#### 3.7. $T(n) = 2T\left(\frac{n}{2}\right) + 1$  ||  $T(n) = \Theta(n)$  
+
+- **Primeiro definimos os 3 termos principais**  
+  - $a = 2$; $b = 2$; $f(n) = 1$
+- **Depois calculamos $\log_b(a)$**  
+  - $\log_2(2) = 1$
+- **Então substituímos na equação do Teorema Mestre**  
+  - $n^{\log_b(a) \pm \epsilon} = n^{1 \pm \epsilon}$  
+
+- **Agora testaremos os casos do Teorema Mestre, na ordem correta:**  
+  - **CASO 1: verificar se $f(n) = O(n^{\log_b(a) - \epsilon})$**  
+    - Precisamos encontrar um $\epsilon > 0$ tal que:
+      - $1 = O(n^{1 - \epsilon})$
+    - Como qualquer potência positiva de $n$ cresce mais rápido que $1$, essa relação é verdadeira para qualquer $\epsilon > 0$.  
+    - **Com isso, o CASO 1 é verdadeiro, o que implica em:** $T(n) = \Theta(n)$  
+
+- **Com isso, conclui-se que, pelo CASO 1 do Teorema Mestre:**  
+  - $T(n) = \Theta(n)$
+
+#### 3.8. $T(n) = 2T(\frac{n}{2}) + \log n$ || $T(n) = \Theta(\log n)$
+
+- **Primeiro definimos os 3 termos principais**
+  - $a = 2; b = 2; f(n) = \log n$
+- **Depois calculamos $\log_{b}(a)$**
+  - $\log_{2}(2) = 1$
+- **Então o substituímos na equação do Teorema Mestre**
+  - $n^{\log_{b}(a) \pm \epsilon} = n^{1 \pm \epsilon}$
+- **Agora testaremos cada caso**
+  - **CASO 1: verificar se $f(n) = O(n^{\log_{b}(a) - \epsilon})$**
+    - $f(n) = \log n = O(n^{1 - \epsilon})$
+    - **Agora, deve-se buscar um $\epsilon > 0$ que satisfaça a equação**
+      - $\log n \leq n^{1 - \epsilon}$
+      - Como $\log n$ cresce mais lentamente do que qualquer potência de $n$, a condição é satisfeita.
+    - **Como a igualdade é verdadeira, o CASO 1 é verdadeiro**
+  - **Conclusão**: Pelo CASO 1 do Teorema Mestre, temos que $T(n) = \Theta(n^{\log_{b}(a)}) = \Theta(\log n)$
+
+- **Com isso, conclui-se que, pelo CASO 1 do Teorema Mestre:**  
+  - $T(n) = \Theta(\log n)$
+
+#### 3.9. $T(n) = 2T(\frac{n}{2}) + n$ || $T(n) = \Theta(n)$
+
+- **Primeiro definimos os 3 termos principais**
+  - $a = 2; b = 2; f(n) = n$
+- **Depois calculamos $\log_{b}(a)$**
+  - $\log_{2}(2) = 1$
+- **Então o substituímos na equação do Teorema Mestre**
+  - $n^{\log_{b}(a) \pm \epsilon} = n^{1 \pm \epsilon}$
+- **Agora testaremos cada caso**
+  - **CASO 1: verificar se $f(n) = O(n^{\log_{b}(a) - \epsilon})$**
+    - $f(n) = n = O(n^{1 - \epsilon})$
+    - **Agora, deve-se buscar um $\epsilon > 0$ que satisfaça a equação**
+      - $n^1 \leq n^{1 - \epsilon}$
+      - Igualando os expoentes, temos:
+      - $1 \leq 1 - \epsilon$
+      - $\epsilon \leq 0$ [falso, visto que $\epsilon > 0$]
+    - **Como não encontramos um valor válido de $\epsilon$ que satisfaça a desigualdade, o CASO 1 é falso**
+  - **CASO 2: verificar se $f(n) = \Theta(n^{\log_{b}(a)})$**
+    - $f(n) = n = \Theta(n^{1})$
+    - $n = n$
+    - **Como a igualdade é verdadeira, o CASO 2 é verdadeiro**
+      - **Com isso, o CASO 2 é verdadeiro, o que implica em:** $T(n) = \Theta(n^{\log_{b}(a)})$
+        - $T(n) = \Theta(n^{1}) = \Theta(n)$
+
+- **Com isso, conclui-se que, pelo CASO 2 do Teorema Mestre:**
+  - $T(n) = \Theta(n)$
+
+#### 3.10. $T (n) = 2T ( \frac{n}{3} ) + 1$ || $T(n) = \Theta(n^{\log_3(2)})$
+
+- **Primeiro definimos os 3 termos principais**
+  - $a = 2; b = 3; f(n) = 1$
+- **Depois calculamos $\log_{b}(a)$**
+  - $\log_{3}(2) \approx 0.631$
+- **Então o substituímos na equação do Teorema Mestre**
+  - $n^{\log_{b}(a) \pm \epsilon} = n^{0.631 \pm \epsilon}$
+- **Agora testaremos cada caso**
+  - **CASO 1: verificar se $f(n) = O(n^{\log_{b}(a) - \epsilon})$**
+    - $f(n) = 1 = O(n^{0.631 - \epsilon})$
+    - **Agora, deve-se buscar um $\epsilon > 0$ que satisfaça a equação**
+      - $1 \leq n^{0.631 - \epsilon}$
+      - Para qualquer valor de $\epsilon > 0$, sempre teremos $n^{0.631 - \epsilon}$ maior que 1 à medida que $n$ cresce.
+    - **Como $\epsilon > 0$ gera uma desigualdade verdadeira, o CASO 1 é verdadeiro**
+    - **Com isso, o CASO 1 é verdadeiro, o que implica em:** $T(n) = \Theta(n^{\log_{b}(a)})$
+      - $T(n) = \Theta(n^{\log_{3}(2)})$
+- **Com isso, conclui-se que, pelo CASO 1 do Teorema Mestre:**
+  - $T(n) = \Theta(n^{\log_3(2)})$
+
+#### 3.11. $T (n) = 2T ( \frac{n}{3} ) + \log n$ || $T(n) = \Theta(n^{\log_3(2)})$
+
+- **Primeiro definimos os 3 termos principais**
+  - $a = 2; b = 3; f(n) = \log n$
+- **Depois calculamos $\log_{b}(a)$**
+  - $\log_{3}(2) \approx 0.631$
+- **Então o substituímos na equação do Teorema Mestre**
+  - $n^{\log_{b}(a) \pm \epsilon} = n^{0.631 \pm \epsilon}$
+- **Agora testaremos cada caso**
+  - **CASO 1: verificar se $f(n) = O(n^{\log_{b}(a) - \epsilon})$**
+    - $f(n) = \log n = O(n^{0.631 - \epsilon})$
+    - **Como $\epsilon > 0$ gera uma desigualdade verdadeira, o CASO 1 é verdadeiro**
+    - **Com isso, o CASO 1 é verdadeiro, o que implica em:** $T(n) = \Theta(n^{\log_{b}(a)})$
+      - $T(n) = \Theta(n^{\log_3(2)})$
+- **Com isso, conclui-se que, pelo CASO 1 do Teorema Mestre:**
+  - $T(n) = \Theta(n^{\log_3(2)})$
+
+#### 3.12. $T (n) = 2T ( \frac{n}{3} ) + n$ || $T(n) = \Theta(n)$
+
+- **Primeiro definimos os 3 termos principais**
+  - $a = 2; b = 3; f(n) = n$
+- **Depois calculamos $\log_{b}(a)$**
+  - $\log_{3}(2) \approx 0.631$
+- **Então o substituímos na equação do Teorema Mestre**
+  - $n^{\log_{b}(a) \pm \epsilon} = n^{0.631 \pm \epsilon}$
+- **Agora testaremos cada caso**
+  - **CASO 1: verificar se $f(n) = O(n^{\log_{b}(a) - \epsilon})$**
+    - $f(n) = n = O(n^{0.631 - \epsilon})$
+    - **Como a desigualdade não é válida para todo $\epsilon > 0$, o CASO 1 é falso**
+  - **CASO 2: verificar se $f(n) = \Theta(n^{\log_{b}(a)})$**
+    - $f(n) = n = \Theta(n^{0.631})$
+    - $n = n^{0.631}$
+    - **Como a igualdade não é verdadeira, o CASO 2 é falso**
+  - **CASO 3: verificar se $f(n) = \Omega(n^{\log_{b}(a) + \epsilon})$ e $a f (\frac{n}{b}) \leq cf(n)$**
+    - **Primeiro, verifica-se $f(n) = \Omega(n^{\log_{b}(a) + \epsilon})$**
+      - $f(n) = n = \Omega(n^{0.631 + \epsilon})$
+      - **Agora, deve-se buscar um $\epsilon > 0$ que satisfaça a equação**
+        - $n^1 \geq n^{0.631 + \epsilon}$
+        - $1 \geq 0.631 + \epsilon$
+        - $\epsilon \leq 1 - 0.631$
+        - $\epsilon \leq 0.369$
+        - Sendo assim, $\epsilon \in ]0, 0.369]$
+        - Escolhendo um valor para $\epsilon = 0.2$
+        - $n = \Omega(n^{0.631 + 0.2})$
+        - $n = \Omega(n^{0.831})$
+        - **Como a igualdade é verdadeira, a primeira parte do CASO 3 é verdadeira**
+    - **Agora, verifica-se $a f (\frac{n}{b}) \leq cf(n)$**
+      - $2 * f( \frac{n}{3} ) \leq c * f(n)$
+      - $2 * \frac{n}{3} \leq c * n$
+      - $\frac{2n}{3} \leq c * n$
+      - **Se considerarmos $c = \frac{2}{3}$, temos que:**
+        - $\frac{2n}{3} \leq \frac{2}{3} * n$
+        - **Com isso, o CASO 3 é verdadeiro, o que implica em:** $T(n) = \Theta(f(n))$
+          - $T(n) = \Theta(n)$
+- **Com isso, conclui-se que, pelo CASO 3 do Teorema Mestre:**
+  - $T(n) = \Theta(n)$
 
 ### **Exercício 4.** Determine um limite assintótico para $T (n) = 2T (\sqrt{n})$. Dica: Faça uma substituição de variável. Faça $m = \log n$
 
@@ -482,28 +677,6 @@ Como o caso 1 é verdadeiro, temos que:
 Substituindo $m$ pelo seu valor inicial ($\log n$), e utilizando a definição da $Eq. 4$ temos que:
 
 - $T(n) = \Theta(\log n)$
-
----
-
-#### Tentativa de outro método sem a conversão de variáveis
-
-Expandindo:
-
-- $T (n) = 2T (\sqrt{n})$
-- $T (n) = 2T (n^\frac{1}{2})$
-- $T (n) = 2(2T (n^\frac{1}{4}))$
-- $T (n) = 2(2(2T (n^\frac{1}{8})))$
-- $T (n) = 2(2(2(2T (n^\frac{1}{16}))))$
-
-Ou seja:
-
-- $T (n) = 2^1 T (n^\frac{1}{2^1})$
-- $T (n) = 2^2 T (n^\frac{1}{2^2})$
-- $T (n) = 2^3 T (n^\frac{1}{2^3})$
-- $\vdots$
-- $T (n) = 2^k T (n^\frac{1}{2^k})$
-
----
 
 ---
 
@@ -703,7 +876,7 @@ Considerarei que serão realizados separadamente $n$ operações de push; $n$ op
 
 - **push**: adiciona um elemento
 - **pop**: remove um elemento
-- **multi-pop**: remove k elementos
+- **multi-pop**: remove $k$ elementos
 
 ---
 
@@ -711,20 +884,16 @@ Determinemos que:
 
 - $S_O$ é a quantidade inicial de elementos na pilha
 - $S_n$ é a quantidade final de elementos na pilha
-- $P$ é a quantidade de operações de push
-- $O$ é a quantidade de operações de pop
+- $Pu$ é a quantidade de operações de push
+- $Po$ é a quantidade de operações de pop
 - $M$ é a quantidade de operações de multi-pop
 - $n$ é a quantidade total de operações realizadas, sendo ela igual à soma de operações de push, pop e multi-pop.
   - Ou seja, $n = P + O + M$
 
-Então após n operações distribuídas aleatoriamente entre P operações de Push, O operações de Pop e M operações de Multi-Pop, teremos que $n = P + O + M$. A complexidade de cada operação é O(1), então a complexidade de P operações de Push é $P*O(1) = O(P)$, a complexidade de O operações de Pop é $O*O(1) = O(O)$ e a complexidade de M operações de Multi-Pop é $M*O(1) = O(M)$.
+Então após n operações distribuídas aleatoriamente entre $Pu$ operações de Push, $Po$ operações de Pop e $M$ operações de Multi-Pop, teremos que $n = Pu + Po + M$. A complexidade de cada operação é $O(1)$, então a complexidade de $Pu$ operações de Push é $Pu*O(1) = O(Pu)$, a complexidade de $Po$ operações de Pop é $Po*O(1) = O(Po)$ e a complexidade de M operações de Multi-Pop é $M*O(1) = O(M)$.
 
-Então, considerando também que $S_n$ é a quantidade de elementos após as n operações, Podemos dizer que $S_n = S_O + P - O - M$. Então a variação de elementos será dado por $S_n - S_O = P - O - M$.
+Então, considerando também que $S_n$ é a quantidade de elementos após as $n$ operações, Podemos dizer que $S_n = S_O + Pu - Po - M$. Então a variação de elementos será dado por $S_n - S_O = Pu - Po - M$.
 
-[ Bira: Custo de todos multi-pop: $S_O + n - S_n$ ]
+<!-- [ Bira: Custo de todos multi-pop: $S_O + n - S_n$ ] -->
 
 Sendo assim, o custo computacional será de $O(P) + O(O) + O(M) = O(P + O + M) = O(n)$.
-
----
-
-[JV: NÃO TENHO CERTEZA ALGUMA DO QUE EU TÔ DIZENDO AQUI]

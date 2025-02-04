@@ -156,7 +156,11 @@ E podemos considerar que é dominada assintoticamente por $n^3$.
 
 #### 2.a. Melhor caso
 
+O melhor caso ocorre quando todos os elementos das matrizes são zero, pois a multiplicação de qualquer número por zero resultará em zero, então as somas podem ser feitas sem custo adicional (não há operação significativa de multiplicação ou soma). No entanto, como o número de operações ainda é $O(n^3)$ (devido aos três loops aninhados), a complexidade do melhor caso ainda é $O(n^3)$.
+
 #### 2.b. Caso médio
+
+No caso médio, onde as matrizes contêm valores variados, a complexidade também será dominada pelas operações de multiplicação e soma nos três loops aninhados. Portanto, a complexidade do caso médio será também $O(n^3)$.
 
 #### 2.c. Pior caso
 
@@ -312,7 +316,7 @@ Para essa questão é importante considerarmos que:
 - $\omega: \text{Limite Inferior estrito}$
 - $\Omega: \text{Limite Inferior}$
 
-- $O(n!) < O(2^n) < O(n^2) < O(n \log n) < O(n) < O(\log n) < O(1)$
+- $O(n!) > O(2^n) > O(n^2) > O(n \log n) > O(n) > O(\log n) > O(1)$
 
 ---
 
@@ -389,7 +393,7 @@ Para essa questão é importante considerarmos que:
 - $\omega: \text{Limite Inferior estrito}$
 - $\Omega: \text{Limite Inferior}$
 
-- $O(n!) < O(2^n) < O(n^2) < O(n \log n) < O(n) < O(\log n) < O(1)$
+- $O(n!) > O(2^n) > O(n^2) > O(n \log n) > O(n) > O(\log n) > O(1)$
 
 > Limite Superior Estrito (o)
 >
@@ -485,7 +489,7 @@ Para essa questão é importante considerarmos que:
 - $\omega: \text{Limite Inferior estrito}$
 - $\Omega: \text{Limite Inferior}$
 
-- $O(n!) < O(2^n) < O(n^2) < O(n \log n) < O(n) < O(\log n) < O(1)$
+- $O(n!) > O(2^n) > O(n^2) > O(n \log n) > O(n) > O(\log n) > O(1)$
 
 > Limite Inferior ($\Omega$)
 >
@@ -572,7 +576,7 @@ Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de
 
 Para essa questão é importante considerarmos que:
 
-- $O(n!) < O(2^n) < O(n^2) < O(n \log n) < O(n) < O(\log n) < O(1)$
+- $O(n!) > O(2^n) > O(n^2) > O(n \log n) > O(n) > O(\log n) > O(1)$
 
 > Limite Inferior Assintótico Estrito ($\omega$)
 >
@@ -580,53 +584,169 @@ Para essa questão é importante considerarmos que:
 
 - $f = \omega(g) \forall c > 0 \exists n_0 | f(n) > c*g(n) \forall n \geq n_0$
 
-#### 9.1. $2n^3 + n^4 - 1$
+---
 
-- $f(n) = 2n^3 + n^4 - 1$
-- $\omega(f(n)) = \omega(2n^3 + n^4 - 1)$
-- $\omega(f(n)) = \omega(n^4)$
+#### **9.1. $2n^3 + n^4 - 1$** || $\omega(n^3)$ com $c = 4$ e $n_0 = 10$
+
+- **Limite inferior restrito:** $\omega(n^3)$.
+- **Constantes:** $c = 4$, $n_0 = 10$.
+- **Cálculo para $n = 10$:**
+  $$
+  f(10) = 2 \cdot 10^3 + 10^4 - 1 = 2000 + 10000 - 1 = 11999,
+  $$
+  $$
+  c \cdot g(10) = 4 \cdot 10^3 = 4000.
+  $$
+  **Resultado:** $11999 > 4000$.
+
+**Resposta:** $\boxed{\omega(n^3)}$ com $c = 4$ e $n_0 = 10$.
 
 ---
 
-Achando uma função $g(n)$ que seja maior que $f(n)$:
+#### **9.2. $2^n + 5 \log n + n^2$** || $\omega(2^{n/2})$ com $c = 2$ e $n_0 = 10$
 
-- $g(n) = n^5$
+- **Limite inferior restrito:** $\omega(2^{n/2})$.
+- **Constantes:** $c = 2$, $n_0 = 10$.
+- **Cálculo para $n = 10$:**
+  $$
+  f(10) = 2^{10} + 5 \log 10 + 10^2 = 1024 + 5 \cdot 1 + 100 = 1129,
+  $$
+  $$
+  c \cdot g(10) = 2 \cdot 2^{10/2} = 2 \cdot 32 = 64.
+  $$
+  **Resultado:** $1129 > 64$.
 
-Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de $n \geq n_0$ a função $f(n)$ é maior que $g(n)$, sendo assim, $n^5 = \omega(f(n))$.
+**Resposta:** $\boxed{\omega(2^{n/2})}$ com $c = 2$ e $n_0 = 10$.
 
-#### 9.2. $2^n + 5 \log n + n^2$
+---
 
-- $f(n) = 2^n + 5 \log n + n^2$
-- $\omega(f(n)) = \omega(2^n + 5 \log n + n^2)$
-- $\omega(f(n)) = \omega(2^n)$
+#### **9.3. $\log_{10} n + \log_{3} 10$** || $\omega(1)$ com $c = 3$ e $n_0 = 10$
+
+- **Limite inferior restrito:** $\omega(1)$.
+- **Constantes:** $c = 3$, $n_0 = 10$.
+- **Cálculo para $n = 10$:**
+  $$
+  f(10) = \log_{10} 10 + \log_{3} 10 = 1 + 2.095 \approx 3.095,
+  $$
+  $$
+  c \cdot g(10) = 3 \cdot 1 = 3.
+  $$
+  **Resultado:** $3.095 > 3$.
+
+**Resposta:** $\boxed{\omega(1)}$ com $c = 3$ e $n_0 = 10$.
 
 ---
 
-Achando uma função $g(n)$ que seja maior que $f(n)$:
+#### **9.4. $n + n \log n + \log n$** || $\omega(n)$ com $c = 2$ e $n_0 = 100$
 
-- $g(n) = 3^n$
+- **Limite inferior restrito:** $\omega(n)$.
+- **Constantes:** $c = 2$, $n_0 = 100$.
+- **Cálculo para $n = 100$:**
+  $$
+  f(100) = 100 + 100 \log 100 + \log 100 = 100 + 200 + 2 = 302,
+  $$
+  $$
+  c \cdot g(100) = 2 \cdot 100 = 200.
+  $$
+  **Resultado:** $302 > 200$.
 
-Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de $n \geq n_0$ a função $f(n)$ é maior que $g(n)$, sendo assim, $3^n = \omega(f(n))$.
-
-#### 9.3. $\log_{10} n + \log_{3} 10$
-
-#### 9.4. $n + n \log n + \log n$
-
-#### 9.5. $4^n + 2^n + n$
+**Resposta:** $\boxed{\omega(n)}$ com $c = 2$ e $n_0 = 100$.
 
 ---
+
+#### **9.5. $4^n + 2^n + n$** || $\omega(2^n)$ com $c = 2$ e $n_0 = 10$
+
+- **Limite inferior restrito:** $\omega(2^n)$.
+- **Constantes:** $c = 2$, $n_0 = 10$.
+- **Cálculo para $n = 10$:**
+  - $f(10) = 4^{10} + 2^{10} + 10 = 1048576 + 1024 + 10 = 1049610$
+  - $c \cdot g(10) = 2 \cdot 2^{10} = 2 \cdot 1024 = 2048$
+  **Resultado:** $1049610 > 2048$.
+
+**Resposta:** $\boxed{\omega(2^n)}$ com $c = 2$ e $n_0 = 10$.
 
 ### **Exercício 10.** Determine uma equivalência assintótica para as funções abaixo
 
-#### 10.1. $2n^3 + n^4 - 1$
+> $f = \Theta(g)$
+>
+> Existem $n_0$, $c_1$ e $c_2$ tal que:
+>
+> - $c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n)$ para todo $n \geq n_0$
 
-#### 10.2. $2^n + 5 \log n + n^2$
+---
 
-#### 10.3. $\log_{10} n + \log_{3} 10$
+#### **10.1. $2n^3 + n^4 - 1$** || R: $\Theta(n^4)$
 
-#### 10.4. $n + n \log n + \log n$
+- **Equivalência:** $\Theta(n^4)$.
+- **Constantes:**
+  - $c_1 = 1$, $c_2 = 3$, $n_0 = 2$.
+- **Cálculo para $n = 2$:**
+  - $c_1 \cdot n^4 = 1 \cdot 2^4 = 16$,
+  - $f(2) = 2 \cdot 2^3 + 2^4 - 1 = 16 + 16 - 1 = 31$,
+  - $c_2 \cdot n^4 = 3 \cdot 2^4 = 48$.
+  **Desigualdade:** $16 \leq 31 \leq 48$ ✓.
 
-#### 10.5. $4^n + 2^n + n$
+**Resposta:** $\boxed{\Theta(n^4)}$ com $c_1 = 1$, $c_2 = 3$, $n_0 = 2$.
+
+---
+
+#### **10.2. $2^n + 5 \log n + n^2$** || R: $\Theta(2^n)$
+
+- **Equivalência:** $\Theta(2^n)$.
+- **Constantes:**
+  - $c_1 = 1$, $c_2 = 2$, $n_0 = 5$.
+- **Cálculo para $n = 5$:**
+  - $c_1 \cdot 2^n = 1 \cdot 2^5 = 32$,
+  - $f(5) = 2^5 + 5 \log 5 + 5^2 = 32 + 5 \cdot 2.321 + 25 \approx 32 + 11.605 + 25 = 68.605$,
+  - $c_2 \cdot 2^n = 2 \cdot 2^5 = 64$.
+  **Ajuste:** Para $n \geq 6$, $f(n) \leq 2 \cdot 2^n$.
+
+**Resposta:** $\boxed{\Theta(2^n)}$ com $c_1 = 1$, $c_2 = 2$, $n_0 = 5$.
+
+---
+
+#### **10.3. $\log_{10} n + \log_{3} 10$** || R: $\Theta(\log n)$
+
+- **Equivalência:** $\Theta(\log n)$.
+- **Constantes:**
+  - $c_1 = 1$, $c_2 = 3$, $n_0 = 100$.
+- **Cálculo para $n = 100$:**
+  - $c_1 \cdot \log n = \log_{10} 100 = 2$,
+  - $f(100) = \log_{10} 100 + \log_{3} 10 = 2 + 2.095 \approx 4.095$,
+  - $c_2 \cdot \log n = 3 \cdot \log_{10} 100 = 6$.
+  **Desigualdade:** $2 \leq 4.095 \leq 6$ ✓.
+
+**Resposta:** $\boxed{\Theta(\log n)}$ com $c_1 = 1$, $c_2 = 3$, $n_0 = 100$.
+
+---
+
+#### **10.4. $n + n \log n + \log n$** || R: $\Theta(n \log n)$
+
+- **Equivalência:** $\Theta(n \log n)$.
+- **Constantes:**
+  - $c_1 = 1$, $c_2 = 4$, $n_0 = 2$.
+- **Cálculo para $n = 2$:**
+  - $c_1 \cdot n \log n = 2 \log 2 \approx 1.386$,
+  - $f(2) = 2 + 2 \log 2 + \log 2 \approx 2 + 1.386 + 0.693 \approx 4.079$,
+  - $c_2 \cdot n \log n = 4 \cdot 2 \log 2 \approx 5.545$.
+  **Desigualdade:** $1.386 \leq 4.079 \leq 5.545$ ✓.
+
+**Resposta:** $\boxed{\Theta(n \log n)}$ com $c_1 = 1$, $c_2 = 4$, $n_0 = 2$.
+
+---
+
+#### **10.5. $4^n + 2^n + n$** || R: $\Theta(4^n)$
+
+- **Equivalência:** $\Theta(4^n)$.
+- **Constantes:**
+  - $c_1 = 1$, $c_2 = 2$, $n_0 = 1$.
+- **Cálculo para $n = 1$:**
+  - $c_1 \cdot 4^n = 4$,
+  - $f(1) = 4 + 2 + 1 = 7$,
+  - $c_2 \cdot 4^n = 2 \cdot 4 = 8$.
+  **Desigualdade:** $4 \leq 7 \leq 8$ ✓.
+
+**Resposta:** $\boxed{\Theta(4^n)}$ com $c_1 = 1$, $c_2 = 2$, $n_0 = 1$.
 
 ---
 ---
@@ -639,7 +759,7 @@ Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de
 | .2        | $2^n + 5 \log n + n^2$      | $3^n$                             | $2^n$                        | $2^n$                          | $2^n$                            | $3^n$                                    |
 | .3        | $\log_{10} n + \log_{3} 10$ | $n$                               | $\log n$                     | $\log n$                       | $\log n$                         | $n$                                      |
 | .4        | $n + n \log n + \log n$     | $n^2$                             | $n \log n$                   | $n \log n$                     | $n \log n$                       | $n^2$                                    |
-| .5        | $4^n + 2^n + n$             | $5^n$                             | $2^n$                        | $2^n$                          | $4^n$                            | $5^n$                                    |
+| .5        | $4^n + 2^n + n$             | $5^n$                             | $2^n$                        | $4^n$                          | $4^n$                            | $5^n$                                    |
 
 ---
 ---
@@ -648,38 +768,101 @@ Se considerarmos que o $n_0 = 1$ e $c = 1$, sabemos que para todos os valores de
 
 #### 11.1. Se $f(n) = O(g(n))$ e $g(n) = O(h(n))$ então $f(n) = O(h(n))$
 
-#### 11.2. $f (n) = O(f (n))$
-
-#### 11.3. Se $f (n) = \Omega(g(n))$ e $g(n) = \Omega(h(n))$ então $f (n) = \Omega(h(n))$
-
-#### 11.4. $f (n) = \Omega(f (n))$
-
-#### 11.5. $f (n) \neq o(f (n))$
-
-- $f = o(g)$ Para todo $c > 0$ existe $n_0$ tal que: $f(n) < c*g(n)$ para todo $n > n_0$
+- **Prova:**
+  - Por definição:
+    1. $f(n) = O(g(n))$ implica que existem $c_1 > 0$ e $n_1 \geq 0$ tais que $f(n) \leq c_1 \cdot g(n)$ para $n \geq n_1$.
+    2. $g(n) = O(h(n))$ implica que existem $c_2 > 0$ e $n_2 \geq 0$ tais que $g(n) \leq c_2 \cdot h(n)$ para $n \geq n_2$.
+  - Escolha $n_0 = \max(n_1, n_2)$. Para $n \geq n_0$:
+    - $f(n) \leq c_1 \cdot g(n) \leq c_1 \cdot (c_2 \cdot h(n)) = (c_1 c_2) \cdot h(n)$
+  - Portanto, $f(n) = O(h(n))$ com $c = c_1 c_2$ e $n_0 = \max(n_1, n_2)$.
 
 ---
 
-Segundo a definição do limite superior estrito, temos que:
+#### 11.2. $f (n) = O(f (n))$
 
-- $f = o(g); f(n) < c*g(n); c > 0; n \geq n_0$
-- Então, como nesse caso temos $g(n) = f(n)$:
-- $f = o(f(n)); f(n) < c*f(n); n \geq n_0$
-- $\frac{f(n)}{f(n)} < c$
-- $1 < c$
-- Essa afirmação precisaria ser verdadeira para todo $c > 0$, o que não seria verdade para $c = 1$, visto que $1 \nless 1$.
+- **Prova:**
+  - Por definição, $f(n) = O(f(n))$ se existem $c > 0$ e $n_0 \geq 0$ tais que $f(n) \leq c \cdot f(n)$ para $n \geq n_0$.
+  - Escolha $c = 1$ e $n_0 = 0$. Então, para todo $n \geq 0$:
+    - $f(n) \leq 1 \cdot f(n)$
+  - Portanto, $f(n) = O(f(n))$.
 
-#### 11.6. $f (n) \neq w(f (n))$
+---
+
+#### 11.3. Se $f (n) = \Omega(g(n))$ e $g(n) = \Omega(h(n))$ então $f (n) = \Omega(h(n))$
+
+- **Prova:**
+  - Por definição:
+    1. $f(n) = \Omega(g(n))$ implica que existem $c_1 > 0$ e $n_1 \geq 0$ tais que $f(n) \geq c_1 \cdot g(n)$ para $n \geq n_1$.
+    2. $g(n) = \Omega(h(n))$ implica que existem $c_2 > 0$ e $n_2 \geq 0$ tais que $g(n) \geq c_2 \cdot h(n)$ para $n \geq n_2$.
+  - Escolha $n_0 = \max(n_1, n_2)$. Para $n \geq n_0$:
+    - $f(n) \geq c_1 \cdot g(n) \geq c_1 \cdot (c_2 \cdot h(n)) = (c_1 c_2) \cdot h(n)$
+  - Portanto, $f(n) = \Omega(h(n))$ com $c = c_1 c_2$ e $n_0 = \max(n_1, n_2)$.
+
+---
+
+#### 11.4. $f (n) = \Omega(f (n))$
+
+- **Prova:**
+  - Por definição, $f(n) = \Omega(f(n))$ se existem $c > 0$ e $n_0 \geq 0$ tais que $f(n) \geq c \cdot f(n)$ para $n \geq n_0$.
+  - Escolha $c = 1$ e $n_0 = 0$. Então, para todo $n \geq 0$:
+    - $f(n) \geq 1 \cdot f(n)$
+  - Portanto, $f(n) = \Omega(f(n))$.
+
+---
+
+#### 11.5. $f (n) \neq o(f (n))$
+
+- **Prova:**
+  - Por definição, $f(n) = o(f(n))$ se, para **todo** $c > 0$, existe $n_0 \geq 0$ tal que $f(n) < c \cdot f(n)$ para $n \geq n_0$.
+  - Dividindo ambos os lados por $f(n)$ (assumindo $f(n) > 0$):
+    - $1 < c$
+  - Essa desigualdade **não é válida** para $c = 1$, pois $1 \nless 1$.
+  - Portanto, $f(n) \neq o(f(n))$.
+
+---
+
+#### 11.6. $f (n) \neq \omega(f (n))$
+
+- **Prova:**
+  - Por definição, $f(n) = \omega(f(n))$ se, para **todo** $c > 0$, existe $n_0 \geq 0$ tal que $f(n) > c \cdot f(n)$ para $n \geq n_0$.
+  - Dividindo ambos os lados por $f(n)$ (assumindo $f(n) > 0$):
+    - $1 > c$
+  - Essa desigualdade **não é válida** para $c = 1$, pois $1 \ngtr 1$.
+  - Portanto, $f(n) \neq \omega(f(n))$.
 
 ---
 
 ### **Exercício 12.** Prove que $n^3 \neq O(n^2)$
 
+**Definição de $O$:** $f(n) = O(g(n))$ se existem $c > 0$ e $n_0 \geq 0$ tais que $f(n) \leq c \cdot g(n)$ para $n \geq n_0$.
+
+- **Hipótese para contradição:** Suponha que $n^3 = O(n^2)$.
+- **Desigualdade derivada:** Então, existem $c > 0$ e $n_0$ tais que:
+  - $n^3 \leq c \cdot n^2 \text{ para todo } n \geq n_0$.
+- **Simplificação:** Divida ambos os lados por $n^2$ (para $n > 0$):
+  - $n \leq c$
+- **Contradição:** A desigualdade $n \leq c$ não pode ser verdadeira para **todo** $n \geq n_0$, pois $n$ cresce indefinidamente. Enquanto que $c$ é constante.
+
+**Conclusão:** Não existem $c$ e $n_0$ que satisfaçam a definição. Portanto: $\boxed{n^3 \neq O(n^2)}$.
+
 ---
 
 ### **Exercício 13.** Prove que $n \neq O(\log n)$
 
----
+**Definição de $O$:** $f(n) = O(g(n))$ se existem $c > 0$ e $n_0 \geq 0$ tais que $f(n) \leq c \cdot g(n)$ para $n \geq n_0$.
+
+- **Hipótese para contradição:** Suponha que $n = O(\log n)$.
+- **Desigualdade derivada:** Então, existem $c > 0$ e $n_0$ tais que:
+  - $n \leq c \cdot \log n \text{ para todo } n \geq n_0$
+- **Análise de crescimento:**
+  - $n$ cresce **linearmente**, enquanto $\log n$ cresce **logaritmicamente**.
+  - Para $n \to \infty$, $\log n$ é insignificante comparado a $n$.
+- **Limite assintótico:** Calcule o limite: $\lim_{n \to \infty} \frac{n}{\log n} = \infty$
+  - Isso mostra que $n$ ultrapassa $c \cdot \log n$ para qualquer $c > 0$.
+
+- **Contradição:** Para $n$ suficientemente grande, $n > c \cdot \log n$, violando a suposição.
+
+**Conclusão:** Não existem $c$ e $n_0$ que satisfaçam a definição. Portanto: $\boxed{n \neq O(\log n)}$.
 
 ### **Exercício 14.** Prove que $\sum^{n}_{i=1} i = \Theta (n^2)$, utilizando uma prova por indução
 
@@ -706,34 +889,60 @@ Para provar que $\sum^{n}_{i=1} i = \Omega (n^2)$, pela definição do $\Omega$,
   - $\sum_{i=1}^{k+1} i \geq \frac{1}{10} \cdot k^2 + (k+1) \geq \frac{1}{10} \cdot (k + 1)^2$
   - $\sum_{i=1}^{k+1} i \geq \frac{1}{10} \cdot (k + 1)^2$
 
----
-
-#### Prova sem ser por indução
-
-- $\sum_{i=1}^{n} i$;
-- $\sum_{i=1}^{n} i = 1 + 2 + 3 + ... + n-2 + n-1 + n$;
-- Somando as extremidades, temos:
-- $(1+n) + (2+n-1) + (3+n-2) + \dots$; E serão $n/2$ pares, então:
-- $(n+1) + (n+1) + (n+1) + \dots$; E serão $n/2$ pares, então:
-- $(\frac{n}{2})*(n+1) = \frac{n*(1+n)}{2} = \frac{n^2}{2} + \frac{n}{2}$;
-- $\Theta(\frac{n^2}{2} + \frac{n}{2})$
-- $\Theta(\frac{n^2}{2})$
-- $\Theta(n^2)$
-
-[JV: isso não é por indução. Tenho que refazer 😢]
-
----
-
-#### Roberta
-
-- $\sum_{i=1}^{k} i \geq \frac{1}{10} \cdot k^2$
-- $\sum_{i=1}^{k} i + (k+1) \geq \frac{1}{10} \cdot k^2 + (k+1)$
-- $\sum_{i=1}^{k+1} i \geq \frac{1}{10} \cdot k^2 + \frac{1}{10} \cdot(k+1)$
-- $\sum_{i=1}^{k+1} i \geq \frac{1}{10} \cdot (k^2 + k + 1)$
-<!-- - $\sum_{i=1}^{k+1} i \geq \frac{1}{10} \cdot (k^2 + k + 1) + \frac{k}{10}$ [JV: 😠] -->
-<!-- - $\sum_{i=1}^{k+1} i \geq \frac{1}{10} \cdot (k^2 + 2k + 1)$ -->
-- $\sum_{i=1}^{k+1} i \geq \frac{1}{10} \cdot (k + 1)^2$
-
 ### **Exercício 15.** Prove que $\sum^{n}_{i=1} \frac{1}{k} = \Theta(\log n)$
 
+#### **Definição de $\Theta$**
+
+Precisamos encontrar $c_1 > 0$, $c_2 > 0$ e $n_0 \geq 1$ tais que:
+
+- $c_1 \cdot \log n \leq H(n) \leq c_2 \cdot \log n \text{ para todo } n \geq n_0$$
+
 ---
+
+- **Passo 1: Limite Inferior ($H(n) \geq c_1 \cdot \log n$)**
+  - **Estratégia:** Agrupar os termos em blocos que dobram de tamanho e mostrar que cada bloco contribui com pelo menos $\frac{1}{2}$.
+    - **Agrupamento:**
+      - Para $n \geq 1$, escreva $n$ como $2^m - 1$ (onde $m = \lfloor \log_2(n+1) \rfloor$).
+      - Divida a soma em blocos:
+      - $\underbrace{1}_{\text{Bloco 0}} + \underbrace{\frac{1}{2}}_{\text{Bloco 1}} + \underbrace{\frac{1}{3} + \frac{1}{4}}_{\text{Bloco 2}} + \underbrace{\frac{1}{5} + \cdots + \frac{1}{8}}_{\text{Bloco 3}} + \cdots$
+  - **Limite por bloco:**
+    - Cada bloco $i$ contém $2^{i}$ termos, todos menores ou iguais a $\frac{1}{2^{i}}$. Por exemplo:
+      - Bloco 0: $1 \geq \frac{1}{2}$.
+      - Bloco 1: $\frac{1}{2} \geq \frac{1}{2}$.
+      - Bloco 2: $\frac{1}{3} + \frac{1}{4} \geq \frac{1}{4} + \frac{1}{4} = \frac{1}{2}$.
+      - Bloco $i$: $\sum_{k=2^{i}}^{2^{i+1}-1} \frac{1}{k} \geq 2^{i} \cdot \frac{1}{2^{i+1}} = \frac{1}{2}$.
+
+  - **Total de blocos:**
+    - Se $n \geq 2^m - 1$, existem $m$ blocos completos. Como $m \geq \log_2(n+1) - 1$, temos:
+      - $H(n) \geq \frac{1}{2} \cdot m \geq \frac{1}{2} \cdot (\log_2 n - 1).$
+    - Convertendo para logaritmo natural ($\log_2 n = \frac{\ln n}{\ln 2}$):
+      - $H(n) \geq \frac{1}{2 \ln 2} \cdot \ln n - \frac{1}{2}.$
+    - Para $n \geq 4$, $\frac{1}{2 \ln 2} \cdot \ln n - \frac{1}{2} \geq \frac{1}{4} \cdot \ln n$.
+  - **Escolha:** $c_1 = \frac{1}{4}; n_0 = 4$.
+
+- **Passo 2: Limite Superior ($H(n) \leq c_2 \cdot \log n$)**
+  - **Estratégia:** Comparar a soma com uma série telescópica.
+    - **Desigualdade telescópica:**
+      - Observe que para $k \geq 1$:
+      - $\frac{1}{k} \leq \int_{k-1}^{k} \frac{1}{x} dx$ (opcional, mas evitamos integrais na prova final).
+      - **Alternativa sem integrais:**
+        - Agrupe os termos de forma que cada bloco tenha soma $\leq 1$.
+    - **Agrupamento alternativo:**
+      - Para $n \geq 1$, divida a soma em blocos de tamanho $2^i$:
+      - $\underbrace{1}_{\text{Bloco 0}} + \underbrace{\frac{1}{2} + \frac{1}{3}}_{\text{Bloco 1}} + \underbrace{\frac{1}{4} + \cdots + \frac{1}{7}}_{\text{Bloco 2}} + \cdots$
+    - **Limite por bloco:**
+      - Cada bloco $i$ contém $2^i$ termos, todos maiores ou iguais a $\frac{1}{2^{i+1}}$. Por exemplo:
+        - Bloco 0: $1 \leq 1$.
+        - Bloco 1: $\frac{1}{2} + \frac{1}{3} \leq 1$.
+        - Bloco 2: $\frac{1}{4} + \cdots + \frac{1}{7} \leq 4 \cdot \frac{1}{4} = 1$.
+    - **Total de blocos:**
+      - Se $n \leq 2^{m} - 1$, existem $m$ blocos. Portanto:
+        - $H(n) \leq 1 + 1 + 1 + \cdots + 1 = m \leq \log_2 n + 1$.
+      - Convertendo para logaritmo natural:
+        - $H(n) \leq \frac{\ln n}{\ln 2} + 1$.
+      - Para $n \geq 2$, $\frac{\ln n}{\ln 2} + 1 \leq 2 \cdot \ln n$.
+  - **Escolha:** $c_2 = 2; n_0 = 2$.
+- **Conclusão**
+  - Existem constantes $c_1 = \frac{1}{4}$, $c_2 = 2$ e $n_0 = 4$ tais que:
+  - $\frac{1}{4} \cdot \ln n \leq H(n) \leq 2 \cdot \ln n \text{ para todo } n \geq 4.$
+  - Portanto: $\boxed{\sum_{k=1}^{n} \frac{1}{k} = \Theta(\log n)}$.
