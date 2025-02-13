@@ -1,5 +1,20 @@
 # DCC865-Projeto_e_Analise_de_Algoritmos
 
+## Docentes por semestre
+
+| Ano  | Semestre | Docente 1          | Docente 2 | Slides | Listas | Provas | Anotações | Vídeos |
+| ---- | -------- | ------------------ | --------- | ------ | ------ | ------ | --------- | ------ |
+| 2025 | 1        |                    |           |        |        |        |           |        |
+| 2024 | 2        |                    |           |        |        |        |           |        |
+| 2024 | 1        |                    |           |        |        |        |           |        |
+| 2023 | 2        |                    |           |        |        |        |           |        |
+| 2023 | 1        |                    |           |        |        |        |           |        |
+| 2022 | 2        |                    |           |        |        |        |           |        |
+| 2018 | 2        |                    |           |        |        |        | Sim       |        |
+| 2013 | ?        | Luiz Chaimowi iicz | ?         |        |        |        |           |        |
+
+[2013_Slides]: <Projeto e Análise de Algoritmos\2013 - Luiz Chaimowicz\Slides>
+
 ## Links Úteis
 
 - [Pré-PAA][LinkPréPAA]
