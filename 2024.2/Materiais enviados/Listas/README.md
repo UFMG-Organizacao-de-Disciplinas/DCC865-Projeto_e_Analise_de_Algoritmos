@@ -20,7 +20,7 @@ c. Pior caso
 
 - **Entrada**: Vetor de $n$ inteiros $a$
 - $cnt \leftarrow 0$;
-- **para todo** $i \leftarrow 0$ até $n − 1$ **faça**
+- **para todo** $i \leftarrow 0$ até $n - 1$ **faça**
   - **se** $a[i]\%2 = 0$ **então**
     - $cnt \leftarrow cnt + 1$;
 - **retorna** cnt;
@@ -37,10 +37,10 @@ c. Pior caso
 
 - **Entrada:** Matrizes $n \times n$ $A$ e $B$
 - C $\leftarrow$ matriz vazia;
-- **para todo** $i \leftarrow 0$ até $n − 1$ **faça**
-  - **para todo** $j $\leftarrow$ 0$ até $n − 1$ **faça**
+- **para todo** $i \leftarrow 0$ até $n - 1$ **faça**
+  - **para todo** $j $\leftarrow$ 0$ até $n - 1$ **faça**
     - $C[i, j] \leftarrow 0$;
-    - **para todo** $k \leftarrow 0$ até $n − 1$ **faça**
+    - **para todo** $k \leftarrow 0$ até $n - 1$ **faça**
       - $C[i, j] \leftarrow C[i, j] + A[i, k] ∗ B[k, j]$;
 - **retorna** $C$;
 
@@ -58,10 +58,10 @@ d. Qual sua complexidade de melhor caso?
 - **Entrada:** vetor de inteiros A, tamanho n de A
 - **para todo** j $\leftarrow$ $2$ até $n$ **faça**
   - $chave \leftarrow A[j]$;
-  - $i \leftarrow j − 1$;
+  - $i \leftarrow j - 1$;
   - enquanto $i > 0$ e $A[i] \geq chave$ **faça**
     - $A[i + 1] \leftarrow A[i]$;
-    - $i \leftarrow i − 1$;
+    - $i \leftarrow i - 1$;
   - $A[i + 1] \leftarrow chave$;
 - **retorna** A;
 
@@ -77,17 +77,17 @@ d. Qual sua complexidade de melhor caso?
 ### Pseudocódigo Q4
 
 - **Entrada:** vetor de inteiros $A$, tamanho $n$ de $A$
-- **para todo** $i \leftarrow 1$ até $n − 1$ **faça**
+- **para todo** $i \leftarrow 1$ até $n - 1$ **faça**
   - **para todo** $j \leftarrow n$ até $i + 1$ **faça**
-    - **se** $A[j] < A[j − 1]$ **então**
-      - troque $A[j]$ com $A[j − 1]$;
+    - **se** $A[j] < A[j - 1]$ **então**
+      - troque $A[j]$ com $A[j - 1]$;
 - **retorna** A;
 
 ---
 
 ### **Exercício 5.** Determine um limite superior assintótico para as funções abaixo(de preferência o mais apertado possível)
 
-1. $2n^3 + n^4 − 1$
+1. $2n^3 + n^4 - 1$
 2. $2n + 5 \log n + n^2$
 3. $\log_{10} n + \log_{3} 10$
 4. $n + n \log n + \log n$
@@ -97,7 +97,7 @@ d. Qual sua complexidade de melhor caso?
 
 ### **Exercício 6.** Determine um limite superior assintótico para as funções abaixo(de preferência o mais apertado possível)
 
-1. $2n^3 + n^4 − 1$
+1. $2n^3 + n^4 - 1$
 2. $2n + 5 \log n + n^2$
 3. $\log_{10} n + \log_{3} 10$
 4. $n + n \log n + \log n$
@@ -107,7 +107,7 @@ d. Qual sua complexidade de melhor caso?
 
 ### **Exercício 7.** Determine um limite superior assintótico restrito para as funções abaixo(de preferência o mais apertado possível)
 
-1. $2n^3 + n^4 − 1$
+1. $2n^3 + n^4 - 1$
 2. $2n + 5 \log n + n^2$
 3. $\log_{10} n + \log_{3} 10$
 4. $n + n \log n + \log n$
@@ -117,7 +117,7 @@ d. Qual sua complexidade de melhor caso?
 
 ### **Exercício 8.** Determine um limite inferior assintótico para as funções abaixo(de preferência o mais apertado possível)
 
-1. $2n^3 + n^4 − 1$
+1. $2n^3 + n^4 - 1$
 2. $2n + 5 \log n + n^2$
 3. $\log_{10} n + \log_{3} 10$
 4. $n + n \log n + \log n$
@@ -127,7 +127,7 @@ d. Qual sua complexidade de melhor caso?
 
 ### **Exercício 9.** Determine um limite inferior assintótico restrito para as funções abaixo(de preferência o mais apertado possível)
 
-1. $2n^3 + n^4 − 1$
+1. $2n^3 + n^4 - 1$
 2. $2n + 5 \log n + n^2$
 3. $\log_{10} n + \log_{3} 10$
 4. $n + n \log n + \log n$
@@ -137,7 +137,7 @@ d. Qual sua complexidade de melhor caso?
 
 ### **Exercício 10.** Determine uma equivalência assintótica para as funções abaixo
 
-1. $2n^3 + n^4 − 1$
+1. $2n^3 + n^4 - 1$
 2. $2n + 5 \log n + n^2$
 3. $\log_{10} n + \log_{3} 10$
 4. $n + n \log n + \log n$
@@ -186,10 +186,10 @@ Considere que todas as recorrência descritas possuem caso base (ou casos bases)
 
 ### **Exercício 1.** Determine e prova uma equivalência assintótica para todas as recorrências abaixo
 
-1. $T (n) = T (n − 3) + 1$
-2. $T (n) = 2T (n − 2) + \log n$
-3. $T (n) = T (n − 1) + n$
-4. $T (n) = 2T (n − 1) + n^2 + 1$
+1. $T (n) = T (n - 3) + 1$
+2. $T (n) = 2T (n - 2) + \log n$
+3. $T (n) = T (n - 1) + n$
+4. $T (n) = 2T (n - 1) + n^2 + 1$
 
 ---
 
@@ -324,7 +324,7 @@ graph LR
 
 ### Exercício 6. O algoritmo de Kruskal pode dar árvores diferentes dependendo de como os empates são resolvidos. Dê um exemplo de grafo onde o algoritmo encontra duas árvores geradoras mínimas diferentes para dois critérios de desempate diferentes
 
-### Exercício 7. Seja uv uma aresta de peso máximo de um ciclo de G. Mostre que G e G−uv(o grafo obtido de G pela remoção de uv) possui uma mesma árvore geradora mínima
+### Exercício 7. Seja uv uma aresta de peso máximo de um ciclo de G. Mostre que G e G-uv(o grafo obtido de G pela remoção de uv) possui uma mesma árvore geradora mínima
 
 ### Exercício 8. Assuma que os pesos das arestas do grafo de entrada são todos inteiros e limitados por um valor W fixo e conhecido. É possível melhorar a complexidade do algoritmo de Kruskal?
 
