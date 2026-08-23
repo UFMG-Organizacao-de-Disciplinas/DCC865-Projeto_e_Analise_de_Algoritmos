@@ -4,6 +4,7 @@
 
 | Ano  | Semestre | Docente 1          | Docente 2 | Slides | Listas | Provas | Anotações | Vídeos |
 | ---- | -------- | ------------------ | --------- | ------ | ------ | ------ | --------- | ------ |
+| 2026  | 1        | Olga Goussevskaia |           | Sim    | Sim    |        |           |        |
 | 2025 | 1        |      Jussta        |  Vinicius |        |        |        |           |        |
 | 2024 | 2        |                    |           |        |        |        |           |        |
 | 2024 | 1        |                    |           |        |        |        |           |        |
@@ -12,7 +13,6 @@
 | 2022 | 2        |                    |           |        |        |        |           |        |
 | 2018 | 2        |                    |           |        |        |        | Sim       |        |
 | 2013 | ?        | Luiz Chaimowi iicz | ?         |        |        |        |           |        |
-
 [2013_Slides]: <Projeto e Análise de Algoritmos\2013 - Luiz Chaimowicz\Slides>
 
 ## Links Úteis
